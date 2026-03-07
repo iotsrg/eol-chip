@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section-page">
+  <h1>{{ .Title }}</h1>
+  <p class="subtitle">{{ len .Site.Data.cves }} vulnerabilities from NVD.</p>
+  <table>
+    <thead>
+      <tr><th>CVE ID</th><th>Description</th><th>Severity</th><th>CVSS</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {{ range .Site.Data.cves }}
+      <tr>
+        <td><a href="{{ .url }}" target="_blank" rel="noopener">{{ .id }}</a></td>
+        <td><span class="truncate">{{ .title }}</span></td>
+        <td>{{ with .severity }}<span class="tag tag-sev-{{ lower . }}">{{ . }}</span>{{ end }}</td>
+        <td>{{ .cvss_score }}</td>
+        <td>{{ .date }}</td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</section>
+{{ end }}

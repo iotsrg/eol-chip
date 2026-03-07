@@ -1,0 +1,11 @@
+baseURL = "https://v33ru.github.io/eol-chip/"
+languageCode = "en-us"
+title = "EOL-CHIP"
+
+[params]
+  description = "Search engine for hardware/chip end-of-life data, CVEs, exploits, and FCC device info"
+  author = "V33RU"
+  tagline = "Hardware End-of-Life & Vulnerability Search"
+
+[outputs]
+  home = ["HTML"]

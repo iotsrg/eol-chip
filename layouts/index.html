@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Site.Title }}</h1>
+  <p class="tagline">{{ .Site.Params.tagline }}</p>
+</div>
+
+{{ partial "search-bar.html" . }}
+
+<div class="stats-row">
+  <span><b>{{ if .Site.Data.cves }}{{ len .Site.Data.cves }}{{ else }}0{{ end }}</b> CVEs</span>
+  <span><b>{{ if .Site.Data.exploits }}{{ len .Site.Data.exploits }}{{ else }}0{{ end }}</b> Exploits</span>
+  <span><b>{{ if .Site.Data.fcc_devices }}{{ len .Site.Data.fcc_devices }}{{ else }}0{{ end }}</b> FCC</span>
+  <span><b>{{ if .Site.Data.eol_chips }}{{ len .Site.Data.eol_chips }}{{ else }}0{{ end }}</b> EOL</span>
+</div>
+
+<div id="search-results" class="results-container"></div>
+<div id="no-results" class="no-results" style="display:none;">No results found.</div>
+{{ end }}
+
+{{ define "scripts" }}
+{{ $fuse := resources.Get "js/fuse.min.js" | fingerprint }}
+<script src="{{ $fuse.RelPermalink }}"></script>
+{{ $search := resources.Get "js/search.js" | fingerprint }}
+<script src="{{ $search.RelPermalink }}"></script>
+{{ end }}
