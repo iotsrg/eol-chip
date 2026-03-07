@@ -1,0 +1,34 @@
+# FCC IDs and grantee codes for IoT/embedded hardware to track.
+# Add entries here to include them in the FCC data fetch.
+targets:
+  - fcc_id: "2AC7Z-RASPBERRYPI4B"
+    name: "Raspberry Pi 4 Model B"
+    grantee: "Raspberry Pi Ltd"
+
+  - fcc_id: "2AFIW-ESP32WROVER"
+    name: "ESP32-WROVER Wi-Fi/BT Module"
+    grantee: "Espressif Systems"
+
+  - fcc_id: "2ABCB-RPI3BP"
+    name: "Raspberry Pi 3 Model B+"
+    grantee: "Raspberry Pi Trading Ltd"
+
+  - fcc_id: "2AF7A-ADAF4062"
+    name: "Adafruit Feather nRF52840 Express"
+    grantee: "Adafruit Industries"
+
+  - fcc_id: "XS5-XBEE3"
+    name: "Digi XBee3 Zigbee/802.15.4 Module"
+    grantee: "Digi International"
+
+  - fcc_id: "QOQBT4.2MOD"
+    name: "Nordic BLE Module BT42"
+    grantee: "Nordic Semiconductor"
+
+  - fcc_id: "2AJMT-LOPY4"
+    name: "Pycom LoPy4 LoRa/Sigfox/Wi-Fi/BLE"
+    grantee: "Pycom Ltd"
+
+  - fcc_id: "Z64-ZB30000"
+    name: "Silicon Labs Zigbee Module"
+    grantee: "Silicon Laboratories"

@@ -1,0 +1,383 @@
+chips:
+  # ── MCU ──
+  - part_number: ESP8266EX
+    name: ESP8266 Wi-Fi SoC
+    manufacturer: Espressif
+    category: MCU
+    description: "Low-cost Wi-Fi microchip with full TCP/IP stack and microcontroller capability"
+    eol_date: "2025-12-31"
+    last_order_date: "2025-06-30"
+    status: "EOL Announced"
+    datasheet: "https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf"
+    url: "https://www.espressif.com/en/products/socs/esp8266"
+
+  - part_number: ATmega328P
+    name: ATmega328P 8-bit AVR
+    manufacturer: Microchip
+    category: MCU
+    description: "8-bit AVR RISC-based microcontroller, popularized by Arduino Uno"
+    eol_date: "2026-12-31"
+    last_order_date: "2026-06-30"
+    status: "EOL Announced"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf"
+    url: "https://www.microchip.com/en-us/product/ATmega328P"
+
+  - part_number: STM32F103C8
+    name: STM32F103C8 ARM Cortex-M3
+    manufacturer: STMicroelectronics
+    category: MCU
+    description: "32-bit ARM Cortex-M3 MCU, 64KB Flash, Blue Pill boards"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf"
+    url: "https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html"
+
+  - part_number: ATSAM3X8E
+    name: SAM3X8E ARM Cortex-M3
+    manufacturer: Microchip
+    category: MCU
+    description: "32-bit ARM Cortex-M3 MCU, 512KB Flash, Arduino Due"
+    eol_date: "2024-06-30"
+    last_order_date: "2024-01-31"
+    status: "Obsolete"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf"
+    url: "https://www.microchip.com/en-us/product/ATSAM3X8E"
+
+  - part_number: STM32F407VG
+    name: STM32F407VG ARM Cortex-M4
+    manufacturer: STMicroelectronics
+    category: MCU
+    description: "32-bit ARM Cortex-M4 MCU with FPU, 1MB Flash, 168MHz"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.st.com/resource/en/datasheet/stm32f407vg.pdf"
+    url: "https://www.st.com/en/microcontrollers-microprocessors/stm32f407vg.html"
+
+  - part_number: PIC16F877A
+    name: PIC16F877A 8-bit MCU
+    manufacturer: Microchip
+    category: MCU
+    description: "8-bit PIC microcontroller, 14KB Flash, widely used in education"
+    eol_date: "2023-12-31"
+    last_order_date: "2023-06-30"
+    status: "Obsolete"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/39582b.pdf"
+    url: "https://www.microchip.com/en-us/product/PIC16F877A"
+
+  - part_number: MSP430G2553
+    name: MSP430G2553 16-bit MCU
+    manufacturer: Texas Instruments
+    category: MCU
+    description: "16-bit ultra-low-power MCU, used in TI LaunchPad"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.ti.com/lit/ds/symlink/msp430g2553.pdf"
+    url: "https://www.ti.com/product/MSP430G2553"
+
+  - part_number: RP2040
+    name: RP2040 Dual-core ARM Cortex-M0+
+    manufacturer: Raspberry Pi
+    category: MCU
+    description: "Dual-core ARM Cortex-M0+ at 133MHz, 264KB SRAM, Raspberry Pi Pico"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+    url: "https://www.raspberrypi.com/products/rp2040/"
+
+  - part_number: nRF52840
+    name: nRF52840 BLE/Thread/Zigbee SoC
+    manufacturer: Nordic Semiconductor
+    category: MCU
+    description: "ARM Cortex-M4F with BLE 5.0, Thread, Zigbee, 802.15.4, USB"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf"
+    url: "https://www.nordicsemi.com/Products/nRF52840"
+
+  # ── eMMC ──
+  - part_number: THGBMHG6C1LBAIL
+    name: Toshiba 8GB eMMC 5.1
+    manufacturer: Toshiba (Kioxia)
+    category: eMMC
+    description: "8GB eMMC 5.1 NAND flash, BGA-153 package, embedded storage"
+    eol_date: "2024-03-31"
+    last_order_date: "2023-09-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.kioxia.com/en-emea/business/memory/emmc.html"
+
+  - part_number: KLMAG1JETD-B041
+    name: Samsung 16GB eMMC 5.1
+    manufacturer: Samsung
+    category: eMMC
+    description: "16GB eMMC 5.1, 11.5x13mm BGA, sequential read 250MB/s"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://semiconductor.samsung.com/estorage/emmc/"
+
+  - part_number: MTFC4GACAJCN-1M
+    name: Micron 4GB eMMC 5.1
+    manufacturer: Micron
+    category: eMMC
+    description: "4GB eMMC 5.1 flash storage, BGA-153, automotive grade available"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "Last Buy"
+    datasheet: ""
+    url: "https://www.micron.com/products/managed-nand/emmc"
+
+  - part_number: H26M41208HPR
+    name: SK Hynix 8GB eMMC 5.1
+    manufacturer: SK Hynix
+    category: eMMC
+    description: "8GB eMMC 5.1, BGA-153, used in smartphones and tablets"
+    eol_date: "2025-09-30"
+    last_order_date: "2025-03-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.skhynix.com/"
+
+  - part_number: SDINBDG4-16G
+    name: SanDisk 16GB eMMC 5.1
+    manufacturer: Western Digital (SanDisk)
+    category: eMMC
+    description: "16GB iNAND eMMC 5.1, industrial temp range, automotive"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.westerndigital.com/products/embedded-portable-flash"
+
+  # ── EEPROM ──
+  - part_number: AT24C256
+    name: AT24C256 256Kbit I2C EEPROM
+    manufacturer: Microchip
+    category: EEPROM
+    description: "256Kbit (32KB) I2C serial EEPROM, 1MHz clock, 64-byte page write"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/doc0670.pdf"
+    url: "https://www.microchip.com/en-us/product/AT24C256"
+
+  - part_number: 24LC512
+    name: 24LC512 512Kbit I2C EEPROM
+    manufacturer: Microchip
+    category: EEPROM
+    description: "512Kbit (64KB) I2C serial EEPROM, 400kHz, 128-byte page write"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/21754M.pdf"
+    url: "https://www.microchip.com/en-us/product/24LC512"
+
+  - part_number: M24C08
+    name: M24C08 8Kbit I2C EEPROM
+    manufacturer: STMicroelectronics
+    category: EEPROM
+    description: "8Kbit (1KB) I2C serial EEPROM, 400kHz, 16-byte page write"
+    eol_date: "2024-12-31"
+    last_order_date: "2024-06-30"
+    status: "EOL Announced"
+    datasheet: "https://www.st.com/resource/en/datasheet/m24c08-w.pdf"
+    url: "https://www.st.com/en/memories/m24c08-w.html"
+
+  - part_number: CAT24C32
+    name: CAT24C32 32Kbit I2C EEPROM
+    manufacturer: ON Semiconductor
+    category: EEPROM
+    description: "32Kbit (4KB) I2C EEPROM, 1MHz, used in DIMM SPD modules"
+    eol_date: "2023-06-30"
+    last_order_date: "2023-01-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.onsemi.com/products/memory/eeprom-memory/cat24c32"
+
+  - part_number: BR24G256
+    name: BR24G256 256Kbit I2C EEPROM
+    manufacturer: ROHM
+    category: EEPROM
+    description: "256Kbit I2C EEPROM, 3.4MHz high-speed mode, automotive grade"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.rohm.com/products/memory/eeprom"
+
+  # ── Bluetooth SoC ──
+  - part_number: CC2541
+    name: CC2541 BLE SoC
+    manufacturer: Texas Instruments
+    category: Bluetooth SoC
+    description: "Bluetooth Low Energy and proprietary 2.4-GHz system-on-chip"
+    eol_date: "2024-09-30"
+    last_order_date: "2024-03-31"
+    status: "Obsolete"
+    datasheet: "https://www.ti.com/lit/ds/symlink/cc2541.pdf"
+    url: "https://www.ti.com/product/CC2541"
+
+  - part_number: NRF51822
+    name: nRF51822 BLE SoC
+    manufacturer: Nordic Semiconductor
+    category: Bluetooth SoC
+    description: "Multiprotocol BLE and 2.4GHz SoC with ARM Cortex-M0"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "Last Buy"
+    datasheet: "https://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.4.pdf"
+    url: "https://www.nordicsemi.com/Products/nRF51822"
+
+  - part_number: DA14580
+    name: DA14580 BLE SoC
+    manufacturer: Renesas (Dialog)
+    category: Bluetooth SoC
+    description: "Ultra-low power BLE 4.2 SoC, ARM Cortex-M0, coin cell powered"
+    eol_date: "2025-03-31"
+    last_order_date: "2024-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.renesas.com/products/wireless-connectivity/bluetooth-low-energy"
+
+  # ── Wi-Fi SoC ──
+  - part_number: RTL8710BN
+    name: RTL8710BN Wi-Fi SoC
+    manufacturer: Realtek
+    category: Wi-Fi SoC
+    description: "Low-power Wi-Fi SoC with ARM Cortex-M4F, used in Tuya IoT modules"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.realtek.com/en/products/communications-network-ics/item/rtl8710bn"
+
+  - part_number: MT7688AN
+    name: MT7688AN MIPS Wi-Fi SoC
+    manufacturer: MediaTek
+    category: Wi-Fi SoC
+    description: "MIPS24KEc 580MHz SoC with 802.11n Wi-Fi, used in OpenWrt routers"
+    eol_date: "2025-03-31"
+    last_order_date: "2024-12-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.mediatek.com/products/home-networking/mt7688"
+
+  - part_number: QCA9377
+    name: QCA9377 Wi-Fi/BT Combo
+    manufacturer: Qualcomm
+    category: Wi-Fi SoC
+    description: "802.11ac 1x1 + BT 4.2 combo chip for laptops and embedded devices"
+    eol_date: "2025-12-31"
+    last_order_date: "2025-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.qualcomm.com/products/technology/wi-fi"
+
+  # ── LoRa RF ──
+  - part_number: SX1276
+    name: SX1276 LoRa Transceiver
+    manufacturer: Semtech
+    category: LoRa RF
+    description: "Long range, low power LoRa transceiver operating at 137-1020MHz"
+    eol_date: "2026-06-30"
+    last_order_date: "2026-01-31"
+    status: "EOL Announced"
+    datasheet: "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HT76/7Nka9W5WgugoZe.xwIHJy6ebj1hW8B.YJO6Z.pZynUo"
+    url: "https://www.semtech.com/products/wireless-rf/lora-connect/sx1276"
+
+  - part_number: RFM95W
+    name: RFM95W LoRa Module
+    manufacturer: HopeRF
+    category: LoRa RF
+    description: "SX1276-based LoRa module, 868/915MHz, +20dBm, SPI interface"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.hoperf.com/modules/lora/RFM95.html"
+
+  # ── Application Processor ──
+  - part_number: BCM2837B0
+    name: BCM2837B0 Quad-core ARM Cortex-A53
+    manufacturer: Broadcom
+    category: Application Processor
+    description: "64-bit quad-core ARM Cortex-A53 SoC, Raspberry Pi 3B+"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://datasheets.raspberrypi.com/bcm2837b0/bcm2837b0-peripherals.pdf"
+    url: "https://www.raspberrypi.com/documentation/computers/processors.html"
+
+  - part_number: S5PV210
+    name: S5PV210 ARM Cortex-A8
+    manufacturer: Samsung
+    category: Application Processor
+    description: "ARM Cortex-A8 application processor, 1GHz, used in early Galaxy phones"
+    eol_date: "2020-12-31"
+    last_order_date: "2020-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://semiconductor.samsung.com/"
+
+  # ── SPI Flash ──
+  - part_number: W25Q128JV
+    name: W25Q128JV 128Mbit SPI Flash
+    manufacturer: Winbond
+    category: SPI Flash
+    description: "128Mbit (16MB) SPI NOR flash, 133MHz, dual/quad SPI"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf"
+    url: "https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/"
+
+  - part_number: MX25L12835F
+    name: MX25L12835F 128Mbit SPI Flash
+    manufacturer: Macronix
+    category: SPI Flash
+    description: "128Mbit SPI NOR flash, 104MHz, used in BIOS/firmware storage"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/"
+
+  - part_number: SST25VF016B
+    name: SST25VF016B 16Mbit SPI Flash
+    manufacturer: Microchip (SST)
+    category: SPI Flash
+    description: "16Mbit SPI flash with AAI Word programming, legacy chip"
+    eol_date: "2022-12-31"
+    last_order_date: "2022-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.microchip.com/en-us/product/SST25VF016B"
+
+  # ── FPGA ──
+  - part_number: EP4CE6E22C8N
+    name: Cyclone IV EP4CE6 FPGA
+    manufacturer: Intel (Altera)
+    category: FPGA
+    description: "6,272 logic elements, 144 I/O pins, low-cost FPGA for learning"
+    eol_date: "2026-12-31"
+    last_order_date: "2026-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.intel.com/content/www/us/en/products/details/fpga/cyclone.html"
+
+  - part_number: XC6SLX9
+    name: Spartan-6 XC6SLX9 FPGA
+    manufacturer: AMD (Xilinx)
+    category: FPGA
+    description: "9,152 logic cells, low-power FPGA, widely used in education"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "Last Buy"
+    datasheet: ""
+    url: "https://www.amd.com/en/products/adaptive-socs-and-fpgas/fpga/spartan-6.html"
