@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/eol-chip/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/cves/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/eol/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/exploits/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/fcc/</loc>
+  </url><url>
+    <loc>http://localhost:1313/eol-chip/tags/</loc>
+  </url>
+</urlset>

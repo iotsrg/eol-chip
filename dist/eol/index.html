@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head><script src="/eol-chip/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=eol-chip/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Search engine for hardware/chip end-of-life data, CVEs, exploits, and FCC device info">
+<title>End-of-Life Chips | EOL-CHIP</title>
+
+<link rel="stylesheet" href="/eol-chip/css/main.min.6e7b638db5461715e583294c040a20dd985ce48eb532c41000fe7bde2df95892.css">
+
+</head>
+<body>
+  <nav>
+  <a href="http://localhost:1313/eol-chip/" class="nav-logo">&#x2699; EOL-CHIP</a>
+  <div class="nav-links">
+    <a href="/eol-chip/cves/">CVEs</a>
+    <a href="/eol-chip/exploits/">Exploits</a>
+    <a href="/eol-chip/fcc/">FCC</a>
+    <a href="/eol-chip/eol/">EOL</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  <span class="theme-icon-light">&#9788;</span>
+  <span class="theme-icon-dark">&#9790;</span>
+</button>
+
+  </div>
+</nav>
+
+  <main class="main-content">
+    
+<section class="section-page">
+  <h1>End-of-Life Chips</h1>
+  
+  
+  
+  <p class="subtitle">34 tracked chips across 9 categories.</p>
+
+  <div class="cat-filters" id="cat-filters">
+    <button class="cat-btn active" data-cat="all">All</button>
+    
+    <button class="cat-btn" data-cat="MCU">MCU</button>
+    
+    <button class="cat-btn" data-cat="eMMC">eMMC</button>
+    
+    <button class="cat-btn" data-cat="EEPROM">EEPROM</button>
+    
+    <button class="cat-btn" data-cat="Bluetooth SoC">Bluetooth SoC</button>
+    
+    <button class="cat-btn" data-cat="Wi-Fi SoC">Wi-Fi SoC</button>
+    
+    <button class="cat-btn" data-cat="LoRa RF">LoRa RF</button>
+    
+    <button class="cat-btn" data-cat="Application Processor">Application Processor</button>
+    
+    <button class="cat-btn" data-cat="SPI Flash">SPI Flash</button>
+    
+    <button class="cat-btn" data-cat="FPGA">FPGA</button>
+    
+  </div>
+
+  <table id="eol-table">
+    <thead>
+      <tr><th>Category</th><th>Part #</th><th>Name</th><th>Manufacturer</th><th>Status</th><th>EOL Date</th><th>Datasheet</th></tr>
+    </thead>
+    <tbody>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.espressif.com/en/products/socs/esp8266" target="_blank" rel="noopener">ESP8266EX</a></td>
+        <td>ESP8266 Wi-Fi SoC</td>
+        <td>Espressif</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2025-12-31</td>
+        <td><a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/ATmega328P" target="_blank" rel="noopener">ATmega328P</a></td>
+        <td>ATmega328P 8-bit AVR</td>
+        <td>Microchip</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2026-12-31</td>
+        <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html" target="_blank" rel="noopener">STM32F103C8</a></td>
+        <td>STM32F103C8 ARM Cortex-M3</td>
+        <td>STMicroelectronics</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://www.st.com/resource/en/datasheet/stm32f103c8.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/ATSAM3X8E" target="_blank" rel="noopener">ATSAM3X8E</a></td>
+        <td>SAM3X8E ARM Cortex-M3</td>
+        <td>Microchip</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2024-06-30</td>
+        <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32f407vg.html" target="_blank" rel="noopener">STM32F407VG</a></td>
+        <td>STM32F407VG ARM Cortex-M4</td>
+        <td>STMicroelectronics</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://www.st.com/resource/en/datasheet/stm32f407vg.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/PIC16F877A" target="_blank" rel="noopener">PIC16F877A</a></td>
+        <td>PIC16F877A 8-bit MCU</td>
+        <td>Microchip</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2023-12-31</td>
+        <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/39582b.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.ti.com/product/MSP430G2553" target="_blank" rel="noopener">MSP430G2553</a></td>
+        <td>MSP430G2553 16-bit MCU</td>
+        <td>Texas Instruments</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://www.ti.com/lit/ds/symlink/msp430g2553.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.raspberrypi.com/products/rp2040/" target="_blank" rel="noopener">RP2040</a></td>
+        <td>RP2040 Dual-core ARM Cortex-M0&#43;</td>
+        <td>Raspberry Pi</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="MCU">
+        <td><span class="tag tag-cat">MCU</span></td>
+        <td><a href="https://www.nordicsemi.com/Products/nRF52840" target="_blank" rel="noopener">nRF52840</a></td>
+        <td>nRF52840 BLE/Thread/Zigbee SoC</td>
+        <td>Nordic Semiconductor</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="eMMC">
+        <td><span class="tag tag-cat">eMMC</span></td>
+        <td><a href="https://www.kioxia.com/en-emea/business/memory/emmc.html" target="_blank" rel="noopener">THGBMHG6C1LBAIL</a></td>
+        <td>Toshiba 8GB eMMC 5.1</td>
+        <td>Toshiba (Kioxia)</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2024-03-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="eMMC">
+        <td><span class="tag tag-cat">eMMC</span></td>
+        <td><a href="https://semiconductor.samsung.com/estorage/emmc/" target="_blank" rel="noopener">KLMAG1JETD-B041</a></td>
+        <td>Samsung 16GB eMMC 5.1</td>
+        <td>Samsung</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="eMMC">
+        <td><span class="tag tag-cat">eMMC</span></td>
+        <td><a href="https://www.micron.com/products/managed-nand/emmc" target="_blank" rel="noopener">MTFC4GACAJCN-1M</a></td>
+        <td>Micron 4GB eMMC 5.1</td>
+        <td>Micron</td>
+        <td><span class="tag tag-eol">Last Buy</span></td>
+        <td>2025-06-30</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="eMMC">
+        <td><span class="tag tag-cat">eMMC</span></td>
+        <td><a href="https://www.skhynix.com/" target="_blank" rel="noopener">H26M41208HPR</a></td>
+        <td>SK Hynix 8GB eMMC 5.1</td>
+        <td>SK Hynix</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2025-09-30</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="eMMC">
+        <td><span class="tag tag-cat">eMMC</span></td>
+        <td><a href="https://www.westerndigital.com/products/embedded-portable-flash" target="_blank" rel="noopener">SDINBDG4-16G</a></td>
+        <td>SanDisk 16GB eMMC 5.1</td>
+        <td>Western Digital (SanDisk)</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="EEPROM">
+        <td><span class="tag tag-cat">EEPROM</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/AT24C256" target="_blank" rel="noopener">AT24C256</a></td>
+        <td>AT24C256 256Kbit I2C EEPROM</td>
+        <td>Microchip</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/doc0670.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="EEPROM">
+        <td><span class="tag tag-cat">EEPROM</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/24LC512" target="_blank" rel="noopener">24LC512</a></td>
+        <td>24LC512 512Kbit I2C EEPROM</td>
+        <td>Microchip</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/21754M.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="EEPROM">
+        <td><span class="tag tag-cat">EEPROM</span></td>
+        <td><a href="https://www.st.com/en/memories/m24c08-w.html" target="_blank" rel="noopener">M24C08</a></td>
+        <td>M24C08 8Kbit I2C EEPROM</td>
+        <td>STMicroelectronics</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2024-12-31</td>
+        <td><a href="https://www.st.com/resource/en/datasheet/m24c08-w.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="EEPROM">
+        <td><span class="tag tag-cat">EEPROM</span></td>
+        <td><a href="https://www.onsemi.com/products/memory/eeprom-memory/cat24c32" target="_blank" rel="noopener">CAT24C32</a></td>
+        <td>CAT24C32 32Kbit I2C EEPROM</td>
+        <td>ON Semiconductor</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2023-06-30</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="EEPROM">
+        <td><span class="tag tag-cat">EEPROM</span></td>
+        <td><a href="https://www.rohm.com/products/memory/eeprom" target="_blank" rel="noopener">BR24G256</a></td>
+        <td>BR24G256 256Kbit I2C EEPROM</td>
+        <td>ROHM</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="Bluetooth SoC">
+        <td><span class="tag tag-cat">Bluetooth SoC</span></td>
+        <td><a href="https://www.ti.com/product/CC2541" target="_blank" rel="noopener">CC2541</a></td>
+        <td>CC2541 BLE SoC</td>
+        <td>Texas Instruments</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2024-09-30</td>
+        <td><a href="https://www.ti.com/lit/ds/symlink/cc2541.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="Bluetooth SoC">
+        <td><span class="tag tag-cat">Bluetooth SoC</span></td>
+        <td><a href="https://www.nordicsemi.com/Products/nRF51822" target="_blank" rel="noopener">NRF51822</a></td>
+        <td>nRF51822 BLE SoC</td>
+        <td>Nordic Semiconductor</td>
+        <td><span class="tag tag-eol">Last Buy</span></td>
+        <td>2025-06-30</td>
+        <td><a href="https://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.4.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="Bluetooth SoC">
+        <td><span class="tag tag-cat">Bluetooth SoC</span></td>
+        <td><a href="https://www.renesas.com/products/wireless-connectivity/bluetooth-low-energy" target="_blank" rel="noopener">DA14580</a></td>
+        <td>DA14580 BLE SoC</td>
+        <td>Renesas (Dialog)</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2025-03-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="Wi-Fi SoC">
+        <td><span class="tag tag-cat">Wi-Fi SoC</span></td>
+        <td><a href="https://www.realtek.com/en/products/communications-network-ics/item/rtl8710bn" target="_blank" rel="noopener">RTL8710BN</a></td>
+        <td>RTL8710BN Wi-Fi SoC</td>
+        <td>Realtek</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="Wi-Fi SoC">
+        <td><span class="tag tag-cat">Wi-Fi SoC</span></td>
+        <td><a href="https://www.mediatek.com/products/home-networking/mt7688" target="_blank" rel="noopener">MT7688AN</a></td>
+        <td>MT7688AN MIPS Wi-Fi SoC</td>
+        <td>MediaTek</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2025-03-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="Wi-Fi SoC">
+        <td><span class="tag tag-cat">Wi-Fi SoC</span></td>
+        <td><a href="https://www.qualcomm.com/products/technology/wi-fi" target="_blank" rel="noopener">QCA9377</a></td>
+        <td>QCA9377 Wi-Fi/BT Combo</td>
+        <td>Qualcomm</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2025-12-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="LoRa RF">
+        <td><span class="tag tag-cat">LoRa RF</span></td>
+        <td><a href="https://www.semtech.com/products/wireless-rf/lora-connect/sx1276" target="_blank" rel="noopener">SX1276</a></td>
+        <td>SX1276 LoRa Transceiver</td>
+        <td>Semtech</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2026-06-30</td>
+        <td><a href="https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HT76/7Nka9W5WgugoZe.xwIHJy6ebj1hW8B.YJO6Z.pZynUo" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="LoRa RF">
+        <td><span class="tag tag-cat">LoRa RF</span></td>
+        <td><a href="https://www.hoperf.com/modules/lora/RFM95.html" target="_blank" rel="noopener">RFM95W</a></td>
+        <td>RFM95W LoRa Module</td>
+        <td>HopeRF</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="Application Processor">
+        <td><span class="tag tag-cat">Application Processor</span></td>
+        <td><a href="https://www.raspberrypi.com/documentation/computers/processors.html" target="_blank" rel="noopener">BCM2837B0</a></td>
+        <td>BCM2837B0 Quad-core ARM Cortex-A53</td>
+        <td>Broadcom</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://datasheets.raspberrypi.com/bcm2837b0/bcm2837b0-peripherals.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="Application Processor">
+        <td><span class="tag tag-cat">Application Processor</span></td>
+        <td><a href="https://semiconductor.samsung.com/" target="_blank" rel="noopener">S5PV210</a></td>
+        <td>S5PV210 ARM Cortex-A8</td>
+        <td>Samsung</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2020-12-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="SPI Flash">
+        <td><span class="tag tag-cat">SPI Flash</span></td>
+        <td><a href="https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/" target="_blank" rel="noopener">W25Q128JV</a></td>
+        <td>W25Q128JV 128Mbit SPI Flash</td>
+        <td>Winbond</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td><a href="https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf" target="_blank" rel="noopener">PDF</a></td>
+      </tr>
+      
+      <tr data-cat="SPI Flash">
+        <td><span class="tag tag-cat">SPI Flash</span></td>
+        <td><a href="https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/" target="_blank" rel="noopener">MX25L12835F</a></td>
+        <td>MX25L12835F 128Mbit SPI Flash</td>
+        <td>Macronix</td>
+        <td><span class="tag tag-eol">Active</span></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="SPI Flash">
+        <td><span class="tag tag-cat">SPI Flash</span></td>
+        <td><a href="https://www.microchip.com/en-us/product/SST25VF016B" target="_blank" rel="noopener">SST25VF016B</a></td>
+        <td>SST25VF016B 16Mbit SPI Flash</td>
+        <td>Microchip (SST)</td>
+        <td><span class="tag tag-eol">Obsolete</span></td>
+        <td>2022-12-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="FPGA">
+        <td><span class="tag tag-cat">FPGA</span></td>
+        <td><a href="https://www.intel.com/content/www/us/en/products/details/fpga/cyclone.html" target="_blank" rel="noopener">EP4CE6E22C8N</a></td>
+        <td>Cyclone IV EP4CE6 FPGA</td>
+        <td>Intel (Altera)</td>
+        <td><span class="tag tag-eol">EOL Announced</span></td>
+        <td>2026-12-31</td>
+        <td></td>
+      </tr>
+      
+      <tr data-cat="FPGA">
+        <td><span class="tag tag-cat">FPGA</span></td>
+        <td><a href="https://www.amd.com/en/products/adaptive-socs-and-fpgas/fpga/spartan-6.html" target="_blank" rel="noopener">XC6SLX9</a></td>
+        <td>Spartan-6 XC6SLX9 FPGA</td>
+        <td>AMD (Xilinx)</td>
+        <td><span class="tag tag-eol">Last Buy</span></td>
+        <td>2025-06-30</td>
+        <td></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+  </main>
+  <footer class="site-footer">
+  EOL-CHIP &mdash; Data from <a href="https://nvd.nist.gov/">NVD</a>, <a href="https://www.exploit-db.com/">Exploit-DB</a>, <a href="https://www.fcc.gov/">FCC</a>. Updated weekly.
+</footer>
+
+  
+  <script src="/eol-chip/js/theme-toggle.min.be4364fe981e5426084fc54c691102f8154197f9c46e048102282bb8f0f4fde1.js"></script>
+  
+<script>
+(function() {
+  var btns = document.querySelectorAll('.cat-btn');
+  var rows = document.querySelectorAll('#eol-table tbody tr');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-cat');
+      rows.forEach(function(row) {
+        row.style.display = (cat === 'all' || row.getAttribute('data-cat') === cat) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

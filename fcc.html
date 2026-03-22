@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FCC Devices | EOL-CHIP</title>
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main class="main-content">
+    <div class="page-header">
+      <h1>FCC Certified Devices <span class="count-pill" id="fcc-count">0</span></h1>
+      <p class="subtitle">Curated IoT and embedded devices with FCC certification data.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>FCC ID</th>
+            <th>Device</th>
+            <th>Grantee</th>
+            <th>Equipment Class</th>
+            <th>Frequency</th>
+            <th>Grant Date</th>
+          </tr>
+        </thead>
+        <tbody id="fcc-body"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="site-footer">
+    EOL-CHIP &mdash; Data from
+    <a href="https://nvd.nist.gov/">NVD</a>,
+    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
+    <a href="https://www.fcc.gov/">FCC</a>.
+    Updated weekly.
+  </footer>
+  <script type="module" src="/src/page-fcc.js"></script>
+</body>
+</html>
