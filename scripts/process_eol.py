@@ -30,6 +30,7 @@ def main():
             "last_order_date": chip.get("last_order_date", ""),
             "status": chip.get("status", ""),
             "datasheet": chip.get("datasheet", ""),
+            "fcc_id": chip.get("fcc_id", ""),
         })
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)

@@ -8,6 +8,7 @@ chips:
     eol_date: "2025-12-31"
     last_order_date: "2025-06-30"
     status: "EOL Announced"
+    fcc_id: "2AHHZ-ESP8266MOD"
     datasheet: "https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf"
     url: "https://www.espressif.com/en/products/socs/esp8266"
 
@@ -96,6 +97,7 @@ chips:
     eol_date: ""
     last_order_date: ""
     status: "Active"
+    fcc_id: "2AOKX-MDBT50Q"
     datasheet: "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf"
     url: "https://www.nordicsemi.com/Products/nRF52840"
 
@@ -1141,6 +1143,7 @@ chips:
     eol_date: ""
     last_order_date: ""
     status: "Active"
+    fcc_id: "2AFIW-ESP32WROVER"
     datasheet: "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf"
     url: "https://www.espressif.com/en/products/socs/esp32"
 

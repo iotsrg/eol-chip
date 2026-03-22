@@ -3,10 +3,9 @@ export function initNav(activePage = '') {
   if (!nav) return
 
   const links = [
-    { href: 'cves.html',     label: 'CVEs',     key: 'cves' },
-    { href: 'exploits.html', label: 'Exploits', key: 'exploits' },
-    { href: 'fcc.html',      label: 'FCC',      key: 'fcc' },
-    { href: 'eol.html',      label: 'EOL Chips',key: 'eol' },
+    { href: 'cves.html',     label: 'CVEs',      key: 'cves' },
+    { href: 'exploits.html', label: 'Exploits',  key: 'exploits' },
+    { href: 'eol.html',      label: 'EOL Chips', key: 'eol' },
   ]
 
   nav.innerHTML = `

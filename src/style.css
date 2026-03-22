@@ -67,6 +67,7 @@ nav {
 
 /* ── Layout ───────────────────────────────────────────── */
 .main-content { max-width: 1040px; margin: 0 auto; padding: 28px 24px; }
+.main-content--wide { max-width: 1360px; }
 
 /* ── Hero ─────────────────────────────────────────────── */
 .hero { text-align: center; padding: 44px 0 28px; }
@@ -152,6 +153,7 @@ nav {
   overflow-x: auto;
 }
 table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+.table-eol { min-width: 860px; }
 thead { }
 th {
   background: var(--surface2);
