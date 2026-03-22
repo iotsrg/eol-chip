@@ -10,7 +10,7 @@ function cvssColor(score) {
   return 'var(--sev-low)'
 }
 
-fetch('/data/cves.json')
+fetch('./data/cves.json')
   .then(r => r.json())
   .then(cves => {
     document.getElementById('cve-count').textContent = cves.length.toLocaleString()
