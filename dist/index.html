@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Unified database for hardware end-of-life, CVEs, exploits and FCC certifications">
+  <title>EOL-CHIP | Hardware End-of-Life Tracker</title>
+  <script type="module" crossorigin src="/assets/main-DZPAWPXU.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/common-j_SfgWpk.js">
+  <link rel="stylesheet" crossorigin href="/assets/common-DMl2FA1y.css">
+</head>
+<body>
+  <nav id="nav"></nav>
+
+  <main class="main-content">
+    <div class="hero">
+      <h1>EOL-CHIP</h1>
+      <p class="tagline">Unified database for hardware end-of-life, CVEs, exploits &amp; FCC certifications</p>
+    </div>
+
+    <div class="stats-grid">
+      <a href="cves.html" class="stat-card stat-card--cve">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-cve">—</span>
+        <span class="stat-label">CVEs</span>
+        <span class="stat-sub">hardware &amp; firmware</span>
+      </a>
+      <a href="exploits.html" class="stat-card stat-card--exploit">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-exploit">—</span>
+        <span class="stat-label">Exploits</span>
+        <span class="stat-sub">from Exploit-DB</span>
+      </a>
+      <a href="fcc.html" class="stat-card stat-card--fcc">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-fcc">—</span>
+        <span class="stat-label">FCC Devices</span>
+        <span class="stat-sub">IoT &amp; embedded</span>
+      </a>
+      <a href="eol.html" class="stat-card stat-card--eol">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-eol">—</span>
+        <span class="stat-label">EOL Chips</span>
+        <span class="stat-sub">tracked parts</span>
+      </a>
+    </div>
+
+    <div class="search-wrapper">
+      <div class="search-input-wrap">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" class="search-input"
+          placeholder="Search CVEs, exploits, FCC devices, EOL chips…" autocomplete="off">
+      </div>
+      <div class="search-filters">
+        <label class="filter-pill filter-cve">
+          <input type="checkbox" data-type="cve" checked><span>CVE</span>
+        </label>
+        <label class="filter-pill filter-exploit">
+          <input type="checkbox" data-type="exploit" checked><span>Exploit</span>
+        </label>
+        <label class="filter-pill filter-fcc">
+          <input type="checkbox" data-type="fcc" checked><span>FCC</span>
+        </label>
+        <label class="filter-pill filter-eol">
+          <input type="checkbox" data-type="eol" checked><span>EOL</span>
+        </label>
+      </div>
+    </div>
+
+    <div id="search-results" class="results-container"></div>
+    <div id="no-results" class="no-results" style="display:none">No results found.</div>
+  </main>
+
+  <footer class="site-footer">
+    EOL-CHIP &mdash; Data from
+    <a href="https://nvd.nist.gov/">NVD</a>,
+    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
+    <a href="https://www.fcc.gov/">FCC</a>.
+    Updated weekly.
+  </footer>
+</body>
+</html>
