@@ -7,7 +7,8 @@
       "Bash(git -C /media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip status)",
       "Bash(git -C /media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip diff HEAD -- .github/workflows/build-deploy.yml vite.config.js src/main.js)",
       "Bash(git -C /media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip log --oneline -5)",
-      "Bash(git -C /media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip add .gitignore .claude/settings.json)"
+      "Bash(git -C /media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip add .gitignore .claude/settings.json)",
+      "Bash(git -C:*)"
     ],
     "additionalDirectories": [
       "/media/mr-iot/1f7cd31a-fcd2-4749-9a4d-6f4203180033/Github/eol-chip/eol-chip"
