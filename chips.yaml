@@ -381,3 +381,900 @@ chips:
     status: "Last Buy"
     datasheet: ""
     url: "https://www.amd.com/en/products/adaptive-socs-and-fpgas/fpga/spartan-6.html"
+
+  - part_number: XC3S500E
+    name: Spartan-3E XC3S500E FPGA
+    manufacturer: AMD (Xilinx)
+    category: FPGA
+    description: "500K gate Spartan-3E FPGA, 232 I/O pins, classic dev board chip"
+    eol_date: "2023-12-31"
+    last_order_date: "2023-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.amd.com/en/products/adaptive-socs-and-fpgas/fpga/spartan-3e.html"
+
+  - part_number: ICE40HX8K
+    name: iCE40HX8K FPGA
+    manufacturer: Lattice Semiconductor
+    category: FPGA
+    description: "8K LUT open-source toolchain FPGA, used in iCEBreaker boards"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.latticesemi.com/iCE40"
+
+  - part_number: MAX10M08SAE144
+    name: MAX 10 8K LE FPGA
+    manufacturer: Intel (Altera)
+    category: FPGA
+    description: "8K logic elements, non-volatile FPGA with embedded Flash"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.intel.com/content/www/us/en/products/details/fpga/max.html"
+
+  # ── Cellular / GSM ──
+  - part_number: SIM900
+    name: SIM900 GSM/GPRS Module
+    manufacturer: SIMCom
+    category: Cellular
+    description: "Quad-band GSM/GPRS 2G module, UART interface, widely used in IoT trackers"
+    eol_date: "2022-12-31"
+    last_order_date: "2022-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.simcom.com/product/SIM900.html"
+
+  - part_number: SIM800L
+    name: SIM800L GSM/GPRS Module
+    manufacturer: SIMCom
+    category: Cellular
+    description: "Quad-band GSM/GPRS 2G, ultra-compact, 17.6x15.7mm, BT 3.0"
+    eol_date: "2024-06-30"
+    last_order_date: "2024-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.simcom.com/product/SIM800L.html"
+
+  - part_number: SIM7600E
+    name: SIM7600E LTE Cat-4 Module
+    manufacturer: SIMCom
+    category: Cellular
+    description: "LTE Cat-4/3G/2G multi-band module, 150Mbps DL, GNSS optional"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.simcom.com/product/SIM7600X.html"
+
+  - part_number: EC21-V
+    name: Quectel EC21 LTE Cat-1 Module
+    manufacturer: Quectel
+    category: Cellular
+    description: "LTE Cat-1 module, 10Mbps DL/5Mbps UL, fallback 3G/2G"
+    eol_date: "2025-12-31"
+    last_order_date: "2025-06-30"
+    status: "Last Buy"
+    datasheet: ""
+    url: "https://www.quectel.com/product/lte-ec21-series"
+
+  - part_number: BG96
+    name: Quectel BG96 LTE-M/NB-IoT Module
+    manufacturer: Quectel
+    category: Cellular
+    description: "LTE-M/NB-IoT/EGPRS module with integrated GNSS, for low-power IoT"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.quectel.com/product/lpwa-bg96-cat-m1-nb1-egprs"
+
+  - part_number: SARA-R410M-02B
+    name: u-blox SARA-R410M LTE-M/NB-IoT
+    manufacturer: u-blox
+    category: Cellular
+    description: "LTE-M and NB-IoT module, global bands, ultra-low power for IoT"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.u-blox.com/en/product/sara-r4-series"
+
+  - part_number: HL7800
+    name: Sierra Wireless HL7800 LTE-M Module
+    manufacturer: Sierra Wireless
+    category: Cellular
+    description: "LTE Cat-M1/NB1 module, ultra-low power, -40 to 85°C industrial"
+    eol_date: "2026-03-31"
+    last_order_date: "2025-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.sierrawireless.com/products-and-solutions/embedded-solutions/products/hl7800/"
+
+  # ── Zigbee / 802.15.4 ──
+  - part_number: CC2530
+    name: CC2530 Zigbee SoC
+    manufacturer: Texas Instruments
+    category: Zigbee
+    description: "IEEE 802.15.4 Zigbee SoC with 8051 core, 256KB Flash, used in smart home"
+    eol_date: "2024-12-31"
+    last_order_date: "2024-06-30"
+    status: "EOL Announced"
+    datasheet: "https://www.ti.com/lit/ds/symlink/cc2530.pdf"
+    url: "https://www.ti.com/product/CC2530"
+
+  - part_number: CC2538
+    name: CC2538 IEEE 802.15.4 SoC
+    manufacturer: Texas Instruments
+    category: Zigbee
+    description: "ARM Cortex-M3 + 802.15.4 radio, 512KB Flash, Zigbee/6LoWPAN"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "Last Buy"
+    datasheet: "https://www.ti.com/lit/ds/symlink/cc2538.pdf"
+    url: "https://www.ti.com/product/CC2538"
+
+  - part_number: EM357
+    name: EM357 Zigbee/Thread SoC
+    manufacturer: Silicon Labs
+    category: Zigbee
+    description: "IEEE 802.15.4 SoC with ARM Cortex-M3, 192KB Flash, Zigbee/Thread"
+    eol_date: "2024-06-30"
+    last_order_date: "2024-01-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.silabs.com/wireless/zigbee"
+
+  - part_number: MGM210P
+    name: MGM210P Zigbee/BT Module
+    manufacturer: Silicon Labs
+    category: Zigbee
+    description: "EFR32MG21 based module, Zigbee 3.0, BLE 5.2, Matter ready"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.silabs.com/wireless/zigbee/efr32mg21-series-2-modules"
+
+  # ── NFC ──
+  - part_number: PN532
+    name: PN532 NFC Controller
+    manufacturer: NXP Semiconductors
+    category: NFC
+    description: "NFC/RFID controller IC, ISO14443A/B, SPI/I2C/UART, used in HF readers"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.nxp.com/docs/en/user-guide/141520.pdf"
+    url: "https://www.nxp.com/products/rfid-nfc/nfc-hf/nfc-readers/nfc-integrated-solution:PN532"
+
+  - part_number: PN7150
+    name: PN7150 NFC Controller
+    manufacturer: NXP Semiconductors
+    category: NFC
+    description: "High-performance NFC controller, NCI 1.0, USB/I2C, ISO15693"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.nxp.com/products/rfid-nfc/nfc-hf/nfc-readers/high-performance-nfc-controller:PN7150"
+
+  - part_number: MFRC522
+    name: MFRC522 RFID Reader IC
+    manufacturer: NXP Semiconductors
+    category: NFC
+    description: "13.56MHz RFID reader/writer IC, ISO14443A, SPI/I2C/UART, 3.3V"
+    eol_date: "2024-03-31"
+    last_order_date: "2023-09-30"
+    status: "Last Buy"
+    datasheet: "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf"
+    url: "https://www.nxp.com/products/rfid-nfc/nfc-hf/nfc-readers/standard-3v-mifare-reader-writer-ic:MFRC522"
+
+  # ── GPS / GNSS ──
+  - part_number: NEO-6M
+    name: u-blox NEO-6M GPS Module
+    manufacturer: u-blox
+    category: GPS/GNSS
+    description: "50-channel GPS receiver, 2.5m CEP accuracy, UART, 3.3V"
+    eol_date: "2023-12-31"
+    last_order_date: "2023-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.u-blox.com/en/product/neo-6-series"
+
+  - part_number: NEO-M8N
+    name: u-blox NEO-M8N GNSS Module
+    manufacturer: u-blox
+    category: GPS/GNSS
+    description: "Multi-GNSS (GPS/GLONASS/BeiDou/Galileo), 2.5m CEP, concurrent reception"
+    eol_date: "2026-12-31"
+    last_order_date: "2026-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.u-blox.com/en/product/neo-m8-series"
+
+  - part_number: L76-L
+    name: Quectel L76-L GNSS Module
+    manufacturer: Quectel
+    category: GPS/GNSS
+    description: "Multi-constellation GNSS, ultra-low power, 9.6x16mm, NMEA 0183"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.quectel.com/product/gnss-l76-l"
+
+  # ── Power Management ──
+  - part_number: TPS65217C
+    name: TPS65217C PMIC
+    manufacturer: Texas Instruments
+    category: PMIC
+    description: "PMIC for AM335x, 3x DC-DC, 4x LDO, Li-Ion charger, used in BeagleBone"
+    eol_date: "2025-12-31"
+    last_order_date: "2025-06-30"
+    status: "Last Buy"
+    datasheet: "https://www.ti.com/lit/ds/symlink/tps65217c.pdf"
+    url: "https://www.ti.com/product/TPS65217C"
+
+  - part_number: AXP209
+    name: AXP209 PMIC
+    manufacturer: X-Powers
+    category: PMIC
+    description: "Li-Ion/LiPo PMIC with DC-DC and LDOs, used in Allwinner A10/A20 boards"
+    eol_date: "2024-06-30"
+    last_order_date: "2024-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.x-powers.com/en.php/Info/product_detail/article_id/29"
+
+  - part_number: IP5306
+    name: IP5306 Li-Ion Battery PMIC
+    manufacturer: Injoinic
+    category: PMIC
+    description: "5V/2.4A boost + Li-Ion charger + power path, used in ESP32 dev boards"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.injoinic.com/"
+
+  - part_number: MCP73831
+    name: MCP73831 Li-Ion Charger
+    manufacturer: Microchip
+    category: PMIC
+    description: "Single-cell Li-Ion/Li-Po charge management controller, SOT-23-5"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf"
+    url: "https://www.microchip.com/en-us/product/MCP73831"
+
+  - part_number: BQ24195
+    name: BQ24195 USB/Adapter Charger IC
+    manufacturer: Texas Instruments
+    category: PMIC
+    description: "3A USB/adapter switch-mode Li-Ion charger, I2C control, OTG support"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.ti.com/lit/ds/symlink/bq24195.pdf"
+    url: "https://www.ti.com/product/BQ24195"
+
+  # ── Ethernet ──
+  - part_number: ENC28J60
+    name: ENC28J60 Ethernet Controller
+    manufacturer: Microchip
+    category: Ethernet
+    description: "10BASE-T standalone Ethernet controller with SPI interface, 8KB SRAM"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf"
+    url: "https://www.microchip.com/en-us/product/ENC28J60"
+
+  - part_number: W5500
+    name: W5500 Hardwired TCP/IP Ethernet
+    manufacturer: WIZnet
+    category: Ethernet
+    description: "Hardwired TCP/IP + MAC + PHY, SPI, 32KB RX/TX buffer, 8 sockets"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.wiznet.io/product-item/w5500/"
+
+  - part_number: LAN8720A
+    name: LAN8720A 10/100 PHY
+    manufacturer: Microchip
+    category: Ethernet
+    description: "10/100BASE-TX Ethernet PHY, RMII, Auto-MDIX, used with STM32"
+    eol_date: "2025-03-31"
+    last_order_date: "2024-09-30"
+    status: "EOL Announced"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/8720a.pdf"
+    url: "https://www.microchip.com/en-us/product/LAN8720A"
+
+  - part_number: KSZ8851SNL
+    name: KSZ8851SNL SPI Ethernet Controller
+    manufacturer: Microchip
+    category: Ethernet
+    description: "10/100BASE-TX Ethernet controller with SPI, integrated MAC+PHY"
+    eol_date: "2024-09-30"
+    last_order_date: "2024-03-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.microchip.com/en-us/product/KSZ8851SNL"
+
+  # ── USB Controllers ──
+  - part_number: CP2102
+    name: CP2102 USB-UART Bridge
+    manufacturer: Silicon Labs
+    category: USB
+    description: "Single-chip USB-to-UART bridge, no external components, used on ESP boards"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.silabs.com/documents/public/data-sheets/CP2102-9.pdf"
+    url: "https://www.silabs.com/interface/usb-bridges/classic/device.cp2102"
+
+  - part_number: FT232RL
+    name: FT232RL USB-UART IC
+    manufacturer: FTDI
+    category: USB
+    description: "USB 2.0 Full Speed to single channel UART, EEPROM, 3.3V/5V I/O"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ftdichip.com/wp-content/uploads/2020/08/DS_FT232R.pdf"
+    url: "https://ftdichip.com/products/ft232rl/"
+
+  - part_number: CH340G
+    name: CH340G USB-UART IC
+    manufacturer: WCH (Jiangsu Qin Heng)
+    category: USB
+    description: "USB-to-serial chip, low-cost alternative to FT232RL, 5V/3.3V"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.wch-ic.com/products/CH340.html"
+
+  - part_number: TUSB3410
+    name: TUSB3410 USB-UART Controller
+    manufacturer: Texas Instruments
+    category: USB
+    description: "USB 1.1 Full Speed to UART/IrDA bridge, 8052 core, 16KB ROM"
+    eol_date: "2023-03-31"
+    last_order_date: "2022-09-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.ti.com/product/TUSB3410"
+
+  # ── Application Processor / SoC ──
+  - part_number: BCM2835
+    name: BCM2835 ARM11 SoC
+    manufacturer: Broadcom
+    category: Application Processor
+    description: "ARM1176JZF-S 700MHz SoC, VideoCore IV GPU, Raspberry Pi 1/Zero"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf"
+    url: "https://www.raspberrypi.com/documentation/computers/processors.html"
+
+  - part_number: BCM2836
+    name: BCM2836 Quad-core ARM Cortex-A7
+    manufacturer: Broadcom
+    category: Application Processor
+    description: "Quad-core ARM Cortex-A7 900MHz, Raspberry Pi 2B"
+    eol_date: "2026-01-31"
+    last_order_date: "2025-07-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.raspberrypi.com/documentation/computers/processors.html"
+
+  - part_number: MCIMX6Q6AVT10AD
+    name: i.MX6Q Quad-core Cortex-A9
+    manufacturer: NXP Semiconductors
+    category: Application Processor
+    description: "Quad-core ARM Cortex-A9 1GHz, used in Boundary Devices and Toradex"
+    eol_date: "2027-12-31"
+    last_order_date: "2027-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-6-processors:IMX6X_SERIES"
+
+  - part_number: AM3358BZCZ100
+    name: AM3358 ARM Cortex-A8 SoC
+    manufacturer: Texas Instruments
+    category: Application Processor
+    description: "Sitara ARM Cortex-A8 1GHz SoC, PRU, used in BeagleBone Black"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.ti.com/lit/ds/symlink/am3358.pdf"
+    url: "https://www.ti.com/product/AM3358"
+
+  - part_number: MT7620A
+    name: MT7620A 802.11n Router SoC
+    manufacturer: MediaTek
+    category: Application Processor
+    description: "MIPS 24KEc 580MHz + 802.11n 2T2R, OpenWrt target, used in GL.iNet"
+    eol_date: "2024-03-31"
+    last_order_date: "2023-09-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.mediatek.com/"
+
+  - part_number: AR9331
+    name: AR9331 802.11n Wi-Fi SoC
+    manufacturer: Qualcomm Atheros
+    category: Application Processor
+    description: "MIPS 24K 400MHz + 802.11n, used in TP-Link WR703N, OpenWrt"
+    eol_date: "2023-06-30"
+    last_order_date: "2022-12-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.qualcomm.com/"
+
+  - part_number: IPQ4018
+    name: IPQ4018 802.11ac Wi-Fi SoC
+    manufacturer: Qualcomm
+    category: Application Processor
+    description: "Quad-core ARM Cortex-A7 716MHz + 802.11ac 2x2 dual-band"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.qualcomm.com/products/technology/wi-fi"
+
+  - part_number: RTL8197F
+    name: RTL8197F 802.11n Router SoC
+    manufacturer: Realtek
+    category: Application Processor
+    description: "MIPS 700MHz + 802.11n, 5-port switch, used in consumer routers"
+    eol_date: "2024-12-31"
+    last_order_date: "2024-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.realtek.com/"
+
+  # ── MCU (additional) ──
+  - part_number: LPC1768
+    name: LPC1768 ARM Cortex-M3
+    manufacturer: NXP Semiconductors
+    category: MCU
+    description: "32-bit ARM Cortex-M3 120MHz, 512KB Flash, Ethernet, USB, mbed target"
+    eol_date: "2025-09-30"
+    last_order_date: "2025-03-31"
+    status: "Last Buy"
+    datasheet: "https://www.nxp.com/docs/en/data-sheet/LPC1769_68_67_66_65_64_63.pdf"
+    url: "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc1700-cortex-m3/512-kb-flash-64-kb-sram-ethernet-usb-lqfp100-package:LPC1768FBD100"
+
+  - part_number: LPC2148
+    name: LPC2148 ARM7TDMI-S
+    manufacturer: NXP Semiconductors
+    category: MCU
+    description: "ARM7TDMI-S 60MHz, 512KB Flash, USB 2.0 Full Speed, I2C/SPI/UART"
+    eol_date: "2024-03-31"
+    last_order_date: "2023-09-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc2100/512-kb-flash-32-kb-sram-usb-lqfp64-package:LPC2148FBD64"
+
+  - part_number: CC3200
+    name: CC3200 Wi-Fi MCU
+    manufacturer: Texas Instruments
+    category: MCU
+    description: "ARM Cortex-M4 + 802.11b/g/n Wi-Fi SoC, 256KB RAM, LaunchPad target"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "Last Buy"
+    datasheet: "https://www.ti.com/lit/ds/symlink/cc3200.pdf"
+    url: "https://www.ti.com/product/CC3200"
+
+  - part_number: ATSAMD21G18A
+    name: SAMD21G18 ARM Cortex-M0+
+    manufacturer: Microchip
+    category: MCU
+    description: "32-bit ARM Cortex-M0+ 48MHz, 256KB Flash, USB, Arduino Zero / MKR"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf"
+    url: "https://www.microchip.com/en-us/product/ATSAMD21G18"
+
+  - part_number: ATMEGA2560
+    name: ATmega2560 8-bit AVR
+    manufacturer: Microchip
+    category: MCU
+    description: "256KB Flash, 8KB RAM, 86 I/O pins, Arduino Mega 2560"
+    eol_date: "2027-12-31"
+    last_order_date: "2027-06-30"
+    status: "EOL Announced"
+    datasheet: "https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf"
+    url: "https://www.microchip.com/en-us/product/ATmega2560"
+
+  - part_number: PIC32MX795F512L
+    name: PIC32MX795F512L 32-bit MCU
+    manufacturer: Microchip
+    category: MCU
+    description: "MIPS M4K 80MHz, 512KB Flash, USB OTG, Ethernet MAC, ChipKIT target"
+    eol_date: "2025-03-31"
+    last_order_date: "2024-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.microchip.com/en-us/product/PIC32MX795F512L"
+
+  - part_number: STM8S003F3P6
+    name: STM8S003F3 8-bit MCU
+    manufacturer: STMicroelectronics
+    category: MCU
+    description: "8-bit STM8 16MHz, 8KB Flash, ultra-low cost, TSSOP-20"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.st.com/resource/en/datasheet/stm8s003f3.pdf"
+    url: "https://www.st.com/en/microcontrollers-microprocessors/stm8s003f3.html"
+
+  - part_number: EFM32GG990F1024
+    name: EFM32 Giant Gecko Cortex-M3
+    manufacturer: Silicon Labs
+    category: MCU
+    description: "ARM Cortex-M3 48MHz, 1MB Flash, ultra-low energy, USB, LCD"
+    eol_date: "2026-06-30"
+    last_order_date: "2026-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.silabs.com/microcontrollers/32-bit/efm32-giant-gecko"
+
+  - part_number: RL78G14
+    name: RL78/G14 16-bit MCU
+    manufacturer: Renesas
+    category: MCU
+    description: "16-bit ultra-low power RL78 core, 512KB Flash, 32KB RAM"
+    eol_date: "2027-03-31"
+    last_order_date: "2026-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.renesas.com/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus/rl78g14-general-purpose"
+
+  # ── DRAM ──
+  - part_number: MT41K256M16TW-107
+    name: Micron 4GB DDR3L SDRAM
+    manufacturer: Micron
+    category: DRAM
+    description: "4Gb DDR3L SDRAM, 1866MT/s, 1.35V, x16, 96-ball BGA"
+    eol_date: "2025-09-30"
+    last_order_date: "2025-03-31"
+    status: "Last Buy"
+    datasheet: ""
+    url: "https://www.micron.com/products/dram/ddr3-sdram"
+
+  - part_number: K4B4G1646E-BYMA
+    name: Samsung 4Gb DDR3 SDRAM
+    manufacturer: Samsung
+    category: DRAM
+    description: "4Gb DDR3, 1600MT/s, 1.5V, x16, common in embedded Linux boards"
+    eol_date: "2025-12-31"
+    last_order_date: "2025-06-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://semiconductor.samsung.com/dram/"
+
+  - part_number: H5TQ4G63AFR
+    name: SK Hynix 4Gb DDR3 SDRAM
+    manufacturer: SK Hynix
+    category: DRAM
+    description: "4Gb DDR3 SDRAM, 1600MT/s, 512M x 8, TSOP-78"
+    eol_date: "2026-03-31"
+    last_order_date: "2025-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.skhynix.com/dram/"
+
+  - part_number: W9751G6KB-25
+    name: Winbond 512Mb SDR SDRAM
+    manufacturer: Winbond
+    category: DRAM
+    description: "512Mb SDR SDRAM, 133MHz, 16M x 32, used in legacy embedded systems"
+    eol_date: "2023-06-30"
+    last_order_date: "2022-12-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.winbond.com/hq/product/code-storage-flash-memory/"
+
+  # ── Audio Codec ──
+  - part_number: VS1053B
+    name: VS1053B MP3/OGG/AAC Codec
+    manufacturer: VLSI Solutions
+    category: Audio
+    description: "Ogg Vorbis/MP3/AAC/WMA decoder + PCM/IMA ADPCM encoder, SPI"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.vlsi.fi/fileadmin/datasheets/vs1053.pdf"
+    url: "https://www.vlsi.fi/en/products/vs1053.html"
+
+  - part_number: WM8960
+    name: WM8960 Low Power Audio Codec
+    manufacturer: Cirrus Logic
+    category: Audio
+    description: "24-bit stereo codec, Class D speaker amp, I2S/I2C, used in Pi HATs"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.cirrus.com/products/wm8960/"
+
+  - part_number: PCM5102A
+    name: PCM5102A 32-bit DAC
+    manufacturer: Texas Instruments
+    category: Audio
+    description: "112dB SNR stereo DAC, I2S input, no MCU/software required, HiFi"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.ti.com/lit/ds/symlink/pcm5102a.pdf"
+    url: "https://www.ti.com/product/PCM5102A"
+
+  # ── Display Driver ──
+  - part_number: ILI9341
+    name: ILI9341 TFT LCD Driver
+    manufacturer: Ilitek
+    category: Display Driver
+    description: "262K color 240x320 TFT LCD driver, SPI/parallel, 2.4-2.8 inch panels"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.ilitek.com/"
+
+  - part_number: SSD1306
+    name: SSD1306 OLED Driver
+    manufacturer: Solomon Systech
+    category: Display Driver
+    description: "128x64 OLED display driver, I2C/SPI, 3.3V/5V, popular in DIY projects"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.solomon-systech.com/product/ssd1306/"
+
+  - part_number: ST7789
+    name: ST7789 TFT Display Controller
+    manufacturer: Sitronix
+    category: Display Driver
+    description: "240x320 TFT controller, SPI, 262K colors, 1.54-2.0 inch panels"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.sitronix.com.tw/en/products/display-drivers/"
+
+  - part_number: RA8875
+    name: RA8875 TFT LCD Controller
+    manufacturer: RAiO Technology
+    category: Display Driver
+    description: "800x480 TFT controller with GPU, SPI/parallel, touch screen controller"
+    eol_date: "2025-06-30"
+    last_order_date: "2025-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.raio.com.tw/"
+
+  # ── Sensor ICs ──
+  - part_number: MPU6050
+    name: MPU-6050 6-axis IMU
+    manufacturer: InvenSense (TDK)
+    category: Sensor
+    description: "6-axis MotionTracking (3-axis gyro + 3-axis accel), I2C/SPI, DMP"
+    eol_date: "2024-12-31"
+    last_order_date: "2024-06-30"
+    status: "EOL Announced"
+    datasheet: "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf"
+    url: "https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/"
+
+  - part_number: BME280
+    name: BME280 Humidity/Pressure/Temp Sensor
+    manufacturer: Bosch Sensortec
+    category: Sensor
+    description: "Combined humidity, pressure, temperature sensor, I2C/SPI, 1.8V-3.6V"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf"
+    url: "https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/"
+
+  - part_number: DS18B20
+    name: DS18B20 1-Wire Temperature Sensor
+    manufacturer: Analog Devices (Maxim)
+    category: Sensor
+    description: "Programmable resolution 1-Wire digital thermometer, ±0.5°C, TO-92"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"
+    url: "https://www.analog.com/en/products/ds18b20.html"
+
+  - part_number: DHT22
+    name: DHT22 Humidity & Temperature Sensor
+    manufacturer: Aosong Electronics
+    category: Sensor
+    description: "Digital humidity (0-100% RH) and temperature (-40-80°C) sensor, 1-wire"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.aosong.com/"
+
+  - part_number: BMP180
+    name: BMP180 Digital Pressure Sensor
+    manufacturer: Bosch Sensortec
+    category: Sensor
+    description: "Digital barometric pressure sensor, I2C, 300-1100hPa, replaced by BMP280"
+    eol_date: "2023-12-31"
+    last_order_date: "2023-06-30"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.bosch-sensortec.com/"
+
+  - part_number: ICM-20689
+    name: ICM-20689 6-axis IMU
+    manufacturer: InvenSense (TDK)
+    category: Sensor
+    description: "6-axis IMU (gyro + accel), 32KB FIFO, SPI/I2C, used in drones"
+    eol_date: "2026-06-30"
+    last_order_date: "2026-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20689/"
+
+  # ── Wi-Fi SoC (additional) ──
+  - part_number: ESP32-D0WDQ6
+    name: ESP32 Dual-core Wi-Fi/BT SoC
+    manufacturer: Espressif
+    category: Wi-Fi SoC
+    description: "Dual-core Xtensa LX6 240MHz, Wi-Fi 802.11b/g/n + BT 4.2/BLE, 4MB SPI Flash"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf"
+    url: "https://www.espressif.com/en/products/socs/esp32"
+
+  - part_number: ESP32-S2
+    name: ESP32-S2 Single-core Wi-Fi SoC
+    manufacturer: Espressif
+    category: Wi-Fi SoC
+    description: "Single-core Xtensa LX7 240MHz, Wi-Fi 802.11b/g/n, USB OTG, no BT"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf"
+    url: "https://www.espressif.com/en/products/socs/esp32-s2"
+
+  - part_number: WINC1500
+    name: ATWINC1500 Wi-Fi Module
+    manufacturer: Microchip
+    category: Wi-Fi SoC
+    description: "Low-power 802.11b/g/n Wi-Fi network controller, SPI to host, Arduino MKR"
+    eol_date: "2026-03-31"
+    last_order_date: "2025-09-30"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.microchip.com/en-us/product/ATWINC1500"
+
+  # ── Bluetooth SoC (additional) ──
+  - part_number: CC2640R2F
+    name: CC2640R2F SimpleLink BLE SoC
+    manufacturer: Texas Instruments
+    category: Bluetooth SoC
+    description: "ARM Cortex-M3 BLE 5.0 SoC, 128KB Flash, ultra-low power, OTA DFU"
+    eol_date: "2027-12-31"
+    last_order_date: "2027-06-30"
+    status: "EOL Announced"
+    datasheet: "https://www.ti.com/lit/ds/symlink/cc2640r2f.pdf"
+    url: "https://www.ti.com/product/CC2640R2F"
+
+  - part_number: CSR8645
+    name: CSR8645 Bluetooth Audio SoC
+    manufacturer: Qualcomm (CSR)
+    category: Bluetooth SoC
+    description: "BT 4.1 SoC with aptX audio, used in wireless headphones and speakers"
+    eol_date: "2024-06-30"
+    last_order_date: "2024-01-31"
+    status: "Obsolete"
+    datasheet: ""
+    url: "https://www.qualcomm.com/"
+
+  - part_number: CYW43438
+    name: CYW43438 Wi-Fi + BT Combo
+    manufacturer: Infineon (Cypress)
+    category: Bluetooth SoC
+    description: "802.11b/g/n + BT 4.1 combo, SDIO/SPI, Raspberry Pi Zero W / Pi 3"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/"
+
+  # ── Crypto / Secure Element ──
+  - part_number: ATECC608A
+    name: ATECC608A Crypto Authentication IC
+    manufacturer: Microchip
+    category: Secure Element
+    description: "ECC-based crypto IC, ECDH, ECDSA, SHA-256, AES-128, I2C/SWI"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-MAHDA-Register-Summary.pdf"
+    url: "https://www.microchip.com/en-us/product/ATECC608A"
+
+  - part_number: TPM2.0-SLB9665
+    name: SLB 9665 TPM 2.0
+    manufacturer: Infineon
+    category: Secure Element
+    description: "Trusted Platform Module 2.0, SPI/I2C, RSA/ECC, used in PCs and gateways"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-tpm/"
+
+  - part_number: SE050
+    name: SE050 IoT Secure Element
+    manufacturer: NXP Semiconductors
+    category: Secure Element
+    description: "Plug & Trust IoT secure element, ECC up to 521-bit, RSA up to 4096-bit"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: ""
+    url: "https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se050-plug-trust-iot-secure-element-family:SE050"
+
+  # ── CAN / Industrial ──
+  - part_number: MCP2515
+    name: MCP2515 CAN Controller
+    manufacturer: Microchip
+    category: Industrial
+    description: "Stand-alone CAN 2.0B controller with SPI interface, 1Mbps"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf"
+    url: "https://www.microchip.com/en-us/product/MCP2515"
+
+  - part_number: SN65HVD230
+    name: SN65HVD230 CAN Bus Transceiver
+    manufacturer: Texas Instruments
+    category: Industrial
+    description: "3.3V CAN bus transceiver, 1Mbps, standby mode, for automotive/industrial"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf"
+    url: "https://www.ti.com/product/SN65HVD230"
+
+  - part_number: MAX485
+    name: MAX485 RS-485 Transceiver
+    manufacturer: Analog Devices (Maxim)
+    category: Industrial
+    description: "Low-power RS-485/RS-422 transceiver, 2.5Mbps, half-duplex, SO-8"
+    eol_date: ""
+    last_order_date: ""
+    status: "Active"
+    datasheet: "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487-MAX491.pdf"
+    url: "https://www.analog.com/en/products/max485.html"
+
+  - part_number: W5100S
+    name: W5100S Ethernet + TOE
+    manufacturer: WIZnet
+    category: Industrial
+    description: "Hardwired TCP/IP + MAC + PHY, TOE support, 16KB buffer, SPI/parallel"
+    eol_date: "2026-06-30"
+    last_order_date: "2026-01-31"
+    status: "EOL Announced"
+    datasheet: ""
+    url: "https://www.wiznet.io/product-item/w5100s/"
