@@ -10,7 +10,7 @@ const noResultEl = document.getElementById('no-results')
 let fuse = null
 
 // Load search index
-fetch('/data/search_index.json')
+fetch('./data/search_index.json')
   .then(r => r.json())
   .then(data => {
     const counts = { cve: 0, exploit: 0, fcc: 0, eol: 0 }
