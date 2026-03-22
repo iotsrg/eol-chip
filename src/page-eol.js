@@ -2,7 +2,7 @@ import { initNav, tag, statusTag } from './common.js'
 
 initNav('eol')
 
-fetch('/data/eol_chips.json')
+fetch('./data/eol_chips.json')
   .then(r => r.json())
   .then(chips => {
     document.getElementById('eol-count').textContent = chips.length.toLocaleString()
