@@ -9,3 +9,4 @@ title = "EOL-CHIP"
 
 [outputs]
   home = ["HTML"]
+  home = ["HTML"]
