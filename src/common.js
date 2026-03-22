@@ -1,5 +1,3 @@
-import './style.css'
-
 export function initNav(activePage = '') {
   const nav = document.getElementById('nav')
   if (!nav) return
@@ -12,7 +10,7 @@ export function initNav(activePage = '') {
   ]
 
   nav.innerHTML = `
-    <a href="/" class="nav-logo">
+    <a href="./index.html" class="nav-logo">
       <div class="nav-chip-icon">IC</div>
       EOL-CHIP
     </a>
