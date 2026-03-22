@@ -13,11 +13,10 @@ let fuse = null
 fetch('./data/search_index.json')
   .then(r => r.json())
   .then(data => {
-    const counts = { cve: 0, exploit: 0, fcc: 0, eol: 0 }
+    const counts = { cve: 0, exploit: 0, eol: 0 }
     data.forEach(item => { if (counts[item.type] !== undefined) counts[item.type]++ })
     document.getElementById('stat-cve').textContent     = counts.cve.toLocaleString()
     document.getElementById('stat-exploit').textContent = counts.exploit.toLocaleString()
-    document.getElementById('stat-fcc').textContent     = counts.fcc.toLocaleString()
     document.getElementById('stat-eol').textContent     = counts.eol.toLocaleString()
 
     fuse = new Fuse(data, {
@@ -32,7 +31,7 @@ fetch('./data/search_index.json')
       includeScore: true,
     })
     input.disabled = false
-    input.placeholder = 'Search CVEs, exploits, FCC devices, EOL chips…'
+    input.placeholder = 'Search CVEs, exploits, EOL chips…'
   })
   .catch(() => {
     input.placeholder = 'Failed to load search index'
