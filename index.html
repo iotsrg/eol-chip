@@ -13,14 +13,14 @@
   <main class="main-content">
     <div class="hero">
       <h1>EOL-CHIP</h1>
-      <p class="tagline">Unified database for hardware end-of-life, CVEs, exploits &amp; FCC certifications</p>
+      <p class="tagline">Unified database for hardware end-of-life, CVEs &amp; exploits</p>
     </div>
 
     <div class="search-wrapper">
       <div class="search-input-wrap">
         <span class="search-icon">&#128269;</span>
         <input type="text" id="search-input" class="search-input"
-          placeholder="Search CVEs, exploits, FCC devices, EOL chips…" autocomplete="off">
+          placeholder="Search CVEs, exploits, EOL chips…" autocomplete="off">
       </div>
       <div class="search-filters">
         <label class="filter-pill filter-cve">
@@ -29,10 +29,7 @@
         <label class="filter-pill filter-exploit">
           <input type="checkbox" data-type="exploit" checked><span>Exploit</span>
         </label>
-        <label class="filter-pill filter-fcc">
-          <input type="checkbox" data-type="fcc" checked><span>FCC</span>
-        </label>
-        <label class="filter-pill filter-eol">
+<label class="filter-pill filter-eol">
           <input type="checkbox" data-type="eol" checked><span>EOL</span>
         </label>
       </div>
@@ -51,13 +48,7 @@
         <span class="stat-label">Exploits</span>
         <span class="stat-sub">from Exploit-DB</span>
       </a>
-      <a href="fcc.html" class="stat-card stat-card--fcc">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-fcc">—</span>
-        <span class="stat-label">FCC Devices</span>
-        <span class="stat-sub">IoT &amp; embedded</span>
-      </a>
-      <a href="eol.html" class="stat-card stat-card--eol">
+<a href="eol.html" class="stat-card stat-card--eol">
         <div class="stat-type-dot"></div>
         <span class="stat-num" id="stat-eol">—</span>
         <span class="stat-label">EOL Chips</span>
