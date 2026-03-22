@@ -2,7 +2,7 @@ import { initNav } from './common.js'
 
 initNav('fcc')
 
-fetch('/data/fcc_devices.json')
+fetch('./data/fcc_devices.json')
   .then(r => r.json())
   .then(devices => {
     document.getElementById('fcc-count').textContent = devices.length.toLocaleString()
