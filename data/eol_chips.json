@@ -13,7 +13,8 @@
     "eol_date": "2025-12-31",
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf"
+    "datasheet": "https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf",
+    "fcc_id": "2AHHZ-ESP8266MOD"
   },
   {
     "id": "EOL-ATmega328P",
@@ -29,7 +30,8 @@
     "eol_date": "2026-12-31",
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-STM32F103C8",
@@ -45,7 +47,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf"
+    "datasheet": "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ATSAM3X8E",
@@ -61,7 +64,8 @@
     "eol_date": "2024-06-30",
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-STM32F407VG",
@@ -77,7 +81,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.st.com/resource/en/datasheet/stm32f407vg.pdf"
+    "datasheet": "https://www.st.com/resource/en/datasheet/stm32f407vg.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-PIC16F877A",
@@ -93,7 +98,8 @@
     "eol_date": "2023-12-31",
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39582b.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39582b.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MSP430G2553",
@@ -109,7 +115,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/msp430g2553.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/msp430g2553.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RP2040",
@@ -125,7 +132,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+    "datasheet": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-nRF52840",
@@ -141,7 +149,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf"
+    "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf",
+    "fcc_id": "2AOKX-MDBT50Q"
   },
   {
     "id": "EOL-THGBMHG6C1LBAIL",
@@ -157,7 +166,8 @@
     "eol_date": "2024-03-31",
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-KLMAG1JETD-B041",
@@ -173,7 +183,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MTFC4GACAJCN-1M",
@@ -189,7 +200,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-H26M41208HPR",
@@ -205,7 +217,8 @@
     "eol_date": "2025-09-30",
     "last_order_date": "2025-03-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SDINBDG4-16G",
@@ -221,7 +234,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-AT24C256",
@@ -237,7 +251,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/doc0670.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/doc0670.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-24LC512",
@@ -253,7 +268,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/21754M.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/21754M.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-M24C08",
@@ -269,7 +285,8 @@
     "eol_date": "2024-12-31",
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://www.st.com/resource/en/datasheet/m24c08-w.pdf"
+    "datasheet": "https://www.st.com/resource/en/datasheet/m24c08-w.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CAT24C32",
@@ -285,7 +302,8 @@
     "eol_date": "2023-06-30",
     "last_order_date": "2023-01-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BR24G256",
@@ -301,7 +319,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CC2541",
@@ -317,7 +336,8 @@
     "eol_date": "2024-09-30",
     "last_order_date": "2024-03-31",
     "status": "Obsolete",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2541.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2541.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-NRF51822",
@@ -333,7 +353,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
-    "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.4.pdf"
+    "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.4.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-DA14580",
@@ -349,7 +370,8 @@
     "eol_date": "2025-03-31",
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RTL8710BN",
@@ -365,7 +387,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MT7688AN",
@@ -381,7 +404,8 @@
     "eol_date": "2025-03-31",
     "last_order_date": "2024-12-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-QCA9377",
@@ -397,7 +421,8 @@
     "eol_date": "2025-12-31",
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SX1276",
@@ -413,7 +438,8 @@
     "eol_date": "2026-06-30",
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
-    "datasheet": "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HT76/7Nka9W5WgugoZe.xwIHJy6ebj1hW8B.YJO6Z.pZynUo"
+    "datasheet": "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HT76/7Nka9W5WgugoZe.xwIHJy6ebj1hW8B.YJO6Z.pZynUo",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RFM95W",
@@ -429,7 +455,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BCM2837B0",
@@ -445,7 +472,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://datasheets.raspberrypi.com/bcm2837b0/bcm2837b0-peripherals.pdf"
+    "datasheet": "https://datasheets.raspberrypi.com/bcm2837b0/bcm2837b0-peripherals.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-S5PV210",
@@ -461,7 +489,8 @@
     "eol_date": "2020-12-31",
     "last_order_date": "2020-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-W25Q128JV",
@@ -477,7 +506,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf"
+    "datasheet": "https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MX25L12835F",
@@ -493,7 +523,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SST25VF016B",
@@ -509,7 +540,8 @@
     "eol_date": "2022-12-31",
     "last_order_date": "2022-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-EP4CE6E22C8N",
@@ -525,7 +557,8 @@
     "eol_date": "2026-12-31",
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-XC6SLX9",
@@ -541,7 +574,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-XC3S500E",
@@ -557,7 +591,8 @@
     "eol_date": "2023-12-31",
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ICE40HX8K",
@@ -573,7 +608,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MAX10M08SAE144",
@@ -589,7 +625,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SIM900",
@@ -605,7 +642,8 @@
     "eol_date": "2022-12-31",
     "last_order_date": "2022-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SIM800L",
@@ -621,7 +659,8 @@
     "eol_date": "2024-06-30",
     "last_order_date": "2024-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SIM7600E",
@@ -637,7 +676,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-EC21-V",
@@ -653,7 +693,8 @@
     "eol_date": "2025-12-31",
     "last_order_date": "2025-06-30",
     "status": "Last Buy",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BG96",
@@ -669,7 +710,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SARA-R410M-02B",
@@ -685,7 +727,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-HL7800",
@@ -701,7 +744,8 @@
     "eol_date": "2026-03-31",
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CC2530",
@@ -717,7 +761,8 @@
     "eol_date": "2024-12-31",
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2530.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2530.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CC2538",
@@ -733,7 +778,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2538.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2538.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-EM357",
@@ -749,7 +795,8 @@
     "eol_date": "2024-06-30",
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MGM210P",
@@ -765,7 +812,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-PN532",
@@ -781,7 +829,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.nxp.com/docs/en/user-guide/141520.pdf"
+    "datasheet": "https://www.nxp.com/docs/en/user-guide/141520.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-PN7150",
@@ -797,7 +846,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MFRC522",
@@ -813,7 +863,8 @@
     "eol_date": "2024-03-31",
     "last_order_date": "2023-09-30",
     "status": "Last Buy",
-    "datasheet": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf"
+    "datasheet": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-NEO-6M",
@@ -829,7 +880,8 @@
     "eol_date": "2023-12-31",
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-NEO-M8N",
@@ -845,7 +897,8 @@
     "eol_date": "2026-12-31",
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-L76-L",
@@ -861,7 +914,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-TPS65217C",
@@ -877,7 +931,8 @@
     "eol_date": "2025-12-31",
     "last_order_date": "2025-06-30",
     "status": "Last Buy",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/tps65217c.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/tps65217c.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-AXP209",
@@ -893,7 +948,8 @@
     "eol_date": "2024-06-30",
     "last_order_date": "2024-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-IP5306",
@@ -909,7 +965,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MCP73831",
@@ -925,7 +982,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BQ24195",
@@ -941,7 +999,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/bq24195.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/bq24195.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ENC28J60",
@@ -957,7 +1016,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-W5500",
@@ -973,7 +1033,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-LAN8720A",
@@ -989,7 +1050,8 @@
     "eol_date": "2025-03-31",
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/8720a.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/8720a.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-KSZ8851SNL",
@@ -1005,7 +1067,8 @@
     "eol_date": "2024-09-30",
     "last_order_date": "2024-03-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CP2102",
@@ -1021,7 +1084,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.silabs.com/documents/public/data-sheets/CP2102-9.pdf"
+    "datasheet": "https://www.silabs.com/documents/public/data-sheets/CP2102-9.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-FT232RL",
@@ -1037,7 +1101,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ftdichip.com/wp-content/uploads/2020/08/DS_FT232R.pdf"
+    "datasheet": "https://ftdichip.com/wp-content/uploads/2020/08/DS_FT232R.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CH340G",
@@ -1053,7 +1118,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-TUSB3410",
@@ -1069,7 +1135,8 @@
     "eol_date": "2023-03-31",
     "last_order_date": "2022-09-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BCM2835",
@@ -1085,7 +1152,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf"
+    "datasheet": "https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BCM2836",
@@ -1101,7 +1169,8 @@
     "eol_date": "2026-01-31",
     "last_order_date": "2025-07-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MCIMX6Q6AVT10AD",
@@ -1117,7 +1186,8 @@
     "eol_date": "2027-12-31",
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-AM3358BZCZ100",
@@ -1133,7 +1203,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/am3358.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/am3358.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MT7620A",
@@ -1149,7 +1220,8 @@
     "eol_date": "2024-03-31",
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-AR9331",
@@ -1165,7 +1237,8 @@
     "eol_date": "2023-06-30",
     "last_order_date": "2022-12-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-IPQ4018",
@@ -1181,7 +1254,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RTL8197F",
@@ -1197,7 +1271,8 @@
     "eol_date": "2024-12-31",
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-LPC1768",
@@ -1213,7 +1288,8 @@
     "eol_date": "2025-09-30",
     "last_order_date": "2025-03-31",
     "status": "Last Buy",
-    "datasheet": "https://www.nxp.com/docs/en/data-sheet/LPC1769_68_67_66_65_64_63.pdf"
+    "datasheet": "https://www.nxp.com/docs/en/data-sheet/LPC1769_68_67_66_65_64_63.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-LPC2148",
@@ -1229,7 +1305,8 @@
     "eol_date": "2024-03-31",
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CC3200",
@@ -1245,7 +1322,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/cc3200.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/cc3200.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ATSAMD21G18A",
@@ -1261,7 +1339,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ATMEGA2560",
@@ -1277,7 +1356,8 @@
     "eol_date": "2027-12-31",
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-PIC32MX795F512L",
@@ -1293,7 +1373,8 @@
     "eol_date": "2025-03-31",
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-STM8S003F3P6",
@@ -1309,7 +1390,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.st.com/resource/en/datasheet/stm8s003f3.pdf"
+    "datasheet": "https://www.st.com/resource/en/datasheet/stm8s003f3.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-EFM32GG990F1024",
@@ -1325,7 +1407,8 @@
     "eol_date": "2026-06-30",
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RL78G14",
@@ -1341,7 +1424,8 @@
     "eol_date": "2027-03-31",
     "last_order_date": "2026-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MT41K256M16TW-107",
@@ -1357,7 +1441,8 @@
     "eol_date": "2025-09-30",
     "last_order_date": "2025-03-31",
     "status": "Last Buy",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-K4B4G1646E-BYMA",
@@ -1373,7 +1458,8 @@
     "eol_date": "2025-12-31",
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-H5TQ4G63AFR",
@@ -1389,7 +1475,8 @@
     "eol_date": "2026-03-31",
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-W9751G6KB-25",
@@ -1405,7 +1492,8 @@
     "eol_date": "2023-06-30",
     "last_order_date": "2022-12-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-VS1053B",
@@ -1421,7 +1509,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.vlsi.fi/fileadmin/datasheets/vs1053.pdf"
+    "datasheet": "https://www.vlsi.fi/fileadmin/datasheets/vs1053.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-WM8960",
@@ -1437,7 +1526,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-PCM5102A",
@@ -1453,7 +1543,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/pcm5102a.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/pcm5102a.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ILI9341",
@@ -1469,7 +1560,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SSD1306",
@@ -1485,7 +1577,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ST7789",
@@ -1501,7 +1594,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-RA8875",
@@ -1517,7 +1611,8 @@
     "eol_date": "2025-06-30",
     "last_order_date": "2025-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MPU6050",
@@ -1533,7 +1628,8 @@
     "eol_date": "2024-12-31",
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf"
+    "datasheet": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BME280",
@@ -1549,7 +1645,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf"
+    "datasheet": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-DS18B20",
@@ -1565,7 +1662,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"
+    "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-DHT22",
@@ -1581,7 +1679,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-BMP180",
@@ -1597,7 +1696,8 @@
     "eol_date": "2023-12-31",
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ICM-20689",
@@ -1613,7 +1713,8 @@
     "eol_date": "2026-06-30",
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ESP32-D0WDQ6",
@@ -1629,7 +1730,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf"
+    "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf",
+    "fcc_id": "2AFIW-ESP32WROVER"
   },
   {
     "id": "EOL-ESP32-S2",
@@ -1645,7 +1747,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf"
+    "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-WINC1500",
@@ -1661,7 +1764,8 @@
     "eol_date": "2026-03-31",
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CC2640R2F",
@@ -1677,7 +1781,8 @@
     "eol_date": "2027-12-31",
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2640r2f.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/cc2640r2f.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CSR8645",
@@ -1693,7 +1798,8 @@
     "eol_date": "2024-06-30",
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-CYW43438",
@@ -1709,7 +1815,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-ATECC608A",
@@ -1725,7 +1832,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-MAHDA-Register-Summary.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-MAHDA-Register-Summary.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-TPM2.0-SLB9665",
@@ -1741,7 +1849,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SE050",
@@ -1757,7 +1866,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MCP2515",
@@ -1773,7 +1883,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf"
+    "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-SN65HVD230",
@@ -1789,7 +1900,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf"
+    "datasheet": "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-MAX485",
@@ -1805,7 +1917,8 @@
     "eol_date": "",
     "last_order_date": "",
     "status": "Active",
-    "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487-MAX491.pdf"
+    "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487-MAX491.pdf",
+    "fcc_id": ""
   },
   {
     "id": "EOL-W5100S",
@@ -1821,6 +1934,7 @@
     "eol_date": "2026-06-30",
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
-    "datasheet": ""
+    "datasheet": "",
+    "fcc_id": ""
   }
 ]
