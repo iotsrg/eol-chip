@@ -1,5 +1,5 @@
 import { initNav, tag, severityTag } from './common.js'
-import Fuse from 'fuse.js'
+import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'
 
 initNav()
 
