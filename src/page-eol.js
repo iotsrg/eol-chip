@@ -2,20 +2,9 @@ import { initNav, tag, statusTag } from './common.js'
 
 initNav('eol')
 
-Promise.all([
-  fetch('./data/eol_chips.json').then(r => r.json()),
-  fetch('./data/fcc_devices.json').then(r => r.json()).catch(() => []),
-])
-  .then(([chips, fccDevices]) => {
-    // Build a lookup: lowercase words from title/grantee -> fcc_id
-    const fccMap = {}
-    fccDevices.forEach(f => {
-      const key = (f.title || '').toLowerCase()
-      fccMap[key] = f.fcc_id
-      // also index by grantee+partial title for broader matching
-      const words = key.split(/\s+/).filter(w => w.length > 4)
-      words.forEach(w => { if (!fccMap[w]) fccMap[w] = f.fcc_id })
-    })
+fetch('./data/eol_chips.json')
+  .then(r => r.json())
+  .then(chips => {
     document.getElementById('eol-count').textContent = chips.length.toLocaleString()
 
     const cats = [...new Set(chips.map(c => c.category).filter(Boolean))].sort()
@@ -30,21 +19,6 @@ Promise.all([
       }).join('')
 
     const tbody = document.getElementById('eol-body')
-
-    function fccLink(chip) {
-      // prefer explicit fcc_id on chip, fall back to fuzzy match
-      const id = chip.fcc_id || (() => {
-        const titleWords = (chip.title || '').toLowerCase().split(/\s+/)
-        for (const w of titleWords) {
-          if (fccMap[w]) return fccMap[w]
-        }
-        const pn = (chip.part_number || '').toLowerCase()
-        return fccMap[pn] || null
-      })()
-      if (!id) return '<span style="color:var(--text3)">—</span>'
-      return `<a href="https://fccid.io/${id.replace('-','/')}" target="_blank" rel="noopener"
-        style="font-size:11px;font-family:monospace;color:var(--accent)">${id}</a>`
-    }
 
     function renderRows(cat = 'all') {
       const rows = cat === 'all' ? chips : chips.filter(c => c.category === cat)
@@ -62,7 +36,6 @@ Promise.all([
                style="font-size:11px;color:var(--text2)">&#128196; PDF</a>`
           : '<span style="color:var(--text3)">—</span>'
         }</td>
-        <td>${fccLink(chip)}</td>
       </tr>`).join('')
     }
 
