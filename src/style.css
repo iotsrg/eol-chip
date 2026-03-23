@@ -135,6 +135,30 @@ nav {
 .filter-pill.filter-eol    span { background: var(--tag-eol); }
 .filter-pill input:not(:checked) + span { opacity: 0.25; }
 
+/* ── Quick Links ──────────────────────────────────────── */
+.quick-links-wrap {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 16px;
+}
+.ql-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.ql-label {
+  font-size: 11px; font-weight: 700; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  white-space: nowrap; min-width: 110px;
+}
+.ql-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.ql-btn {
+  padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600;
+  text-decoration: none; transition: opacity 0.12s;
+}
+.ql-btn:hover { opacity: 0.8; text-decoration: none; }
+.ql-btn--fcc { background: var(--tag-fcc); color: #fff; }
+.ql-btn--ds  { background: var(--surface3); color: var(--text2); border: 1px solid var(--border2); }
+
 /* ── Search Results ───────────────────────────────────── */
 .results-container { margin-top: 8px; }
 .results-header {
