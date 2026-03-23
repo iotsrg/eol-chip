@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Unified database for hardware end-of-life, CVEs, exploits and FCC certifications">
+  <meta name="description" content="Unified database for hardware end-of-life, CVEs, exploits, CISA KEV and Metasploit modules">
   <title>EOL-CHIP | Hardware End-of-Life Tracker</title>
-  <link rel="stylesheet" href="./src/style.css?v=2">
+  <link rel="stylesheet" href="./src/style.css?v=3">
 </head>
 <body>
   <nav id="nav"></nav>
@@ -13,14 +13,14 @@
   <main class="main-content">
     <div class="hero">
       <h1>EOL-CHIP</h1>
-      <p class="tagline">Unified database for hardware end-of-life, CVEs &amp; exploits</p>
+      <p class="tagline">Unified database for hardware end-of-life, CVEs, exploits &amp; active threats</p>
     </div>
 
     <div class="search-wrapper">
       <div class="search-input-wrap">
         <span class="search-icon">&#128269;</span>
         <input type="text" id="search-input" class="search-input"
-          placeholder="Search CVEs, exploits, EOL chips…" autocomplete="off">
+          placeholder="Search CVEs, exploits, EOL chips, FCC IDs, part numbers…" autocomplete="off">
       </div>
       <div class="search-filters">
         <label class="filter-pill filter-cve">
@@ -29,7 +29,13 @@
         <label class="filter-pill filter-exploit">
           <input type="checkbox" data-type="exploit" checked><span>Exploit</span>
         </label>
-<label class="filter-pill filter-eol">
+        <label class="filter-pill filter-cisa">
+          <input type="checkbox" data-type="cisa" checked><span>CISA KEV</span>
+        </label>
+        <label class="filter-pill filter-metasploit">
+          <input type="checkbox" data-type="metasploit" checked><span>Metasploit</span>
+        </label>
+        <label class="filter-pill filter-eol">
           <input type="checkbox" data-type="eol" checked><span>EOL</span>
         </label>
       </div>
@@ -48,7 +54,19 @@
         <span class="stat-label">Exploits</span>
         <span class="stat-sub">from Exploit-DB</span>
       </a>
-<a href="eol.html" class="stat-card stat-card--eol">
+      <a href="#" class="stat-card stat-card--cisa">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-cisa">—</span>
+        <span class="stat-label">CISA KEV</span>
+        <span class="stat-sub">actively exploited</span>
+      </a>
+      <a href="#" class="stat-card stat-card--metasploit">
+        <div class="stat-type-dot"></div>
+        <span class="stat-num" id="stat-metasploit">—</span>
+        <span class="stat-label">Metasploit</span>
+        <span class="stat-sub">hardware modules</span>
+      </a>
+      <a href="eol.html" class="stat-card stat-card--eol">
         <div class="stat-type-dot"></div>
         <span class="stat-num" id="stat-eol">—</span>
         <span class="stat-label">EOL Chips</span>
@@ -65,9 +83,10 @@
     EOL-CHIP &mdash; Data from
     <a href="https://nvd.nist.gov/">NVD</a>,
     <a href="https://www.exploit-db.com/">Exploit-DB</a>,
-    <a href="https://www.fcc.gov/">FCC</a>.
+    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a>,
+    <a href="https://github.com/rapid7/metasploit-framework">Metasploit</a>.
     Updated weekly.
   </footer>
-  <script type="module" src="./src/main.js?v=2"></script>
+  <script type="module" src="./src/main.js?v=3"></script>
 </body>
 </html>

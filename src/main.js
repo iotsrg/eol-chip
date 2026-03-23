@@ -13,11 +13,13 @@ let fuse = null
 fetch('./data/search_index.json')
   .then(r => r.json())
   .then(data => {
-    const counts = { cve: 0, exploit: 0, eol: 0 }
+    const counts = { cve: 0, exploit: 0, cisa: 0, metasploit: 0, eol: 0 }
     data.forEach(item => { if (counts[item.type] !== undefined) counts[item.type]++ })
-    document.getElementById('stat-cve').textContent     = counts.cve.toLocaleString()
-    document.getElementById('stat-exploit').textContent = counts.exploit.toLocaleString()
-    document.getElementById('stat-eol').textContent     = counts.eol.toLocaleString()
+    document.getElementById('stat-cve').textContent        = counts.cve.toLocaleString()
+    document.getElementById('stat-exploit').textContent    = counts.exploit.toLocaleString()
+    document.getElementById('stat-cisa').textContent       = counts.cisa.toLocaleString()
+    document.getElementById('stat-metasploit').textContent = counts.metasploit.toLocaleString()
+    document.getElementById('stat-eol').textContent        = counts.eol.toLocaleString()
 
     fuse = new Fuse(data, {
       keys: [

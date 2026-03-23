@@ -6,7 +6,7 @@ import os
 
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
-FILES = ["cves.json", "exploits.json", "fcc_devices.json", "eol_chips.json"]
+FILES = ["cves.json", "exploits.json", "cisa_kev.json", "metasploit.json", "eol_chips.json"]
 
 
 def main():
