@@ -13,14 +13,18 @@ OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "metasploit.jso
 
 # Directories with hardware/IoT/industrial modules
 TARGET_DIRS = [
-    "modules/auxiliary/scanner/bluetooth",
-    "modules/auxiliary/scanner/automotive",
-    "modules/auxiliary/scanner/ics",
-    "modules/auxiliary/scanner/rfid",
-    "modules/auxiliary/scanner/zigbee",
-    "modules/auxiliary/hardware",
-    "modules/exploits/hardware",
-    "modules/auxiliary/sniffer",
+    "modules/auxiliary/scanner/scada",     # ICS / SCADA
+    "modules/auxiliary/scanner/vxworks",   # VxWorks embedded OS
+    "modules/auxiliary/scanner/printer",   # Embedded printers
+    "modules/auxiliary/scanner/mqtt",      # IoT protocol
+    "modules/auxiliary/scanner/ubiquiti",  # IoT networking gear
+    "modules/auxiliary/scanner/dect",      # DECT wireless
+    "modules/auxiliary/scanner/sonicwall", # Network appliances
+    "modules/auxiliary/scanner/upnp",      # UPnP (IoT discovery)
+    "modules/auxiliary/scanner/snmp",      # SNMP (network devices)
+    "modules/auxiliary/scanner/gprs",      # Cellular/GPRS
+    "modules/auxiliary/scanner/telephony", # VoIP / telecom
+    "modules/auxiliary/sniffer",           # Protocol sniffers
 ]
 
 # Path keywords to catch additional hardware modules in other dirs
