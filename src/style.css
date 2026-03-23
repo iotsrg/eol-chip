@@ -11,10 +11,12 @@
   --text3:     #4d7aa0;
   --accent:    #4d9fff;
   --accent-dim: rgba(77,159,255,0.12);
-  --tag-cve:     #ef4444;
-  --tag-exploit: #f97316;
-  --tag-fcc:     #3b82f6;
-  --tag-eol:     #a855f7;
+  --tag-cve:        #ef4444;
+  --tag-exploit:    #f97316;
+  --tag-fcc:        #3b82f6;
+  --tag-eol:        #a855f7;
+  --tag-cisa:       #dc2626;
+  --tag-metasploit: #0ea5e9;
   --sev-critical: #ef4444;
   --sev-high:     #f97316;
   --sev-medium:   #eab308;
@@ -80,7 +82,7 @@ nav {
 
 /* ── Stats Grid ───────────────────────────────────────── */
 .stats-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 10px; margin-bottom: 20px;
 }
 .stat-card {
@@ -93,21 +95,27 @@ nav {
 .stat-type-dot {
   width: 8px; height: 8px; border-radius: 50%; margin-bottom: 6px;
 }
-.stat-card--cve .stat-type-dot { background: var(--tag-cve); }
-.stat-card--exploit .stat-type-dot { background: var(--tag-exploit); }
-.stat-card--fcc .stat-type-dot { background: var(--tag-fcc); }
-.stat-card--eol .stat-type-dot { background: var(--tag-eol); }
-.stat-card--cve:hover { border-color: var(--tag-cve); }
-.stat-card--exploit:hover { border-color: var(--tag-exploit); }
-.stat-card--fcc:hover { border-color: var(--tag-fcc); }
-.stat-card--eol:hover { border-color: var(--tag-eol); }
+.stat-card--cve .stat-type-dot        { background: var(--tag-cve); }
+.stat-card--exploit .stat-type-dot    { background: var(--tag-exploit); }
+.stat-card--fcc .stat-type-dot        { background: var(--tag-fcc); }
+.stat-card--eol .stat-type-dot        { background: var(--tag-eol); }
+.stat-card--cisa .stat-type-dot       { background: var(--tag-cisa); }
+.stat-card--metasploit .stat-type-dot { background: var(--tag-metasploit); }
+.stat-card--cve:hover        { border-color: var(--tag-cve); }
+.stat-card--exploit:hover    { border-color: var(--tag-exploit); }
+.stat-card--fcc:hover        { border-color: var(--tag-fcc); }
+.stat-card--eol:hover        { border-color: var(--tag-eol); }
+.stat-card--cisa:hover       { border-color: var(--tag-cisa); }
+.stat-card--metasploit:hover { border-color: var(--tag-metasploit); }
 .stat-num { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.1; }
 .stat-label { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 2px; }
 .stat-sub { font-size: 11px; color: var(--text3); }
-.stat-card--cve .stat-num   { color: var(--tag-cve); }
-.stat-card--exploit .stat-num { color: var(--tag-exploit); }
-.stat-card--fcc .stat-num   { color: var(--tag-fcc); }
-.stat-card--eol .stat-num   { color: var(--tag-eol); }
+.stat-card--cve .stat-num        { color: var(--tag-cve); }
+.stat-card--exploit .stat-num    { color: var(--tag-exploit); }
+.stat-card--fcc .stat-num        { color: var(--tag-fcc); }
+.stat-card--eol .stat-num        { color: var(--tag-eol); }
+.stat-card--cisa .stat-num       { color: var(--tag-cisa); }
+.stat-card--metasploit .stat-num { color: var(--tag-metasploit); }
 
 /* ── Search ───────────────────────────────────────────── */
 .search-wrapper { max-width: 600px; margin: 0 auto 28px; }
@@ -129,10 +137,12 @@ nav {
   color: #fff; letter-spacing: 0.4px; transition: opacity 0.15s;
   border: 1.5px solid transparent;
 }
-.filter-pill.filter-cve    span { background: var(--tag-cve); }
-.filter-pill.filter-exploit span { background: var(--tag-exploit); }
-.filter-pill.filter-fcc    span { background: var(--tag-fcc); }
-.filter-pill.filter-eol    span { background: var(--tag-eol); }
+.filter-pill.filter-cve        span { background: var(--tag-cve); }
+.filter-pill.filter-exploit    span { background: var(--tag-exploit); }
+.filter-pill.filter-fcc        span { background: var(--tag-fcc); }
+.filter-pill.filter-eol        span { background: var(--tag-eol); }
+.filter-pill.filter-cisa       span { background: var(--tag-cisa); }
+.filter-pill.filter-metasploit span { background: var(--tag-metasploit); }
 .filter-pill input:not(:checked) + span { opacity: 0.25; }
 
 /* ── Quick Links ──────────────────────────────────────── */
@@ -197,10 +207,12 @@ tbody tr:hover td { background: var(--accent-dim) !important; }
   font-size: 10px; font-weight: 700; color: #fff;
   text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap;
 }
-.tag-cve     { background: var(--tag-cve); }
-.tag-exploit { background: var(--tag-exploit); }
-.tag-fcc     { background: var(--tag-fcc); }
-.tag-eol     { background: var(--tag-eol); }
+.tag-cve        { background: var(--tag-cve); }
+.tag-exploit    { background: var(--tag-exploit); }
+.tag-fcc        { background: var(--tag-fcc); }
+.tag-eol        { background: var(--tag-eol); }
+.tag-cisa       { background: var(--tag-cisa); }
+.tag-metasploit { background: var(--tag-metasploit); }
 .tag-sev-critical { background: var(--sev-critical); }
 .tag-sev-high     { background: var(--sev-high); }
 .tag-sev-medium   { background: var(--sev-medium); color: #111; }
@@ -261,7 +273,7 @@ code {
 
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 760px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .hero { padding: 28px 0 20px; }
   .hero h1 { font-size: 26px; }
   .main-content { padding: 20px 16px; }
