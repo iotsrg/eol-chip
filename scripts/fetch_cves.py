@@ -9,23 +9,47 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 NVD_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+
 KEYWORDS = [
+    # Bluetooth / Zigbee / Wireless
+    "bluetooth vulnerability",
+    "bluetooth firmware",
+    "BLE vulnerability",
+    "Zigbee vulnerability",
+    "Zigbee firmware",
+    "Z-Wave vulnerability",
+    # IoT / Embedded
+    "IoT vulnerability",
+    "IoT firmware",
+    "embedded device vulnerability",
+    "microcontroller vulnerability",
+    # Hardware / Firmware
+    "hardware vulnerability",
     "firmware vulnerability",
     "chipset vulnerability",
-    "microcontroller",
-    "embedded device",
     "BIOS vulnerability",
     "UEFI vulnerability",
-    "IoT vulnerability",
-    "hardware vulnerability",
+    # Automotive
+    "automotive vulnerability",
+    "CAN bus vulnerability",
+    "ECU vulnerability",
+    "vehicle firmware",
+    # Industrial
+    "industrial control system vulnerability",
+    "ICS vulnerability",
+    "SCADA vulnerability",
+    "PLC vulnerability",
+    "OT vulnerability",
 ]
+
+SEVERITY_ORDER = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3, "": 4}
+
 API_KEY = os.environ.get("NVD_API_KEY", "")
 SLEEP_TIME = 0.6 if API_KEY else 6.0
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "cves.json")
 
 
 def fetch_cves_for_keyword(keyword, pub_start, pub_end):
-    """Fetch CVEs matching a keyword within a date range."""
     results = []
     start_index = 0
 
@@ -63,7 +87,6 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
 
 
 def extract_cvss(metrics):
-    """Extract the best available CVSS score and severity."""
     for version_key in ["cvssMetricV31", "cvssMetricV30", "cvssMetricV2"]:
         metric_list = metrics.get(version_key, [])
         if metric_list:
@@ -77,7 +100,6 @@ def extract_cvss(metrics):
 
 
 def extract_cwe(weaknesses):
-    """Extract the primary CWE ID."""
     for w in weaknesses:
         for desc in w.get("description", []):
             val = desc.get("value", "")
@@ -87,7 +109,6 @@ def extract_cwe(weaknesses):
 
 
 def normalize_cve(vuln_wrapper):
-    """Normalize a CVE record into our schema."""
     cve = vuln_wrapper["cve"]
     cve_id = cve.get("id", "")
 
@@ -104,7 +125,6 @@ def normalize_cve(vuln_wrapper):
 
     metrics = cve.get("metrics", {})
     cvss_score, severity = extract_cvss(metrics)
-
     cwe = extract_cwe(cve.get("weaknesses", []))
 
     published = cve.get("published", "")
@@ -135,11 +155,10 @@ def normalize_cve(vuln_wrapper):
 
 def main():
     end = datetime.now(timezone.utc)
-    start = end - timedelta(days=120)
+    start = end - timedelta(days=180)
     fmt = "%Y-%m-%dT%H:%M:%S.000"
 
     all_cves = {}
-    total_fetched = 0
 
     for kw in KEYWORDS:
         print(f"  Fetching CVEs for keyword: {kw}")
@@ -148,15 +167,32 @@ def main():
             cve_id = v["cve"]["id"]
             if cve_id not in all_cves:
                 all_cves[cve_id] = normalize_cve(v)
-        total_fetched += len(raw)
         print(f"    Got {len(raw)} results ({len(all_cves)} unique so far)")
         time.sleep(SLEEP_TIME)
 
+    # Sort: Critical → High → Medium → Low → unknown, then newest first
+    sorted_cves = sorted(
+        all_cves.values(),
+        key=lambda c: (SEVERITY_ORDER.get(c["severity"], 4), c["date"]),
+        reverse=False,
+    )
+    # Reverse date within same severity group (newest first per severity)
+    sorted_cves = sorted(
+        sorted_cves,
+        key=lambda c: (SEVERITY_ORDER.get(c["severity"], 4), c["date"]),
+    )
+
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, "w") as f:
-        json.dump(list(all_cves.values()), f, indent=2)
+        json.dump(sorted_cves, f, indent=2)
 
-    print(f"Fetched {total_fetched} total, {len(all_cves)} unique CVEs -> {OUT_PATH}")
+    print(f"Saved {len(sorted_cves)} unique CVEs -> {OUT_PATH}")
+    sev_counts = {}
+    for c in sorted_cves:
+        sev_counts[c["severity"] or "UNKNOWN"] = sev_counts.get(c["severity"] or "UNKNOWN", 0) + 1
+    for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]:
+        if sev in sev_counts:
+            print(f"  {sev}: {sev_counts[sev]}")
 
 
 if __name__ == "__main__":
