@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CISA KEV | EOL-CHIP</title>
+  <link rel="stylesheet" href="./src/style.css?v=3">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main class="main-content">
+    <div class="page-header">
+      <h1>CISA Known Exploited Vulnerabilities <span class="count-pill" id="cisa-count">0</span></h1>
+      <p class="subtitle">Hardware and network device vulnerabilities actively exploited in the wild, from CISA KEV catalog.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>CVE ID</th>
+            <th>Vulnerability Name</th>
+            <th>Vendor</th>
+            <th>Product</th>
+            <th>Ransomware</th>
+            <th>Date Added</th>
+          </tr>
+        </thead>
+        <tbody id="cisa-body"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="site-footer">
+    EOL-CHIP &mdash; Data from
+    <a href="https://nvd.nist.gov/">NVD</a>,
+    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
+    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a>,
+    <a href="https://github.com/rapid7/metasploit-framework">Metasploit</a>.
+    Updated weekly.
+  </footer>
+  <script type="module" src="./src/page-cisa.js?v=3"></script>
+</body>
+</html>
