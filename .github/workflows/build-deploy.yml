@@ -54,6 +54,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_metasploit.py
 
+      - name: Fetch FCC data
+        run: python scripts/fetch_fcc.py
+
       - name: Process EOL chip data
         run: python scripts/process_eol.py
 
@@ -63,9 +66,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site/src _site/data
-          cp index.html cves.html exploits.html eol.html _site/
-          cp src/common.js src/main.js src/page-cves.js src/page-exploits.js src/page-eol.js src/style.css _site/src/
-          cp data/*.json _site/data/
+          cp *.html _site/
+          cp src/*.js src/*.css _site/src/
+          cp data/*.json _site/data/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
