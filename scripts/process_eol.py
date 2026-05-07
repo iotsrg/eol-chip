@@ -15,22 +15,23 @@ def main():
 
     chips = []
     for chip in data.get("chips", []):
+        pn = str(chip["part_number"])
         chips.append({
-            "id": f"EOL-{chip['part_number']}",
+            "id": f"EOL-{pn}",
             "type": "eol",
             "title": chip["name"],
             "description": chip.get("description", ""),
             "manufacturer": chip.get("manufacturer", ""),
-            "part_number": chip["part_number"],
+            "part_number": pn,
             "category": chip.get("category", ""),
             "source": "Manual",
-            "date": chip.get("eol_date", ""),
+            "date": str(chip.get("eol_date", "")),
             "url": chip.get("url", ""),
-            "eol_date": chip.get("eol_date", ""),
-            "last_order_date": chip.get("last_order_date", ""),
+            "eol_date": str(chip.get("eol_date", "")),
+            "last_order_date": str(chip.get("last_order_date", "")),
             "status": chip.get("status", ""),
             "datasheet": chip.get("datasheet", ""),
-            "fcc_id": chip.get("fcc_id", ""),
+            "fcc_id": str(chip.get("fcc_id", "")),
         })
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)

@@ -1,0 +1,1696 @@
+[
+  {
+    "id": "GHSA-5g6j-8hv4-vfgj",
+    "type": "osv",
+    "title": "Cross-Site Scripting in node-red",
+    "description": "Versions of `node-red` prior to 0.18.6 are vulnerable to Cross-Site Scripting (XSS). The package fails to sanitize the `name` field in new items, allowing attackers to execute arbitrary JavaScript in the victim's browser.\n\n\n## Recommendation\n\nUpgrade to version 0.18.6 or later.",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-09-11",
+    "url": "https://osv.dev/vulnerability/GHSA-5g6j-8hv4-vfgj",
+    "cves": [],
+    "packages": [
+      "node-red"
+    ],
+    "references": [
+      "https://hackerone.com/reports/349146",
+      "https://www.npmjs.com/advisories/993"
+    ]
+  },
+  {
+    "id": "GHSA-8w65-xjc5-9w79",
+    "type": "osv",
+    "title": "Cross-Site Scripting in node-red",
+    "description": "Versions of `node-red` prior to 0.20.8are vulnerable to Cross-Site Scripting (XSS). The package fails to sanitize the `name` field in new Flows, allowing attackers to execute arbitrary JavaScript in the victim's browser.\n\n\n## Recommendation\n\nUpgrade to version 0.18.6 or later.",
+    "severity": "HIGH",
+    "source": "OSV.dev",
+    "date": "2020-01-30",
+    "url": "https://osv.dev/vulnerability/GHSA-8w65-xjc5-9w79",
+    "cves": [
+      "CVE-2019-15607"
+    ],
+    "packages": [
+      "node-red"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-15607",
+      "https://hackerone.com/reports/681986",
+      "https://www.npmjs.com/advisories/1456"
+    ]
+  },
+  {
+    "id": "GHSA-3f38-96qm-r3fw",
+    "type": "osv",
+    "title": "esptool allows attackers to view sensitive information via weak cryptographic algorithm",
+    "description": "An issue discovered in esptool 4.6.2 allows attackers to view sensitive information via weak cryptographic algorithm.",
+    "severity": "HIGH",
+    "source": "OSV.dev",
+    "date": "2023-11-09",
+    "url": "https://osv.dev/vulnerability/GHSA-3f38-96qm-r3fw",
+    "cves": [
+      "CVE-2023-46894"
+    ],
+    "packages": [
+      "esptool"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-46894",
+      "https://github.com/espressif/esptool/issues/926",
+      "https://github.com/espressif/esptool",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/esptool/PYSEC-2023-234.yaml"
+    ]
+  },
+  {
+    "id": "PYSEC-2023-234",
+    "type": "osv",
+    "title": "An issue discovered in esptool 4.6.2 allows attackers to view sensitive information via weak cryptographic algorithm.",
+    "description": "An issue discovered in esptool 4.6.2 allows attackers to view sensitive information via weak cryptographic algorithm.",
+    "severity": "HIGH",
+    "source": "OSV.dev",
+    "date": "2023-11-09",
+    "url": "https://osv.dev/vulnerability/PYSEC-2023-234",
+    "cves": [
+      "CVE-2023-46894"
+    ],
+    "packages": [
+      "esptool"
+    ],
+    "references": [
+      "https://github.com/espressif/esptool/issues/926"
+    ]
+  },
+  {
+    "id": "GHSA-cq46-m9x9-j8w2",
+    "type": "osv",
+    "title": "Scapy Session Loading Vulnerable to Arbitrary Code Execution via Untrusted Pickle Deserialization",
+    "description": "### Summary\n\nAn unsafe deserialization vulnerability in Scapy <v2.7.0 allows attackers to execute arbitrary code **when a malicious session file is locally loaded via the `-s` option**. This requires convincing a user to manually load a malicious session file.\n\n---\n\n### Details\n\nScapy\u2019s interactive shell supports session loading using gzip-compressed pickle files:\n\n```bash\n./run_scapy -s <session_file.pkl.gz>\n```\n\nInternally, this triggers:\n\n```python\n# main.py\nSESSION = pickle.load(gzip.open(se",
+    "severity": "HIGH",
+    "source": "OSV.dev",
+    "date": "2025-10-22",
+    "url": "https://osv.dev/vulnerability/GHSA-cq46-m9x9-j8w2",
+    "cves": [],
+    "packages": [
+      "scapy"
+    ],
+    "references": [
+      "https://github.com/secdev/scapy/security/advisories/GHSA-cq46-m9x9-j8w2",
+      "https://github.com/secdev/scapy/commit/13621d1145b3435e9d03caf20997107a84435c0b",
+      "https://github.com/secdev/scapy"
+    ]
+  },
+  {
+    "id": "GHSA-mpf2-q34c-fc6j",
+    "type": "osv",
+    "title": "Infinite Loop in scapy",
+    "description": "scapy is affected by a Denial of Service vulnerability resulting in an infinite loop and resource consumption rendering the program unresponsive. The component is: `_RADIUSAttrPacketListField.getfield(self..)`. The attack vector is over the network or in a pcap. both work.",
+    "severity": "HIGH",
+    "source": "OSV.dev",
+    "date": "2019-07-22",
+    "url": "https://osv.dev/vulnerability/GHSA-mpf2-q34c-fc6j",
+    "cves": [
+      "CVE-2019-1010142"
+    ],
+    "packages": [
+      "scapy"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-1010142",
+      "https://github.com/secdev/scapy/pull/1409",
+      "https://github.com/secdev/scapy/pull/1409/files#diff-441eff981e466959968111fc6314fe93L1058",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/scapy/PYSEC-2019-120.yaml",
+      "https://github.com/secdev/scapy",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/42NRPMC3NS2QVFNIXYP6WV2T3LMLLY7E"
+    ]
+  },
+  {
+    "id": "PYSEC-2019-120",
+    "type": "osv",
+    "title": "scapy 2.4.0 is affected by: Denial of Service. The impact is: infinite loop, resource consumption and program unresponsi",
+    "description": "scapy 2.4.0 is affected by: Denial of Service. The impact is: infinite loop, resource consumption and program unresponsive. The component is: _RADIUSAttrPacketListField.getfield(self..). The attack vector is: over the network or in a pcap. both work.",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2019-07-19",
+    "url": "https://osv.dev/vulnerability/PYSEC-2019-120",
+    "cves": [
+      "CVE-2019-1010142"
+    ],
+    "packages": [
+      "scapy"
+    ],
+    "references": [
+      "https://github.com/secdev/scapy/pull/1409/files#diff-441eff981e466959968111fc6314fe93L1058",
+      "https://github.com/secdev/scapy/pull/1409",
+      "https://www.imperva.com/blog/scapy-sploit-python-network-tool-is-vulnerable-to-denial-of-service-dos-attack-cve-pending/",
+      "http://www.securityfocus.com/bid/106674",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/T46XW4S5BCA3VV3JT3C5Q6LBEXSIACLN/",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/42NRPMC3NS2QVFNIXYP6WV2T3LMLLY7E/"
+    ]
+  },
+  {
+    "id": "OSV-2017-119",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::CommissionerSessionIdTlv::GetCommissionerSessionId",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=3376\n\n```\nCrash type: Stack-buffer-overflow READ 2\nCrash state:\not::MeshCoP::CommissionerSessionIdTlv::GetCommissionerSessionId\not::NetworkData::Leader::HandleCommissioningSet\not::Coap::Coap::ProcessReceivedRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2017-119",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=3376"
+    ]
+  },
+  {
+    "id": "OSV-2018-55",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in ot::MeshForwarder::GetFramePriority",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=11376\n\n```\nCrash type: Heap-buffer-overflow READ 8\nCrash state:\not::MeshForwarder::GetFramePriority\not::MeshForwarder::HandleFragment\not::MeshForwarder::HandleReceivedFrame\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2018-55",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=11376"
+    ]
+  },
+  {
+    "id": "OSV-2020-1292",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::ExtendedTlv::GetLength",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20775\n\n```\nCrash type: Stack-buffer-overflow READ 2\nCrash state:\not::ExtendedTlv::GetLength\not::Tlv::GetSize\not::Tlv::GetNext\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-22",
+    "url": "https://osv.dev/vulnerability/OSV-2020-1292",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20775"
+    ]
+  },
+  {
+    "id": "OSV-2020-164",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::NetworkData::FindService",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21762\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::NetworkData::NetworkData::FindService\not::NetworkData::Leader::Validate\not::NetworkData::Leader::RegisterNetworkData\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-24",
+    "url": "https://osv.dev/vulnerability/OSV-2020-164",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21762"
+    ]
+  },
+  {
+    "id": "OSV-2020-1668",
+    "type": "osv",
+    "title": "Memcpy-param-overlap in ot::Message::Write",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25226\n\n```\nCrash type: Memcpy-param-overlap\nCrash state:\not::Message::Write\not::Message::CopyTo\not::Ip6::Ip6::InsertMplOption\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-08-27",
+    "url": "https://osv.dev/vulnerability/OSV-2020-1668",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25226"
+    ]
+  },
+  {
+    "id": "OSV-2020-2247",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::ChannelMaskEntryBase::GetEntrySize",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28315\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::MeshCoP::ChannelMaskEntryBase::GetEntrySize\not::MeshCoP::ChannelMaskEntryBase::GetNext\not::MeshCoP::ChannelMaskBaseTlv::IsValid\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-12-06",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2247",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28315"
+    ]
+  },
+  {
+    "id": "OSV-2020-2259",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::ChannelMaskEntry::GetMask",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28556\n\n```\nCrash type: Stack-buffer-overflow READ 4\nCrash state:\not::MeshCoP::ChannelMaskEntry::GetMask\not::MeshCoP::ChannelMaskTlv::GetChannelMask\not::MeshCoP::Dataset::ConvertTo\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-12-13",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2259",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28556"
+    ]
+  },
+  {
+    "id": "OSV-2020-2264",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::IsValidUtf8String",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28682\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::IsValidUtf8String\not::MeshCoP::NetworkNameTlv::IsValid\not::MeshCoP::Tlv::IsValid\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-12-16",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2264",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=28682"
+    ]
+  },
+  {
+    "id": "OSV-2020-258",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Message::Write",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=19338\n\n```\nCrash type: Stack-buffer-overflow READ 11\nCrash state:\not::Message::Write\not::Message::Append\not::Mle::Mle::AppendResponse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-30",
+    "url": "https://osv.dev/vulnerability/OSV-2020-258",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=19338"
+    ]
+  },
+  {
+    "id": "OSV-2020-289",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Message::Write",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17147\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Message::Write\not::Message::Append\not::Mle::Mle::AppendNetworkData\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-30",
+    "url": "https://osv.dev/vulnerability/OSV-2020-289",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17147"
+    ]
+  },
+  {
+    "id": "OSV-2020-305",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::Leader::SendCommissioningGetResponse",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17297\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::NetworkData::Leader::SendCommissioningGetResponse\not::NetworkData::Leader::HandleCommissioningGet\not::Coap::CoapBase::ProcessReceivedRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-30",
+    "url": "https://osv.dev/vulnerability/OSV-2020-305",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17297"
+    ]
+  },
+  {
+    "id": "OSV-2020-336",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::PrefixTlv::Init",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12589\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::NetworkData::PrefixTlv::Init\not::NetworkData::Local::AddOnMeshPrefix\notError ot::Ncp::NcpBase::HandlePropertyInsert<\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-336",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12589"
+    ]
+  },
+  {
+    "id": "OSV-2020-343",
+    "type": "osv",
+    "title": "Stack-use-after-return in ot::MeshCoP::ChannelMaskEntryBase::GetChannelPage",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13741\n\n```\nCrash type: Stack-use-after-return READ 1\nCrash state:\not::MeshCoP::ChannelMaskEntryBase::GetChannelPage\not::MeshCoP::ChannelMaskTlv::GetChannelMask\not::MeshCoP::ChannelMaskTlv::GetChannelMask\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-343",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13741"
+    ]
+  },
+  {
+    "id": "OSV-2020-353",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::Commissioner::GeneratePskc",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=19386\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\not::MeshCoP::Commissioner::GeneratePskc\not::Ncp::NcpBase::HandlePropertySet_SPINEL_PROP_MESHCOP_COMMISSIONER_GENERATE_PS\not::Ncp::NcpBase::HandlePropertySetForSpecialProperties\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-353",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=19386"
+    ]
+  },
+  {
+    "id": "OSV-2020-354",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Ip6::NetifUnicastAddress::GetNext",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13409\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Ip6::NetifUnicastAddress::GetNext\not::Ip6::Netif::RemoveUnicastAddress\not::Mle::Mle::SetStateDetached\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-354",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13409"
+    ]
+  },
+  {
+    "id": "OSV-2020-369",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::TimerScheduler::Remove",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13383\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::TimerScheduler::Remove\not::Mle::Mle::Stop\notThreadSetEnabled\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-369",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13383"
+    ]
+  },
+  {
+    "id": "OSV-2020-380",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::ChannelMaskEntry::GetMask",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13619\n\n```\nCrash type: Stack-buffer-overflow READ 4\nCrash state:\not::MeshCoP::ChannelMaskEntry::GetMask\not::MeshCoP::ChannelMaskTlv::GetChannelMask\not::MeshCoP::ChannelMaskTlv::GetChannelMask\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-380",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13619"
+    ]
+  },
+  {
+    "id": "OSV-2020-383",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::Leader::IsStableUpdated",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15971\n\n```\nCrash type: Stack-buffer-overflow READ 8\nCrash state:\not::NetworkData::Leader::IsStableUpdated\not::NetworkData::Leader::RegisterNetworkData\not::NetworkData::Leader::HandleServerData\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-383",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15971"
+    ]
+  },
+  {
+    "id": "OSV-2020-396",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::TaskletScheduler::PopTasklet",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13370\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::TaskletScheduler::PopTasklet\not::TaskletScheduler::ProcessQueuedTasklets\nradio_receive_done.cpp\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-396",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13370"
+    ]
+  },
+  {
+    "id": "OSV-2020-413",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::NetworkDataTlv::GetNext",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14401\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::NetworkData::NetworkDataTlv::GetNext\not::NetworkData::Leader::IsStableUpdated\not::NetworkData::Leader::RegisterNetworkData\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-413",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14401"
+    ]
+  },
+  {
+    "id": "OSV-2020-467",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::MessageQueue::GetTail",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13345\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::MessageQueue::GetTail\not::Message::GetNext\not::MeshForwarder::GetDirectTransmission\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-467",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13345"
+    ]
+  },
+  {
+    "id": "OSV-2020-468",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Ip6::Address::FromString",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14821\n\n```\nCrash type: Stack-buffer-overflow WRITE 1\nCrash state:\not::Ip6::Address::FromString\not::Cli::Coap::ProcessRequest\not::Cli::Interpreter::ProcessCoap\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-468",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14821"
+    ]
+  },
+  {
+    "id": "OSV-2020-471",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Cli::Interpreter::ProcessService",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12642\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\not::Cli::Interpreter::ProcessService\not::Cli::Interpreter::ProcessLine\not::Cli::Uart::ProcessCommand\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-471",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12642"
+    ]
+  },
+  {
+    "id": "OSV-2020-489",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Dhcp6::Dhcp6Client::ProcessNextIdentityAssociation",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13348\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Dhcp6::Dhcp6Client::ProcessNextIdentityAssociation\not::Dhcp6::Dhcp6Client::Start\not::Dhcp6::Dhcp6Client::UpdateAddresses\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-489",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13348"
+    ]
+  },
+  {
+    "id": "OSV-2020-496",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Mle::Mle::HandleParentResponse",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15382\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Mle::Mle::HandleParentResponse\not::Mle::Mle::HandleUdpReceive\not::Ip6::Udp::HandleMessage\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-496",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15382"
+    ]
+  },
+  {
+    "id": "OSV-2020-510",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Timer::GetFireTime",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13390\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Timer::GetFireTime\not::Timer::DoesFireBefore\not::TimerScheduler::Add\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-510",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13390"
+    ]
+  },
+  {
+    "id": "OSV-2020-528",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Message::Read",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17330\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\not::Message::Read\not::NetworkData::Leader::HandleCommissioningGet\not::Coap::CoapBase::ProcessReceivedRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-528",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17330"
+    ]
+  },
+  {
+    "id": "OSV-2020-531",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::DatasetManager::HandleSet",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15374\n\n```\nCrash type: Stack-buffer-overflow READ 15\nCrash state:\not::MeshCoP::DatasetManager::HandleSet\not::MeshCoP::ActiveDataset::HandleSet\not::Coap::CoapBase::ProcessReceivedRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-531",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15374"
+    ]
+  },
+  {
+    "id": "OSV-2020-57",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::PrefixTlv::GetPrefixLength",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=23267\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::NetworkData::PrefixTlv::GetPrefixLength\not::NetworkData::NetworkData::FindPrefix\not::NetworkData::Leader::Validate\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-24",
+    "url": "https://osv.dev/vulnerability/OSV-2020-57",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=23267"
+    ]
+  },
+  {
+    "id": "OSV-2020-596",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::PriorityQueue::GetHead",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13388\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::PriorityQueue::GetHead\not::Ip6::Ip6::HandleSendQueue\not::TaskletScheduler::ProcessQueuedTasklets\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-596",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13388"
+    ]
+  },
+  {
+    "id": "OSV-2020-597",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::MessageQueue::GetHead",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13386\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::MessageQueue::GetHead\not::Coap::CoapBase::ClearRequestsAndResponses\not::Coap::CoapSecure::Stop\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-597",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13386"
+    ]
+  },
+  {
+    "id": "OSV-2020-598",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Message::GetPriority",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13380\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Message::GetPriority\not::PriorityQueue::RemoveFromList\not::PriorityQueue::Dequeue\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-598",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13380"
+    ]
+  },
+  {
+    "id": "OSV-2020-608",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Ip6::Address::PrefixMatch",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13349\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Ip6::Address::PrefixMatch\not::Dhcp6::Dhcp6Server::RemovePrefixAgent\not::Dhcp6::Dhcp6Server::UpdateService\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-608",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13349"
+    ]
+  },
+  {
+    "id": "OSV-2020-619",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Ip6::Netif::UnsubscribeAllRoutersMulticast",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13353\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Ip6::Netif::UnsubscribeAllRoutersMulticast\not::Mle::MleRouter::HandleDetachStart\not::Mle::Mle::SetStateDetached\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-619",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13353"
+    ]
+  },
+  {
+    "id": "OSV-2020-626",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Buffer::GetNextBuffer",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13412\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Buffer::GetNextBuffer\not::MessagePool::FreeBuffers\not::Coap::ResponsesQueue::DequeueAllResponses\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-626",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13412"
+    ]
+  },
+  {
+    "id": "OSV-2020-639",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Dhcp6::Dhcp6Client::UpdateAddresses",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13332\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Dhcp6::Dhcp6Client::UpdateAddresses\not::Mle::Mle::HandleStateChanged\not::Notifier::HandleStateChanged\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-639",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13332"
+    ]
+  },
+  {
+    "id": "OSV-2020-640",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Message::Write",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15447\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Message::Write\not::Message::Append\not::AddressResolver::SendAddressQueryResponse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-640",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15447"
+    ]
+  },
+  {
+    "id": "OSV-2020-643",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Ip6::UdpSocket::GetNext",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13405\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Ip6::UdpSocket::GetNext\not::Ip6::Udp::AddSocket\not::Ip6::UdpSocket::Open\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-643",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13405"
+    ]
+  },
+  {
+    "id": "OSV-2020-670",
+    "type": "osv",
+    "title": "Memcpy-param-overlap in ot::Cli::CoapSecure::Process",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12679\n\n```\nCrash type: Memcpy-param-overlap\nCrash state:\not::Cli::CoapSecure::Process\not::Cli::Interpreter::ProcessCoapSecure\not::Cli::Interpreter::ProcessLine\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-670",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12679"
+    ]
+  },
+  {
+    "id": "OSV-2020-672",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::NetworkData::PrefixMatch",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13333\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::NetworkData::NetworkData::PrefixMatch\not::NetworkData::LeaderBase::GetContext\not::Mle::MleRouter::GetNeighbor\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-672",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13333"
+    ]
+  },
+  {
+    "id": "OSV-2020-690",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Coap::CoapBase::RemoveResource",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13369\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Coap::CoapBase::RemoveResource\not::MeshCoP::BorderAgent::Stop\not::Mle::Mle::SetStateDetached\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-690",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13369"
+    ]
+  },
+  {
+    "id": "OSV-2020-700",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Message::Write",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15380\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Message::Write\not::Message::Append\not::Mle::Mle::AppendResponse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-700",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15380"
+    ]
+  },
+  {
+    "id": "OSV-2020-721",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::NetworkData::GetNextOnMeshPrefix",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13334\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\not::NetworkData::NetworkData::GetNextOnMeshPrefix\not::Dhcp6::Dhcp6Client::UpdateAddresses\not::Mle::Mle::HandleStateChanged\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-721",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13334"
+    ]
+  },
+  {
+    "id": "OSV-2020-728",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Ip6::OptionPadN::Init",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14854\n\n```\nCrash type: Stack-buffer-overflow WRITE 9\nCrash state:\not::Ip6::OptionPadN::Init\not::Ip6::Ip6::RemoveMplOption\not::Ip6::Ip6::ProcessReceiveCallback\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-728",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=14854"
+    ]
+  },
+  {
+    "id": "OSV-2020-729",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::Leader::HandlePetition",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13335\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::MeshCoP::Leader::HandlePetition\not::Coap::CoapBase::ProcessReceivedRequest\not::Ip6::Udp::HandleMessage\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-729",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13335"
+    ]
+  },
+  {
+    "id": "OSV-2020-732",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::MeshCoP::Leader::HandlePetition",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13537\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::MeshCoP::Leader::HandlePetition\not::Coap::CoapBase::ProcessReceivedRequest\not::Ip6::Udp::HandleMessage\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-732",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13537"
+    ]
+  },
+  {
+    "id": "OSV-2021-1099",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::StringFind",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=36830\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::StringFind\not::Coap::Message::AppendUriPathOptions\notCoapMessageAppendUriPathOptions\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-08-05",
+    "url": "https://osv.dev/vulnerability/OSV-2021-1099",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=36830"
+    ]
+  },
+  {
+    "id": "OSV-2021-152",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::NetworkData::ServerTlv::GetServer16",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=5878\n\n```\nCrash type: Stack-buffer-overflow READ 2\nCrash state:\not::NetworkData::ServerTlv::GetServer16\not::NetworkData::Leader::RlocLookup\not::NetworkData::Leader::RegisterNetworkData\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2021-152",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=5878"
+    ]
+  },
+  {
+    "id": "OSV-2021-386",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Coap::Message::AppendUintOption",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=30831\n\n```\nCrash type: Stack-buffer-overflow READ 1\nCrash state:\not::Coap::Message::AppendUintOption\not::Coap::Message::AppendBlockOption\notCoapMessageAppendBlock2Option\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-02-13",
+    "url": "https://osv.dev/vulnerability/OSV-2021-386",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=30831"
+    ]
+  },
+  {
+    "id": "OSV-2021-411",
+    "type": "osv",
+    "title": "UNKNOWN READ in ot::Cli::Interpreter::OutputFormatV",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31002\n\n```\nCrash type: UNKNOWN READ\nCrash state:\not::Cli::Interpreter::OutputFormatV\not::Cli::Interpreter::OutputLine\not::Cli::SrpServer::ProcessDomain\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-02-17",
+    "url": "https://osv.dev/vulnerability/OSV-2021-411",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31002"
+    ]
+  },
+  {
+    "id": "OSV-2021-435",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Cli::Interpreter::OutputFormatV",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31232\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Cli::Interpreter::OutputFormatV\not::Cli::Interpreter::OutputLine\not::Cli::Interpreter::HandleDnsServiceResponse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-02-23",
+    "url": "https://osv.dev/vulnerability/OSV-2021-435",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31232"
+    ]
+  },
+  {
+    "id": "OSV-2021-52",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::KeyManager::SetMasterKey",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7766\n\n```\nCrash type: Stack-buffer-overflow READ 16\nCrash state:\not::KeyManager::SetMasterKey\not::MeshCoP::Dataset::ApplyConfiguration\not::MeshCoP::DatasetManager::Set\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2021-52",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7766"
+    ]
+  },
+  {
+    "id": "OSV-2025-289",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in ot::Cli::Utils::OutputLine",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=411460530\n\n```\nCrash type: Stack-buffer-overflow READ {*}\nCrash state:\not::Cli::Utils::OutputLine\not::Cli::Dns::HandleDnsRecordResponse\not::Dns::Client::FinalizeQuery\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2025-04-19",
+    "url": "https://osv.dev/vulnerability/OSV-2025-289",
+    "cves": [],
+    "packages": [
+      "openthread"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=411460530"
+    ]
+  },
+  {
+    "id": "OSV-2018-109",
+    "type": "osv",
+    "title": "Heap-use-after-free in ssl_get_prev_session",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=8241\n\n```\nCrash type: Heap-use-after-free READ 4\nCrash state:\nssl_get_prev_session\ntls_early_post_process_client_hello\ntls_post_process_client_hello\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2018-109",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=8241"
+    ]
+  },
+  {
+    "id": "OSV-2018-153",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in asn1_ex_i2c",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7696\n\n```\nCrash type: Heap-buffer-overflow READ 4\nCrash state:\nasn1_ex_i2c\nasn1_i2d_ex_primitive\nASN1_item_ex_i2d\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-13",
+    "url": "https://osv.dev/vulnerability/OSV-2018-153",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7696"
+    ]
+  },
+  {
+    "id": "OSV-2020-223",
+    "type": "osv",
+    "title": "Heap-use-after-free in CRYPTO_DOWN_REF",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21550\n\n```\nCrash type: Heap-use-after-free WRITE 4\nCrash state:\nCRYPTO_DOWN_REF\nDH_free\nevp_pkey_free_legacy\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-24",
+    "url": "https://osv.dev/vulnerability/OSV-2020-223",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21550"
+    ]
+  },
+  {
+    "id": "OSV-2020-29",
+    "type": "osv",
+    "title": "Heap-use-after-free in CRYPTO_DOWN_REF",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20816\n\n```\nCrash type: Heap-use-after-free WRITE 4\nCrash state:\nCRYPTO_DOWN_REF\nDH_free\nevp_pkey_free_it\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-06-24",
+    "url": "https://osv.dev/vulnerability/OSV-2020-29",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20816"
+    ]
+  },
+  {
+    "id": "OSV-2020-386",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in OPENSSL_strlcpy",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=16107\n\n```\nCrash type: Heap-buffer-overflow WRITE 1\nCrash state:\nOPENSSL_strlcpy\nOPENSSL_strlcat\nERR_add_error_vdata\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-386",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=16107"
+    ]
+  },
+  {
+    "id": "OSV-2020-430",
+    "type": "osv",
+    "title": "Stack-use-after-return in OSSL_PARAM_get_int32",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15114\n\n```\nCrash type: Stack-use-after-return READ 4\nCrash state:\nOSSL_PARAM_get_int32\nmd5_sha1_set_params\nssl3_final_finish_mac\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-430",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15114"
+    ]
+  },
+  {
+    "id": "OSV-2020-442",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in CRYPTO_strdup",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17715\n\n```\nCrash type: Heap-buffer-overflow READ 14\nCrash state:\nCRYPTO_strdup\nX509V3_add_value\ni2v_GENERAL_NAME\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-07-01",
+    "url": "https://osv.dev/vulnerability/OSV-2020-442",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17715"
+    ]
+  },
+  {
+    "id": "OSV-2024-635",
+    "type": "osv",
+    "title": "Null-dereference READ in do_evp_kdf",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69243\n\n```\nCrash type: Null-dereference READ\nCrash state:\ndo_evp_kdf\nFuzzerTestOneInput\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2024-07-13",
+    "url": "https://osv.dev/vulnerability/OSV-2024-635",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69243"
+    ]
+  },
+  {
+    "id": "OSV-2024-636",
+    "type": "osv",
+    "title": "Null-dereference READ in evp_mac_final",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69236\n\n```\nCrash type: Null-dereference READ\nCrash state:\nevp_mac_final\nkbkdf_derive\ndo_evp_kdf\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2024-07-13",
+    "url": "https://osv.dev/vulnerability/OSV-2024-636",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69236"
+    ]
+  },
+  {
+    "id": "OSV-2024-640",
+    "type": "osv",
+    "title": "Null-dereference READ",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69261\n\n```\nCrash type: Null-dereference READ\nCrash state:\nNULL```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2024-07-13",
+    "url": "https://osv.dev/vulnerability/OSV-2024-640",
+    "cves": [],
+    "packages": [
+      "openssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69261"
+    ]
+  },
+  {
+    "id": "OSV-2022-1223",
+    "type": "osv",
+    "title": "Heap-use-after-free in mbedtls_pkcs7_free",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=53798\n\n```\nCrash type: Heap-use-after-free READ 8\nCrash state:\nmbedtls_pkcs7_free\nmbedtls_pkcs7_parse_der\nfuzz_pkcs7.c\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2022-11-28",
+    "url": "https://osv.dev/vulnerability/OSV-2022-1223",
+    "cves": [],
+    "packages": [
+      "mbedtls"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=53798"
+    ]
+  },
+  {
+    "id": "OSV-2020-1843",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in SendUserAuthPkOk",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25926\n\n```\nCrash type: Heap-buffer-overflow READ {*}\nCrash state:\nSendUserAuthPkOk\nDoUserAuthRequestPublicKey\nDoUserAuthRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-09-26",
+    "url": "https://osv.dev/vulnerability/OSV-2020-1843",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=25926"
+    ]
+  },
+  {
+    "id": "OSV-2020-1995",
+    "type": "osv",
+    "title": "Index-out-of-bounds in fp_read_radix_16",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26163\n\n```\nCrash type: Index-out-of-bounds\nCrash state:\nfp_read_radix_16\nfp_read_radix\nmp_read_radix\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-08",
+    "url": "https://osv.dev/vulnerability/OSV-2020-1995",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26163"
+    ]
+  },
+  {
+    "id": "OSV-2020-2008",
+    "type": "osv",
+    "title": "UNKNOWN WRITE in wolfCrypt_custom_free",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26214\n\n```\nCrash type: UNKNOWN WRITE\nCrash state:\nwolfCrypt_custom_free\nwolfSSL_Free\nGetDhPublicKey\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-10",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2008",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26214"
+    ]
+  },
+  {
+    "id": "OSV-2020-2060",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in fp_to_unsigned_bin_at_pos",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26295\n\n```\nCrash type: Heap-buffer-overflow WRITE 1\nCrash state:\nfp_to_unsigned_bin_at_pos\nfp_to_unsigned_bin\nmp_to_unsigned_bin\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-14",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2060",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26295"
+    ]
+  },
+  {
+    "id": "OSV-2020-2070",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in wolfSSH_accept",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26332\n\n```\nCrash type: Heap-buffer-overflow READ 5\nCrash state:\nwolfSSH_accept\nserver.c\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-15",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2070",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26332"
+    ]
+  },
+  {
+    "id": "OSV-2020-2083",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in clean_path",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26424\n\n```\nCrash type: Heap-buffer-overflow READ {*}\nCrash state:\nclean_path\nParseScpCommand\nDoScpRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-18",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2083",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26424"
+    ]
+  },
+  {
+    "id": "OSV-2020-2092",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in RsaPad_PSS",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26567\n\n```\nCrash type: Heap-buffer-overflow WRITE {*}\nCrash state:\nRsaPad_PSS\nwc_RsaPad_ex\nRsaPublicEncryptEx\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-10-23",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2092",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=26567"
+    ]
+  },
+  {
+    "id": "OSV-2020-2130",
+    "type": "osv",
+    "title": "Use-of-uninitialized-value in memory_test",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27020\n\n```\nCrash type: Use-of-uninitialized-value\nCrash state:\nmemory_test\nfuzzer_send\nSendBuffered\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-11-07",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2130",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27020"
+    ]
+  },
+  {
+    "id": "OSV-2020-2144",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in wolfSSH_accept",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27298\n\n```\nCrash type: Heap-buffer-overflow READ 5\nCrash state:\nwolfSSH_accept\nserver.c\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-11-10",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2144",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27298"
+    ]
+  },
+  {
+    "id": "OSV-2020-2155",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in wolfSSH_CleanPath",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27436\n\n```\nCrash type: Heap-buffer-overflow READ 16\nCrash state:\nwolfSSH_CleanPath\nParseScpCommand\nDoScpRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-11-15",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2155",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27436"
+    ]
+  },
+  {
+    "id": "OSV-2020-2171",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in fp_read_unsigned_bin",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27666\n\n```\nCrash type: Stack-buffer-overflow READ 8\nCrash state:\nfp_read_unsigned_bin\nmp_read_unsigned_bin\nwc_RsaPublicKeyDecodeRaw\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-11-21",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2171",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=27666"
+    ]
+  },
+  {
+    "id": "OSV-2020-2299",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in ato16",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29103\n\n```\nCrash type: Heap-buffer-overflow READ 1\nCrash state:\nato16\nTLSX_CSR_Parse\nTLSX_Parse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2020-12-31",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2299",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29103"
+    ]
+  },
+  {
+    "id": "OSV-2020-2304",
+    "type": "osv",
+    "title": "Use-of-uninitialized-value in memory_test",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29731\n\n```\nCrash type: Use-of-uninitialized-value\nCrash state:\nmemory_test\nfuzzer_send\nwolfSSH_SendPacket\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-21",
+    "url": "https://osv.dev/vulnerability/OSV-2020-2304",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29731"
+    ]
+  },
+  {
+    "id": "OSV-2021-10",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in sp_tohex",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29185\n\n```\nCrash type: Heap-buffer-overflow WRITE 1\nCrash state:\nsp_tohex\nsp_toradix\ncryptofuzz::module::wolfCrypt_bignum::Bignum::baseConversion\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-01-04",
+    "url": "https://osv.dev/vulnerability/OSV-2021-10",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=29185"
+    ]
+  },
+  {
+    "id": "OSV-2021-461",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in ProcessReply",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31527\n\n```\nCrash type: Heap-buffer-overflow READ 1\nCrash state:\nProcessReply\nwolfSSL_connect\nclient.c\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-03-01",
+    "url": "https://osv.dev/vulnerability/OSV-2021-461",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=31527"
+    ]
+  },
+  {
+    "id": "OSV-2021-807",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in DecodeSingleResponse",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=34713\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\nDecodeSingleResponse\nDecodeResponseData\nDecodeBasicOcspResponse\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-05-28",
+    "url": "https://osv.dev/vulnerability/OSV-2021-807",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=34713"
+    ]
+  },
+  {
+    "id": "OSV-2021-811",
+    "type": "osv",
+    "title": "Segv on unknown address in GetASNHeader_ex",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=34719\n\n```\nCrash type: Segv on unknown address\nCrash state:\nGetASNHeader_ex\nGetASNHeader\nGetASNInt\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2021-05-29",
+    "url": "https://osv.dev/vulnerability/OSV-2021-811",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=34719"
+    ]
+  },
+  {
+    "id": "OSV-2022-1113",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in ForceZero",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=52822\n\n```\nCrash type: Heap-buffer-overflow WRITE 8\nCrash state:\nForceZero\nBuildMessage\nSendFinished\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2022-10-29",
+    "url": "https://osv.dev/vulnerability/OSV-2022-1113",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=52822"
+    ]
+  },
+  {
+    "id": "OSV-2022-840",
+    "type": "osv",
+    "title": "Negative-size-param in wc_Sha3_256_Final",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=50953\n\n```\nCrash type: Negative-size-param\nCrash state:\nwc_Sha3_256_Final\nwc_Hash\nwc_RsaPad_ex\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2022-09-05",
+    "url": "https://osv.dev/vulnerability/OSV-2022-840",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=50953"
+    ]
+  },
+  {
+    "id": "OSV-2022-842",
+    "type": "osv",
+    "title": "Stack-buffer-overflow in wc_Shake256_Final",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=50946\n\n```\nCrash type: Stack-buffer-overflow WRITE {*}\nCrash state:\nwc_Shake256_Final\nwc_ed448_sign_msg_ex\nwc_ed448_sign_msg\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2022-09-05",
+    "url": "https://osv.dev/vulnerability/OSV-2022-842",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=50946"
+    ]
+  },
+  {
+    "id": "OSV-2023-107",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in DecodeBasicOcspResponse",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=56308\n\n```\nCrash type: Heap-buffer-overflow READ {*}\nCrash state:\nDecodeBasicOcspResponse\nOcspResponseDecode\nocsp.c\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2023-02-25",
+    "url": "https://osv.dev/vulnerability/OSV-2023-107",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=56308"
+    ]
+  },
+  {
+    "id": "OSV-2023-13",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in wc_AesCbcEncrypt",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=55161\n\n```\nCrash type: Heap-buffer-overflow WRITE 16\nCrash state:\nwc_AesCbcEncrypt\nevpCipherBlock\nwolfSSL_EVP_CipherUpdate\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2023-01-19",
+    "url": "https://osv.dev/vulnerability/OSV-2023-13",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=55161"
+    ]
+  },
+  {
+    "id": "OSV-2023-16",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in wc_AesFeedbackEncrypt",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=55174\n\n```\nCrash type: Heap-buffer-overflow WRITE 1\nCrash state:\nwc_AesFeedbackEncrypt\nwc_AesOfbEncrypt\nevpCipherBlock\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2023-01-19",
+    "url": "https://osv.dev/vulnerability/OSV-2023-16",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=55174"
+    ]
+  },
+  {
+    "id": "OSV-2023-358",
+    "type": "osv",
+    "title": "Heap-double-free in wolfCrypt_custom_free",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=58484\n\n```\nCrash type: Heap-double-free\nCrash state:\nwolfCrypt_custom_free\nwolfSSL_Free\nFreeOcspRequest\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2023-05-01",
+    "url": "https://osv.dev/vulnerability/OSV-2023-358",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=58484"
+    ]
+  },
+  {
+    "id": "OSV-2023-451",
+    "type": "osv",
+    "title": "Heap-buffer-overflow in BundlePacket",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=59498\n\n```\nCrash type: Heap-buffer-overflow WRITE 9\nCrash state:\nBundlePacket\nSendChannelExit\nwolfSSH_shutdown\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2023-06-02",
+    "url": "https://osv.dev/vulnerability/OSV-2023-451",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=59498"
+    ]
+  },
+  {
+    "id": "OSV-2025-698",
+    "type": "osv",
+    "title": "Use-of-uninitialized-value in AesEncrypt_C",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=442261624\n\n```\nCrash type: Use-of-uninitialized-value\nCrash state:\nAesEncrypt_C\nwc_AesCbcEncrypt\nEncrypt\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2025-09-02",
+    "url": "https://osv.dev/vulnerability/OSV-2025-698",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=442261624"
+    ]
+  },
+  {
+    "id": "OSV-2025-762",
+    "type": "osv",
+    "title": "Use-of-uninitialized-value in fuzzer_send",
+    "description": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=445773944\n\n```\nCrash type: Use-of-uninitialized-value\nCrash state:\nfuzzer_send\nSendBuffered\nSendFinished\n```",
+    "severity": "",
+    "source": "OSV.dev",
+    "date": "2025-09-19",
+    "url": "https://osv.dev/vulnerability/OSV-2025-762",
+    "cves": [],
+    "packages": [
+      "wolfssl"
+    ],
+    "references": [
+      "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=445773944"
+    ]
+  }
+]

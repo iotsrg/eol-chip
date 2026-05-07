@@ -3,90 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Unified database for hardware end-of-life, CVEs, exploits, CISA KEV and Metasploit modules">
-  <title>EOL-CHIP | Hardware End-of-Life Tracker</title>
-  <link rel="stylesheet" href="./src/style.css?v=3">
+  <meta name="description" content="EOL chip tracker - end-of-life hardware cross-referenced with CVEs, CISA KEV, exploits, GHSA, ICS advisories and Metasploit modules">
+  <title>EOL-CHIP | End-of-Life Hardware &amp; Threat Tracker</title>
+  <link rel="stylesheet" href="./src/style.css?v=16">
 </head>
 <body>
   <nav id="nav"></nav>
 
-  <main class="main-content">
-    <div class="hero">
+  <main class="main-content main-content--wide">
+    <div class="hero hero--eol">
+      <div class="hero-pill">PRIMARY FOCUS &middot; EOL HARDWARE</div>
       <h1>EOL-CHIP</h1>
-      <p class="tagline">Unified database for hardware end-of-life, CVEs, exploits &amp; active threats</p>
+      <p class="tagline">Tracking end-of-life chips, modules and devices - and the active threats targeting them.</p>
+      <div class="hero-stats" id="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-eol-total">-</span>
+          <span class="hero-stat-label">EOL parts tracked</span>
+        </div>
+        <div class="hero-stat hero-stat--alert">
+          <span class="hero-stat-num" id="hero-eol-risk">-</span>
+          <span class="hero-stat-label">with known threats</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-eol-cats">-</span>
+          <span class="hero-stat-label">categories</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="hero-eol-mfrs">-</span>
+          <span class="hero-stat-label">manufacturers</span>
+        </div>
+      </div>
+      <div class="last-updated" id="last-updated"></div>
     </div>
 
     <div class="search-wrapper">
       <div class="search-input-wrap">
         <span class="search-icon">&#128269;</span>
         <input type="text" id="search-input" class="search-input"
-          placeholder="Search CVEs, exploits, EOL chips, FCC IDs, part numbers…" autocomplete="off">
+          placeholder="Search part numbers, EOL chips, CVEs, exploits, vendors…" autocomplete="off">
       </div>
       <div class="search-filters">
-        <label class="filter-pill filter-cve">
-          <input type="checkbox" data-type="cve" checked><span>CVE</span>
-        </label>
-        <label class="filter-pill filter-exploit">
-          <input type="checkbox" data-type="exploit" checked><span>Exploit</span>
-        </label>
-        <label class="filter-pill filter-cisa">
-          <input type="checkbox" data-type="cisa" checked><span>CISA KEV</span>
-        </label>
-        <label class="filter-pill filter-metasploit">
-          <input type="checkbox" data-type="metasploit" checked><span>Metasploit</span>
-        </label>
-        <label class="filter-pill filter-eol">
-          <input type="checkbox" data-type="eol" checked><span>EOL</span>
-        </label>
+        <label class="filter-pill filter-eol"><input type="checkbox" data-type="eol" checked><span>EOL</span></label>
+        <label class="filter-pill filter-cve"><input type="checkbox" data-type="cve" checked><span>CVE</span></label>
+        <label class="filter-pill filter-cisa"><input type="checkbox" data-type="cisa" checked><span>CISA KEV</span></label>
+        <label class="filter-pill filter-exploit"><input type="checkbox" data-type="exploit" checked><span>Exploit</span></label>
+        <label class="filter-pill filter-metasploit"><input type="checkbox" data-type="metasploit" checked><span>Metasploit</span></label>
+        <label class="filter-pill filter-ghsa"><input type="checkbox" data-type="ghsa" checked><span>GHSA</span></label>
+        <label class="filter-pill filter-ics"><input type="checkbox" data-type="ics" checked><span>ICS</span></label>
+        <label class="filter-pill filter-packetstorm"><input type="checkbox" data-type="packetstorm" checked><span>Packet Storm</span></label>
       </div>
-    </div>
-
-    <div class="stats-grid">
-      <a href="cves.html" class="stat-card stat-card--cve">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-cve">—</span>
-        <span class="stat-label">CVEs</span>
-        <span class="stat-sub">hardware &amp; firmware</span>
-      </a>
-      <a href="exploits.html" class="stat-card stat-card--exploit">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-exploit">—</span>
-        <span class="stat-label">Exploits</span>
-        <span class="stat-sub">from Exploit-DB</span>
-      </a>
-      <a href="cisa.html" class="stat-card stat-card--cisa">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-cisa">—</span>
-        <span class="stat-label">CISA KEV</span>
-        <span class="stat-sub">actively exploited</span>
-      </a>
-      <a href="metasploit.html" class="stat-card stat-card--metasploit">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-metasploit">—</span>
-        <span class="stat-label">Metasploit</span>
-        <span class="stat-sub">hardware modules</span>
-      </a>
-      <a href="eol.html" class="stat-card stat-card--eol">
-        <div class="stat-type-dot"></div>
-        <span class="stat-num" id="stat-eol">—</span>
-        <span class="stat-label">EOL Chips</span>
-        <span class="stat-sub">tracked parts</span>
-      </a>
     </div>
 
     <div id="quick-links"></div>
     <div id="search-results" class="results-container"></div>
     <div id="no-results" class="no-results" style="display:none">No results found.</div>
+
+    <section id="dashboard" class="dashboard">
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h2>&#128202; EOL inventory</h2>
+          <p class="dash-sub">Status breakdown of tracked parts</p>
+          <div id="eol-status-bars"></div>
+        </div>
+        <div class="dash-card">
+          <h2>&#128293; Trending CVEs (2026, hardware)</h2>
+          <p class="dash-sub">Hardware/firmware CVEs published this year, ranked by severity + active-exploit signal</p>
+          <div id="trending-cves"></div>
+        </div>
+        <div class="dash-card">
+          <h2>&#127919; Top vendors (30d)</h2>
+          <p class="dash-sub">Most-affected manufacturers</p>
+          <div id="top-vendors"></div>
+        </div>
+        <div class="dash-card dash-card--wide">
+          <h2>&#128197; Activity (last 30 days)</h2>
+          <p class="dash-sub">New entries per day across all sources</p>
+          <div id="activity-heatmap"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    EOL-CHIP &mdash; Data from
+    EOL-CHIP - EOL chip inventory cross-linked with
     <a href="https://nvd.nist.gov/">NVD</a>,
-    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
     <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a>,
-    <a href="https://github.com/rapid7/metasploit-framework">Metasploit</a>.
-    Updated weekly.
+    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
+    <a href="https://github.com/rapid7/metasploit-framework">Metasploit</a>,
+    <a href="https://github.com/advisories">GHSA</a>,
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA ICS</a>,
+    <a href="https://packetstormsecurity.com/">Packet Storm</a>.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
   </footer>
-  <script type="module" src="./src/main.js?v=3"></script>
+  <script type="module" src="./src/main.js?v=16"></script>
 </body>
 </html>

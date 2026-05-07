@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor catalog | EOL-CHIP</title>
+  <link rel="stylesheet" href="./src/style.css?v=16">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main class="main-content main-content--wide">
+    <div class="vendor-breadcrumb">
+      <a href="vendors.html">All vendors</a> &rsaquo; <span id="vc-name">…</span>
+    </div>
+    <div class="page-header">
+      <h1 id="vc-title">Loading…</h1>
+      <p class="subtitle" id="vc-subtitle"></p>
+    </div>
+
+    <div class="hero-stats vendor-stats" id="vc-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num" id="vc-total">-</span>
+        <span class="hero-stat-label">chips tracked</span>
+      </div>
+      <div class="hero-stat hero-stat--alert">
+        <span class="hero-stat-num" id="vc-risk">-</span>
+        <span class="hero-stat-label">with known threats</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" id="vc-cats">-</span>
+        <span class="hero-stat-label">categories</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" id="vc-active">-</span>
+        <span class="hero-stat-label">currently active</span>
+      </div>
+    </div>
+
+    <div class="page-toolbar">
+      <div class="filter-group" id="vc-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="risk"><span class="mini-badge mb-kev">RISK</span> <span data-stat="risk">0</span></button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="obsolete">Obsolete</button>
+      </div>
+      <input type="search" id="vc-search" class="page-search" placeholder="Filter chips by part number, name…">
+    </div>
+
+    <div id="vc-categories"></div>
+  </main>
+  <footer class="site-footer">
+    EOL-CHIP - vendor catalog. Click any chip to open its article.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
+  </footer>
+  <script type="module" src="./src/page-vendor.js?v=16"></script>
+</body>
+</html>
