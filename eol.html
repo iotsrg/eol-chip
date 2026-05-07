@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EOL Chips | EOL-CHIP</title>
-  <link rel="stylesheet" href="./src/style.css?v=3">
+  <link rel="stylesheet" href="./src/style.css?v=16">
 </head>
 <body>
   <nav id="nav"></nav>
@@ -12,34 +12,55 @@
     <div class="page-header">
       <h1>End-of-Life Chips <span class="count-pill" id="eol-count">0</span></h1>
       <p class="subtitle">
-        <span id="cat-count">0</span> categories tracked — MCU, SoC, FPGA, Flash, and more.
+        End-of-life and obsolete hardware, cross-linked with active CVEs, KEV listings and exploits.
+        <span id="cat-count">0</span> categories tracked.
       </p>
     </div>
+
+    <div class="page-toolbar">
+      <div class="filter-group" id="risk-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="risk"><span class="mini-badge mb-kev">RISK</span> <span data-stat="risk">0</span></button>
+        <button class="filter-btn" data-filter="kev"><span class="mini-badge mb-kev">KEV</span> <span data-stat="kev">0</span></button>
+        <button class="filter-btn" data-filter="exploit"><span class="mini-badge mb-edb">Exploit</span> <span data-stat="exploit">0</span></button>
+        <button class="filter-btn" data-filter="obsolete">Obsolete</button>
+      </div>
+      <input type="search" id="eol-search" class="page-search" placeholder="Filter by part number, vendor, name…">
+    </div>
+
     <div class="cat-filters" id="cat-filters"></div>
+
     <div class="table-wrap">
       <table class="table-eol">
         <thead>
           <tr>
-            <th>Category</th>
-            <th>Part Number</th>
+            <th>Part #</th>
             <th>Name</th>
             <th>Manufacturer</th>
+            <th>Category</th>
             <th>Status</th>
             <th>EOL Date</th>
+            <th>Threats</th>
             <th>Datasheet</th>
           </tr>
         </thead>
         <tbody id="eol-body"></tbody>
       </table>
     </div>
+
+    <section id="chip-detail" class="vendor-detail" style="display:none">
+      <h2 id="cd-title"></h2>
+      <div id="cd-summary" class="vd-summary"></div>
+      <div id="cd-wiki" class="cd-wiki" style="display:none"></div>
+      <div id="cd-meta" class="cd-meta"></div>
+      <div id="cd-threats"></div>
+    </section>
   </main>
   <footer class="site-footer">
-    EOL-CHIP &mdash; Data from
-    <a href="https://nvd.nist.gov/">NVD</a>,
-    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
-    <a href="https://www.fcc.gov/">FCC</a>.
-    Updated weekly.
+    EOL-CHIP - EOL inventory cross-linked with NVD / KEV / Exploit-DB / Metasploit / GHSA.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
   </footer>
-  <script type="module" src="./src/page-eol.js?v=3"></script>
+  <script type="module" src="./src/page-eol.js?v=16"></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | EOL-CHIP</title>
+  <link rel="stylesheet" href="./src/style.css?v=16">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main class="main-content main-content--article">
+    <article class="article-body">
+      <h1 class="article-title">About EOL-CHIP</h1>
+      <p class="article-subtitle"><em>An open encyclopedia of end-of-life hardware chips and the security threats targeting them.</em></p>
+
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ol>
+          <li><a href="#what">1 What is EOL-CHIP?</a></li>
+          <li><a href="#why">2 Why does this matter?</a></li>
+          <li><a href="#how">3 How it works</a></li>
+          <li><a href="#sources">4 Where the data comes from</a></li>
+          <li><a href="#updates">5 How often it updates</a></li>
+          <li><a href="#use">6 How to use it</a></li>
+          <li><a href="#contribute">7 How to contribute</a></li>
+          <li><a href="#contributors">8 Contributors</a></li>
+          <li><a href="#license">9 License &amp; credits</a></li>
+        </ol>
+      </div>
+
+      <section class="article-section" id="sec-what">
+        <h2>What is EOL-CHIP?</h2>
+        <p>
+          EOL-CHIP is a free, public catalog of <strong>end-of-life (EOL) and obsolete chips</strong> -
+          microprocessors, microcontrollers, FPGAs, network controllers, sensors, radios, and SoCs.
+          For each chip, we link out to the security advisories, CVEs, public exploits and
+          vendor disclosures that target it.
+        </p>
+        <p>
+          Think of it as a Wikipedia for legacy silicon, with a security lens.
+          Every chip has its own article page with:
+        </p>
+        <ul>
+          <li>Manufacturer, category, lifecycle status (Active / Last Buy / EOL Announced / Obsolete)</li>
+          <li>Wikipedia summary + Wikidata facts (release year, process node, transistor count, predecessor / successor)</li>
+          <li>Linked vulnerabilities (NVD CVEs, CISA KEV, Exploit-DB, Metasploit, GHSA, ICS, Packet Storm, OSV)</li>
+          <li>External links to datasheets, manufacturer pages, and FCC ID lookups</li>
+        </ul>
+      </section>
+
+      <section class="article-section" id="sec-why">
+        <h2>Why does this matter?</h2>
+        <p>
+          When a chip goes end-of-life, manufacturers stop shipping firmware updates.
+          The chip often lives on in the wild for another 10–20 years inside routers,
+          medical devices, industrial controllers, automotive ECUs, smart-home hubs,
+          drones, and game consoles. Once a vulnerability is published, those devices
+          stay vulnerable forever.
+        </p>
+        <p>
+          EOL-CHIP makes it easy to look up <em>any</em> obsolete part by name and
+          immediately see the active threats against it - without digging through
+          ten different vulnerability databases.
+        </p>
+      </section>
+
+      <section class="article-section" id="sec-how">
+        <h2>How it works</h2>
+        <p>
+          Every day, a GitHub Action fetches fresh data from public security feeds and
+          enrichment sources. The pipeline runs in this order:
+        </p>
+        <ol>
+          <li><strong>Fetch</strong> - 10 separate scripts pull CVEs, exploits, KEV listings, Metasploit modules, GHSA advisories, ICS-CERT bulletins, Packet Storm, OSV, vendor PSIRTs (Cisco, Fortinet, etc.), and NHTSA vehicle recalls.</li>
+          <li><strong>Process EOL</strong> - convert the human-maintained <code>chips.yaml</code> file into the structured chip catalog.</li>
+          <li><strong>Enrich</strong> - for every chip, query Wikipedia REST + Wikidata for a summary, photo, and structured specs (process node, clock frequency, predecessor, etc.).</li>
+          <li><strong>Cross-link</strong> - match chip part numbers against every threat record. A chip ends up tagged with how many CVEs / KEV listings / exploits / Metasploit modules reference it.</li>
+          <li><strong>Index &amp; deploy</strong> - build a single search index and publish to GitHub Pages.</li>
+        </ol>
+        <p>
+          The site itself is plain static HTML/CSS/JS - no backend, no tracking,
+          no cookies. All filtering and search runs in your browser.
+        </p>
+      </section>
+
+      <section class="article-section" id="sec-sources">
+        <h2>Where the data comes from</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Vulnerabilities (NVD)</th><td><a href="https://nvd.nist.gov/" target="_blank" rel="noopener">nvd.nist.gov</a> - official US government CVE database</td></tr>
+            <tr><th>Active threats (CISA KEV)</th><td><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">cisa.gov</a> - vulnerabilities under active attack</td></tr>
+            <tr><th>Public exploits</th><td><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">exploit-db.com</a> - Offensive Security's exploit archive</td></tr>
+            <tr><th>Exploit modules</th><td><a href="https://github.com/rapid7/metasploit-framework" target="_blank" rel="noopener">Metasploit Framework</a> - Rapid7's open-source pentest toolkit</td></tr>
+            <tr><th>Open vulnerabilities</th><td><a href="https://osv.dev/" target="_blank" rel="noopener">OSV.dev</a> - Google's open-source vulnerability database</td></tr>
+            <tr><th>GitHub advisories</th><td><a href="https://github.com/advisories" target="_blank" rel="noopener">GHSA</a> - community-curated software advisories</td></tr>
+            <tr><th>ICS / Medical</th><td><a href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener">CISA ICS-CERT</a> - industrial &amp; medical advisories</td></tr>
+            <tr><th>Vendor PSIRTs</th><td>Cisco, Fortinet, SonicWall, HPE - direct manufacturer disclosures</td></tr>
+            <tr><th>Vehicle recalls</th><td><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">NHTSA</a> - automotive recall database</td></tr>
+            <tr><th>Packet Storm</th><td><a href="https://packetstormsecurity.com/" target="_blank" rel="noopener">packetstormsecurity.com</a> - recent advisory feed</td></tr>
+            <tr><th>Chip facts</th><td><a href="https://en.wikipedia.org/" target="_blank" rel="noopener">Wikipedia</a> + <a href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikidata</a> + <a href="https://en.wikichip.org/" target="_blank" rel="noopener">WikiChip</a></td></tr>
+            <tr><th>EOL inventory</th><td>Hand-curated <code>chips.yaml</code> - community contributions welcome</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="article-section" id="sec-updates">
+        <h2>How often it updates</h2>
+        <p>
+          The pipeline runs <strong>daily at 06:00 UTC</strong> via GitHub Actions. Every fetcher is
+          fault-tolerant: if a source returns nothing, we keep the last known good data
+          (no wiping with empty arrays). If a critical source returns 0 results, the workflow
+          auto-opens a GitHub issue tagged <code>data-fetch-alert</code> so we know to investigate.
+        </p>
+        <p>
+          You can see the freshest "Last updated" timestamp in the footer of every page.
+        </p>
+      </section>
+
+      <section class="article-section" id="sec-use">
+        <h2>How to use it</h2>
+        <ul>
+          <li><strong>Look up a chip</strong> - type its part number in the homepage search box (e.g. <code>ESP32</code>, <code>i9-13900K</code>, <code>Z80</code>).</li>
+          <li><strong>Browse by manufacturer</strong> - open the <a href="vendors.html">Vendors</a> page, click any vendor (Intel / Microchip / NXP / Espressif / …), then click any chip card to open its article.</li>
+          <li><strong>Read a chip article</strong> - every chip has a wiki-style page: intro, photo, infobox with structured specs, lifecycle, security section listing all known CVEs / KEV / exploits / Metasploit modules, and external links to datasheets.</li>
+          <li><strong>Search across everything</strong> - homepage search covers all 4,000+ entries (CVEs, exploits, chips, vendor advisories). Use the filter pills to narrow by source.</li>
+        </ul>
+      </section>
+
+      <section class="article-section" id="sec-contribute">
+        <h2>How to contribute</h2>
+        <p>
+          The project is open source. The entire codebase, data files, and chip catalog live at
+          <a href="https://github.com/iotsrg/eol-chip" target="_blank" rel="noopener">github.com/iotsrg/eol-chip</a>.
+        </p>
+        <ul>
+          <li><strong>Add a chip</strong> - edit <code>chips.yaml</code> and submit a pull request. One YAML block per chip with <code>part_number</code>, <code>name</code>, <code>manufacturer</code>, <code>category</code>, <code>description</code>, <code>status</code>, and (where known) <code>eol_date</code> + <code>last_order_date</code>.</li>
+          <li><strong>Add a data source</strong> - drop a new <code>scripts/fetch_*.py</code> following the same pattern, register it in <code>build_search_index.py</code> and the GitHub Action.</li>
+          <li><strong>Fix data</strong> - wrong EOL date, missing chip, broken link? Open an issue or PR.</li>
+        </ul>
+      </section>
+
+      <section class="article-section" id="sec-contributors">
+        <h2>Contributors</h2>
+        <p>People who have contributed code, data, or design to EOL-CHIP:</p>
+        <div id="contributors-list" class="contributors-grid">
+          <p class="dash-empty">Loading from GitHub…</p>
+        </div>
+        <p style="font-size:12px;color:var(--text3);margin-top:14px">
+          See the full list at
+          <a href="https://github.com/iotsrg/eol-chip/graphs/contributors" target="_blank" rel="noopener">
+            github.com/iotsrg/eol-chip/graphs/contributors</a>.
+        </p>
+      </section>
+
+      <section class="article-section" id="sec-license">
+        <h2>License &amp; credits</h2>
+        <p>
+          Code &amp; site: open source. Chip catalog (<code>chips.yaml</code>): community-curated under the
+          same terms.
+        </p>
+        <p>
+          Data is sourced from the public databases listed above; respective trademarks
+          (Intel, AMD, NVIDIA, ARM, Wikipedia, etc.) belong to their owners. EOL-CHIP is
+          not affiliated with NIST, CISA, MITRE, Offensive Security, Rapid7, or any
+          manufacturer mentioned.
+        </p>
+        <p>
+          Built with plain HTML + CSS + ES modules. Search powered by
+          <a href="https://www.fusejs.io/" target="_blank" rel="noopener">Fuse.js</a>.
+          Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.
+        </p>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    EOL-CHIP - an open chip encyclopedia.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
+  </footer>
+  <script type="module" src="./src/page-about.js?v=16"></script>
+</body>
+</html>

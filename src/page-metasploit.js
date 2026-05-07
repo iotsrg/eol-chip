@@ -1,8 +1,9 @@
-import { initNav } from './common.js'
+import { initNav, loadMeta } from './common.js?v=16'
 
 initNav('metasploit')
+loadMeta()
 
-fetch('./data/metasploit.json')
+fetch('./data/metasploit.json?v=16')
   .then(r => r.json())
   .then(items => {
     document.getElementById('msf-count').textContent = items.length.toLocaleString()
@@ -11,7 +12,7 @@ fetch('./data/metasploit.json')
     if (!items.length) {
       tbody.innerHTML = `<tr><td colspan="3">
         <div class="empty-state">
-          No Metasploit data — run <code>python scripts/fetch_metasploit.py</code> to populate.
+          No Metasploit data - run <code>python scripts/fetch_metasploit.py</code> to populate.
         </div>
       </td></tr>`
       return
@@ -22,6 +23,6 @@ fetch('./data/metasploit.json')
         <a href="${m.url || '#'}" target="_blank" rel="noopener">${m.id || ''}</a>
       </td>
       <td><span class="truncate" style="max-width:280px">${m.title || ''}</span></td>
-      <td><span class="truncate" style="max-width:420px;color:var(--text2);font-size:12px">${m.description || '—'}</span></td>
+      <td><span class="truncate" style="max-width:420px;color:var(--text2);font-size:12px">${m.description || '-'}</span></td>
     </tr>`).join('')
   })

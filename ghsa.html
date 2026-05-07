@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Security Advisories | EOL-CHIP</title>
+  <link rel="stylesheet" href="./src/style.css?v=16">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main class="main-content main-content--wide">
+    <div class="page-header">
+      <h1>GitHub Security Advisories <span class="count-pill" id="ghsa-count">0</span></h1>
+      <p class="subtitle">Hardware, IoT, firmware and embedded-system advisories from the GitHub Advisory Database.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>GHSA ID</th><th>Summary</th><th>Severity</th><th>Linked CVEs</th><th>Packages</th><th>Published</th></tr>
+        </thead>
+        <tbody id="ghsa-body"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="site-footer">
+    EOL-CHIP - Data from <a href="https://github.com/advisories">GitHub Advisory Database</a>.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
+  </footer>
+  <script type="module" src="./src/page-ghsa.js?v=16"></script>
+</body>
+</html>
