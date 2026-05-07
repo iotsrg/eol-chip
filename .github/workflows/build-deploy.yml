@@ -2,7 +2,7 @@ name: Build and Deploy EOL-CHIP
 
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+    - cron: '0 6 * * *'  # Daily at 06:00 UTC
   push:
     branches: [main]
   workflow_dispatch:
@@ -11,6 +11,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: "pages"
@@ -49,6 +50,26 @@ jobs:
       - name: Fetch CISA Known Exploited Vulnerabilities
         run: python scripts/fetch_cisa.py
 
+      - name: Fetch CISA ICS advisories
+        run: python scripts/fetch_ics_advisories.py
+
+      - name: Fetch GitHub Security Advisories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_ghsa.py
+
+      - name: Fetch Packet Storm
+        run: python scripts/fetch_packetstorm.py
+
+      - name: Fetch OSV.dev (open vulnerabilities)
+        run: python scripts/fetch_osv.py
+
+      - name: Fetch NHTSA vehicle recalls
+        run: python scripts/fetch_recalls.py
+
+      - name: Fetch vendor PSIRT advisories
+        run: python scripts/fetch_vendor_psirts.py
+
       - name: Fetch Metasploit hardware modules
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,8 +81,49 @@ jobs:
       - name: Process EOL chip data
         run: python scripts/process_eol.py
 
-      - name: Build search index
+      - name: Enrich chips with Wikipedia + Wikidata facts
+        run: python scripts/fetch_chip_facts.py
+
+      - name: Cross-link CVEs ↔ KEV / Exploit / Metasploit
+        run: python scripts/cross_link.py
+
+      - name: Build search index + meta
         run: python scripts/build_search_index.py
+
+      - name: Sanity-check fetched data
+        id: sanity
+        run: |
+          set +e
+          warn=""
+          for f in cves.json exploits.json cisa_kev.json metasploit.json; do
+            count=$(python -c "import json; print(len(json.load(open('data/$f'))))" 2>/dev/null || echo "0")
+            echo "$f -> $count items"
+            if [ "$count" = "0" ]; then warn="$warn $f"; fi
+          done
+          if [ -n "$warn" ]; then
+            echo "WARNING: empty data files:$warn"
+            echo "empty=$warn" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open issue on empty critical fetch
+        if: steps.sanity.outputs.empty != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const empty = `${{ steps.sanity.outputs.empty }}`.trim();
+            if (!empty) return;
+            const title = `Data fetch returned 0 results: ${empty}`;
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'data-fetch-alert',
+            });
+            if (issues.find(i => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title, labels: ['data-fetch-alert'],
+              body: `One or more critical data fetches returned 0 items in the last run.\n\n` +
+                    `Affected files: \`${empty}\`\n\nSee the run log: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
 
       - name: Assemble site
         run: |

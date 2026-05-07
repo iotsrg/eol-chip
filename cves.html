@@ -4,15 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CVEs | EOL-CHIP</title>
-  <link rel="stylesheet" href="./src/style.css?v=3">
+  <link rel="stylesheet" href="./src/style.css?v=16">
 </head>
 <body>
   <nav id="nav"></nav>
-  <main class="main-content">
+  <main class="main-content main-content--wide">
     <div class="page-header">
       <h1>Hardware CVEs <span class="count-pill" id="cve-count">0</span></h1>
-      <p class="subtitle">Hardware, firmware and embedded system vulnerabilities from NIST NVD.</p>
+      <p class="subtitle">Hardware, firmware and embedded system vulnerabilities from NIST NVD, cross-linked with KEV, Exploit-DB and Metasploit.</p>
     </div>
+
+    <div class="page-toolbar">
+      <div class="filter-group" id="cve-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="kev"><span class="mini-badge mb-kev">KEV</span> <span data-cve-stat="kev">0</span></button>
+        <button class="filter-btn" data-filter="exploit"><span class="mini-badge mb-edb">Exploit</span> <span data-cve-stat="exploit">0</span></button>
+        <button class="filter-btn" data-filter="msf"><span class="mini-badge mb-msf">MSF</span> <span data-cve-stat="msf">0</span></button>
+      </div>
+      <input type="search" id="cve-search" class="page-search" placeholder="Filter by CVE ID, vendor, keyword…">
+    </div>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -22,6 +33,7 @@
             <th>Severity</th>
             <th>CVSS</th>
             <th>CWE</th>
+            <th>Vendors</th>
             <th>Published</th>
           </tr>
         </thead>
@@ -30,12 +42,10 @@
     </div>
   </main>
   <footer class="site-footer">
-    EOL-CHIP &mdash; Data from
-    <a href="https://nvd.nist.gov/">NVD</a>,
-    <a href="https://www.exploit-db.com/">Exploit-DB</a>,
-    <a href="https://www.fcc.gov/">FCC</a>.
-    Updated weekly.
+    EOL-CHIP - Data from <a href="https://nvd.nist.gov/">NVD</a>, cross-linked with KEV / Exploit-DB / Metasploit.
+    <span id="footer-updated"></span>
+    <div class="footer-sources" data-sources-footer></div>
   </footer>
-  <script type="module" src="./src/page-cves.js?v=3"></script>
+  <script type="module" src="./src/page-cves.js?v=16"></script>
 </body>
 </html>

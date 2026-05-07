@@ -47,6 +47,7 @@ def main():
         if not is_hardware_relevant(v):
             continue
         cve_id = v.get("cveID", "")
+        ransomware = v.get("knownRansomwareCampaignUse", "Unknown")
         results.append({
             "id": cve_id or v.get("vulnerabilityName", "CISA-UNKNOWN"),
             "type": "cisa",
@@ -56,9 +57,13 @@ def main():
             "part_number": v.get("product", ""),
             "source": "CISA KEV",
             "date": v.get("dateAdded", ""),
+            "due_date": v.get("dueDate", ""),
             "url": f"https://nvd.nist.gov/vuln/detail/{cve_id}" if cve_id else "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-            "severity": "HIGH",
-            "ransomware": v.get("knownRansomwareCampaignUse", "Unknown"),
+            "severity": "CRITICAL" if ransomware == "Known" else "HIGH",
+            "ransomware": ransomware,
+            "required_action": v.get("requiredAction", ""),
+            "notes": v.get("notes", ""),
+            "cwes": v.get("cwes", []) or [],
         })
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
