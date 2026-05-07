@@ -125,9 +125,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site/src _site/data
-          cp index.html cves.html exploits.html cisa.html metasploit.html eol.html ghsa.html ics.html packetstorm.html vendors.html vendor.html chip.html about.html _site/
-          cp src/*.js src/style.css _site/src/
-          cp data/*.json _site/data/
+          cp *.html _site/
+          cp src/*.js src/*.css _site/src/
+          cp data/*.json _site/data/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
