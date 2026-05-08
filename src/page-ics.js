@@ -1,9 +1,9 @@
-import { initNav, loadMeta } from './common.js?v=16'
+import { initNav, loadMeta } from './common.js?v=21'
 
 initNav('ics')
 loadMeta()
 
-fetch('./data/ics_advisories.json?v=16')
+fetch('./data/ics_advisories.json?v=21')
   .then(r => r.ok ? r.json() : [])
   .then(items => {
     document.getElementById('ics-count').textContent = items.length.toLocaleString()
