@@ -1,9 +1,9 @@
-import { initNav, loadMeta } from './common.js?v=16'
+import { initNav, loadMeta } from './common.js?v=21'
 
 initNav('metasploit')
 loadMeta()
 
-fetch('./data/metasploit.json?v=16')
+fetch('./data/metasploit.json?v=21')
   .then(r => r.json())
   .then(items => {
     document.getElementById('msf-count').textContent = items.length.toLocaleString()

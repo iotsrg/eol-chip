@@ -101,7 +101,7 @@ export function renderSourcesFooter() {
 export async function loadMeta() {
   renderSourcesFooter()
   try {
-    const r = await fetch('./data/meta.json?v=15')
+    const r = await fetch('./data/meta.json?v=21')
     if (!r.ok) return null
     const m = await r.json()
     const fu = document.getElementById('footer-updated')
