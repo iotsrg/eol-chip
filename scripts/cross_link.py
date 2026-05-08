@@ -120,16 +120,28 @@ def chip_pass(chips, threats_by_type):
 
         lc_strong = {k.lower() for k in strong}
         lc_weak = {k.lower() for k in weak}
-        # Manufacturer keyword: take the first word, drop parens/punct
         mfr_main = re.split(r"[\s(]", mfr)[0] if mfr else ""
+
+        # Build word-boundary regex per keyword. Plain substring match
+        # produces nasty false positives like "Thor" -> "author"/"authorize",
+        # "MAX" -> "maximum", "PIC" -> "epic". For digit-bearing tokens we
+        # require word START boundary only (so "stm32" still matches
+        # "stm32f407"). For pure-alphabetical tokens we require BOTH boundaries.
+        def compile_pattern(kw):
+            esc = re.escape(kw)
+            if any(ch.isdigit() for ch in kw):
+                return re.compile(r"\b" + esc, re.IGNORECASE)
+            return re.compile(r"\b" + esc + r"\b", re.IGNORECASE)
+
+        strong_re = [compile_pattern(k) for k in lc_strong]
+        weak_re = [compile_pattern(k) for k in lc_weak]
 
         def matches(item):
             hay = haystack(item)
-            if any(kw in hay for kw in lc_strong):
+            if any(p.search(hay) for p in strong_re):
                 return True
-            # Weak keywords (bare digits) require manufacturer mention nearby
-            if lc_weak and mfr_main and mfr_main in hay:
-                if any(kw in hay for kw in lc_weak):
+            if weak_re and mfr_main and mfr_main in hay:
+                if any(p.search(hay) for p in weak_re):
                     return True
             return False
 
@@ -162,8 +174,11 @@ def chip_pass(chips, threats_by_type):
         chip["exploit_count"] = len(set(edb_hits))
         chip["msf_count"] = len(set(msf_hits))
         chip["ghsa_count"] = len(set(ghsa_hits))
-        chip["matched_cves"] = sorted(set(cve_hits))[:30]
-        chip["matched_kev"] = sorted(set(kev_hits))[:15]
+        chip["matched_cves"] = sorted(set(cve_hits))[:50]
+        chip["matched_kev"] = sorted(set(kev_hits))[:30]
+        chip["matched_exploits"] = sorted(set(edb_hits))[:50]
+        chip["matched_msf"] = sorted(set(msf_hits))[:30]
+        chip["matched_ghsa"] = sorted(set(ghsa_hits))[:30]
 
         # Risk score: KEV is heaviest, then MSF, then exploits, then CVEs.
         chip["risk_score"] = (

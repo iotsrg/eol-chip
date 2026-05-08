@@ -1,9 +1,9 @@
-import { initNav, loadMeta } from './common.js?v=16'
+import { initNav, loadMeta } from './common.js?v=21'
 
 initNav('packetstorm')
 loadMeta()
 
-fetch('./data/packetstorm.json?v=16')
+fetch('./data/packetstorm.json?v=21')
   .then(r => r.ok ? r.json() : [])
   .then(items => {
     document.getElementById('ps-count').textContent = items.length.toLocaleString()

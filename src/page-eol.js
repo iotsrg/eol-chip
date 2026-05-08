@@ -1,4 +1,4 @@
-import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=16'
+import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=21'
 
 initNav('eol')
 loadMeta()
@@ -281,12 +281,12 @@ function updateRiskCounts() {
 }
 
 Promise.all([
-  fetch('./data/eol_chips.json?v=16').then(r => r.json()),
-  fetch('./data/cves.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-  fetch('./data/cisa_kev.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-  fetch('./data/exploits.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-  fetch('./data/metasploit.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-  fetch('./data/chip_facts.json?v=16').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  fetch('./data/eol_chips.json?v=21').then(r => r.json()),
+  fetch('./data/cves.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch('./data/cisa_kev.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch('./data/exploits.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch('./data/metasploit.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch('./data/chip_facts.json?v=21').then(r => r.ok ? r.json() : {}).catch(() => ({})),
 ]).then(([cs, cves, kev, exploits, msf, facts]) => {
   chips = cs
   threatStore = { cve: cves, cisa: kev, exploit: exploits, metasploit: msf, ghsa: [] }

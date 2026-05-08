@@ -130,6 +130,77 @@ REJECT_TITLE_KEYWORDS = (
 )
 
 
+def chip_title_matches(chip_pn, summary):
+    """Stronger identity check: does the WP page actually describe THIS chip?
+
+    Looks for the chip's part-number (or a sensible prefix variant) inside
+    the WP title or description. Required because looks_chip_related() only
+    confirms the page is about *some* chip, not the *right* chip.
+
+    Examples:
+        X710          vs  'Intel740'              -> reject (different chip)
+        MAX7219       vs  'Max (1994 film)'       -> reject (not a chip)
+        ATmega328P    vs  'ATmega328'             -> accept (prefix match)
+        ATmega328P    vs  'AVR microcontrollers'  -> accept (no PN match
+                                                              but family page,
+                                                              caller flags it)
+    """
+    if not chip_pn or not summary:
+        return False
+    pn_lo = chip_pn.lower().strip()
+    blob = (
+        (summary.get("title") or "").lower()
+        + " "
+        + (summary.get("description") or "").lower()
+        + " "
+        + (summary.get("extract") or "").lower()[:1000]
+    )
+
+    candidates = set()
+    # Full PN + collapsed (handles ESP32-D0WDQ6 vs esp32d0wdq6)
+    candidates.add(pn_lo)
+    candidates.add(re.sub(r"[^a-z0-9]", "", pn_lo))
+    # Split on common separators
+    for sep in "-_./ ":
+        if sep in pn_lo:
+            candidates.update(pn_lo.split(sep))
+    # Distinctive digit-bearing chunks (e.g., 6502, 7219, 13900k, 328p)
+    for m in re.finditer(r"\d{3,}[a-z]*", pn_lo):
+        candidates.add(m.group())
+    # Alphanumeric stems (e.g., atmega328, nrf52, esp32)
+    for m in re.finditer(r"[a-z]{2,}\d+", pn_lo):
+        candidates.add(m.group())
+    # Alphabetical chunks of 4+ chars (handles Voodoo1 -> voodoo, ATtiny85 -> attiny)
+    for m in re.finditer(r"[a-z]{4,}", pn_lo):
+        candidates.add(m.group())
+    # Drop trailing grade letter (ATmega328P -> ATmega328)
+    m = re.match(r"^(.*[a-z]\d{2,})[a-z]$", pn_lo)
+    if m:
+        candidates.add(m.group(1))
+    m = re.match(r"^(.*\d{2,})[a-z]{1,2}$", pn_lo)
+    if m:
+        candidates.add(m.group(1))
+
+    # Filter: keep candidates that are either digit-bearing (3+ chars) or
+    # alphabetical-but-long (6+ chars). This excludes generic words like
+    # "max", "intel", "core" while keeping distinctive identifiers like
+    # "z80", "6502", "atmega328", "atmega".
+    final = set()
+    for c in candidates:
+        if not c or len(c) < 3:
+            continue
+        has_digit = any(ch.isdigit() for ch in c)
+        if has_digit and len(c) >= 3:
+            final.add(c)
+        elif len(c) >= 6:
+            final.add(c)
+
+    for cand in final:
+        if cand in blob:
+            return True
+    return False
+
+
 def looks_chip_related(summary):
     """Heuristic: does this Wikipedia summary describe a chip/IC/processor?"""
     if not summary:
@@ -151,7 +222,7 @@ def looks_chip_related(summary):
     return hits >= 2
 
 
-def fetch_summary(title, validate=True):
+def fetch_summary(title, validate=True, require_pn=None):
     encoded = urllib.parse.quote(title.replace(" ", "_"), safe="")
     try:
         r = requests.get(WIKI_REST_SUMMARY.format(encoded), headers=HEADERS, timeout=15)
@@ -169,6 +240,8 @@ def fetch_summary(title, validate=True):
                 "wikidata_id": j.get("wikibase_item", ""),
             }
             if validate and not looks_chip_related(summary):
+                return None
+            if require_pn and not chip_title_matches(require_pn, summary):
                 return None
             return summary
     except Exception:
@@ -417,7 +490,7 @@ def main():
         family_used = ""
 
         if title:
-            summary = fetch_summary(title)
+            summary = fetch_summary(title, require_pn=pn)
 
         if not summary:
             mfr = (chip.get("manufacturer", "") or "").split("(")[0].strip()
@@ -430,32 +503,51 @@ def main():
                 if len(q) < 3: continue
                 t = search_wikipedia(q)
                 if t:
-                    summary = fetch_summary(t)
+                    summary = fetch_summary(t, require_pn=pn)
                     if summary:
                         title = t; break
                 time.sleep(0.2)
 
         if not summary:
+            # Family fallback: relaxed - require the family token (not the
+            # full part-number) to appear in the WP title/desc instead.
             for fam in family_candidates(pn, chip.get("title", "")):
                 if fam == pn: continue
                 t = search_wikipedia(fam)
                 if t:
-                    summary = fetch_summary(t)
+                    summary = fetch_summary(t, require_pn=fam)
                     if summary:
                         title = t; family_used = fam; break
                 time.sleep(0.2)
 
-        # Wikidata: either via summary's Q-id, or by direct search
+        # Wikidata: either via summary's Q-id (already validated), or by
+        # direct search. Direct-search results MUST pass the same chip-related
+        # + part-number identity checks; without it, "Thor" matches Norse god
+        # and "NVIDIA Thor" matches NVIDIA Corporation.
         qid = summary.get("wikidata_id") if summary else None
-        if not qid:
+        wikidata = {}
+        if qid:
+            wikidata = fetch_wikidata(qid)
+        else:
             mfr = (chip.get("manufacturer", "") or "").split("(")[0].strip()
             for q in (f"{mfr} {pn}".strip(), pn):
                 if len(q) < 3: continue
-                qid = search_wikidata(q)
-                if qid: break
-                time.sleep(0.2)
-
-        wikidata = fetch_wikidata(qid) if qid else {}
+                cand_qid = search_wikidata(q)
+                if not cand_qid:
+                    time.sleep(0.2); continue
+                cand_wd = fetch_wikidata(cand_qid)
+                # Validate: build a pseudo-summary from wikidata description
+                # so chip_title_matches + looks_chip_related can vet it.
+                pseudo = {
+                    "title": cand_wd.get("type", "") or "",
+                    "description": cand_wd.get("wd_description", "") or "",
+                    "extract": " ".join(str(v) for v in cand_wd.values() if isinstance(v, str))[:1200],
+                }
+                if not looks_chip_related(pseudo) or not chip_title_matches(pn, pseudo):
+                    time.sleep(0.2); continue
+                qid = cand_qid
+                wikidata = cand_wd
+                break
 
         # WikiChip (best-effort, may be unreachable)
         wikichip = None

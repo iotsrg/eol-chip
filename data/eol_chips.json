@@ -14,7 +14,20 @@
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf",
-    "fcc_id": "2AHHZ-ESP8266MOD"
+    "fcc_id": "2AHHZ-ESP8266MOD",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATmega328P",
@@ -31,7 +44,18 @@
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM32F103C8",
@@ -48,7 +72,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATSAM3X8E",
@@ -65,7 +100,18 @@
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM32F407VG",
@@ -82,7 +128,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.st.com/resource/en/datasheet/stm32f407vg.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PIC16F877A",
@@ -99,7 +156,18 @@
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39582b.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MSP430G2553",
@@ -116,7 +184,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/msp430g2553.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RP2040",
@@ -133,7 +212,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-nRF52840",
@@ -150,7 +242,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.8.pdf",
-    "fcc_id": "2AOKX-MDBT50Q"
+    "fcc_id": "2AOKX-MDBT50Q",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-THGBMHG6C1LBAIL",
@@ -167,7 +270,18 @@
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-KLMAG1JETD-B041",
@@ -184,7 +298,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MTFC4GACAJCN-1M",
@@ -201,7 +326,18 @@
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-H26M41208HPR",
@@ -218,7 +354,18 @@
     "last_order_date": "2025-03-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SDINBDG4-16G",
@@ -235,7 +382,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AT24C256",
@@ -252,7 +410,21 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/doc0670.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 2,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50614",
+      "CVE-2025-40222"
+    ],
+    "matched_kev": [],
+    "risk_score": 2,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-24LC512",
@@ -269,7 +441,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/21754M.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-M24C08",
@@ -286,7 +469,18 @@
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
     "datasheet": "https://www.st.com/resource/en/datasheet/m24c08-w.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CAT24C32",
@@ -303,7 +497,18 @@
     "last_order_date": "2023-01-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BR24G256",
@@ -320,7 +525,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2541",
@@ -337,7 +553,18 @@
     "last_order_date": "2024-03-31",
     "status": "Obsolete",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc2541.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-NRF51822",
@@ -354,7 +581,18 @@
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
     "datasheet": "https://infocenter.nordicsemi.com/pdf/nRF51822_PS_v3.4.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DA14580",
@@ -371,7 +609,18 @@
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RTL8710BN",
@@ -388,7 +637,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT7688AN",
@@ -405,7 +665,18 @@
     "last_order_date": "2024-12-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-QCA9377",
@@ -422,7 +693,18 @@
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SX1276",
@@ -439,7 +721,18 @@
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
     "datasheet": "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/2R000000HT76/7Nka9W5WgugoZe.xwIHJy6ebj1hW8B.YJO6Z.pZynUo",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RFM95W",
@@ -456,7 +749,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2837B0",
@@ -473,7 +777,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-S5PV210",
@@ -490,7 +805,18 @@
     "last_order_date": "2020-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-W25Q128JV",
@@ -507,7 +833,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MX25L12835F",
@@ -524,7 +861,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SST25VF016B",
@@ -541,7 +889,18 @@
     "last_order_date": "2022-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-EP4CE6E22C8N",
@@ -558,7 +917,18 @@
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-XC6SLX9",
@@ -575,7 +945,18 @@
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-XC3S500E",
@@ -592,7 +973,18 @@
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ICE40HX8K",
@@ -609,7 +1001,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MAX10M08SAE144",
@@ -626,7 +1029,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SIM900",
@@ -643,7 +1057,18 @@
     "last_order_date": "2022-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SIM800L",
@@ -660,7 +1085,18 @@
     "last_order_date": "2024-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SIM7600E",
@@ -677,7 +1113,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-EC21-V",
@@ -694,7 +1141,18 @@
     "last_order_date": "2025-06-30",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BG96",
@@ -711,7 +1169,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SARA-R410M-02B",
@@ -728,7 +1197,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-HL7800",
@@ -745,7 +1225,18 @@
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2530",
@@ -762,7 +1253,18 @@
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc2530.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2538",
@@ -779,7 +1281,18 @@
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc2538.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-EM357",
@@ -796,7 +1309,18 @@
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MGM210P",
@@ -813,7 +1337,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PN532",
@@ -830,7 +1365,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PN7150",
@@ -847,7 +1393,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MFRC522",
@@ -864,7 +1421,18 @@
     "last_order_date": "2023-09-30",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-NEO-6M",
@@ -881,7 +1449,18 @@
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-NEO-M8N",
@@ -898,7 +1477,18 @@
     "last_order_date": "2026-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-L76-L",
@@ -915,7 +1505,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TPS65217C",
@@ -932,7 +1533,18 @@
     "last_order_date": "2025-06-30",
     "status": "Last Buy",
     "datasheet": "https://www.ti.com/lit/ds/symlink/tps65217c.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AXP209",
@@ -949,7 +1561,18 @@
     "last_order_date": "2024-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-IP5306",
@@ -966,7 +1589,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MCP73831",
@@ -983,7 +1617,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BQ24195",
@@ -1000,7 +1645,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/bq24195.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ENC28J60",
@@ -1017,7 +1673,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-W5500",
@@ -1034,7 +1701,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LAN8720A",
@@ -1051,7 +1729,18 @@
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/8720a.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-KSZ8851SNL",
@@ -1068,7 +1757,18 @@
     "last_order_date": "2024-03-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CP2102",
@@ -1085,7 +1785,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.silabs.com/documents/public/data-sheets/CP2102-9.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-FT232RL",
@@ -1102,7 +1813,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ftdichip.com/wp-content/uploads/2020/08/DS_FT232R.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CH340G",
@@ -1119,7 +1841,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TUSB3410",
@@ -1136,7 +1869,18 @@
     "last_order_date": "2022-09-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2835",
@@ -1153,7 +1897,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2836",
@@ -1170,7 +1925,18 @@
     "last_order_date": "2025-07-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MCIMX6Q6AVT10AD",
@@ -1187,7 +1953,18 @@
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AM3358BZCZ100",
@@ -1204,7 +1981,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/am3358.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT7620A",
@@ -1221,7 +2009,18 @@
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AR9331",
@@ -1238,7 +2037,18 @@
     "last_order_date": "2022-12-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-IPQ4018",
@@ -1255,7 +2065,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RTL8197F",
@@ -1272,7 +2093,18 @@
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LPC1768",
@@ -1289,7 +2121,18 @@
     "last_order_date": "2025-03-31",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LPC2148",
@@ -1306,7 +2149,18 @@
     "last_order_date": "2023-09-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC3200",
@@ -1323,7 +2177,18 @@
     "last_order_date": "2025-01-31",
     "status": "Last Buy",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc3200.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATSAMD21G18A",
@@ -1340,7 +2205,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATMEGA2560",
@@ -1357,7 +2233,18 @@
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
     "datasheet": "https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PIC32MX795F512L",
@@ -1374,7 +2261,18 @@
     "last_order_date": "2024-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM8S003F3P6",
@@ -1391,7 +2289,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.st.com/resource/en/datasheet/stm8s003f3.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-EFM32GG990F1024",
@@ -1408,7 +2317,18 @@
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RL78G14",
@@ -1425,7 +2345,18 @@
     "last_order_date": "2026-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT41K256M16TW-107",
@@ -1442,7 +2373,18 @@
     "last_order_date": "2025-03-31",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-K4B4G1646E-BYMA",
@@ -1459,7 +2401,18 @@
     "last_order_date": "2025-06-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-H5TQ4G63AFR",
@@ -1476,7 +2429,18 @@
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-W9751G6KB-25",
@@ -1493,7 +2457,18 @@
     "last_order_date": "2022-12-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-VS1053B",
@@ -1510,7 +2485,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.vlsi.fi/fileadmin/datasheets/vs1053.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-WM8960",
@@ -1527,7 +2513,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PCM5102A",
@@ -1544,7 +2541,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/pcm5102a.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ILI9341",
@@ -1561,7 +2569,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SSD1306",
@@ -1578,7 +2597,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ST7789",
@@ -1595,7 +2625,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RA8875",
@@ -1612,7 +2653,18 @@
     "last_order_date": "2025-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MPU6050",
@@ -1629,7 +2681,18 @@
     "last_order_date": "2024-06-30",
     "status": "EOL Announced",
     "datasheet": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BME280",
@@ -1646,7 +2709,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DS18B20",
@@ -1663,7 +2737,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DHT22",
@@ -1680,7 +2765,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BMP180",
@@ -1697,7 +2793,18 @@
     "last_order_date": "2023-06-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ICM-20689",
@@ -1714,7 +2821,18 @@
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-D0WDQ6",
@@ -1731,7 +2849,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf",
-    "fcc_id": "2AFIW-ESP32WROVER"
+    "fcc_id": "2AFIW-ESP32WROVER",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-S2",
@@ -1748,7 +2879,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-WINC1500",
@@ -1765,7 +2909,18 @@
     "last_order_date": "2025-09-30",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2640R2F",
@@ -1782,7 +2937,18 @@
     "last_order_date": "2027-06-30",
     "status": "EOL Announced",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc2640r2f.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CSR8645",
@@ -1799,7 +2965,18 @@
     "last_order_date": "2024-01-31",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CYW43438",
@@ -1816,7 +2993,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATECC608A",
@@ -1833,7 +3021,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-MAHDA-Register-Summary.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TPM2.0-SLB9665",
@@ -1850,7 +3049,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SE050",
@@ -1867,7 +3077,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MCP2515",
@@ -1884,7 +3105,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SN65HVD230",
@@ -1901,7 +3133,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MAX485",
@@ -1918,7 +3161,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487-MAX491.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-W5100S",
@@ -1935,7 +3189,18 @@
     "last_order_date": "2026-01-31",
     "status": "EOL Announced",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-4004",
@@ -1952,7 +3217,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8008",
@@ -1969,7 +3245,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8080",
@@ -1986,7 +3273,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8085",
@@ -2003,7 +3301,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Z80",
@@ -2020,7 +3329,14 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "risk_score": 0
   },
   {
     "id": "EOL-MOS6502",
@@ -2037,7 +3353,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-6800",
@@ -2054,7 +3381,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-6809",
@@ -2071,7 +3409,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC68000",
@@ -2088,7 +3437,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC68020",
@@ -2105,7 +3465,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC68030",
@@ -2122,7 +3493,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC68040",
@@ -2139,7 +3521,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8086",
@@ -2156,7 +3549,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8088",
@@ -2173,7 +3577,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80286",
@@ -2190,7 +3605,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80386",
@@ -2207,7 +3633,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80486",
@@ -2224,7 +3661,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Pentium-P54C",
@@ -2241,7 +3689,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ARM2",
@@ -2258,7 +3717,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-StrongARM-SA110",
@@ -2275,7 +3745,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PXA255",
@@ -2292,7 +3773,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MIPS-R3000",
@@ -2309,7 +3801,20 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 1,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 2,
+    "matched_exploits": [
+      "EDB-31031"
+    ],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SPARCstation-1",
@@ -2326,7 +3831,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i1103",
@@ -2343,7 +3859,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-4116",
@@ -2360,7 +3887,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-4164",
@@ -2377,7 +3915,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-41256",
@@ -2394,7 +3943,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-2114",
@@ -2411,7 +3971,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-6116",
@@ -2428,7 +3999,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-62256",
@@ -2445,7 +4027,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-2716",
@@ -2462,7 +4055,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-2732",
@@ -2479,7 +4083,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-2764",
@@ -2496,7 +4111,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-27C512",
@@ -2513,7 +4139,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-28C16",
@@ -2530,7 +4167,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AT24C02",
@@ -2547,7 +4195,21 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 2,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50614",
+      "CVE-2025-40222"
+    ],
+    "matched_kev": [],
+    "risk_score": 2,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-93C46",
@@ -2564,7 +4226,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-M48T02",
@@ -2581,7 +4254,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8051",
@@ -2598,7 +4282,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8048",
@@ -2615,7 +4310,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AT89C51",
@@ -2632,7 +4338,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AT89S52",
@@ -2649,7 +4366,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PIC16F84A",
@@ -2666,7 +4394,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PIC16F628A",
@@ -2683,7 +4422,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PIC18F4550",
@@ -2700,7 +4450,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATtiny85",
@@ -2717,7 +4478,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATmega8",
@@ -2734,7 +4506,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATmega2560",
@@ -2751,7 +4534,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATmega32U4",
@@ -2768,7 +4562,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM32F030F4",
@@ -2785,7 +4590,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM32L476RG",
@@ -2802,7 +4618,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-STM32H743VI",
@@ -2819,7 +4646,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-nRF51822",
@@ -2836,7 +4674,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TMS32010",
@@ -2853,7 +4702,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TMS320C6713",
@@ -2870,7 +4730,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ADSP-2181",
@@ -2887,7 +4758,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DSP56000",
@@ -2904,7 +4786,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SID6581",
@@ -2921,7 +4814,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-VIC-II-6567",
@@ -2938,7 +4842,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TIA-CO10444",
@@ -2955,7 +4870,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-YM2151",
@@ -2972,7 +4898,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-YM2612",
@@ -2989,7 +4926,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AY-3-8910",
@@ -3006,7 +4954,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-2A03",
@@ -3023,7 +4982,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LR35902",
@@ -3040,7 +5010,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SH-2-7604",
@@ -3057,7 +5038,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RTL8019AS",
@@ -3074,7 +5066,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RTL8139D",
@@ -3091,7 +5094,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RTL8169SC",
@@ -3108,7 +5122,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DM9000",
@@ -3125,7 +5150,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AM7990",
@@ -3142,7 +5178,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-nRF24L01+",
@@ -3159,7 +5206,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC1101",
@@ -3176,7 +5234,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/cc1101.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2500",
@@ -3193,7 +5262,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CC2420",
@@ -3210,7 +5290,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RFM69HCW",
@@ -3227,7 +5318,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SX1262",
@@ -3244,7 +5346,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC35i",
@@ -3261,7 +5374,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SARA-G350",
@@ -3278,7 +5402,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATSHA204A",
@@ -3295,7 +5430,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATECC508A",
@@ -3312,7 +5458,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATECC608B",
@@ -3329,7 +5486,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-A700X",
@@ -3346,7 +5514,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ST33H320",
@@ -3363,7 +5542,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2837",
@@ -3380,7 +5570,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2711",
@@ -3397,7 +5598,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AllwinnerA20",
@@ -3414,7 +5626,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AllwinnerH3",
@@ -3431,7 +5654,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RK3288",
@@ -3448,7 +5682,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RK3399",
@@ -3465,7 +5710,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i.MX6Quad",
@@ -3482,7 +5738,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT7688",
@@ -3499,7 +5766,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AR9344",
@@ -3516,7 +5794,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-C3",
@@ -3533,7 +5822,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-C6",
@@ -3550,7 +5852,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-S3",
@@ -3567,7 +5882,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ESP32-H2",
@@ -3584,7 +5912,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2026-23833"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AppleA4",
@@ -3601,7 +5942,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AppleA5",
@@ -3618,7 +5970,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AppleA7",
@@ -3635,7 +5998,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-WD1003",
@@ -3652,7 +6026,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SiS964",
@@ -3669,7 +6054,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ICH9R",
@@ -3686,7 +6082,53 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 34,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50726",
+      "CVE-2022-50752",
+      "CVE-2022-50753",
+      "CVE-2022-50851",
+      "CVE-2023-53762",
+      "CVE-2023-54060",
+      "CVE-2023-54113",
+      "CVE-2023-54148",
+      "CVE-2023-54164",
+      "CVE-2023-54193",
+      "CVE-2023-54206",
+      "CVE-2023-54216",
+      "CVE-2023-54223",
+      "CVE-2025-40238",
+      "CVE-2025-40251",
+      "CVE-2025-68776",
+      "CVE-2025-68796",
+      "CVE-2025-68810",
+      "CVE-2025-71065",
+      "CVE-2025-71087",
+      "CVE-2025-71088",
+      "CVE-2025-71091",
+      "CVE-2025-71107",
+      "CVE-2025-71125",
+      "CVE-2026-22996",
+      "CVE-2026-23000",
+      "CVE-2026-23005",
+      "CVE-2026-23035",
+      "CVE-2026-23088",
+      "CVE-2026-23126",
+      "CVE-2026-23171",
+      "CVE-2026-23173",
+      "CVE-2026-23192",
+      "CVE-2026-23215"
+    ],
+    "matched_kev": [],
+    "risk_score": 34,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8253",
@@ -3703,7 +6145,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8255",
@@ -3720,7 +6173,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8259A",
@@ -3737,7 +6201,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MAX232",
@@ -3754,7 +6229,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MC1488",
@@ -3771,7 +6257,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-555-Timer",
@@ -3788,7 +6285,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "https://www.ti.com/lit/ds/symlink/ne555.pdf",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LM741",
@@ -3805,7 +6313,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-7400",
@@ -3822,7 +6341,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-4011",
@@ -3839,7 +6369,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Voodoo1",
@@ -3856,7 +6397,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RIVA-TNT2",
@@ -3873,7 +6425,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GeForce256",
@@ -3890,7 +6453,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ATI-RagePro",
@@ -3907,7 +6481,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MSM6280",
@@ -3924,7 +6509,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT6260",
@@ -3941,7 +6537,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM21553",
@@ -3958,7 +6565,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PL2303HX",
@@ -3975,7 +6593,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-HC11",
@@ -3992,7 +6621,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-HCS12",
@@ -4009,7 +6649,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SJA1000",
@@ -4026,7 +6677,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MAX7219",
@@ -4043,7 +6705,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i4040",
@@ -4060,7 +6733,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80186",
@@ -4077,7 +6761,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80188",
@@ -4094,7 +6789,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i376",
@@ -4111,7 +6817,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i386EX",
@@ -4128,7 +6845,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i486SX",
@@ -4145,7 +6873,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i486DX2",
@@ -4162,7 +6901,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i486DX4",
@@ -4179,7 +6929,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumMMX",
@@ -4196,7 +6957,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumPro",
@@ -4213,7 +6985,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumII",
@@ -4230,7 +7013,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumIII",
@@ -4247,7 +7041,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Pentium4",
@@ -4264,7 +7069,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumD",
@@ -4281,7 +7097,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PentiumM",
@@ -4298,7 +7125,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Celeron",
@@ -4315,7 +7153,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CoreSolo",
@@ -4332,7 +7181,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CoreDuo",
@@ -4349,7 +7209,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Core2Duo",
@@ -4366,7 +7237,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Core2Quad",
@@ -4383,7 +7265,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-920",
@@ -4400,7 +7293,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i5-650",
@@ -4417,7 +7321,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-2600K",
@@ -4434,7 +7349,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-3770K",
@@ -4451,7 +7377,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-4790K",
@@ -4468,7 +7405,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-5775C",
@@ -4485,7 +7433,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-6700K",
@@ -4502,7 +7461,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-7700K",
@@ -4519,7 +7489,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i7-8700K",
@@ -4536,7 +7517,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-9900K",
@@ -4553,7 +7545,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-10900K",
@@ -4570,7 +7573,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-11900K",
@@ -4587,7 +7601,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-12900K",
@@ -4604,7 +7629,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-13900K",
@@ -4621,7 +7657,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i9-14900K",
@@ -4638,7 +7685,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CoreUltra185H",
@@ -4655,7 +7713,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CoreUltra285K",
@@ -4672,7 +7741,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CoreUltra288V",
@@ -4689,7 +7769,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium-Merced",
@@ -4706,7 +7797,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium2-McKinley",
@@ -4723,7 +7825,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium-Montecito",
@@ -4740,7 +7853,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium-Tukwila",
@@ -4757,7 +7881,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium-Poulson",
@@ -4774,7 +7909,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Itanium-Kittson",
@@ -4791,7 +7937,18 @@
     "last_order_date": "2020-01-30",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Nocona",
@@ -4808,7 +7965,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Woodcrest",
@@ -4825,7 +7993,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Harpertown",
@@ -4842,7 +8021,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Nehalem-EP",
@@ -4859,7 +8049,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-E5-2670",
@@ -4876,7 +8077,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-E5-2697v2",
@@ -4893,7 +8105,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-E5-2699v3",
@@ -4910,7 +8133,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-E5-2699v4",
@@ -4927,7 +8161,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Platinum-8180",
@@ -4944,7 +8189,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Platinum-8280",
@@ -4961,7 +8217,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Platinum-8380",
@@ -4978,7 +8245,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Platinum-8480C",
@@ -4995,7 +8273,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-Platinum-8592",
@@ -5012,7 +8301,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-6900P",
@@ -5029,7 +8329,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Xeon-6700E",
@@ -5046,7 +8357,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AtomN270",
@@ -5063,7 +8385,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AtomZ530",
@@ -5080,7 +8413,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AtomZ3735F",
@@ -5097,7 +8441,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AtomC3758",
@@ -5114,7 +8469,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AtomP5921B",
@@ -5131,7 +8497,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-NUC-NUC11",
@@ -5148,7 +8525,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-QuarkX1000",
@@ -5165,7 +8553,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Galileo",
@@ -5182,7 +8581,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Edison",
@@ -5199,7 +8609,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Curie",
@@ -5216,7 +8637,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Joule",
@@ -5233,7 +8665,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Movidius-Myriad-X",
@@ -5250,7 +8693,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PXA270",
@@ -5267,7 +8721,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-IXP425",
@@ -5284,7 +8749,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i440BX",
@@ -5301,7 +8777,69 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 58,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50648",
+      "CVE-2022-50652",
+      "CVE-2022-50716",
+      "CVE-2022-50735",
+      "CVE-2022-50737",
+      "CVE-2022-50739",
+      "CVE-2022-50841",
+      "CVE-2022-50850",
+      "CVE-2022-50881",
+      "CVE-2022-50885",
+      "CVE-2023-53781",
+      "CVE-2023-53790",
+      "CVE-2023-53800",
+      "CVE-2023-53809",
+      "CVE-2023-53821",
+      "CVE-2023-53857",
+      "CVE-2023-53860",
+      "CVE-2023-53865",
+      "CVE-2023-54006",
+      "CVE-2023-54008",
+      "CVE-2023-54032",
+      "CVE-2023-54067",
+      "CVE-2023-54089",
+      "CVE-2023-54125",
+      "CVE-2023-54142",
+      "CVE-2023-54176",
+      "CVE-2023-54218",
+      "CVE-2023-54226",
+      "CVE-2023-54239",
+      "CVE-2023-54242",
+      "CVE-2023-54251",
+      "CVE-2023-54270",
+      "CVE-2025-40235",
+      "CVE-2025-40244",
+      "CVE-2025-40246",
+      "CVE-2025-40265",
+      "CVE-2025-40290",
+      "CVE-2025-40295",
+      "CVE-2025-40309",
+      "CVE-2025-40349",
+      "CVE-2025-40351",
+      "CVE-2025-68231",
+      "CVE-2025-68261",
+      "CVE-2025-68297",
+      "CVE-2025-68367",
+      "CVE-2025-68769",
+      "CVE-2025-68772",
+      "CVE-2025-71093",
+      "CVE-2025-71105",
+      "CVE-2025-71123"
+    ],
+    "matched_kev": [],
+    "risk_score": 58,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i815",
@@ -5318,7 +8856,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i845",
@@ -5335,7 +8884,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i875P",
@@ -5352,7 +8912,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ICH10R",
@@ -5369,7 +8940,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-X58",
@@ -5386,7 +8968,14 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "risk_score": 0
   },
   {
     "id": "EOL-Z68",
@@ -5403,7 +8992,14 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "risk_score": 0
   },
   {
     "id": "EOL-Z170",
@@ -5420,7 +9016,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Z390",
@@ -5437,7 +9044,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Z690",
@@ -5454,7 +9072,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2025-11901"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Z890",
@@ -5471,7 +9102,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-C621",
@@ -5488,7 +9130,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Intel740",
@@ -5505,7 +9158,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GMA950",
@@ -5522,7 +9186,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GMA-X4500",
@@ -5539,7 +9214,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-HD-Graphics-3000",
@@ -5556,7 +9242,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Iris-Pro-5200",
@@ -5573,7 +9270,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Iris-Xe",
@@ -5590,7 +9298,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ArcA770",
@@ -5607,7 +9326,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ArcA380",
@@ -5624,7 +9354,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ArcB580",
@@ -5641,7 +9382,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PonteVecchio",
@@ -5658,7 +9410,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-CycloneV-5CSEMA5",
@@ -5675,7 +9438,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ArriaV-5AGXBA1",
@@ -5692,7 +9466,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Stratix10",
@@ -5709,7 +9494,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2025-68328"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AgilexF",
@@ -5726,7 +9524,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Agilex5",
@@ -5743,7 +9552,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-82559",
@@ -5760,7 +9580,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i82540EM",
@@ -5777,7 +9608,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-i82574L",
@@ -5794,7 +9636,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-I210",
@@ -5811,7 +9664,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-I225-V",
@@ -5828,7 +9692,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-I226-V",
@@ -5845,7 +9720,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-X540-T2",
@@ -5862,7 +9748,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-X550",
@@ -5879,7 +9776,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-X710",
@@ -5896,7 +9804,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-E810",
@@ -5913,7 +9832,22 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 3,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2025-24851",
+      "CVE-2025-27243",
+      "CVE-2025-32003"
+    ],
+    "matched_kev": [],
+    "risk_score": 3,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AX200",
@@ -5930,7 +9864,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AX210",
@@ -5947,7 +9892,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BE200",
@@ -5964,7 +9920,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Optane-P4800X",
@@ -5981,7 +9948,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Optane-DC-PMem",
@@ -5998,7 +9976,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Optane-H10",
@@ -6015,7 +10004,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Gaudi2",
@@ -6032,7 +10032,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Gaudi3",
@@ -6049,7 +10060,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-28F010",
@@ -6066,7 +10088,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-27F010",
@@ -6083,7 +10116,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8237",
@@ -6100,7 +10144,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8284A",
@@ -6117,7 +10172,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8251",
@@ -6134,7 +10200,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8254",
@@ -6151,7 +10228,20 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50851"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-8042",
@@ -6168,7 +10258,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80386SX",
@@ -6185,7 +10286,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-80486SL",
@@ -6202,7 +10314,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TC397XX",
@@ -6219,7 +10342,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SPC58",
@@ -6236,7 +10370,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-S32K144",
@@ -6253,7 +10398,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-S32G274A",
@@ -6270,7 +10426,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RH850-F1KH",
@@ -6287,7 +10454,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-V850",
@@ -6304,7 +10482,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TMS570LS3137",
@@ -6321,7 +10510,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-OrinX",
@@ -6338,7 +10538,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Thor",
@@ -6355,7 +10566,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TeslaFSD",
@@ -6372,7 +10594,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MobileyeQ4",
@@ -6389,7 +10622,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MobileyeQ5",
@@ -6406,7 +10650,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Snapdragon-Ride",
@@ -6423,7 +10678,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SnapdragonAuto8155",
@@ -6440,7 +10706,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TDA4VM",
@@ -6457,7 +10734,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PixhawkFMUv6X",
@@ -6474,7 +10762,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PixhawkFMUv5",
@@ -6491,7 +10790,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DJI-A3",
@@ -6508,7 +10818,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DJI-N3",
@@ -6525,7 +10846,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BetaflightF7",
@@ -6542,7 +10874,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Crazyflie-NRF52",
@@ -6559,7 +10902,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SmartThings-V3",
@@ -6576,7 +10930,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Hubitat-C8",
@@ -6593,7 +10958,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PhilipsHue-V2",
@@ -6610,7 +10986,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-HomePodMini",
@@ -6627,7 +11014,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AmazonEchoDot4",
@@ -6644,7 +11042,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GoogleNestHub",
@@ -6661,7 +11070,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SonosOne",
@@ -6678,7 +11098,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AugustSmartLockPro",
@@ -6695,7 +11126,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-NestThermostatGen3",
@@ -6712,7 +11154,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MedtronicMiniMed670G",
@@ -6729,7 +11182,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AbbottFreestyleLibre2",
@@ -6746,7 +11210,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-DexcomG6Transmitter",
@@ -6763,7 +11238,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PhilipsXPR1",
@@ -6780,7 +11266,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BoeingCV13",
@@ -6797,7 +11294,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TrezorOne",
@@ -6814,7 +11322,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-TrezorModelT",
@@ -6831,7 +11350,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LedgerNanoS",
@@ -6848,7 +11378,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-LedgerNanoX",
@@ -6865,7 +11406,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ColdcardMk4",
@@ -6882,7 +11434,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-KeystonePro3",
@@ -6899,7 +11462,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Tegra-X1",
@@ -6916,7 +11490,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Tegra-T239",
@@ -6933,7 +11518,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PS4-Liverpool",
@@ -6950,7 +11546,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PS5-Oberon",
@@ -6967,7 +11574,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-XboxOne-Durango",
@@ -6984,7 +11602,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-XboxSeriesX-SoC",
@@ -7001,7 +11630,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-Wii-Broadway",
@@ -7018,7 +11658,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-3DS-CTR-CPU",
@@ -7035,7 +11686,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PSP-Allegrex",
@@ -7052,7 +11714,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-PSVita-CXD5315",
@@ -7069,7 +11742,18 @@
     "last_order_date": "",
     "status": "Obsolete",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SteamDeck-Aerith",
@@ -7086,7 +11770,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GoogleTPU-v4",
@@ -7103,7 +11798,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GoogleTPU-v5e",
@@ -7120,7 +11826,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AppleNeuralEngine",
@@ -7137,7 +11854,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-GraphcoreM2000",
@@ -7154,7 +11882,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM4906",
@@ -7171,7 +11910,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-IPQ8074",
@@ -7188,7 +11938,20 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2022-50627"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-IPQ9574",
@@ -7205,7 +11968,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT7986A",
@@ -7222,7 +11996,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MT7621AT",
@@ -7239,7 +12024,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-BCM2712",
@@ -7256,7 +12052,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-RK3588",
@@ -7273,7 +12080,20 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 1,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [
+      "CVE-2025-71200"
+    ],
+    "matched_kev": [],
+    "risk_score": 1,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-H618",
@@ -7290,7 +12110,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SiemensS7-1500",
@@ -7307,7 +12138,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SiemensS7-1200",
@@ -7324,7 +12166,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-AllenBradleyCompactLogix5380",
@@ -7341,7 +12194,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-SchneiderM580",
@@ -7358,7 +12222,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-ABB-AC500",
@@ -7375,7 +12250,18 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-MitsubishiQ06UDV",
@@ -7392,7 +12278,18 @@
     "last_order_date": "",
     "status": "Last Buy",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   },
   {
     "id": "EOL-OmronNX1P2",
@@ -7409,6 +12306,17 @@
     "last_order_date": "",
     "status": "Active",
     "datasheet": "",
-    "fcc_id": ""
+    "fcc_id": "",
+    "cve_count": 0,
+    "kev_count": 0,
+    "exploit_count": 0,
+    "msf_count": 0,
+    "ghsa_count": 0,
+    "matched_cves": [],
+    "matched_kev": [],
+    "risk_score": 0,
+    "matched_exploits": [],
+    "matched_msf": [],
+    "matched_ghsa": []
   }
 ]

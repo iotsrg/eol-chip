@@ -1,4 +1,4 @@
-import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=16'
+import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=21'
 
 initNav('eol')
 loadMeta()
@@ -19,8 +19,30 @@ function buildInfobox(chip, facts) {
   const wd = facts.wikidata || {}
   const rows = []
 
-  // Photo first
-  const img = facts.thumbnail || facts.image || (wd.image_url || '')
+  // Photo - ONLY show when the Wikipedia title contains this chip's
+  // exact part number with proper digit boundary. e.g. ATmega8 must NOT
+  // accept "ATmega88" (sibling chip), and Intel 4004 must NOT accept
+  // "Intel 4004A" if such a page existed. We check that the char after
+  // the part-number substring isn't itself a digit/letter that would
+  // make this a different model.
+  const norm = s => (s || '').toLowerCase().replace(/[-_.\s]/g, '')
+  const titleNorm = norm(facts.title)
+  const pnNorm = norm(chip.part_number)
+  let isExactMatch = false
+  if (titleNorm && pnNorm && !facts.matched_family) {
+    const idx = titleNorm.indexOf(pnNorm)
+    if (idx >= 0) {
+      const after = titleNorm.charAt(idx + pnNorm.length) // '' if at end
+      const before = idx === 0 ? '' : titleNorm.charAt(idx - 1)
+      // Boundary OK if next/previous char is not a digit (would mean
+      // it's a different, longer model number)
+      const goodAfter = after === '' || !/[0-9a-z]/.test(after) || !/[0-9]/.test(pnNorm.slice(-1) + after)
+      const goodBefore = before === '' || !/[0-9]/.test(before)
+      // Stricter: simply require non-digit boundary on both sides
+      isExactMatch = (after === '' || !/[0-9]/.test(after)) && (before === '' || !/[0-9]/.test(before))
+    }
+  }
+  const img = (isExactMatch && (facts.thumbnail || facts.image)) || ''
   let imgBlock = ''
   if (img) {
     imgBlock = `<div class="infobox-image">
@@ -185,13 +207,13 @@ async function main() {
   }
 
   const [chips, cves, kev, exploits, msf, ghsa, facts] = await Promise.all([
-    fetch('./data/eol_chips.json?v=16').then(r => r.json()),
-    fetch('./data/cves.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/cisa_kev.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/exploits.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/metasploit.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/ghsa.json?v=16').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/chip_facts.json?v=16').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+    fetch('./data/eol_chips.json?v=21').then(r => r.json()),
+    fetch('./data/cves.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/cisa_kev.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/exploits.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/metasploit.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/ghsa.json?v=21').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/chip_facts.json?v=21').then(r => r.ok ? r.json() : {}).catch(() => ({})),
   ])
 
   const chip = chips.find(c => c.part_number === requestedPn)
@@ -220,20 +242,21 @@ async function main() {
   // Intro
   document.getElementById('ca-intro').innerHTML = buildIntroSection(chip, chipFacts)
 
-  // Sections - threat tables for each source that has hits
+  // Sections - threat tables for each source that has hits.
+  // Use the server-side cross-link results (word-boundary-validated, in
+  // scripts/cross_link.py). Naive client-side substring match produced
+  // false positives like "Thor" matching "Authorization Bypass" CVEs.
   const matchedCves = new Set(chip.matched_cves || [])
   const matchedKev = new Set(chip.matched_kev || [])
-  const lcPn = chip.part_number.toLowerCase()
-  const matchKw = (it) => {
-    const hay = ((it.title || '') + ' ' + (it.description || '') + ' ' + (it.module_path || '')).toLowerCase()
-    return hay.includes(lcPn)
-  }
+  const matchedExp = new Set(chip.matched_exploits || [])
+  const matchedMsf = new Set(chip.matched_msf || [])
+  const matchedGhsa = new Set(chip.matched_ghsa || [])
 
   const linkedCves = cves.filter(c => matchedCves.has(c.id))
   const linkedKev = kev.filter(k => matchedKev.has(k.id))
-  const linkedExp = exploits.filter(matchKw).slice(0, 50)
-  const linkedMsf = msf.filter(matchKw).slice(0, 30)
-  const linkedGhsa = ghsa.filter(matchKw).slice(0, 30)
+  const linkedExp = exploits.filter(e => matchedExp.has(e.id))
+  const linkedMsf = msf.filter(m => matchedMsf.has(m.id))
+  const linkedGhsa = ghsa.filter(g => matchedGhsa.has(g.id))
 
   const hasAnyThreat = linkedCves.length || linkedKev.length || linkedExp.length || linkedMsf.length || linkedGhsa.length
   const sections = [
