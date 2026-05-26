@@ -161,13 +161,33 @@ const els = {
 
 // ── Provider + key handling ─────────────────────────────────────────
 const PROVIDER_LS = 'eol-pcb-provider'
+const SESSION_ONLY_LS = 'eol-pcb-session-only'  // flag stays in localStorage
 const keyLsFor   = p => `eol-pcb-key-${p}`
 const modelLsFor = p => `eol-pcb-model-${p}`
 const OLLAMA_HOST_LS = 'eol-pcb-ollama-host'
 
+// Pick the storage backend for KEYS based on the session-only toggle.
+// Everything else (provider preference, model selection, palette) stays in
+// localStorage — those aren't secrets.
+function keyStore() {
+  try { return localStorage.getItem(SESSION_ONLY_LS) === '1' ? sessionStorage : localStorage }
+  catch { return localStorage }
+}
+function getKey(p)   { try { return keyStore().getItem(keyLsFor(p)) || '' } catch { return '' } }
+function setKey(p, v) {
+  try {
+    // Always clear from the OTHER store so switching modes doesn't leave a stale key behind.
+    localStorage.removeItem(keyLsFor(p))
+    sessionStorage.removeItem(keyLsFor(p))
+    if (v) keyStore().setItem(keyLsFor(p), v)
+  } catch {}
+}
+
 function setModelOptions(models, selected) {
+  // Escape model id+label — Ollama models come from /api/tags response and
+  // could in principle contain HTML/quote characters.
   els.modelSel.innerHTML = models.map(m =>
-    `<option value="${m.id}">${m.label}</option>`).join('')
+    `<option value="${escapeHtmlAttr(m.id)}">${escapeHtml(m.label)}</option>`).join('')
   if (selected && models.some(m => m.id === selected)) els.modelSel.value = selected
   else if (models.length) els.modelSel.value = models[0].id
 }
@@ -225,19 +245,19 @@ async function refreshOllamaModels() {
     const data = await res.json()
     const installed = (data.models || []).map(m => ({ id: m.name, label: m.name + (m.size ? ` (${(m.size / 1e9).toFixed(1)} GB)` : '') }))
     if (!installed.length) {
-      els.keyStatus.innerHTML = `Connected to <code>${host}</code> but no models installed. Run: <code>ollama pull llama3.2-vision</code>`
+      els.keyStatus.innerHTML = `Connected to <code>${escapeHtml(host)}</code> but no models installed. Run: <code>ollama pull llama3.2-vision</code>`
       els.keyStatus.className = 'pcb-keystatus'
       setModelOptions(fallback, state.model)
       return
     }
     setModelOptions(installed, state.model)
-    els.keyStatus.innerHTML = `Connected to <code>${host}</code> &middot; ${installed.length} model${installed.length === 1 ? '' : 's'} installed. (Use a vision model like <code>llama3.2-vision</code> for PCB analysis.)`
+    els.keyStatus.innerHTML = `Connected to <code>${escapeHtml(host)}</code> &middot; ${installed.length} model${installed.length === 1 ? '' : 's'} installed. (Use a vision model like <code>llama3.2-vision</code> for PCB analysis.)`
     els.keyStatus.className = 'pcb-keystatus pcb-keystatus--ok'
   } catch (e) {
     setModelOptions(fallback, state.model)
     const origin = location.origin
     const cmd = `OLLAMA_ORIGINS="${origin},http://localhost:*" ollama serve`
-    els.keyStatus.innerHTML = `Cannot reach Ollama at <code>${host}</code>. Likely either not running, or CORS is blocking this origin. Restart Ollama with:<br><code>${cmd}</code>`
+    els.keyStatus.innerHTML = `Cannot reach Ollama at <code>${escapeHtml(host)}</code>. Likely either not running, or CORS is blocking this origin. Restart Ollama with:<br><code>${escapeHtml(cmd)}</code>`
     els.keyStatus.className = 'pcb-keystatus pcb-keystatus--err'
   }
 }
@@ -246,12 +266,15 @@ function loadProviderState() {
   try {
     state.provider = localStorage.getItem(PROVIDER_LS) || 'gemini'
     if (!PROVIDERS[state.provider]) state.provider = 'gemini'
-    state.apiKey = localStorage.getItem(keyLsFor(state.provider)) || ''
+    state.apiKey = getKey(state.provider)
     state.model  = localStorage.getItem(modelLsFor(state.provider)) || PROVIDERS[state.provider].defaultModel
     state.ollamaHost = localStorage.getItem(OLLAMA_HOST_LS) || 'http://localhost:11434'
   } catch {}
   // Reflect the radio
   for (const r of els.provRadios) r.checked = (r.value === state.provider)
+  // Reflect the session-only checkbox
+  const sessOpt = document.getElementById('opt-session-only')
+  if (sessOpt) sessOpt.checked = (() => { try { return localStorage.getItem(SESSION_ONLY_LS) === '1' } catch { return false } })()
   applyProviderUI()
 }
 
@@ -261,7 +284,7 @@ for (const r of els.provRadios) {
     state.provider = r.value
     try { localStorage.setItem(PROVIDER_LS, state.provider) } catch {}
     // Reload per-provider key + model from storage
-    state.apiKey = localStorage.getItem(keyLsFor(state.provider)) || ''
+    state.apiKey = getKey(state.provider)
     state.model  = localStorage.getItem(modelLsFor(state.provider)) || PROVIDERS[state.provider].defaultModel
     applyProviderUI()
   })
@@ -274,8 +297,7 @@ els.saveKey.addEventListener('click', () => {
   try {
     if (p.needsKey) {
       state.apiKey = v
-      if (v) localStorage.setItem(keyLsFor(state.provider), v)
-      else   localStorage.removeItem(keyLsFor(state.provider))
+      setKey(state.provider, v)
     } else {
       state.ollamaHost = v || 'http://localhost:11434'
       localStorage.setItem(OLLAMA_HOST_LS, state.ollamaHost)
@@ -289,7 +311,7 @@ els.clearKey.addEventListener('click', () => {
   const p = PROVIDERS[state.provider]
   if (p.needsKey) {
     state.apiKey = ''
-    try { localStorage.removeItem(keyLsFor(state.provider)) } catch {}
+    setKey(state.provider, '')
   } else {
     state.ollamaHost = 'http://localhost:11434'
     try { localStorage.removeItem(OLLAMA_HOST_LS) } catch {}
@@ -309,9 +331,31 @@ loadProviderState()
 queueMicrotask(() => {
   updateModelLabel()
   try {
-    const anyKey = ['anthropic', 'gemini'].some(p => !!localStorage.getItem(keyLsFor(p)))
+    const anyKey = ['anthropic', 'gemini'].some(p => !!getKey(p))
     if (!anyKey && state.provider !== 'ollama') openModal()
   } catch {}
+})
+
+// Session-only toggle: when enabled, keys move to sessionStorage and are
+// gone when the tab closes. When disabled, keys move back to localStorage.
+const sessionOpt = document.getElementById('opt-session-only')
+sessionOpt?.addEventListener('change', () => {
+  const want = sessionOpt.checked
+  // Capture current keys, flip the flag, write keys back through the new
+  // backend (so we don't lose data when switching modes).
+  const snap = {}
+  for (const p of Object.keys(PROVIDERS)) snap[p] = getKey(p)
+  try { localStorage.setItem(SESSION_ONLY_LS, want ? '1' : '0') } catch {}
+  for (const [p, v] of Object.entries(snap)) setKey(p, v)
+  state.apiKey = getKey(state.provider)
+  applyProviderUI()
+  const msg = want
+    ? 'Keys moved to sessionStorage — they will be cleared when you close this tab.'
+    : 'Keys moved back to localStorage — persist across tabs/sessions.'
+  if (els.keyStatus) {
+    els.keyStatus.textContent = msg
+    els.keyStatus.className = 'pcb-keystatus pcb-keystatus--ok'
+  }
 })
 
 // "Clear all stored keys" — wipes every eol-pcb-* entry, useful as a
@@ -320,16 +364,20 @@ const clearAllBtn = document.getElementById('clear-all-keys')
 if (clearAllBtn) {
   clearAllBtn.addEventListener('click', () => {
     try {
-      const toRemove = []
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i)
-        if (k && k.startsWith('eol-pcb-')) toRemove.push(k)
+      let total = 0
+      for (const store of [localStorage, sessionStorage]) {
+        const toRemove = []
+        for (let i = 0; i < store.length; i++) {
+          const k = store.key(i)
+          if (k && k.startsWith('eol-pcb-')) toRemove.push(k)
+        }
+        toRemove.forEach(k => store.removeItem(k))
+        total += toRemove.length
       }
-      toRemove.forEach(k => localStorage.removeItem(k))
       state.apiKey = ''
       state.ollamaHost = 'http://localhost:11434'
       applyProviderUI()
-      els.keyStatus.textContent = `Cleared ${toRemove.length} stored item${toRemove.length === 1 ? '' : 's'}. Nothing left in localStorage for this site.`
+      els.keyStatus.textContent = `Cleared ${total} stored item${total === 1 ? '' : 's'} from both localStorage and sessionStorage. Nothing left for this site.`
       els.keyStatus.className = 'pcb-keystatus pcb-keystatus--ok'
     } catch (e) {
       els.keyStatus.textContent = 'Failed to clear: ' + (e.message || e)
@@ -1470,6 +1518,10 @@ function escapeHtml(s) {
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
   ))
 }
+// Stricter — for HTML attribute *values*. Same as escapeHtml today; kept
+// distinct so we can tighten attribute-context rules later without touching
+// text-context callers.
+function escapeHtmlAttr(s) { return escapeHtml(s) }
 
 // ── Toolbar wiring (palette, history, crop, retry, export, test plan) ─
 const tb = {
@@ -1525,7 +1577,7 @@ tb.rerunOther?.addEventListener('click', () => {
   const others = order.filter(p => p !== state.provider)
   for (const p of others) {
     const cfg = PROVIDERS[p]
-    const hasKey = !cfg.needsKey || !!(localStorage.getItem(keyLsFor(p)))
+    const hasKey = !cfg.needsKey || !!getKey(p)
     if (hasKey) {
       const r = document.querySelector(`input[name=provider][value=${p}]`)
       r.checked = true; r.dispatchEvent(new Event('change'))

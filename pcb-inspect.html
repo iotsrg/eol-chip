@@ -5,7 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Upload a PCB photo or schematic - AI identifies chips, pins, and possible hardware attack vectors and cross-references against the EOL-CHIP threat catalog.">
   <title>PCB Inspect (beta) | EOL-CHIP</title>
-  <link rel="stylesheet" href="./src/style.css?v=45">
+
+  <!-- Content Security Policy: lock script execution to our origin + jsdelivr
+       (only CDN we use), and lock outbound API calls to the three provider
+       endpoints + local Ollama. Blocks XSS-style script injection from any
+       compromised input or supply-chain channel. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdn.jsdelivr.net;
+    connect-src 'self'
+      https://api.anthropic.com
+      https://generativelanguage.googleapis.com
+      http://localhost:* http://127.0.0.1:*
+      https://localhost:* https://127.0.0.1:*;
+    img-src 'self' data: blob:;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self' data:;
+    worker-src 'self' blob:;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'none';
+    frame-ancestors 'none';
+  ">
+
+  <!-- Subresource Integrity preload — pins the exact byte hash of every
+       CDN dependency. If jsdelivr ever serves a different file, the browser
+       refuses to execute it. -->
+  <link rel="modulepreload"
+        href="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs"
+        integrity="sha384-nwcIq4Kfio3DArsP2bh90ZYlT5ItT8Hx/zuE4sbogcKeTMs4YrF+G0BMluBlCelp"
+        crossorigin="anonymous">
+  <link rel="modulepreload"
+        href="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.min.mjs"
+        integrity="sha384-qgyx6GmMWoI003drRr62DU41/67b3n7M2G0EXu2WhaOsBqONtHyay9Vw4aIivyOX"
+        crossorigin="anonymous">
+  <link rel="modulepreload"
+        href="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.worker.min.mjs"
+        integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
+        crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./src/style.css?v=46">
 </head>
 <body class="app-body">
 
@@ -173,6 +212,9 @@
           <button id="clear-key" class="app-btn app-btn--ghost">Clear</button>
         </div>
         <div id="key-status" class="pcb-keystatus"></div>
+        <label class="pcb-check" style="margin-top:8px" title="When enabled, your key is stored in sessionStorage instead of localStorage — it disappears when you close this browser tab. More secure if you're on a shared machine.">
+          <input type="checkbox" id="opt-session-only"> store key only for this tab (clears on close)
+        </label>
 
         <h3 class="app-modal-h3">Analysis options</h3>
         <div class="pcb-controls" id="pcb-controls">
@@ -241,6 +283,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=45"></script>
+  <script type="module" src="./src/page-pcb.js?v=46"></script>
 </body>
 </html>
