@@ -3,9 +3,10 @@ export function initNav(activePage = '') {
   if (!nav) return
 
   const links = [
-    { href: 'index.html',   label: 'Home',    key: 'home' },
-    { href: 'vendors.html', label: 'Vendors', key: 'vendors' },
-    { href: 'about.html',   label: 'About',   key: 'about' },
+    { href: 'index.html',       label: 'Home',        key: 'home' },
+    { href: 'vendors.html',     label: 'Vendors',     key: 'vendors' },
+    { href: 'pcb-inspect.html', label: 'PCB Inspect', key: 'pcb' },
+    { href: 'about.html',       label: 'About',       key: 'about' },
   ]
 
   nav.innerHTML = `
@@ -101,7 +102,7 @@ export function renderSourcesFooter() {
 export async function loadMeta() {
   renderSourcesFooter()
   try {
-    const r = await fetch('./data/meta.json?v=21')
+    const r = await fetch('./data/meta.json?v=43')
     if (!r.ok) return null
     const m = await r.json()
     const fu = document.getElementById('footer-updated')

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Upload a PCB photo or schematic - AI identifies chips, pins, and possible hardware attack vectors and cross-references against the EOL-CHIP threat catalog.">
+  <title>PCB Inspect (beta) | EOL-CHIP</title>
+  <link rel="stylesheet" href="./src/style.css?v=45">
+</head>
+<body class="app-body">
+
+  <!-- ────────  Top header (48px)  ──────── -->
+  <header class="app-header">
+    <a href="./index.html" class="app-logo" title="Back to EOL-CHIP">
+      <span class="app-logo-mark">IC</span>
+      <span class="app-logo-text">EOL-CHIP</span>
+    </a>
+    <div class="app-header-sep"></div>
+    <h1 class="app-title">PCB Inspect <span class="app-beta">beta</span></h1>
+
+    <button id="btn-settings" class="app-iconbtn" type="button" title="Provider, API key, analysis options">
+      <span class="app-icon">&#9881;</span>
+      <span id="app-model-label" class="app-iconbtn-text">Set up</span>
+    </button>
+
+    <div class="app-header-file" id="app-file-label" title="Currently loaded image"></div>
+
+    <div class="app-header-spacer"></div>
+
+    <button id="analyze-btn" class="app-btn app-btn--primary" type="button" disabled>Analyze image</button>
+
+    <div class="app-header-actions" id="pcb-toolbar" style="display:none">
+      <span class="pcb-toolbar-stamp" id="pcb-run-stamp" title="Run stamp"></span>
+      <button id="btn-retry"       class="app-iconbtn" type="button" title="Re-run analysis on the same image with the current model">&#8635;</button>
+      <button id="btn-rerun-other" class="app-iconbtn" type="button" title="Re-run on the same image with a different provider">&#8644;</button>
+      <button id="btn-crop"        class="app-iconbtn" type="button" title="Crop to the selected detection and re-analyze that crop at native resolution" disabled>&#128269;</button>
+      <button id="btn-testplan"    class="app-iconbtn" type="button" title="Generate a hardware-pentest checklist from current detections">&#10003;</button>
+      <button id="btn-export-md"   class="app-iconbtn" type="button" title="Copy a Markdown report">MD</button>
+      <button id="btn-export-json" class="app-iconbtn" type="button" title="Copy raw JSON">{}</button>
+    </div>
+
+    <button id="btn-history" class="app-iconbtn" type="button" title="Recent analyses"><span class="app-icon">&#128340;</span></button>
+    <button id="btn-help"    class="app-iconbtn" type="button" title="How accurate is this?">?</button>
+  </header>
+
+  <!-- One-time image-quality banner -->
+  <div id="banner-quality" class="app-banner" style="display:none">
+    <span><b>&#9888; Garbage in, garbage out.</b> Vision models fabricate part numbers, pins and attack vectors from blurry / angled / low-light photos. Treat every output as a hypothesis to verify.</span>
+    <button id="btn-dismiss-banner" class="app-banner-btn" type="button">Got it</button>
+  </div>
+
+  <!-- ────────  Main 2-pane workspace  ──────── -->
+  <main class="app-workspace">
+
+    <!-- LEFT: image pane -->
+    <section class="app-image-pane">
+
+      <!-- Drop zone -->
+      <div id="drop-zone" class="app-drop">
+        <input type="file" id="file-input" accept="image/*,application/pdf" multiple hidden>
+        <div class="app-drop-inner">
+          <div class="app-drop-icon">&#128247;</div>
+          <div class="app-drop-title">Drop PCB images or PDF here</div>
+          <div class="app-drop-sub">PNG / JPG / WebP / PDF &middot; multi-select for top+bottom+close-ups &middot; Ctrl+V to paste</div>
+        </div>
+      </div>
+
+      <!-- Multi-image thumbnails -->
+      <div id="multi-image-strip" class="pcb-multi" style="display:none"></div>
+
+      <!-- PDF page picker -->
+      <div id="pdf-pages" class="pcb-pdfpages" style="display:none">
+        <span class="pcb-pdfpages-label">PDF page:</span>
+        <button id="pdf-prev" class="app-iconbtn" type="button">&#9664;</button>
+        <span id="pdf-page-num" class="pcb-pdfpages-num">1 / 1</span>
+        <button id="pdf-next" class="app-iconbtn" type="button">&#9654;</button>
+        <span class="pcb-pdfpages-hint">switch page then Analyze again</span>
+      </div>
+
+      <!-- Image + canvas -->
+      <div id="pcb-result-section" class="app-image-stage" style="display:none">
+
+        <!-- Prominent image-size toolbar (above the image) -->
+        <div class="app-image-toolbar" id="app-zoom-widget">
+          <span class="app-image-toolbar-label">Image size</span>
+          <button id="btn-zoom-out"   class="app-iconbtn" type="button" title="Smaller">&minus;</button>
+          <input type="range" id="img-size-slider" class="app-size-slider"
+                 min="40" max="250" step="5" value="100" title="Drag to resize the image">
+          <span id="img-size-label" class="app-size-label">100%</span>
+          <button id="btn-zoom-in"    class="app-iconbtn" type="button" title="Bigger">+</button>
+          <button id="btn-zoom-reset" class="app-iconbtn" type="button" title="Reset to fit">Fit</button>
+          <span class="app-image-toolbar-sep"></span>
+          <label class="app-image-toolbar-check" title="Drag bbox corners/sides to resize, drag inside to move">
+            <input type="checkbox" id="opt-edit"> edit boxes
+          </label>
+          <label class="app-image-toolbar-check" title="Colour-blind-safe palette (Wong)">
+            <input type="checkbox" id="opt-cb"> CB-safe
+          </label>
+        </div>
+
+        <div class="pcb-canvas-wrap">
+          <div class="pcb-canvas-container">
+            <img id="pcb-image" alt="uploaded board">
+            <canvas id="pcb-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="app-statusbar">
+        <span class="pcb-canvas-status" id="pcb-status">Click &#9881; to set up a provider, then drop an image.</span>
+      </div>
+
+      <!-- History panel -->
+      <div class="pcb-history-panel" id="pcb-history" style="display:none"></div>
+
+    </section>
+
+    <!-- RIGHT: detections pane -->
+    <aside class="app-detections-pane">
+      <div class="app-detections-head">
+        <h2>Detections <span class="app-det-count" id="det-count"></span></h2>
+        <span class="app-detections-hint">click a row to expand</span>
+      </div>
+      <div id="pcb-panel" class="app-detections-list">
+        <div class="pcb-panel-empty">Upload an image and click <b>Analyze</b> to see chips, attack vectors and references here.</div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ────────  Settings modal  ──────── -->
+  <div id="modal-settings" class="app-modal" style="display:none">
+    <div class="app-modal-backdrop" id="modal-backdrop"></div>
+    <div class="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-settings-title">
+      <div class="app-modal-head">
+        <h2 id="modal-settings-title">Settings</h2>
+        <button id="btn-close-settings" class="app-iconbtn" type="button" title="Close">&#10005;</button>
+      </div>
+      <div class="app-modal-body">
+
+        <div class="pcb-privacy pcb-privacy--compact">
+          <strong>&#128274; We do not store your API key anywhere on our side.</strong>
+          Static site on GitHub Pages — no backend, no database, no analytics. Key lives only in this browser's <code>localStorage</code>, and is sent only to the provider you pick.
+          <span class="pcb-privacy-verify">
+            Verify: <a href="https://github.com/iotsrg/eol-chip" target="_blank" rel="noopener">github.com/iotsrg/eol-chip</a> &middot;
+            <a href="https://github.com/iotsrg/eol-chip/blob/main/src/page-pcb.js" target="_blank" rel="noopener">src/page-pcb.js</a>
+          </span>
+        </div>
+
+        <h3 class="app-modal-h3">Provider</h3>
+        <div class="pcb-provrow">
+          <label class="pcb-prov">
+            <input type="radio" name="provider" value="anthropic">
+            <span><b>Anthropic</b> &middot; paid &middot; best accuracy</span>
+          </label>
+          <label class="pcb-prov">
+            <input type="radio" name="provider" value="gemini" checked>
+            <span><b>Google Gemini</b> &middot; free tier &middot; very good</span>
+          </label>
+          <label class="pcb-prov">
+            <input type="radio" name="provider" value="ollama">
+            <span><b>Ollama</b> &middot; free &middot; runs locally</span>
+          </label>
+        </div>
+        <div id="provider-help" class="pcb-provhelp"></div>
+
+        <h3 class="app-modal-h3">API key &amp; model</h3>
+        <div class="pcb-keyrow">
+          <input type="password" id="api-key" class="search-input" placeholder="API key…" autocomplete="off" spellcheck="false">
+          <select id="model-select" class="pcb-select"></select>
+          <button id="save-key" class="app-btn">Save</button>
+          <button id="clear-key" class="app-btn app-btn--ghost">Clear</button>
+        </div>
+        <div id="key-status" class="pcb-keystatus"></div>
+
+        <h3 class="app-modal-h3">Analysis options</h3>
+        <div class="pcb-controls" id="pcb-controls">
+          <div class="pcb-controls-row">
+            <label class="pcb-check"><input type="checkbox" id="opt-pins" checked> identify pins / headers</label>
+            <label class="pcb-check"><input type="checkbox" id="opt-attacks" checked> list attack vectors</label>
+            <label class="pcb-check"><input type="checkbox" id="opt-schematic"> this is a schematic, not a photo</label>
+            <label class="pcb-check" title="Cheap text-only OCR pre-pass that feeds extracted silkscreen text as a hint to the main detection call. Adds ~1 extra API call.">
+              <input type="checkbox" id="opt-ocr"> OCR pre-pass (hint)
+            </label>
+          </div>
+          <div class="pcb-controls-row">
+            <label class="pcb-slider" title="Hide detections below this confidence">
+              min confidence:
+              <input type="range" id="opt-conf" min="0" max="95" step="5" value="50">
+              <span id="opt-conf-val">50%</span>
+            </label>
+            <button id="reset-btn" class="app-btn app-btn--ghost" type="button">Reset image</button>
+          </div>
+        </div>
+
+        <div class="app-modal-foot">
+          <button id="clear-all-keys" class="app-btn app-btn--ghost" type="button">Clear all stored keys from this browser</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────  Help drawer  ──────── -->
+  <aside id="drawer-help" class="app-drawer" style="display:none">
+    <div class="app-drawer-head">
+      <h2>How accurate is this?</h2>
+      <button id="btn-close-help" class="app-iconbtn" type="button" title="Close">&#10005;</button>
+    </div>
+    <div class="app-drawer-body">
+      <div class="pcb-warn pcb-warn--compact">
+        <strong>&#9888; Image quality matters.</strong>
+        <ul>
+          <li><b>Good:</b> top-down, sharp, even light, silkscreen readable.</li>
+          <li><b>Bad:</b> angled, blurry, glare, low-res.</li>
+          <li><b>Schematics:</b> accuracy drops further.</li>
+          <li><b>Small models hallucinate more</b> — use Opus / Gemini 2.5 Pro / 90B Ollama.</li>
+        </ul>
+      </div>
+      <ul class="pcb-bullets">
+        <li><strong>Part identification</strong> is good when silkscreen is sharp and the package is common (QFN / QFP / BGA / SOIC from major vendors). Custom-marked or sanded chips will fail. Date codes and lot numbers are often misread.</li>
+        <li><strong>Bounding boxes</strong> are approximate &mdash; vision models are not pixel-perfect localisers. Use them as visual pointers, not measurements. Toggle <b>edit</b> on the image to drag/resize a box manually if you need it tight.</li>
+        <li><strong>Pin labels</strong> are inferred from package + reference design, not literally traced from the photo. Always confirm with the datasheet before probing.</li>
+        <li><strong>Debug interfaces (UART / JTAG / SWD / ISP / TagConnect)</strong> are identified <em>visually</em>: by pin count, silkscreen labels (TX / RX / SWDIO / SWCLK / RST), proximity to the MCU, and population state. We can <b>NOT</b> electrically trace tracks from a photo &mdash; that needs a multimeter. The model will say &ldquo;likely UART&rdquo; or &ldquo;consistent with SWD&rdquo;, never assert wiring it can't see. <strong>Verify pinout with a continuity probe before connecting anything.</strong></li>
+        <li><strong>I²C buses</strong> are usually inferred from clues rather than seen directly &mdash; SDA/SCL labels on test points, I²C-family chips visible on the board (24Cxx EEPROM, DS3231 RTC, BMP/BME/SHT/MPU sensors, SSD1306 OLED), or a 4.7&nbsp;k&Omega; pull-up pair. The model will surface "I²C bus" when these clues are present; it cannot prove which chips share a bus without continuity testing.</li>
+        <li><strong>SPI buses</strong> (distinct from the SPI flash chip itself) are identified from MOSI/MISO/SCK/CSn silkscreen on a header, or multiple SPI peripherals visible on the same board. The SPI flash chip itself (W25Q / MX25 / etc.) is always called out separately with its CS/CLK/MOSI/MISO pads for in-circuit dumping.</li>
+        <li><strong>Attack vectors</strong> each get an inline <code>[EMB3D &middot; web &middot; EDB]</code> strip that searches <a href="https://emb3d.mitre.org/" target="_blank" rel="noopener">MITRE EMB3D</a>, the open web, and <a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-DB</a>.</li>
+        <li><strong>Related research</strong> per detection links to EMB3D, Google web/Scholar, Exploit-DB, Hackaday and NVD CVEs &mdash; parameterised with the detected part number.</li>
+        <li><strong>Quality detector</strong>: if the model returns templated/lazy output, a red banner explains exactly which heuristic fired. Hover any flag for the threshold detail.</li>
+        <li><strong>Confidence floor</strong>: the slider in Settings hides anything below the chosen confidence. Default 50%.</li>
+        <li><strong>Cross-reference</strong>: detected part numbers matched against <code>chips.yaml</code> via exact, family-root, and fuzzy (Fuse.js). The match-kind label on each chip card tells you which fired.</li>
+        <li><strong>Cost &amp; tokens</strong>: Analyze button shows the estimated cost <em>before</em> you click; the run stamp in the header shows actual tokens and cost. Ollama is free.</li>
+      </ul>
+      <h3>Keyboard</h3>
+      <ul class="pcb-bullets">
+        <li><kbd>↑</kbd> / <kbd>↓</kbd> (or <kbd>j</kbd> / <kbd>k</kbd>) — cycle detections</li>
+        <li><kbd>Enter</kbd> — Re-OCR the selected detection at native resolution</li>
+        <li><kbd>Esc</kbd> — deselect</li>
+        <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>/<kbd>Shift</kbd> + wheel — zoom image</li>
+      </ul>
+    </div>
+  </aside>
+
+  <script type="module" src="./src/page-pcb.js?v=45"></script>
+</body>
+</html>
