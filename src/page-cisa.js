@@ -1,9 +1,9 @@
-import { initNav, tag, loadMeta } from './common.js?v=21'
+import { initNav, tag, loadMeta } from './common.js?v=43'
 
 initNav('cisa')
 loadMeta()
 
-fetch('./data/cisa_kev.json?v=21')
+fetch('./data/cisa_kev.json?v=43')
   .then(r => r.json())
   .then(items => {
     document.getElementById('cisa-count').textContent = items.length.toLocaleString()

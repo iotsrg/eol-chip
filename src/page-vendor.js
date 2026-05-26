@@ -1,4 +1,4 @@
-import { initNav, tag, statusTag, loadMeta } from './common.js?v=21'
+import { initNav, tag, statusTag, loadMeta } from './common.js?v=43'
 
 initNav('vendors')
 loadMeta()
@@ -106,7 +106,7 @@ async function main() {
   document.getElementById('vc-title').textContent = requestedVendor
   document.getElementById('vc-subtitle').innerHTML = `<em>End-of-life and historical chip catalog for <strong>${escapeHtml(requestedVendor)}</strong></em>`
 
-  allChips = await fetch('./data/eol_chips.json?v=21').then(r => r.json())
+  allChips = await fetch('./data/eol_chips.json?v=43').then(r => r.json())
 
   const vendorChips = allChips.filter(c => chipMatchesVendor(c.manufacturer, requestedVendor))
 
