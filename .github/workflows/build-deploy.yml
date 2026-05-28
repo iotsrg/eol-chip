@@ -1,10 +1,18 @@
 name: Build and Deploy EOL-CHIP
 
 on:
+  # Heavy data refresh runs WEEKLY (Monday 06:00 UTC). Daily was too much
+  # traffic against upstream APIs (NVD especially) and added no value —
+  # CVEs / advisories / exploits don't move that fast for our scope.
   schedule:
-    - cron: '0 6 * * *'  # Daily at 06:00 UTC
+    - cron: '0 6 * * 1'   # weekly: Monday 06:00 UTC
+  # Pushes to main re-deploy the site so HTML/CSS/JS changes go live
+  # immediately, but the fetcher steps are skipped (see `if:` guards
+  # below) — those only run on the schedule or a manual dispatch.
   push:
     branches: [main]
+  # Manual trigger: full pipeline including data fetch. Use this when
+  # you need a fresh data refresh outside the weekly cadence.
   workflow_dispatch:
 
 permissions:
@@ -39,49 +47,66 @@ jobs:
       - name: Ensure data directory exists
         run: mkdir -p data
 
+      # ─── Data-fetch steps below only run on the weekly schedule or a
+      # ─── manual workflow_dispatch. Pushes (code-only changes) skip these
+      # ─── and rebuild the site from the data files already committed.
+
       - name: Fetch CVEs from NVD
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: python scripts/fetch_cves.py
 
       - name: Fetch exploits from Exploit-DB
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_exploits.py
 
       - name: Fetch CISA Known Exploited Vulnerabilities
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_cisa.py
 
       - name: Fetch CISA ICS advisories
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_ics_advisories.py
 
       - name: Fetch GitHub Security Advisories
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_ghsa.py
 
       - name: Fetch Packet Storm
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_packetstorm.py
 
       - name: Fetch OSV.dev (open vulnerabilities)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_osv.py
 
       - name: Fetch NHTSA vehicle recalls
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_recalls.py
 
       - name: Fetch vendor PSIRT advisories
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_vendor_psirts.py
 
       - name: Fetch Metasploit hardware modules
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_metasploit.py
 
       - name: Process EOL chip data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/process_eol.py
 
       - name: Enrich chips with Wikipedia + Wikidata facts
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/fetch_chip_facts.py
 
       - name: Cross-link CVEs ↔ KEV / Exploit / Metasploit
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/cross_link.py
 
       - name: Build search index + meta
