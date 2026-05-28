@@ -930,6 +930,43 @@ Your job is to identify ONLY physical objects you can clearly SEE in the image:
 - Major connectors (USB, HDMI, Ethernet, etc.)
 - Crystals / oscillator cans
 - Visible debug pads or labelled test-point arrays (only if you can actually see and read the labels)
+- SECURITY-RELEVANT DISCRETES (transistors, MOSFETs, diodes, crystals, inductors, key RC networks) — see explicit list below
+
+SECURITY-RELEVANT DISCRETES — for a hardware-security tool these matter and MUST be identified. These are the components used in glitching, fault-injection and side-channel attacks:
+
+Transistors (BJT) — small 3-leg packages, usually SOT-23 / SOT-89 / SOT-223 / TO-92:
+  - NPN — commonly used to PULL signals LOW (reset glitching, clock disturbance, signal pull-down). Often near reset/clock/UART lines.
+  - PNP — high-side switching (cut/restore VCC), brownout attacks, RF amplifier enable.
+  - Read marking if visible (e.g. "1AM" = MMBT3904 NPN, "2AM" = MMBT3906 PNP, "2N7002" = MOSFET). Mark category "transistor".
+
+MOSFETs — packages SOT-23 (small-signal), SOT-89, SOT-223, DPAK / D2PAK / TO-220 (power):
+  - Used for fast switching, voltage glitching, power-rail control, USB VBUS gating.
+  - Often near power input, regulators, USB ports, debug-power switching.
+  - Mark category "mosfet". Note whether N-channel or P-channel if you can infer (P-ch typical for high-side power switching).
+
+Crystals / oscillator cans — rectangular silver cans, usually 4-pin or 2-pin:
+  - PRIMARY TARGETS FOR CLOCK GLITCHING. Always identify and note frequency if printed.
+  - Mark category "crystal".
+
+Power-supply discretes — TO-220 / DPAK / D2PAK / SOT-223 packages, inductors (coil shape, usually labelled L#), large electrolytic / tantalum caps near regulators:
+  - Targets for voltage glitching, brownout, power-rail manipulation.
+  - Mark category "power".
+
+Diodes / TVS / Zeners — small 2-leg packages, SOD-123 / SOD-323 / SMA / SMB:
+  - On debug lines (often clamps that can be temporarily shorted for clean fault injection).
+  - On power input (TVS protection — relevant for EMFI).
+  - Mark category "diode".
+
+RC reset / timing networks — pair of resistor + capacitor visible near a chip's RESET pin:
+  - Determines reset assertion timing — key for reset-glitching attack windows.
+  - Mark category "passive" and note "RC reset network for <chip>".
+
+Passive RULES — do NOT list every resistor / capacitor on the board (would be hundreds). DO include:
+  - Pull-up / pull-down resistors on debug pins, I²C lines, or boot-strap pins
+  - Bypass / decoupling capacitors AT the main SoC's power pins (relevant to power analysis / EMFI)
+  - The RC reset network (always)
+  - Any resistor labelled with an unusual value silkscreen (test resistors, current shunts)
+  - SKIP: generic bypass caps elsewhere, LED current-limit resistors, basic pull-ups on unimportant nets
 
 DEBUG INTERFACES are a priority — these are how someone gains access to a board. When you spot a header or test-point cluster, use the following heuristics to guess what it is (and say so in "notes"):
 - 4 pins near the main MCU, often labelled TX/RX/GND/3V3 → likely UART console
@@ -967,7 +1004,7 @@ Output exactly one JSON object: {"detections": [ ... ]}. Each detection has:
 - "label": short display name (e.g. "ESP32-WROOM", "SPI flash", "USB-C", "UART header")
 - "part_number": exact marking read from silkscreen/package, or "" if unreadable
 - "manufacturer": vendor name only if confidently identifiable from the marking or logo, else ""
-- "category": one of "mcu","soc","flash","eeprom","ram","power","radio","sensor","interface","passive","connector","header","crystal","unknown"
+- "category": one of "mcu","soc","fpga","cpld","flash","eeprom","ram","power","regulator","radio","sensor","interface","transistor","mosfet","diode","inductor","passive","connector","header","crystal","unknown"
 - "confidence": float 0.0–1.0. Be honest — if you can barely see it, use <0.5.
 - "bbox": [x1, y1, x2, y2] normalized 0.0–1.0, origin top-left, x2>x1, y2>y1
 - "notes": one short sentence on this part's role in the board
@@ -976,10 +1013,22 @@ ${wantAtk ? '- "attack_vectors": 0–4 SPECIFIC hardware-security notes for this
 
 Hard limits:
 1. Return ONLY the JSON object. No prose, no markdown fences.
-2. At most 12 detections total. Quality over quantity.
-3. Skip passives (resistors, capacitors, LEDs) and trivially-small SMT parts unless they are a deliberate test point.
-4. Order: main SoC/MCU first, then memory, then radios, then power, then connectors/headers, then crystals.
+2. At most 30 detections total. For dense boards (Zynq, FPGA dev kits, complex multi-radio products) use the full budget; for simple boards (1 MCU + 1 flash) use only what you actually see.
+3. Skip generic passives (every bypass cap on every IC, every LED current-limit resistor) — only include passives matching the security-relevance rules above.
+4. Order: main SoC/MCU first, then memory, then radios, then power discretes, then connectors/headers, then crystals, then security-relevant transistors / MOSFETs / diodes / RC networks.
 5. If you genuinely cannot identify anything beyond "there is a green PCB", return {"detections": []}.
+
+ATTACK-VECTOR GUIDANCE per component type — when you list a detection in one of these categories, the attack_vectors field should reflect the typical security role:
+  - mosfet (in power-supply path) → "voltage glitching target — fast-switching MOSFET in VCC path", "power-rail interruption for fault injection"
+  - mosfet (USB VBUS or similar) → "VBUS / USB power gating — candidate for USB power-cycling attacks"
+  - transistor (NPN near reset or clock) → "reset glitching target — pulls signal LOW on command", "clock-line disturbance trigger"
+  - transistor (PNP near VCC) → "high-side switch — brownout / VCC interruption attack candidate"
+  - crystal → "clock-glitching target — capacitive/inductive coupling can inject glitches into the clock domain"
+  - regulator (LDO / DC-DC) → "voltage-glitch target — under/overshoot the output rail"
+  - diode (TVS on power input) → "EMFI / overvoltage clamp — bypass briefly to inject transients"
+  - diode (Schottky / signal) → "signal-line clamp — short across to inject without damage"
+  - passive RC reset network → "reset-glitch timing target — modify capacitor to widen attack window"
+  - inductor (on power input or near radio) → "EMFI coil target", "RF carrier coupling"
 
 ANTI-PATTERNS — these mean you are lazy-filling the schema. Do NOT do them:
 - Generic "notes" like "Main SoC/MCU on printed circuit board" or "Small SMT part on printed circuit board". Notes must describe THIS specific part's role with at least one detail you can see (silkscreen text, package shape, position).

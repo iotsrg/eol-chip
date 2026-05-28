@@ -283,6 +283,7 @@
         <li><strong>Debug interfaces (UART / JTAG / SWD / ISP / TagConnect)</strong> are identified <em>visually</em>: by pin count, silkscreen labels (TX / RX / SWDIO / SWCLK / RST), proximity to the MCU, and population state. We can <b>NOT</b> electrically trace tracks from a photo &mdash; that needs a multimeter. The model will say &ldquo;likely UART&rdquo; or &ldquo;consistent with SWD&rdquo;, never assert wiring it can't see. <strong>Verify pinout with a continuity probe before connecting anything.</strong></li>
         <li><strong>I²C buses</strong> are usually inferred from clues rather than seen directly &mdash; SDA/SCL labels on test points, I²C-family chips visible on the board (24Cxx EEPROM, DS3231 RTC, BMP/BME/SHT/MPU sensors, SSD1306 OLED), or a 4.7&nbsp;k&Omega; pull-up pair. The model will surface "I²C bus" when these clues are present; it cannot prove which chips share a bus without continuity testing.</li>
         <li><strong>SPI buses</strong> (distinct from the SPI flash chip itself) are identified from MOSI/MISO/SCK/CSn silkscreen on a header, or multiple SPI peripherals visible on the same board. The SPI flash chip itself (W25Q / MX25 / etc.) is always called out separately with its CS/CLK/MOSI/MISO pads for in-circuit dumping.</li>
+        <li><strong>Security-relevant discretes</strong>: transistors (NPN / PNP — SOT-23 / SOT-89 / TO-92), MOSFETs (SOT-23 small-signal through DPAK / TO-220 power), crystals, RC reset networks, TVS / Schottky diodes, inductors and main power-rail components are surfaced because each maps to a real attack category &mdash; voltage glitching, clock glitching, reset glitching, EMFI, brownout, USB power-cycling. The detection's <code>attack_vectors</code> field is contextualised by component role (e.g. an N-channel MOSFET in the VCC path is flagged as a "voltage glitching target"). Generic bypass caps and LED current-limit resistors are skipped to keep the output focused.</li>
         <li><strong>Attack vectors</strong> each get an inline <code>[EMB3D &middot; web &middot; EDB]</code> strip that searches <a href="https://emb3d.mitre.org/" target="_blank" rel="noopener">MITRE EMB3D</a>, the open web, and <a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-DB</a>.</li>
         <li><strong>Related research</strong> per detection links to EMB3D, Google web/Scholar, Exploit-DB, Hackaday and NVD CVEs &mdash; parameterised with the detected part number.</li>
         <li><strong>Quality detector</strong>: if the model returns templated/lazy output, a red banner explains exactly which heuristic fired. Hover any flag for the threshold detail.</li>
@@ -300,6 +301,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=52"></script>
+  <script type="module" src="./src/page-pcb.js?v=53"></script>
 </body>
 </html>
