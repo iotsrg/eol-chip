@@ -961,12 +961,29 @@ RC reset / timing networks — pair of resistor + capacitor visible near a chip'
   - Determines reset assertion timing — key for reset-glitching attack windows.
   - Mark category "passive" and note "RC reset network for <chip>".
 
+PULL-UP / PULL-DOWN RESISTORS — these are PRIMARY hardware-attack targets. A pull-up or pull-down sets the default state of a config / boot / debug pin at power-on. Lifting it (or shorting the trace below it to the opposite rail) changes what the chip does. Identify them when you see:
+
+Visual cues:
+- Small SMD resistor (0402 / 0603 / 0805) sitting alone near a specific pin of a major IC, with ONE end going to VCC (pull-up) or GND (pull-down) and the other to a signal pin or a header pin.
+- Markings: SMD resistors usually show a 3- or 4-digit code printed on the body: "472" = 4.7 kΩ, "473" = 47 kΩ, "103" = 10 kΩ, "104" = 100 kΩ, "100" = 10 Ω, "000" = 0 Ω jumper.
+- Common values for pull-ups: 4.7 kΩ (I²C), 10 kΩ (boot-strap, reset, JTAG/SWD), 100 kΩ (high-impedance / weak pull).
+
+Which ones MATTER (worth flagging — each maps to a real attack):
+  - **Boot-strap pulls** — on BOOT / BOOT0 / BOOT1 / MODE / CFG / STRAP pins of MCU/SoC/FPGA. Pick boot source (internal flash / SPI flash / UART / USB / JTAG / SD). Attack: lift the resistor or short the trace to opposite rail → force alternative boot mode → attacker's recovery / serial-boot path.
+  - **Reset pull-up** — typically 10 kΩ from RESETn to VCC, often paired with a small capacitor to GND (an RC reset network). Attack: hold reset LOW to keep MCU offline while attacking peripherals; or shorten the RC time constant for a reset-glitching window.
+  - **Flash WP / HOLD pull-ups** — on the WP# and HOLD# pins of SPI flash chips (W25Qxx, MX25, etc.). Usually 10 kΩ pull-up holding the pin HIGH (= write protected / hold inactive). Attack: tie WP# LOW → disables write protect → flash can be modified in-circuit.
+  - **JTAG / SWD pull-ups** — on TMS, TCK, TRST, SWDIO, SWCLK. Often 10 kΩ. Indicates the debug interface is biased for normal operation rather than tristated. Attack: tells you the debug port is usable without strong drivers.
+  - **I²C pull-ups** — the 4.7 kΩ pair fingerprint, already covered in I²C BUS clues above.
+  - **GPIO mode-select / pin-mux** — on multiplexed pins that pick a function at boot (e.g. JTAG vs GPIO, secure-boot enable, debug-disable straps). Attack: force the opposite function by changing the strap value.
+
+Format: emit one detection per identified pull (or one detection covering a cluster of strap resistors on the same chip's strap pins). Category "passive". In notes describe which pin/role; in attack_vectors describe what the attacker gets by changing the resistor.
+
 Passive RULES — do NOT list every resistor / capacitor on the board (would be hundreds). DO include:
-  - Pull-up / pull-down resistors on debug pins, I²C lines, or boot-strap pins
+  - All pull-up / pull-down resistors per the section above (boot-strap, reset, flash WP, JTAG/SWD, I²C, pin-mux)
   - Bypass / decoupling capacitors AT the main SoC's power pins (relevant to power analysis / EMFI)
   - The RC reset network (always)
   - Any resistor labelled with an unusual value silkscreen (test resistors, current shunts)
-  - SKIP: generic bypass caps elsewhere, LED current-limit resistors, basic pull-ups on unimportant nets
+  - SKIP: generic bypass caps elsewhere, LED current-limit resistors, basic pull-ups on indicator LEDs or other non-security nets
 
 DEBUG INTERFACES are a priority — these are how someone gains access to a board. When you spot a header or test-point cluster, use the following heuristics to guess what it is (and say so in "notes"):
 - 4 pins near the main MCU, often labelled TX/RX/GND/3V3 → likely UART console
@@ -1028,6 +1045,10 @@ ATTACK-VECTOR GUIDANCE per component type — when you list a detection in one o
   - diode (TVS on power input) → "EMFI / overvoltage clamp — bypass briefly to inject transients"
   - diode (Schottky / signal) → "signal-line clamp — short across to inject without damage"
   - passive RC reset network → "reset-glitch timing target — modify capacitor to widen attack window"
+  - passive pull-up on BOOT / MODE strap → "lift to force alternative boot mode (UART / USB / JTAG recovery path)"
+  - passive pull-up on flash WP# / HOLD# → "tie WP# LOW to disable write protect — flash modification possible in-circuit"
+  - passive pull-up on RESET → "hold reset LOW to keep MCU offline while attacking peripherals"
+  - passive pull-up on JTAG TRST / TMS / SWDIO / SWCLK → "debug interface biased for use — JTAG / SWD probably accessible"
   - inductor (on power input or near radio) → "EMFI coil target", "RF carrier coupling"
 
 ANTI-PATTERNS — these mean you are lazy-filling the schema. Do NOT do them:
