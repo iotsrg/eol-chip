@@ -60,12 +60,25 @@ End-of-life chip catalog cross-referenced with CVEs, CISA KEV, public exploits, 
 # Serve locally
 python3 -m http.server 8000
 
-# Rebuild data
+# Local data refresh (avoids NVD rate-limit hassles on GitHub Actions)
+export NVD_API_KEY=...        # https://nvd.nist.gov/developers/request-an-api-key
+export GITHUB_TOKEN=...        # for GHSA + Metasploit fetchers
+bash scripts/refresh.sh                # fetch + build, no commit
+bash scripts/refresh.sh --commit       # fetch + build + commit + push to main
+bash scripts/refresh.sh --only=cves    # rerun just one fetcher
+
+# Or run individual scripts manually
 pip install -r scripts/requirements.txt
 python3 scripts/process_eol.py
 python3 scripts/fetch_cves.py
 python3 scripts/build_search_index.py
 ```
+
+### Why local refresh?
+
+NVD's rate limits are per source IP. GitHub Actions runners share egress with every other repo on GitHub — so even with our API key we often hit 429s. Running the refresh from your home IP gives you the full 50-req / 30s quota to yourself, and you can re-run just a failed fetcher without spending 25 minutes in CI.
+
+The workflow still runs weekly as a fallback, and you can always trigger it manually from the Actions tab.
 
 ## License
 
