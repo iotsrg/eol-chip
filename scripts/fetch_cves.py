@@ -206,7 +206,10 @@ def normalize_cve(vuln_wrapper):
 def main():
     end = datetime.now(timezone.utc)
     start = end - timedelta(days=180)
-    fmt = "%Y-%m-%dT%H:%M:%S.000"
+    # NVD v2.0 became strict about timezone in mid-2026 — date strings
+    # without an explicit tz now return 404 on every query. The trailing Z
+    # marks UTC; without it the API silently rejects the request.
+    fmt = "%Y-%m-%dT%H:%M:%S.000Z"
 
     # Seed with existing data so historical CVEs accumulate across daily runs
     # and stay available for cross-linking with old exploits/MSF modules.
