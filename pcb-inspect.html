@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=52">
+  <link rel="stylesheet" href="./src/style.css?v=56">
 </head>
 <body class="app-body">
 
@@ -72,7 +72,8 @@
       <span class="pcb-toolbar-stamp" id="pcb-run-stamp" title="Run stamp"></span>
       <button id="btn-retry"       class="app-iconbtn" type="button" title="Re-run analysis on the same image with the current model">&#8635;</button>
       <button id="btn-rerun-other" class="app-iconbtn" type="button" title="Re-run on the same image with a different provider">&#8644;</button>
-      <button id="btn-crop"        class="app-iconbtn" type="button" title="Crop to the selected detection and re-analyze that crop at native resolution" disabled>&#128269;</button>
+      <button id="btn-crop"        class="app-iconbtn" type="button" title="Single-part zoom. STEP 1: click a detection card on the right panel (its outline thickens on the image). STEP 2: click this 🔎 to crop that one part at native resolution and re-read its marking. For ALL detections in one click, use 🔬 instead.">&#128269;</button>
+      <button id="btn-reocr-all"   class="app-iconbtn" type="button" title="🔬 Auto-zoom — just click. No need to zoom or pan the image first; the tool uses your ORIGINAL full-resolution file (the screen zoom slider is purely cosmetic). For every detection, it crops the bbox area at native resolution, upscales it, and re-asks the model to read the marking. This is the only way to recover small text like resistor codes (472=4.7kΩ) and faint chip markings. Costs ~1 API call per detection.">&#128300;</button>
       <button id="btn-review"      class="app-iconbtn" type="button" title="AI self-review: send the current detections back to the same model with a focused review prompt — catches missed chips, label/category contradictions, and OCR misreads. Costs ~1 extra call.">&#128270;&#9851;</button>
       <button id="btn-traces"      class="app-iconbtn" type="button" title="Trace analysis: ask the model to follow visible top-layer copper between detections (e.g. UART header pin → MCU). LIMITATION: traces that vanish into vias or inner layers cannot be followed. Costs ~1 extra call.">&#128279;</button>
       <button id="btn-testplan"    class="app-iconbtn" type="button" title="Generate a hardware-pentest checklist from current detections">&#10003;</button>
@@ -304,6 +305,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=55"></script>
+  <script type="module" src="./src/page-pcb.js?v=60"></script>
 </body>
 </html>

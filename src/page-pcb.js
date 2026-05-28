@@ -720,19 +720,40 @@ let drawOverlay = function (hoverId = null) {
 
   vis.forEach((d, i) => {
     const pal = palette()
-    const rgb = pal[i % pal.length]
+    const isEmpty = d.category === 'empty_footprint'
+    // Empty footprints always render in amber regardless of palette index —
+    // they are security warnings, not just another detection.
+    const rgb = isEmpty ? [245, 158, 11] : pal[i % pal.length]
     const hovered = hoverId === d.id
     const [x1, y1, x2, y2] = d.bbox
     const x = x1 * W, y = y1 * H, w = (x2 - x1) * W, h = (y2 - y1) * H
 
     // Only tint on hover (~10% alpha). Default = stroke-only so the chip stays visible.
+    // For empty footprints always tint lightly to flag the absence.
     if (hovered) {
-      ctx.fillStyle = rgba(rgb, 0.18)
+      ctx.fillStyle = rgba(rgb, isEmpty ? 0.28 : 0.18)
+      ctx.fillRect(x, y, w, h)
+    } else if (isEmpty) {
+      ctx.fillStyle = rgba(rgb, 0.10)
       ctx.fillRect(x, y, w, h)
     }
-    ctx.strokeStyle = rgba(rgb, hovered ? 1 : 0.9)
-    ctx.lineWidth = hovered ? 3 : 1.5
+    ctx.strokeStyle = rgba(rgb, hovered ? 1 : 0.95)
+    ctx.lineWidth = hovered ? 5 : 3
+    if (isEmpty) ctx.setLineDash([10, 6])
     ctx.strokeRect(x, y, w, h)
+    if (isEmpty) ctx.setLineDash([])
+    // Warning glyph in the top-right corner of an empty-footprint box
+    if (isEmpty) {
+      const glyph = '⚠'
+      ctx.font = 'bold 18px system-ui, sans-serif'
+      const gw = ctx.measureText(glyph).width + 8
+      const gh = 22
+      ctx.fillStyle = rgba(rgb, 1)
+      ctx.fillRect(x + w - gw, y, gw, gh)
+      ctx.fillStyle = '#fff'
+      ctx.fillText(glyph, x + w - gw + 4, y + gh - 5)
+      ctx.font = '13px system-ui, sans-serif'
+    }
 
     // Small number badge in the top-left corner of the box. Clamp so it
     // never exceeds 1/3 of the box, otherwise tiny detections get covered.
@@ -932,6 +953,36 @@ Your job is to identify ONLY physical objects you can clearly SEE in the image:
 - Crystals / oscillator cans
 - Visible debug pads or labelled test-point arrays (only if you can actually see and read the labels)
 - SECURITY-RELEVANT DISCRETES (transistors, MOSFETs, diodes, crystals, inductors, key RC networks) — see explicit list below
+- EMPTY / UNPOPULATED FOOTPRINTS — see dedicated section below (HIGH security priority)
+
+BOUNDING BOX PRECISION — this is critical. Each bbox MUST tightly enclose the physical part:
+- x1,y1 = top-left corner of the package outline (NOT including pin tails extending outside)
+- x2,y2 = bottom-right corner of the package outline
+- Tolerance: ±2% of image width on each edge. Boxes wandering off the chip by 10–15% are unacceptable.
+- For ICs: enclose the dark plastic body, not the pin halo. For headers: enclose the plastic shroud + pins. For passives: tight 0402/0603 footprint only.
+- Before emitting each bbox, mentally re-check: "does the rectangle I'm outputting actually contain the centre of this specific part?" If unsure, lower confidence rather than emit a sloppy box.
+
+EMPTY / UNPOPULATED FOOTPRINTS — these are HIGH-VALUE hardware-security targets and MUST be flagged. An empty footprint = silkscreen outline + visible pads + NO component soldered on. Signatures to look for:
+- A rectangular silkscreen outline (white box on green) with bare copper pads inside, no chip body.
+- A row of through-holes silkscreened with a part designator (e.g. "J5", "JTAG", "DEBUG", "CN3") but no header soldered in.
+- A footprint adjacent to a populated chip that was clearly intended to hold a sibling component (DNP — Do Not Populate).
+- Test-point pads (labelled TP## or unlabelled gold dots) — list these as a cluster, not individually.
+- A pair of unpopulated SOIC-8 pads near SPI flash → likely an alternate flash, secure element, or auth IC the manufacturer omitted.
+- An empty crystal footprint near a populated SoC → suggests alternate clock-source configuration possible.
+
+For each unpopulated footprint emit a detection with:
+- category: "empty_footprint"
+- label: descriptive guess (e.g. "Unpopulated debug header (probable UART)", "Unpopulated SOIC-8 (probable alternate flash)", "Unpopulated 2×5 header (probable JTAG)")
+- part_number: any visible silkscreen designator (e.g. "J5", "U7", "DBG1") or ""
+- confidence: typical 0.5–0.8 (you can SEE the footprint, but the intended part is a guess)
+- attack_vectors: tailored to footprint type:
+  * Unpopulated debug header → "Solder a header here → likely yields UART/JTAG/SWD console (manufacturer depopulated for production)"
+  * Empty SOIC-8 near SPI flash → "Plant point: attacker could solder a malicious flash here, MITM the bus, or add a logic bomb"
+  * Empty SOT-23 footprint on signal line → "Plant point: implant a transistor or MOSFET for active fault injection / signal manipulation"
+  * Empty footprint with no obvious purpose → "Plant point: physical-implant attack surface — verify against BOM whether intentional DNP"
+- notes: "Empty footprint — pads visible, no component. Compare to production BOM to confirm DNP vs implant location."
+
+This is not optional. Empty footprints on retail boards are one of the FIRST things a hardware-security analyst checks. Always include them when visible.
 
 SECURITY-RELEVANT DISCRETES — for a hardware-security tool these matter and MUST be identified. These are the components used in glitching, fault-injection and side-channel attacks:
 
@@ -1022,7 +1073,7 @@ Output exactly one JSON object: {"detections": [ ... ]}. Each detection has:
 - "label": short display name (e.g. "ESP32-WROOM", "SPI flash", "USB-C", "UART header")
 - "part_number": exact marking read from silkscreen/package, or "" if unreadable
 - "manufacturer": vendor name only if confidently identifiable from the marking or logo, else ""
-- "category": one of "mcu","soc","fpga","cpld","flash","eeprom","ram","power","regulator","radio","sensor","interface","transistor","mosfet","diode","inductor","passive","connector","header","crystal","unknown"
+- "category": one of "mcu","soc","fpga","cpld","flash","eeprom","ram","power","regulator","radio","sensor","interface","transistor","mosfet","diode","inductor","passive","connector","header","crystal","empty_footprint","unknown"
 - "confidence": float 0.0–1.0. Be honest — if you can barely see it, use <0.5.
 - "bbox": [x1, y1, x2, y2] normalized 0.0–1.0, origin top-left, x2>x1, y2>y1
 - "notes": one short sentence on this part's role in the board
@@ -1860,12 +1911,20 @@ No prose, no markdown fences. If you cannot confidently identify ANY traces, ret
 // and re-run with a focused "read the marking exactly" prompt.
 async function autoReOcrAll() {
   if (!state.detections.length || !state.imageDataUrl) return
-  setStatus('info', `Auto re-OCR: re-reading ${state.detections.length} detections at native resolution…`)
+  // Probe the source image to show the user what resolution we're actually using —
+  // this is the #1 confusion point ("do I need to zoom first?" → no, we use the original file).
+  const srcDims = await new Promise(res => {
+    const i = new Image()
+    i.onload = () => res(`${i.naturalWidth}×${i.naturalHeight}`)
+    i.onerror = () => res('?')
+    i.src = state.imageDataUrl
+  })
+  setStatus('info', `🔬 Auto-zoom started. Using your original ${srcDims} px upload (your screen zoom doesn't matter). Re-reading ${state.detections.length} detections, one per API call…`)
   let okN = 0, failN = 0
   for (const d of state.detections) {
     try { await reanalyzeCrop(d); okN++ } catch { failN++ }
   }
-  setStatus('ok', `Auto re-OCR complete (${okN} updated, ${failN} skipped).`)
+  setStatus('ok', `🔬 Auto-zoom complete (${okN} updated, ${failN} skipped).`)
   await renderPanel()
 }
 
@@ -2152,6 +2211,25 @@ btnReview?.addEventListener('click', () => runSelfReviewPass())
 const btnTraces = document.getElementById('btn-traces')
 btnTraces?.addEventListener('click', () => runTraceAnalysis())
 
+// Auto-zoom / re-OCR every detection at native resolution.
+// One-click equivalent of toggling opt-auto-reocr AND re-running analyze,
+// but operates on the EXISTING detections — no second full-board pass.
+const btnReocrAll = document.getElementById('btn-reocr-all')
+btnReocrAll?.addEventListener('click', async () => {
+  if (!state.detections.length) {
+    setStatus('error', 'No detections to re-read. Click Analyze first.')
+    return
+  }
+  if (!state.imageDataUrl) { setStatus('error', 'No image loaded.'); return }
+  const p = PROVIDERS[state.provider]
+  if (p.needsKey && !state.apiKey) { setStatus('error', `No ${p.label} key.`); return }
+  const n = state.detections.length
+  if (n > 8 && !confirm(`Auto-zoom will send ${n} extra calls (one per detection) to ${p.label}. Continue?`)) return
+  btnReocrAll.disabled = true
+  try { await autoReOcrAll() }
+  finally { btnReocrAll.disabled = false }
+})
+
 async function runSelfReviewPass() {
   if (!state.detections.length) {
     setStatus('error', 'No detections to review. Click Analyze first.')
@@ -2259,7 +2337,17 @@ Return the FULL corrected list — keep correct entries unchanged byte-for-byte,
 // resolution back to the model with a focused "read the marking exactly" prompt.
 tb.crop?.addEventListener('click', async () => {
   const d = state.detections.find(x => x.id === state.selectedDetectionId)
-  if (!d) { setStatus('error', 'Pick a detection first (click one in the side panel).'); return }
+  if (!d) {
+    setStatus('error', '🔎 needs a detection selected first. Click any card in the RIGHT panel (or any box on the image), then click 🔎 again. Or use 🔬 to do all detections at once.')
+    // Flash the detections panel to draw the eye
+    const panel = document.getElementById('pcb-detections') || document.getElementById('detections-pane')
+    if (panel) {
+      panel.style.transition = 'box-shadow .25s'
+      panel.style.boxShadow = '0 0 0 3px var(--accent, #4ea1ff)'
+      setTimeout(() => { panel.style.boxShadow = '' }, 1200)
+    }
+    return
+  }
   await reanalyzeCrop(d)
 })
 
@@ -2530,14 +2618,12 @@ window.addEventListener('keydown', e => {
     if (d) reanalyzeCrop(d)
   } else if (e.key === 'Escape') {
     state.selectedDetectionId = null
-    if (tb.crop) tb.crop.disabled = true
     highlightCard(0); drawOverlay()
   }
 })
 
 function selectDetection(id) {
   state.selectedDetectionId = id
-  if (tb.crop) tb.crop.disabled = false
   drawOverlay(id)
   highlightCard(id)
   const card = document.getElementById('det-' + id)
