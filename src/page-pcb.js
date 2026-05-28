@@ -1442,9 +1442,11 @@ async function renderPanel() {
     const color = pal[(d.id - 1) % pal.length]
     const chipMatch = lookupChip(d.part_number)
     const chip = chipMatch ? chipMatch.item : null
-    const dsHref = d.part_number
-      ? `https://www.alldatasheet.com/search.jsp?Searchword=${encodeURIComponent(d.part_number)}`
-      : null
+    // Multi-source datasheet links. We send a CLEANED part number — first
+    // whitespace-separated token, stripped of trailing date codes like
+    // "F30826" or package codes like "CLG400AGX1645". Many indices (esp.
+    // AllDatasheet) only match the bare part number.
+    const dsLinks = d.part_number ? datasheetLinks(d.part_number) : null
     const eolHref = chip ? `chip.html?id=${encodeURIComponent(chip.part_number || chip.id)}` : null
     const xrefBadges = []
     if (chip) {
@@ -1499,7 +1501,11 @@ async function renderPanel() {
         ${relatedRow}
         ${xref}
         <div class="det-links">
-          ${dsHref ? `<a href="${dsHref}" target="_blank" rel="noopener">Datasheet ↗</a>` : ''}
+          ${dsLinks ? `<span class="det-ds-strip"><b>Datasheets:</b> ${
+            dsLinks.map(([label, href]) =>
+              `<a href="${href}" target="_blank" rel="noopener">${label}</a>`
+            ).join(' &middot; ')
+          }</span>` : ''}
           <button class="det-wrong-btn" data-id="${d.id}" type="button" title="Tell the model what's actually here — it will re-analyze just this part with your hint.">&#9888; Wrong?</button>
         </div>
       </div>
@@ -1562,6 +1568,38 @@ async function renderPanel() {
 // Build a small "References" strip under each attack-vector bullet.
 // Links search EMB3D, the open web, and Exploit-DB using the part number
 // (when known) plus the most informative keywords pulled from the vector text.
+// Cleanup a marking returned by the model into something datasheet
+// indices can match. The model often returns the full silkscreen
+// ("XC7Z010 CLG400AGX1645", "MT1379GE 0335-CAB3 F30826") — that whole
+// blob doesn't match most datasheet sites, which only index the bare
+// part number. Take the FIRST whitespace token; if that still looks
+// like it has a date code suffix, also strip trailing digits-and-dashes
+// after a clear part-number prefix.
+function cleanPartNumber(raw) {
+  if (!raw) return ''
+  let s = String(raw).trim().split(/\s+/)[0]
+  // Drop trailing date/lot suffix: an alphanumeric core followed by
+  // a dash + 4-6 chars of digits/letters is almost always a date code.
+  s = s.replace(/-(?:[A-Z0-9]{4,7})$/i, '')
+  return s.replace(/[.,;]+$/, '')
+}
+
+// Multi-source datasheet links. Returns [label, url] pairs; we render
+// them as a strip. When one site doesn't have the chip the others
+// usually do, and the Google PDF fallback nearly always finds something.
+function datasheetLinks(rawPart) {
+  const part = cleanPartNumber(rawPart)
+  if (!part) return null
+  const q = encodeURIComponent(part)
+  return [
+    ['AllDatasheet',     `https://www.alldatasheet.com/search.jsp?Searchword=${q}`],
+    ['Octopart',         `https://octopart.com/search?q=${q}`],
+    ['DatasheetArchive', `https://www.datasheetarchive.com/?q=${q}`],
+    ['DatasheetCatalog', `https://www.datasheetcatalog.com/search.asp?q=${q}`],
+    ['Google PDF',       `https://www.google.com/search?q=${q}+datasheet+filetype:pdf`],
+  ]
+}
+
 function attackRefs(d, vectorText) {
   const part = (d.part_number || d.label || '').trim()
   const kw = vectorKeywords(vectorText)
@@ -2221,7 +2259,8 @@ function buildTestPlanMarkdown() {
       lines.push('- [ ] Continuity-test against MCU pins')
     }
     if (d.part_number) {
-      lines.push(`- References: [datasheet](https://www.alldatasheet.com/search.jsp?Searchword=${encodeURIComponent(d.part_number)}) · [EMB3D](https://www.google.com/search?q=site%3Aemb3d.mitre.org+${encodeURIComponent(d.part_number)}) · [CVEs](https://nvd.nist.gov/vuln/search/results?query=${encodeURIComponent(d.part_number)})`)
+      const pn = encodeURIComponent(cleanPartNumber(d.part_number))
+      lines.push(`- References: [datasheet PDF](https://www.google.com/search?q=${pn}+datasheet+filetype:pdf) · [Octopart](https://octopart.com/search?q=${pn}) · [EMB3D](https://www.google.com/search?q=site%3Aemb3d.mitre.org+${pn}) · [CVEs](https://nvd.nist.gov/vuln/search/results?query=${pn})`)
     }
     lines.push('')
   }

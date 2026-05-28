@@ -1990,6 +1990,13 @@ body.app-body {
 .det-wrong-btn:hover {
   background: var(--accent-dim); border-color: var(--accent); color: var(--accent);
 }
+.det-ds-strip {
+  font-size: 11.5px; color: var(--text2);
+  line-height: 1.6;
+}
+.det-ds-strip b { font-weight: 600; color: var(--text); }
+.det-ds-strip a { color: var(--link); }
+
 
 /* Trace analysis block in side panel */
 .pcb-traces {
