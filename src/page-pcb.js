@@ -1588,6 +1588,116 @@ tb.rerunOther?.addEventListener('click', () => {
   setStatus('error', 'No other provider has a saved key. Save one in step 1 first.')
 })
 
+// Self-review: send the current detections + image back to the same model
+// with a review-focused prompt. The model checks its own output for
+// (a) missed chips in corners/edges, (b) label↔notes↔category contradictions,
+// (c) OCR misreads. Replaces state.detections with the corrected list.
+const btnReview = document.getElementById('btn-review')
+btnReview?.addEventListener('click', () => runSelfReviewPass())
+
+async function runSelfReviewPass() {
+  if (!state.detections.length) {
+    setStatus('error', 'No detections to review. Click Analyze first.')
+    return
+  }
+  if (!state.imageDataUrl) {
+    setStatus('error', 'No image loaded.')
+    return
+  }
+  const p = PROVIDERS[state.provider]
+  if (p.needsKey && !state.apiKey) {
+    setStatus('error', `No ${p.label} key for self-review.`)
+    return
+  }
+  if (btnReview) btnReview.disabled = true
+  setStatus('info', `Self-review pass: re-examining ${state.detections.length} detection${state.detections.length === 1 ? '' : 's'} against the image…`)
+
+  // Strip helper fields the review prompt shouldn't see (id is reassigned
+  // client-side; xrefs are computed downstream).
+  const cleanCurrent = state.detections.map(d => ({
+    label: d.label,
+    part_number: d.part_number,
+    manufacturer: d.manufacturer,
+    category: d.category,
+    confidence: d.confidence,
+    bbox: d.bbox,
+    notes: d.notes,
+    pins: d.pins || [],
+    attack_vectors: d.attack_vectors || [],
+  }))
+
+  state._oneShotPrompt = buildReviewPrompt(cleanCurrent)
+  const startedAt = Date.now()
+  try {
+    let result
+    if (state.provider === 'anthropic')   result = await callAnthropic()
+    else if (state.provider === 'gemini') result = await callGemini()
+    else                                  result = await callOllama()
+    const corrected = Array.isArray(result) ? result : result.detections
+    const usage = Array.isArray(result) ? null : result.usage
+
+    if (!corrected || !corrected.length) {
+      setStatus('info', 'Self-review returned an empty list — keeping original detections unchanged.')
+      return
+    }
+
+    // Diff: how many net changes?
+    const beforeIds = state.detections.map(d => `${d.label}|${d.part_number}|${d.category}`).sort()
+    const afterIds  = corrected.map(d => `${d.label}|${d.part_number}|${d.category}`).sort()
+    const added   = afterIds.filter(x => !beforeIds.includes(x)).length
+    const removed = beforeIds.filter(x => !afterIds.includes(x)).length
+    const same    = beforeIds.length - removed
+    const total   = corrected.length
+
+    state.detections = corrected.map((d, i) => ({ ...d, id: i + 1 }))
+    state.selectedDetectionId = null
+
+    // Mark the run stamp so the user knows this is the post-review state.
+    if (state.lastRun) {
+      state.lastRun.reviewed = true
+      state.lastRun.reviewDurationMs = Date.now() - startedAt
+      state.lastRun.reviewTokensIn  = usage?.input_tokens ?? null
+      state.lastRun.reviewTokensOut = usage?.output_tokens ?? null
+      state.lastRun.reviewCost      = usage?.estimated_cost ?? null
+    }
+
+    fitCanvas()
+    drawOverlay()
+    await renderPanel()
+    updateRunStamp()
+    setStatus('ok',
+      `Self-review done in ${((Date.now() - startedAt)/1000).toFixed(1)}s — ` +
+      `${total} detections after review (${same} unchanged, ${added} added, ${removed} removed/corrected)` +
+      `${state.lastRun?.reviewCost ? ` · est. $${state.lastRun.reviewCost.toFixed(4)}` : ''}.`)
+  } catch (e) {
+    console.error(e)
+    setStatus('error', 'Self-review failed: ' + (e.message || e))
+  } finally {
+    if (btnReview) btnReview.disabled = false
+    state._oneShotPrompt = null
+  }
+}
+
+function buildReviewPrompt(current) {
+  return `You ran an initial vision-detection pass on this PCB image and produced the JSON below. Now review your own output carefully against the same image — DO NOT trust your previous reading; look at the image again.
+
+Find THREE specific classes of error and return the FULL corrected detection list:
+
+(a) MISSED CHIPS — scan the corners, edges, and densely-packed areas of the image. Did you miss any TSOP, QFP, QFN, BGA, SOIC, SOT, headers, crystals, or other ICs? Add new detections for anything you find.
+
+(b) INTERNAL CONTRADICTIONS — for each existing detection, cross-check label / category / notes:
+   - If "label" says "SDRAM" but "notes" says "actually a parallel NOR flash", the SDRAM label is wrong. Correct label AND category.
+   - If "category" doesn't match the package type or function described in notes, fix the category.
+   - If "label" uses a vendor name (e.g. "MStar/Macroblock") but the visible logo on the chip is a different vendor's, use the vendor whose logo is actually on the chip.
+
+(c) PART-NUMBER OCR — for each detection, look at the silkscreen marking in the image one more time. Did you misread any character? Common confusions to recheck: V↔LV, 0↔O, 1↔I, 8↔B, S↔5, G↔6. If you genuinely cannot read a marking, set "part_number" to "" rather than emit a wrong guess.
+
+YOUR PREVIOUS OUTPUT:
+${JSON.stringify({ detections: current }, null, 2)}
+
+Return the FULL corrected list — keep correct entries unchanged byte-for-byte, fix wrong ones, add missed ones. Format: {"detections": [ ... ]}. Same schema as your previous output. No prose, no markdown fences. If everything is already correct, return the same list unchanged.`
+}
+
 // Crop & re-OCR — when a detection is selected, send just that bbox at native
 // resolution back to the model with a focused "read the marking exactly" prompt.
 tb.crop?.addEventListener('click', async () => {
