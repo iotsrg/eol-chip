@@ -1991,6 +1991,36 @@ body.app-body {
   background: var(--accent-dim); border-color: var(--accent); color: var(--accent);
 }
 
+/* Trace analysis block in side panel */
+.pcb-traces {
+  margin-top: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  font-size: 12.5px;
+}
+.pcb-traces summary { cursor: pointer; font-weight: 600; color: var(--text); padding: 4px 0; }
+.pcb-trace-list { list-style: none; padding: 0; margin: 8px 0 4px; }
+.pcb-trace-list li {
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+  font-size: 12px; line-height: 1.5;
+}
+.pcb-trace-list li:last-child { border-bottom: none; }
+.pcb-trace-conf {
+  display: inline-block; margin-left: 6px;
+  font-family: var(--mono); font-size: 11px; color: var(--text2);
+}
+.pcb-trace-obs { margin-top: 3px; color: var(--text2); font-size: 11.5px; font-style: italic; }
+.pcb-trace-warn {
+  margin-top: 10px; padding: 6px 10px;
+  background: #fff8e1; color: #5a4500;
+  border-left: 3px solid #d39c00;
+  font-size: 11.5px; line-height: 1.45;
+}
+:root[data-theme=dark] .pcb-trace-warn {
+  background: #3a2e10; color: #f1d98b; border-left-color: #d3a000;
+}
+
 .det-match-kind {
   display: inline-block; margin-left: 6px;
   font-size: 10.5px; color: var(--text3);

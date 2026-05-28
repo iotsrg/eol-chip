@@ -1084,11 +1084,17 @@ function estimateCost(model, tokensIn, tokensOut) {
 }
 
 function parseDetections(text) {
+  state.rawModelText = text   // save first so non-detection responses (e.g. {"traces":...}) survive too
   const json = extractJson(text)
-  if (!json || !Array.isArray(json.detections)) {
+  if (!json) {
     throw new Error('Model did not return parseable JSON. Got: ' + text.slice(0, 200))
   }
-  state.rawModelText = text   // keep last raw text for the "show raw" toggle
+  // Trace-analysis prompts return {"traces":...} — allow the caller to
+  // re-parse rawText for their custom schema rather than throwing.
+  if (!Array.isArray(json.detections)) {
+    if (Array.isArray(json.traces)) return []
+    throw new Error('Model did not return parseable JSON. Got: ' + text.slice(0, 200))
+  }
   return json.detections.filter(d => Array.isArray(d.bbox) && d.bbox.length === 4)
 }
 
@@ -1499,7 +1505,25 @@ async function renderPanel() {
       </div>
     </div>`
   }).join('')
-  els.panel.innerHTML = qualityBanner + banner + cards + rawBlock
+  // Traces block (if trace analysis has been run)
+  const tracesBlock = (state.traces && state.traces.length)
+    ? `<details class="pcb-traces" open><summary>&#128279; ${state.traces.length} trace${state.traces.length === 1 ? '' : 's'}
+        (${state.traces.filter(t => t.ends_at_via).length} end at vias — cannot be followed further)</summary>
+        <ul class="pcb-trace-list">${state.traces.map(t => {
+          const fromLabel = labelForEndpoint(t.from)
+          const toLabel   = t.ends_at_via ? 'via (inner layer)' : labelForEndpoint(t.to)
+          const conf = t.confidence != null ? Math.round(t.confidence * 100) + '%' : '?'
+          return `<li>
+            <b>${escapeHtml(fromLabel)}</b> &rarr; ${escapeHtml(toLabel)}
+            <span class="pcb-trace-conf">${conf}</span>
+            ${t.observation ? `<div class="pcb-trace-obs">${escapeHtml(t.observation)}</div>` : ''}
+          </li>`
+        }).join('')}</ul>
+        <div class="pcb-trace-warn">&#9888; Top-layer visible-copper only. Inner layers, vias, BGA pin routing and traces under solder mask cannot be followed from a photo. Verify with a continuity probe.</div>
+      </details>`
+    : ''
+
+  els.panel.innerHTML = qualityBanner + banner + cards + tracesBlock + rawBlock
   if (shell.detCount) shell.detCount.textContent = visible.length
 
   els.panel.querySelectorAll('.det-row-card').forEach(card => {
@@ -1598,6 +1622,83 @@ function escapeHtml(s) {
 // distinct so we can tighten attribute-context rules later without touching
 // text-context callers.
 function escapeHtmlAttr(s) { return escapeHtml(s) }
+
+// ── Trace analysis ────────────────────────────────────────────────────
+// Ask the model to follow visible top-layer copper between detections.
+// Honest about limits: vias / inner layers / under-BGA routing aren't
+// followable from a photo. Returns observations + confidence; rendered as
+// arrows/dashed segments on the canvas overlay (drawn by drawOverlay).
+async function runTraceAnalysis() {
+  if (!state.detections.length || !state.imageDataUrl) {
+    setStatus('error', 'Run analyze first — trace analysis needs detections to anchor to.')
+    return
+  }
+  const p = PROVIDERS[state.provider]
+  if (p.needsKey && !state.apiKey) { setStatus('error', `No ${p.label} key for trace analysis.`); return }
+  setStatus('info', 'Trace analysis: following visible top-layer copper between detections…')
+
+  const detList = state.detections.map((d, i) => ({
+    id: i + 1,
+    label: d.label,
+    bbox: d.bbox,
+    pins: d.pins || [],
+  }))
+
+  state._oneShotPrompt = `You are looking at the same PCB image. Detections from a previous pass:
+${JSON.stringify(detList, null, 2)}
+
+Your task: identify VISIBLE COPPER TRACES on the TOP LAYER ONLY that connect one detection to another (or to a clear via where the trace disappears into an inner layer).
+
+Hard rules — be honest about what you cannot see:
+- ONLY report traces you can VISUALLY follow on the top copper. Do not assume.
+- If a trace goes into a via (small drilled hole, usually a circle with copper ring) and you cannot see where it re-emerges, mark "ends_at_via": true and "to": null.
+- Traces UNDER A BGA chip are NOT visible. Do not invent connections to BGA pins.
+- Traces under thick silkscreen or solder mask blobs are NOT visible.
+- If you are not >70% confident the trace endpoints are correct, do not include it.
+
+Return ONLY this JSON object:
+{"traces": [
+  {
+    "from": {"detection_id": <int>, "pin_label": "<e.g. TX, or empty>", "pos": [<x>,<y>]},
+    "to":   {"detection_id": <int>, "pin_label": "<e.g. pin 79, or empty>", "pos": [<x>,<y>]} OR null,
+    "ends_at_via": <bool>,
+    "via_position": [<x>,<y>] OR null,
+    "confidence": <0-1 float>,
+    "observation": "<one sentence describing what you literally see on the top copper>"
+  }
+]}
+
+All coordinates are NORMALIZED 0-1 of the full image (origin top-left).
+No prose, no markdown fences. If you cannot confidently identify ANY traces, return {"traces": []}.`
+
+  const startedAt = Date.now()
+  try {
+    let result
+    if (state.provider === 'anthropic')   result = await callAnthropic()
+    else if (state.provider === 'gemini') result = await callGemini()
+    else                                  result = await callOllama()
+    // The trace prompt returns {"traces":...} not {"detections":...}. Our
+    // parsers look for `detections`; ignore the parser result and re-parse
+    // the saved raw text directly.
+    const rawText = state.rawModelText || ''
+    let parsed = null
+    try { parsed = JSON.parse(rawText.replace(/^```(?:json)?\s*/i,'').replace(/```\s*$/i,'').trim()) } catch {}
+    if (!parsed) { try { parsed = extractJson(rawText) } catch {} }
+    const traces = (parsed && Array.isArray(parsed.traces)) ? parsed.traces : []
+    state.traces = traces
+    setStatus('ok',
+      `Trace analysis done in ${((Date.now()-startedAt)/1000).toFixed(1)}s — ` +
+      `${traces.length} trace${traces.length === 1 ? '' : 's'} identified ` +
+      `(${traces.filter(t => t.ends_at_via).length} end at vias).`)
+    fitCanvas(); drawOverlay(state.selectedDetectionId)
+    await renderPanel()
+  } catch (e) {
+    console.error(e)
+    setStatus('error', 'Trace analysis failed: ' + (e.message || e))
+  } finally {
+    state._oneShotPrompt = null
+  }
+}
 
 // ── #2 Auto re-OCR every detection ───────────────────────────────────
 // After analyze, optionally crop each detection at native source resolution
@@ -1891,6 +1992,10 @@ tb.rerunOther?.addEventListener('click', () => {
 // (c) OCR misreads. Replaces state.detections with the corrected list.
 const btnReview = document.getElementById('btn-review')
 btnReview?.addEventListener('click', () => runSelfReviewPass())
+
+// Trace analysis button — only meaningful after analyze has produced detections.
+const btnTraces = document.getElementById('btn-traces')
+btnTraces?.addEventListener('click', () => runTraceAnalysis())
 
 async function runSelfReviewPass() {
   if (!state.detections.length) {
@@ -2514,29 +2619,110 @@ if (container) {
   container.addEventListener('touchend',   pointerUp)
 }
 
-// Extend drawOverlay to render edit handles when editMode + a detection selected.
-// We patch it by wrapping the original.
+// Extend drawOverlay to render edit handles + trace arrows.
 const _origDraw = drawOverlay
 drawOverlay = function(hoverId = null) {
   _origDraw(hoverId)
-  if (!state.editMode || !state.selectedDetectionId) return
-  const d = state.detections.find(x => x.id === state.selectedDetectionId)
-  if (!d) return
   const c = els.canvas, ctx = c.getContext('2d')
   const W = c.width, H = c.height
-  const [x1, y1, x2, y2] = d.bbox
-  const px = x1 * W, py = y1 * H, pw = (x2 - x1) * W, ph = (y2 - y1) * H
-  const s = 8
-  const pts = [
-    [px, py], [px + pw / 2, py], [px + pw, py],
-    [px, py + ph / 2],            [px + pw, py + ph / 2],
-    [px, py + ph], [px + pw / 2, py + ph], [px + pw, py + ph],
-  ]
-  ctx.fillStyle = '#fff'
-  ctx.strokeStyle = '#000'
-  ctx.lineWidth = 1
-  for (const [x, y] of pts) {
-    ctx.fillRect(x - s / 2, y - s / 2, s, s)
-    ctx.strokeRect(x - s / 2, y - s / 2, s, s)
+
+  // Trace overlay: solid arrow for fully-traced connections, dashed stub
+  // ending in an "X" via marker when the trace disappears into an inner
+  // layer. Drawn under the edit-handles layer so handles stay clickable.
+  if (state.traces && state.traces.length) {
+    for (const t of state.traces) {
+      const fromPos = pointForEndpoint(t.from)
+      if (!fromPos) continue
+      const conf = (t.confidence != null) ? t.confidence : 0.5
+      // Colour by confidence — green high, amber low.
+      const r = Math.round(220 * (1 - conf) + 30 * conf)
+      const g = Math.round(120 * (1 - conf) + 180 * conf)
+      const b = 60
+      ctx.strokeStyle = `rgba(${r},${g},${b},0.92)`
+      ctx.lineWidth = 2.5
+
+      if (t.ends_at_via && t.via_position) {
+        // Dashed stub from source pin → via, then X marker
+        const vx = t.via_position[0] * W, vy = t.via_position[1] * H
+        ctx.setLineDash([6, 4])
+        ctx.beginPath()
+        ctx.moveTo(fromPos.x, fromPos.y)
+        ctx.lineTo(vx, vy)
+        ctx.stroke()
+        ctx.setLineDash([])
+        // Draw a small "X" at the via to signal "trace goes to inner layer here"
+        ctx.lineWidth = 2
+        ctx.beginPath()
+        ctx.moveTo(vx - 5, vy - 5); ctx.lineTo(vx + 5, vy + 5)
+        ctx.moveTo(vx - 5, vy + 5); ctx.lineTo(vx + 5, vy - 5)
+        ctx.stroke()
+      } else if (t.to) {
+        const toPos = pointForEndpoint(t.to)
+        if (!toPos) continue
+        ctx.setLineDash([])
+        drawArrow(ctx, fromPos.x, fromPos.y, toPos.x, toPos.y)
+      }
+    }
   }
+
+  if (state.editMode && state.selectedDetectionId) {
+    const d = state.detections.find(x => x.id === state.selectedDetectionId)
+    if (!d) return
+    const [x1, y1, x2, y2] = d.bbox
+    const px = x1 * W, py = y1 * H, pw = (x2 - x1) * W, ph = (y2 - y1) * H
+    const s = 8
+    const pts = [
+      [px, py], [px + pw / 2, py], [px + pw, py],
+      [px, py + ph / 2],            [px + pw, py + ph / 2],
+      [px, py + ph], [px + pw / 2, py + ph], [px + pw, py + ph],
+    ]
+    ctx.fillStyle = '#fff'
+    ctx.strokeStyle = '#000'
+    ctx.lineWidth = 1
+    for (const [x, y] of pts) {
+      ctx.fillRect(x - s / 2, y - s / 2, s, s)
+      ctx.strokeRect(x - s / 2, y - s / 2, s, s)
+    }
+  }
+}
+
+// Resolve a trace endpoint to canvas pixel coords. Prefer the model's
+// explicit `pos`; fall back to the centre of the referenced detection.
+function labelForEndpoint(ep) {
+  if (!ep) return '(unknown)'
+  if (ep.detection_id) {
+    const d = state.detections.find(x => x.id === ep.detection_id)
+    const name = d?.label || `#${ep.detection_id}`
+    return ep.pin_label ? `${name} · ${ep.pin_label}` : name
+  }
+  return ep.pin_label || '(no detection)'
+}
+function pointForEndpoint(ep) {
+  if (!ep) return null
+  const W = els.canvas.width, H = els.canvas.height
+  if (Array.isArray(ep.pos) && ep.pos.length === 2) {
+    return { x: ep.pos[0] * W, y: ep.pos[1] * H }
+  }
+  if (ep.detection_id) {
+    const d = state.detections.find(x => x.id === ep.detection_id)
+    if (d) {
+      const [x1, y1, x2, y2] = d.bbox
+      return { x: ((x1 + x2) / 2) * W, y: ((y1 + y2) / 2) * H }
+    }
+  }
+  return null
+}
+
+function drawArrow(ctx, x1, y1, x2, y2) {
+  const head = 10
+  const ang = Math.atan2(y2 - y1, x2 - x1)
+  ctx.beginPath()
+  ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke()
+  ctx.beginPath()
+  ctx.moveTo(x2, y2)
+  ctx.lineTo(x2 - head * Math.cos(ang - Math.PI / 6), y2 - head * Math.sin(ang - Math.PI / 6))
+  ctx.lineTo(x2 - head * Math.cos(ang + Math.PI / 6), y2 - head * Math.sin(ang + Math.PI / 6))
+  ctx.closePath()
+  ctx.fillStyle = ctx.strokeStyle
+  ctx.fill()
 }

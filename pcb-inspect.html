@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=50">
+  <link rel="stylesheet" href="./src/style.css?v=51">
 </head>
 <body class="app-body">
 
@@ -74,6 +74,7 @@
       <button id="btn-rerun-other" class="app-iconbtn" type="button" title="Re-run on the same image with a different provider">&#8644;</button>
       <button id="btn-crop"        class="app-iconbtn" type="button" title="Crop to the selected detection and re-analyze that crop at native resolution" disabled>&#128269;</button>
       <button id="btn-review"      class="app-iconbtn" type="button" title="AI self-review: send the current detections back to the same model with a focused review prompt — catches missed chips, label/category contradictions, and OCR misreads. Costs ~1 extra call.">&#128270;&#9851;</button>
+      <button id="btn-traces"      class="app-iconbtn" type="button" title="Trace analysis: ask the model to follow visible top-layer copper between detections (e.g. UART header pin → MCU). LIMITATION: traces that vanish into vias or inner layers cannot be followed. Costs ~1 extra call.">&#128279;</button>
       <button id="btn-testplan"    class="app-iconbtn" type="button" title="Generate a hardware-pentest checklist from current detections">&#10003;</button>
       <button id="btn-export-md"   class="app-iconbtn" type="button" title="Copy a Markdown report">MD</button>
       <button id="btn-export-json" class="app-iconbtn" type="button" title="Copy raw JSON">{}</button>
@@ -299,6 +300,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=50"></script>
+  <script type="module" src="./src/page-pcb.js?v=51"></script>
 </body>
 </html>
