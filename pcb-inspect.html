@@ -227,6 +227,9 @@
             <label class="pcb-check" title="Cheap text-only OCR pre-pass that feeds extracted silkscreen text as a hint to the main detection call. Adds ~1 extra API call.">
               <input type="checkbox" id="opt-ocr"> OCR pre-pass (hint)
             </label>
+            <label class="pcb-check" title="Read resistor/capacitor/crystal/inductor/LED values from markings and packages. Identifies general passives (not only security-relevant ones). May add many more detections.">
+              <input type="checkbox" id="opt-values"> identify component values
+            </label>
           </div>
           <div class="pcb-controls-row">
             <label class="pcb-slider" title="Hide detections below this confidence">
@@ -301,6 +304,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=54"></script>
+  <script type="module" src="./src/page-pcb.js?v=55"></script>
 </body>
 </html>

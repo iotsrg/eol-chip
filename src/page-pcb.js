@@ -910,6 +910,7 @@ function buildPrompt() {
   const wantPins = els.optPins.checked
   const wantAtk = els.optAttacks.checked
   const isSchem = els.optSchem.checked
+  const wantValues = document.getElementById('opt-values')?.checked
   const target = isSchem
     ? 'a schematic diagram (symbols, nets, reference designators)'
     : 'a top-down photo of a populated printed circuit board'
@@ -1059,7 +1060,53 @@ ANTI-PATTERNS — these mean you are lazy-filling the schema. Do NOT do them:
 - Listing only "VCC" and "GND" as pins. If those are the only pins you can name, omit "pins" entirely — they are not informative.
 - Returning identical detection lists for clearly different images (you don't have memory across calls, but if your output looks like it could fit ANY board, you are bluffing — try harder or return fewer items).
 
-If you cannot actually identify a part from THIS specific image, return fewer detections or an empty list. An empty list is BETTER than fabricated entries.`
+If you cannot actually identify a part from THIS specific image, return fewer detections or an empty list. An empty list is BETTER than fabricated entries.
+
+${wantValues ? `
+GENERAL COMPONENT-VALUE IDENTIFICATION — the user has asked for full component values, not just security-relevant items. Include and read values for passives even when they have no obvious attack role:
+
+Resistors (SMD 0402 / 0603 / 0805 / 1206):
+- Read the marking code printed on the top:
+  • 3-digit "XYZ" = first two digits × 10^Z. "100"=10Ω, "101"=100Ω, "102"=1kΩ, "103"=10kΩ, "104"=100kΩ, "105"=1MΩ, "470"=47Ω, "471"=470Ω, "472"=4.7kΩ, "473"=47kΩ, "474"=470kΩ
+  • 4-digit "WXYZ" = first three × 10^Z. "1002"=10kΩ, "4702"=47kΩ, "1003"=100kΩ
+  • "R" or decimal point = below 10Ω. "4R7"=4.7Ω, "R47"=0.47Ω, "1R0"=1Ω
+  • "000" or "0" = zero-ohm jumper (used as track-crossing or option select)
+  • EIA-96 (two digits + letter, e.g. "01A"=100Ω, "12C"=13kΩ) on tiny 0402 chips
+- For groups of identical resistors near a chip (e.g. 8 series-termination resistors on a data bus) emit ONE detection covering the cluster, not 8 separate ones.
+
+Capacitors:
+- Electrolytic (cylindrical can with stripe): read printed value (e.g. "100µF 25V") and note polarity stripe position.
+- Tantalum (yellow / orange brick with stripe): markings like "107C" = 100µF 16V, "106B" = 10µF 6.3V. Stripe = positive.
+- Ceramic SMD (small brown/grey rectangles): rarely marked. Identify by package size (0402, 0603, 0805, 1206). For groups of similar bypass caps near a chip emit ONE clustered detection.
+- Film / box caps (larger rectangles): if marking visible (e.g. "104K" = 100nF ±10%), include.
+
+Crystals / oscillators:
+- Frequency usually printed on top: "8.000" = 8.000 MHz, "16.000" = 16 MHz, "25.000" = 25 MHz, "32.768" = 32.768 kHz RTC crystal, "12M" = 12 MHz.
+- Note number of pins (2-pin passive crystal vs 4-pin active oscillator).
+- Always include — clock frequency is critical info.
+
+Inductors:
+- Coil or moulded brick. Markings: "100" = 10 µH, "101" = 100 µH, "470" = 47 µH (same code system as resistors but units are µH).
+- If part of an SMPS filter, note location (input/output).
+
+LEDs:
+- Identify by colour if visible. Read marking if present.
+- Common SMD packages: 0603, 0805, 1206. Through-hole: 3 mm, 5 mm.
+- Note role from position (status / power / activity / link).
+
+Diodes:
+- SOD-123, SOD-323, SMA, SMB, SMC packages.
+- Markings: "S4" = 1N4148, "L4" = LL4148, "B5W" = SS14 Schottky (vendor-dependent).
+- Note role (TVS, rectifier, signal, freewheel).
+
+Connectors / sockets:
+- Pin count + pitch (2.54 mm / 2.00 mm / 1.27 mm / 1.00 mm / 0.5 mm).
+- Type (SMA, BNC, USB-A/B/C/Micro/Mini, RJ45, HDMI, DisplayPort, SD/microSD, audio jack).
+
+GROUPING RULE — when the same component is repeated near one IC for a routine purpose (e.g. 8 identical 0.1 µF bypass caps around an SoC, or 4 identical 33 Ω series resistors on an HDMI lane), emit ONE detection that covers the cluster (bbox encloses all of them) with a count in notes: "8x 0.1µF decoupling caps around U1". This keeps the detection budget for distinct components.
+
+For routine bypass / series-termination / pull-up clusters that are obviously normal design and have no specific attack vector, set attack_vectors to [] — only the security-relevant ones (boot strap, flash WP, reset, debug pulls) get attack_vectors entries.
+` : ''}`
 }
 
 function imageB64() { return state.imageDataUrl.split(',')[1] }
