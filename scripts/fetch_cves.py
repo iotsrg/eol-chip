@@ -61,7 +61,12 @@ KEYWORDS = [
 SEVERITY_ORDER = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3, "": 4}
 
 API_KEY = os.environ.get("NVD_API_KEY", "")
-SLEEP_TIME = 0.6 if API_KEY else 6.0
+# NVD's documented limits:
+#   no key  → 5 requests / 30 seconds  (6.0 s avg = safe)
+#   API key → 50 requests / 30 seconds (0.6 s avg = right at the wall)
+# We give ourselves headroom because pagination bursts blow through the
+# average otherwise. With a key, 1.2 s ≈ 25 req / 30 s = comfortably under.
+SLEEP_TIME = 1.2 if API_KEY else 6.5
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "cves.json")
 
 
@@ -81,24 +86,34 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
         if API_KEY:
             headers["apiKey"] = API_KEY
 
-        # Up to 4 retries with exponential backoff. NVD's API is famously
-        # flappy under load — one 503 / connection reset on a single keyword
-        # should not poison the whole fetch.
+        # Up to 4 retries. On 429 (Too Many Requests) we have to wait at
+        # least one rate-limit window (NVD uses 30 s), so 35-40-50-60 s.
+        # On 404/5xx (transient) we use exponential backoff 2-4-8-16 s.
+        # NVD sometimes returns 404 when overloaded, so treat repeated 404s
+        # the same as 429 — wait longer.
         data = None
+        recent_404s = 0
         for attempt in range(4):
             try:
                 resp = requests.get(NVD_URL, params=params, headers=headers, timeout=30)
+                if resp.status_code == 404:
+                    recent_404s += 1
                 resp.raise_for_status()
                 data = resp.json()
                 break
             except requests.RequestException as e:
+                last_status = getattr(e.response, "status_code", None)
                 if attempt == 3:
                     print(f"  Warning: Failed to fetch '{keyword}' at index {start_index} "
                           f"after 4 attempts: {e}")
+                    break
+                # Rate limited or repeatedly 404 → long backoff past the rate-limit window
+                if last_status == 429 or (last_status == 404 and recent_404s >= 2):
+                    wait = 35 + 10 * attempt   # 35 / 45 / 55
                 else:
-                    wait = 2 ** attempt  # 1s, 2s, 4s
-                    print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s — {e}")
-                    time.sleep(wait)
+                    wait = 2 * (2 ** attempt)  # 2 / 4 / 8
+                print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s — {e}")
+                time.sleep(wait)
         if data is None:
             break
 
