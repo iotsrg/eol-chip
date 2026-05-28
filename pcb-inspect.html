@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=48">
+  <link rel="stylesheet" href="./src/style.css?v=49">
 </head>
 <body class="app-body">
 
@@ -237,6 +237,21 @@
           </div>
         </div>
 
+        <h3 class="app-modal-h3">Accuracy boosters (extra cost)</h3>
+        <div class="pcb-controls">
+          <div class="pcb-controls-row">
+            <label class="pcb-check" title="After analyze, automatically zoom into each detection at native resolution and re-read the silkscreen marking. Catches OCR misreads. Adds N extra calls.">
+              <input type="checkbox" id="opt-auto-reocr"> auto re-OCR every detection
+            </label>
+            <label class="pcb-check" title="Also scan 4 quadrants of the image separately to catch chips in corners/edges that the global pass missed. Adds 4 extra calls.">
+              <input type="checkbox" id="opt-tile-pass"> tile-based scan for missed chips
+            </label>
+            <label class="pcb-check" title="Run the same image through 2-3 providers in parallel; keep only detections where multiple models agreed. Needs keys saved for all selected providers.">
+              <input type="checkbox" id="opt-consensus"> multi-model consensus
+            </label>
+          </div>
+        </div>
+
         <div class="app-modal-foot">
           <button id="clear-all-keys" class="app-btn app-btn--ghost" type="button">Clear all stored keys from this browser</button>
         </div>
@@ -284,6 +299,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=48"></script>
+  <script type="module" src="./src/page-pcb.js?v=49"></script>
 </body>
 </html>

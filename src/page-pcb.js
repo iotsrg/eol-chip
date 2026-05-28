@@ -866,6 +866,18 @@ async function analyze() {
     await renderPanel()
     showToolbar()
     setStatus('ok', `Done. ${state.detections.length} detection${state.detections.length === 1 ? '' : 's'} in ${((state.lastRun.durationMs)/1000).toFixed(1)}s${state.lastRun.cost ? ` · est. $${state.lastRun.cost.toFixed(4)}` : ''}.`)
+
+    // Optional accuracy boosters — opt-in checkboxes in Settings.
+    // Order matters: consensus replaces, tile pass adds, auto-re-OCR refines.
+    if (document.getElementById('opt-consensus')?.checked) {
+      await consensusPass()
+    }
+    if (document.getElementById('opt-tile-pass')?.checked) {
+      await tilePass()
+    }
+    if (document.getElementById('opt-auto-reocr')?.checked) {
+      await autoReOcrAll()
+    }
   } catch (err) {
     console.error(err)
     setStatus('error', 'Failed: ' + (err.message || err))
@@ -1435,6 +1447,7 @@ async function renderPanel() {
         ${xref}
         <div class="det-links">
           ${dsHref ? `<a href="${dsHref}" target="_blank" rel="noopener">Datasheet ↗</a>` : ''}
+          <button class="det-wrong-btn" data-id="${d.id}" type="button" title="Tell the model what's actually here — it will re-analyze just this part with your hint.">&#9888; Wrong?</button>
         </div>
       </div>
     </div>`
@@ -1449,12 +1462,28 @@ async function renderPanel() {
     summary?.addEventListener('mouseenter', () => drawOverlay(state.selectedDetectionId || id))
     summary?.addEventListener('mouseleave', () => drawOverlay(state.selectedDetectionId || null))
     summary?.addEventListener('click', () => {
-      // Toggle expansion; also mark as selected for keyboard / crop-rerun.
       const wasOpen = !detail.hasAttribute('hidden')
-      // Collapse any other open detail (one-at-a-time pattern keeps things tidy)
       els.panel.querySelectorAll('.det-row-detail').forEach(d2 => d2.setAttribute('hidden', ''))
       if (!wasOpen) detail.removeAttribute('hidden')
       selectDetection(id)
+    })
+  })
+
+  // "Wrong?" buttons — user-feedback correction loop (#5).
+  els.panel.querySelectorAll('.det-wrong-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation()
+      const id = parseInt(btn.dataset.id, 10)
+      const d = state.detections.find(x => x.id === id)
+      if (!d) return
+      const note = prompt(
+        `What's actually here?\n\nThe model identified detection #${d.id} as:\n` +
+        `  ${d.label}${d.part_number ? ` (${d.part_number})` : ''}\n\n` +
+        `Tell it what it got wrong — e.g. "this is NOR flash, not SDRAM" or ` +
+        `"the marking actually reads HY29LV800BT".`,
+        ''
+      )
+      if (note && note.trim()) correctDetection(d, note.trim())
     })
   })
 }
@@ -1522,6 +1551,227 @@ function escapeHtml(s) {
 // distinct so we can tighten attribute-context rules later without touching
 // text-context callers.
 function escapeHtmlAttr(s) { return escapeHtml(s) }
+
+// ── #2 Auto re-OCR every detection ───────────────────────────────────
+// After analyze, optionally crop each detection at native source resolution
+// and re-run with a focused "read the marking exactly" prompt.
+async function autoReOcrAll() {
+  if (!state.detections.length || !state.imageDataUrl) return
+  setStatus('info', `Auto re-OCR: re-reading ${state.detections.length} detections at native resolution…`)
+  let okN = 0, failN = 0
+  for (const d of state.detections) {
+    try { await reanalyzeCrop(d); okN++ } catch { failN++ }
+  }
+  setStatus('ok', `Auto re-OCR complete (${okN} updated, ${failN} skipped).`)
+  await renderPanel()
+}
+
+// ── Image cropping helpers (used by tile pass + correction loop) ─────
+function loadImage(dataUrl) {
+  return new Promise((res, rej) => {
+    const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = dataUrl
+  })
+}
+function cropToDataUrl(srcImg, fx, fy, fw, fh, maxLong) {
+  const px = Math.round(fx * srcImg.width)
+  const py = Math.round(fy * srcImg.height)
+  const pw = Math.round(fw * srcImg.width)
+  const ph = Math.round(fh * srcImg.height)
+  const longEdge = Math.max(pw, ph)
+  const scale = longEdge > maxLong ? maxLong / longEdge : 1
+  const c = document.createElement('canvas')
+  c.width = Math.round(pw * scale); c.height = Math.round(ph * scale)
+  const ctx = c.getContext('2d')
+  ctx.imageSmoothingQuality = 'high'
+  ctx.drawImage(srcImg, px, py, pw, ph, 0, 0, c.width, c.height)
+  let mime = 'image/png'
+  let url = c.toDataURL(mime)
+  if (url.length > 4_500_000) { mime = 'image/jpeg'; url = c.toDataURL(mime, 0.9) }
+  return url
+}
+
+// ── #1 Tile-based detection pass ─────────────────────────────────────
+// Split image into 2×2 quadrants, detect on each, translate tile-local
+// bboxes to global coords, merge into state.detections via IoU dedup.
+async function tilePass() {
+  if (!state.imageDataUrl) return
+  const p = PROVIDERS[state.provider]
+  if (p.needsKey && !state.apiKey) { setStatus('error', 'No key for tile pass'); return }
+  setStatus('info', 'Tile-based scan: re-analyzing 4 quadrants for missed chips…')
+
+  const srcImg = await loadImage(state.imageDataUrl)
+  const tiles = [
+    { name: 'top-left',     x: 0,    y: 0,    w: 0.5, h: 0.5 },
+    { name: 'top-right',    x: 0.5,  y: 0,    w: 0.5, h: 0.5 },
+    { name: 'bottom-left',  x: 0,    y: 0.5,  w: 0.5, h: 0.5 },
+    { name: 'bottom-right', x: 0.5,  y: 0.5,  w: 0.5, h: 0.5 },
+  ]
+
+  let added = 0
+  for (const t of tiles) {
+    try {
+      const tileDataUrl = cropToDataUrl(srcImg, t.x, t.y, t.w, t.h, 1568)
+      const prevImg = state.imageDataUrl, prevMime = state.imageMime
+      state.imageDataUrl = tileDataUrl
+      state.imageMime = tileDataUrl.startsWith('data:image/png') ? 'image/png' : 'image/jpeg'
+      state._oneShotPrompt =
+        `You are looking at the ${t.name} QUADRANT of a larger PCB image. ` +
+        `List every distinct chip, header, connector or notable component you can see in THIS quadrant only. ` +
+        `Coordinates must be normalized 0–1 RELATIVE TO THIS QUADRANT (not the full image). ` +
+        `Return ONLY: {"detections": [ ... ]}. Same schema as the regular analyze prompt. Be conservative — don't invent.`
+      let result
+      if (state.provider === 'anthropic')   result = await callAnthropic()
+      else if (state.provider === 'gemini') result = await callGemini()
+      else                                  result = await callOllama()
+      const raw = Array.isArray(result) ? result : result.detections
+      state.imageDataUrl = prevImg; state.imageMime = prevMime
+      state._oneShotPrompt = null
+      const global = raw.map(d => ({
+        ...d,
+        bbox: [
+          t.x + d.bbox[0] * t.w,
+          t.y + d.bbox[1] * t.h,
+          t.x + d.bbox[2] * t.w,
+          t.y + d.bbox[3] * t.h,
+        ],
+      }))
+      for (const cand of global) {
+        const overlaps = state.detections.some(d => iou(d.bbox, cand.bbox) > 0.3)
+        if (!overlaps) {
+          state.detections.push({ ...cand, id: state.detections.length + 1, _from_tile: t.name })
+          added++
+        }
+      }
+    } catch (e) {
+      console.warn(`Tile ${t.name} failed:`, e)
+      state._oneShotPrompt = null
+    }
+  }
+  setStatus('ok', `Tile pass complete. Added ${added} new detection${added === 1 ? '' : 's'} from quadrant scan.`)
+  fitCanvas(); drawOverlay()
+  await renderPanel()
+}
+
+// ── #4 Multi-model consensus mode ────────────────────────────────────
+// Query each cloud provider with a saved key in parallel; keep detections
+// where ≥2 providers' bboxes overlap (IoU>0.4).
+async function consensusPass() {
+  const providersWithKeys = Object.entries(PROVIDERS).filter(([id, cfg]) => {
+    if (!cfg.needsKey) return false
+    return !!getKey(id)
+  })
+  if (providersWithKeys.length < 2) {
+    setStatus('error', 'Consensus needs keys saved for ≥2 providers. Open Settings, save another key.')
+    return
+  }
+  setStatus('info', `Consensus mode: querying ${providersWithKeys.length} providers in parallel…`)
+
+  const calls = providersWithKeys.map(async ([id, cfg]) => {
+    const prevProvider = state.provider, prevKey = state.apiKey, prevModel = state.model
+    state.provider = id
+    state.apiKey   = getKey(id)
+    state.model    = localStorage.getItem(modelLsFor(id)) || cfg.defaultModel
+    try {
+      let result
+      if (id === 'anthropic') result = await callAnthropic()
+      else if (id === 'gemini') result = await callGemini()
+      else result = await callOllama()
+      const dets = Array.isArray(result) ? result : result.detections
+      return { provider: id, dets }
+    } catch (e) {
+      console.warn(`Consensus ${id} failed:`, e)
+      return { provider: id, dets: [] }
+    } finally {
+      state.provider = prevProvider; state.apiKey = prevKey; state.model = prevModel
+    }
+  })
+  const results = await Promise.all(calls)
+
+  const allDets = []
+  for (const r of results) for (const d of r.dets) allDets.push({ ...d, _from: r.provider })
+  const consensus = []
+  for (const d of allDets) {
+    const agreements = new Set([d._from])
+    for (const other of allDets) {
+      if (other === d || other._from === d._from) continue
+      if (iou(d.bbox, other.bbox) > 0.4) agreements.add(other._from)
+    }
+    if (agreements.size >= 2 && !consensus.some(c => iou(c.bbox, d.bbox) > 0.6)) {
+      consensus.push({
+        ...d,
+        notes: `[consensus: ${[...agreements].join(', ')}] ${d.notes || ''}`.trim(),
+        confidence: Math.min(1, (d.confidence || 0.7) + 0.1 * (agreements.size - 1)),
+        _consensus_count: agreements.size,
+      })
+    }
+  }
+  state.detections = consensus.map((d, i) => ({ ...d, id: i + 1 }))
+  if (!state.detections.length) {
+    setStatus('info', 'Consensus mode: 0 detections were confirmed by ≥2 providers.')
+  } else {
+    setStatus('ok', `Consensus complete: ${state.detections.length} detections agreed across ${providersWithKeys.length} providers.`)
+  }
+  fitCanvas(); drawOverlay()
+  await renderPanel()
+}
+
+// ── #5 User-feedback correction loop ─────────────────────────────────
+// User clicks "wrong?" on a detection card, types what's actually there,
+// we crop and ask the model to re-identify with the user's hint.
+async function correctDetection(d, userNote) {
+  if (!d || !userNote || !state.imageDataUrl) return
+  const p = PROVIDERS[state.provider]
+  if (p.needsKey && !state.apiKey) { setStatus('error', 'No key for correction'); return }
+  setStatus('info', `Applying user correction to #${d.id}…`)
+  const srcImg = await loadImage(state.imageDataUrl)
+  const tileUrl = cropToDataUrl(srcImg,
+    Math.max(0, d.bbox[0] - 0.05),
+    Math.max(0, d.bbox[1] - 0.05),
+    Math.min(1, d.bbox[2] - d.bbox[0] + 0.10),
+    Math.min(1, d.bbox[3] - d.bbox[1] + 0.10),
+    1024)
+  const prevImg = state.imageDataUrl, prevMime = state.imageMime
+  state.imageDataUrl = tileUrl
+  state.imageMime = tileUrl.startsWith('data:image/png') ? 'image/png' : 'image/jpeg'
+  state._oneShotPrompt = `You previously identified this CROPPED component as:
+  ${JSON.stringify({ label: d.label, part_number: d.part_number, manufacturer: d.manufacturer, category: d.category, notes: d.notes })}
+
+A human reviewer says this is wrong and reports: "${userNote}"
+
+Take their feedback into account and re-identify the component IN THIS CROP. Look at the marking again, the package, anything you can see.
+
+Return ONE JSON object: {"detections":[{"label":"…","part_number":"…","manufacturer":"…","category":"…","confidence":0.0-1.0,"bbox":[0,0,1,1],"notes":"…","pins":[],"attack_vectors":[]}]}
+
+The bbox MUST be [0,0,1,1] (the whole crop). No prose, no markdown fences.`
+  try {
+    let result
+    if (state.provider === 'anthropic') result = await callAnthropic()
+    else if (state.provider === 'gemini') result = await callGemini()
+    else result = await callOllama()
+    const corrected = (Array.isArray(result) ? result : result.detections)[0]
+    if (corrected) {
+      Object.assign(d, {
+        label: corrected.label || d.label,
+        part_number: corrected.part_number || d.part_number,
+        manufacturer: corrected.manufacturer || d.manufacturer,
+        category: corrected.category || d.category,
+        notes: corrected.notes ? `[user-corrected: ${userNote}] ${corrected.notes}` : d.notes,
+        confidence: corrected.confidence ?? d.confidence,
+      })
+      setStatus('ok', `Correction applied to #${d.id}.`)
+    } else {
+      setStatus('error', 'Correction returned no detection.')
+    }
+  } catch (e) {
+    setStatus('error', 'Correction failed: ' + (e.message || e))
+  } finally {
+    state.imageDataUrl = prevImg
+    state.imageMime = prevMime
+    state._oneShotPrompt = null
+    drawOverlay()
+    await renderPanel()
+  }
+}
 
 // ── Toolbar wiring (palette, history, crop, retry, export, test plan) ─
 const tb = {
