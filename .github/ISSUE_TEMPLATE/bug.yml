@@ -1,0 +1,37 @@
+name: Bug report
+description: Something on the site is broken or showing wrong data
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong?
+      description: Describe what you saw vs what you expected.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      description: URL or page name (e.g. /chip.html?id=ESP32, /pcb-inspect.html, /cves.html)
+      placeholder: /pcb-inspect.html
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome / Edge
+        - Firefox
+        - Safari
+        - Other (please specify in description)
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors (if any)
+      description: Open DevTools → Console, copy anything red.
+      render: shell

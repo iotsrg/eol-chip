@@ -1,4 +1,4 @@
-import { initNav, severityTag, badgeRow, loadMeta } from './common.js?v=43'
+import { initNav, severityTag, badgeRow, loadMeta } from './common.js?v=47'
 
 initNav('cves')
 loadMeta()
@@ -68,7 +68,7 @@ function render() {
   }
 }
 
-fetch('./data/cves.json?v=43')
+fetch('./data/cves.json?v=47')
   .then(r => r.json())
   .then(cves => {
     allCves = cves.sort((a, b) => {

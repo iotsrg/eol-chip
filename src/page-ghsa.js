@@ -1,9 +1,9 @@
-import { initNav, severityTag, loadMeta } from './common.js?v=43'
+import { initNav, severityTag, loadMeta } from './common.js?v=47'
 
 initNav('ghsa')
 loadMeta()
 
-fetch('./data/ghsa.json?v=43')
+fetch('./data/ghsa.json?v=47')
   .then(r => r.ok ? r.json() : [])
   .then(items => {
     document.getElementById('ghsa-count').textContent = items.length.toLocaleString()

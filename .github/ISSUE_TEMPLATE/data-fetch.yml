@@ -1,0 +1,36 @@
+name: Data source / fetcher issue
+description: A fetcher is failing, returning bad data, or missing a source
+title: "[Data] "
+labels: ["data-source"]
+body:
+  - type: dropdown
+    id: source
+    attributes:
+      label: Which data source?
+      options:
+        - NVD (CVEs)
+        - CISA KEV
+        - Exploit-DB
+        - Metasploit
+        - GHSA
+        - OSV
+        - CISA ICS-CERT
+        - Packet Storm
+        - NHTSA recalls
+        - Vendor PSIRTs (Cisco / Fortinet / SonicWall / HPE)
+        - Wikipedia / Wikidata enrichment
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong?
+      description: e.g. "fetcher returns 404", "data is 2 weeks stale", "would like to add source X"
+    validations:
+      required: true
+  - type: input
+    id: run
+    attributes:
+      label: Failing workflow run URL (if applicable)
+      placeholder: https://github.com/iotsrg/eol-chip/actions/runs/...

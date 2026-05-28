@@ -1,4 +1,4 @@
-import { initNav, loadMeta } from './common.js?v=43'
+import { initNav, loadMeta } from './common.js?v=47'
 
 initNav('about')
 loadMeta()

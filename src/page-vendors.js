@@ -1,4 +1,4 @@
-import { initNav, loadMeta } from './common.js?v=43'
+import { initNav, loadMeta } from './common.js?v=47'
 
 initNav('vendors')
 loadMeta()
@@ -12,7 +12,7 @@ const search = document.getElementById('vendor-search')
 
 let vendors = []
 
-fetch('./data/eol_chips.json?v=43')
+fetch('./data/eol_chips.json?v=47')
   .then(r => r.json())
   .then(chips => {
     // Group chips by manufacturer (use the canonical "primary" name)

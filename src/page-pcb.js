@@ -1,4 +1,4 @@
-import { initNav, renderSourcesFooter, loadMeta } from './common.js?v=43'
+import { initNav, renderSourcesFooter, loadMeta } from './common.js?v=47'
 import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'
 
 initNav('pcb')        // no-op: app shell has no #nav
@@ -1276,7 +1276,7 @@ let chipFuse = null     // Fuse.js fuzzy matcher across all EOL chips
 async function loadChipIndex() {
   if (chipIndex) return chipIndex
   try {
-    const r = await fetch('./data/search_index.json?v=43')
+    const r = await fetch('./data/search_index.json?v=47')
     if (!r.ok) throw new Error('no index')
     const data = await r.json()
     chipIndex = {}

@@ -81,14 +81,27 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
         if API_KEY:
             headers["apiKey"] = API_KEY
 
-        try:
-            resp = requests.get(NVD_URL, params=params, headers=headers, timeout=30)
-            resp.raise_for_status()
-        except requests.RequestException as e:
-            print(f"  Warning: Failed to fetch '{keyword}' at index {start_index}: {e}")
+        # Up to 4 retries with exponential backoff. NVD's API is famously
+        # flappy under load — one 503 / connection reset on a single keyword
+        # should not poison the whole fetch.
+        data = None
+        for attempt in range(4):
+            try:
+                resp = requests.get(NVD_URL, params=params, headers=headers, timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+                break
+            except requests.RequestException as e:
+                if attempt == 3:
+                    print(f"  Warning: Failed to fetch '{keyword}' at index {start_index} "
+                          f"after 4 attempts: {e}")
+                else:
+                    wait = 2 ** attempt  # 1s, 2s, 4s
+                    print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s — {e}")
+                    time.sleep(wait)
+        if data is None:
             break
 
-        data = resp.json()
         vulns = data.get("vulnerabilities", [])
         results.extend(vulns)
 

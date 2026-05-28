@@ -1,4 +1,4 @@
-import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=43'
+import { initNav, tag, statusTag, severityTag, badgeRow, loadMeta } from './common.js?v=47'
 
 initNav('eol')
 loadMeta()
@@ -207,13 +207,13 @@ async function main() {
   }
 
   const [chips, cves, kev, exploits, msf, ghsa, facts] = await Promise.all([
-    fetch('./data/eol_chips.json?v=43').then(r => r.json()),
-    fetch('./data/cves.json?v=43').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/cisa_kev.json?v=43').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/exploits.json?v=43').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/metasploit.json?v=43').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/ghsa.json?v=43').then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch('./data/chip_facts.json?v=43').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+    fetch('./data/eol_chips.json?v=47').then(r => r.json()),
+    fetch('./data/cves.json?v=47').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/cisa_kev.json?v=47').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/exploits.json?v=47').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/metasploit.json?v=47').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/ghsa.json?v=47').then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch('./data/chip_facts.json?v=47').then(r => r.ok ? r.json() : {}).catch(() => ({})),
   ])
 
   const chip = chips.find(c => c.part_number === requestedPn)

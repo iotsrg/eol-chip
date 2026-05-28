@@ -102,13 +102,37 @@ export function renderSourcesFooter() {
 export async function loadMeta() {
   renderSourcesFooter()
   try {
-    const r = await fetch('./data/meta.json?v=43')
+    const r = await fetch('./data/meta.json?v=47')
     if (!r.ok) return null
     const m = await r.json()
     const fu = document.getElementById('footer-updated')
     if (fu && m.last_updated_human) fu.textContent = `Updated ${m.last_updated_human}`
+    maybeShowStaleBanner(m)
     return m
   } catch {
     return null
   }
+}
+
+// If the build pipeline hasn't refreshed in >36h, surface a banner so we
+// catch silent failures (e.g. an upstream API breaking like NVD did) before
+// users assume the data is current. Skip on the PCB Inspect page, which has
+// its own dedicated app shell.
+function maybeShowStaleBanner(meta) {
+  if (!meta?.last_updated_human) return
+  if (document.body?.classList.contains('app-body')) return
+  // last_updated_human format: "2026-05-08 15:38 UTC"
+  const parsed = Date.parse(meta.last_updated_human.replace(' UTC', 'Z').replace(' ', 'T'))
+  if (Number.isNaN(parsed)) return
+  const hours = (Date.now() - parsed) / 36e5
+  if (hours < 36) return
+  const days = Math.floor(hours / 24)
+  const ago = days >= 1 ? `${days} day${days === 1 ? '' : 's'}` : `${Math.round(hours)} hours`
+  const banner = document.createElement('div')
+  banner.className = 'stale-banner'
+  banner.innerHTML = `
+    &#9888; Data last refreshed <b>${ago} ago</b>. The daily build pipeline may have failed —
+    see <a href="https://github.com/iotsrg/eol-chip/actions/workflows/build-deploy.yml" target="_blank" rel="noopener">recent workflow runs</a>.
+  `
+  document.body.insertBefore(banner, document.body.firstChild)
 }

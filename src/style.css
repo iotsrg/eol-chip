@@ -116,6 +116,21 @@ nav {
   background: var(--bg-strong); color: var(--text); font-weight: 600;
 }
 
+/* ── Stale-data banner (fires when meta.json > 36h old) ────────── */
+.stale-banner {
+  background: #fff8e1;
+  color: #5a4500;
+  border-bottom: 1px solid #e6c200;
+  padding: 8px 16px;
+  font-size: 13px;
+  text-align: center;
+}
+.stale-banner a { color: #5a4500; font-weight: 600; text-decoration: underline; }
+:root[data-theme=dark] .stale-banner {
+  background: #3a2e10; color: #f1d98b; border-bottom-color: #8a6a14;
+}
+:root[data-theme=dark] .stale-banner a { color: #f1d98b; }
+
 /* ── Page layout ──────────────────────────────────────────────── */
 .main-content {
   max-width: 1100px; margin: 0 auto; padding: 24px 28px;

@@ -1,0 +1,43 @@
+name: Add or correct a chip
+description: A part is missing from the catalog, or its EOL status / specs are wrong
+title: "[Chip] "
+labels: ["data-correction"]
+body:
+  - type: input
+    id: part
+    attributes:
+      label: Part number
+      placeholder: ESP32-D0WDQ6
+    validations:
+      required: true
+  - type: input
+    id: manufacturer
+    attributes:
+      label: Manufacturer
+      placeholder: Espressif
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Lifecycle status
+      options:
+        - Active
+        - Last Buy / Last Time Buy
+        - EOL Announced
+        - Obsolete
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source / evidence
+      description: Link to the manufacturer's PCN, EOL notice, or datasheet — anything that confirms the status.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Successor part, known CVEs, attack surface notes, etc.

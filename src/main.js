@@ -1,4 +1,4 @@
-import { initNav, tag, severityTag, badgeRow, renderSourcesFooter } from './common.js?v=43'
+import { initNav, tag, severityTag, badgeRow, renderSourcesFooter } from './common.js?v=47'
 import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'
 
 initNav('home')
@@ -12,8 +12,8 @@ const quickLinksEl = document.getElementById('quick-links')
 let fuse = null
 
 Promise.all([
-  fetch('./data/search_index.json?v=43').then(r => r.json()),
-  fetch('./data/meta.json?v=43').then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch('./data/search_index.json?v=47').then(r => r.json()),
+  fetch('./data/meta.json?v=47').then(r => r.ok ? r.json() : null).catch(() => null),
 ])
   .then(([data, meta]) => {
     const counts = { cve: 0, exploit: 0, cisa: 0, metasploit: 0, ghsa: 0, ics: 0, packetstorm: 0, eol: 0 }
