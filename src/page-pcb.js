@@ -841,6 +841,21 @@ async function analyze() {
 
   setStatus('info', `Calling ${p.label} (${state.model})… vision analysis usually takes 10–40s.`)
   const startedAt = Date.now()
+
+  // Token-saving optimization: downscale the image to 1024px on the long
+  // edge for the INITIAL detection pass. Bounding boxes don't suffer at
+  // this resolution; per-chip OCR is handled by re-OCR at native res
+  // later. Cuts image tokens ~50% on the most expensive call.
+  const fullImage = state.imageDataUrl
+  const fullMime  = state.imageMime
+  try {
+    const srcImg = await loadImage(state.imageDataUrl)
+    const small = cropToDataUrl(srcImg, 0, 0, 1, 1, 1024)
+    state.imageDataUrl = small
+    state.imageMime = small.startsWith('data:image/png') ? 'image/png' : 'image/jpeg'
+  } catch (e) {
+    console.warn('Initial-pass downscale failed; using full-res:', e)
+  }
   try {
     let result
     if (state.provider === 'anthropic')   result = await callAnthropic()
@@ -882,6 +897,10 @@ async function analyze() {
     console.error(err)
     setStatus('error', 'Failed: ' + (err.message || err))
   } finally {
+    // Always restore full-res so subsequent boosters (re-OCR, tile pass,
+    // correction) work against the original detail.
+    state.imageDataUrl = fullImage
+    state.imageMime = fullMime
     els.analyze.disabled = false
   }
 }
@@ -1161,10 +1180,15 @@ async function callAnthropic() {
     type: 'image',
     source: { type: 'base64', media_type: e.mime, data: e.dataUrl.split(',')[1] },
   }))
+  // Prompt caching: mark the long static prompt block as cacheable. The
+  // image stays uncached because it changes every analysis. First call
+  // writes the cache (full input price). Subsequent calls within ~5 min
+  // (self-review, re-OCR, tile pass, correction) read it for 10% of the
+  // input-token price — typically 60-80% savings on multi-call workflows.
   const content = [
     { type: 'image', source: { type: 'base64', media_type: state.imageMime, data: imageB64() } },
     ...extras,
-    { type: 'text', text: buildPrompt() },
+    { type: 'text', text: buildPrompt(), cache_control: { type: 'ephemeral' } },
   ]
   const body = { model: state.model, max_tokens: 4096, messages: [{ role: 'user', content }] }
   const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1183,12 +1207,35 @@ async function callAnthropic() {
   }
   const data = await res.json()
   const text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('\n').trim()
+  // Anthropic returns separate counts when caching is involved:
+  //   cache_creation_input_tokens — written into cache (full price)
+  //   cache_read_input_tokens     — read from cache (10% of input price)
+  //   input_tokens                — uncached input (image, etc., full price)
+  const u = data.usage || {}
+  const cacheRead   = u.cache_read_input_tokens   || 0
+  const cacheWrite  = u.cache_creation_input_tokens || 0
+  const realInput   = u.input_tokens || 0
   const usage = {
-    input_tokens:  data.usage?.input_tokens,
-    output_tokens: data.usage?.output_tokens,
-    estimated_cost: estimateCost(state.model, data.usage?.input_tokens, data.usage?.output_tokens),
+    input_tokens:  realInput + cacheWrite + cacheRead,
+    output_tokens: u.output_tokens,
+    cache_read_tokens:    cacheRead,
+    cache_creation_tokens: cacheWrite,
+    estimated_cost: estimateCostWithCache(state.model, realInput, cacheWrite, cacheRead, u.output_tokens),
   }
   return { detections: parseDetections(text), usage }
+}
+
+// Cost model that accounts for Anthropic's cache pricing:
+//   - cached writes cost 1.25× normal input
+//   - cached reads  cost 0.10× normal input
+function estimateCostWithCache(model, realIn, cacheWrite, cacheRead, out) {
+  const p = PRICING[model]
+  if (!p) return null
+  const inCost  = ((realIn || 0) * p.in
+                 + (cacheWrite || 0) * p.in * 1.25
+                 + (cacheRead  || 0) * p.in * 0.10) / 1e6
+  const outCost = ((out || 0) * p.out) / 1e6
+  return inCost + outCost
 }
 
 async function callGemini() {
