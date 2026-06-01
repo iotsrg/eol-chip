@@ -90,7 +90,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-37540"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -154,7 +156,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-37540"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -3254,20 +3258,24 @@
     "date_verified": false,
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf",
     "fcc_id": "2AFIW-ESP32WROVER",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-ESP32-S2",
@@ -3288,20 +3296,24 @@
     "date_verified": false,
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf",
     "fcc_id": "",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-WINC1500",
@@ -3488,7 +3500,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-46096"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -3744,7 +3758,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-45351"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -5243,7 +5259,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-37540"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -5275,7 +5293,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-37540"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -5307,7 +5327,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-37540"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -6331,7 +6353,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-45871"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -6645,20 +6669,24 @@
     "date_verified": false,
     "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf",
     "fcc_id": "",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-ESP32-C6",
@@ -6679,20 +6707,24 @@
     "date_verified": false,
     "datasheet": "",
     "fcc_id": "",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-ESP32-S3",
@@ -6713,20 +6745,24 @@
     "date_verified": false,
     "datasheet": "",
     "fcc_id": "",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-ESP32-H2",
@@ -6747,20 +6783,24 @@
     "date_verified": false,
     "datasheet": "",
     "fcc_id": "",
-    "cve_count": 0,
+    "cve_count": 1,
     "kev_count": 0,
     "exploit_count": 0,
     "msf_count": 0,
     "ghsa_count": 0,
-    "matched_cves": [],
+    "matched_cves": [
+      "CVE-2026-41429"
+    ],
     "heuristic_cves": [
-      "CVE-2026-23833"
+      "CVE-2026-23833",
+      "CVE-2026-42854",
+      "CVE-2026-42855"
     ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
     "matched_ghsa": [],
-    "risk_score": 0
+    "risk_score": 1
   },
   {
     "id": "EOL-AppleA4",
@@ -6972,7 +7012,8 @@
       "CVE-2025-71107",
       "CVE-2025-71125",
       "CVE-2026-23005",
-      "CVE-2026-23035"
+      "CVE-2026-23035",
+      "CVE-2026-46079"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -8157,7 +8198,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-20709"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -9757,7 +9800,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-4272"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
