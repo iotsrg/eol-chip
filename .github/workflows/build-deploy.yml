@@ -55,50 +55,61 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        continue-on-error: true
         run: python scripts/fetch_cves.py
 
       - name: Fetch exploits from Exploit-DB
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_exploits.py
 
       - name: Fetch CISA Known Exploited Vulnerabilities
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_cisa.py
 
       - name: Fetch CISA ICS advisories
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_ics_advisories.py
 
       - name: Fetch GitHub Security Advisories
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
         run: python scripts/fetch_ghsa.py
 
       - name: Fetch Packet Storm
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_packetstorm.py
 
       - name: Fetch OSV.dev (open vulnerabilities)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_osv.py
 
       - name: Fetch NHTSA vehicle recalls
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_recalls.py
 
       - name: Fetch vendor PSIRT advisories
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: python scripts/fetch_vendor_psirts.py
 
       - name: Fetch Metasploit hardware modules
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
         run: python scripts/fetch_metasploit.py
 
       - name: Fetch lifecycle status from Digi-Key
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true   # best-effort enrichment; never block the deploy
         env:
           DIGIKEY_CLIENT_ID: ${{ secrets.DIGIKEY_CLIENT_ID }}
           DIGIKEY_CLIENT_SECRET: ${{ secrets.DIGIKEY_CLIENT_SECRET }}
@@ -110,6 +121,8 @@ jobs:
 
       - name: Enrich chips with Wikipedia + Wikidata facts
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true   # best-effort enrichment; a failure here must
+                                  # NOT abort cross-link + the site deploy
         run: python scripts/fetch_chip_facts.py
 
       - name: Cross-link CVEs ↔ KEV / Exploit / Metasploit

@@ -28,6 +28,21 @@ import requests
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 CHIPS_PATH = os.path.join(DATA_DIR, "eol_chips.json")
+
+
+def _lc(v):
+    """Coerce any value to a lowercased string. Wikipedia/Wikidata fields are
+    usually strings but can occasionally come back as a list/dict; calling
+    .lower() on those raised 'list object has no attribute lower' and crashed
+    the whole enrichment step (aborting cross-link + deploy). Never crash here.
+    """
+    if isinstance(v, str):
+        return v.lower()
+    if isinstance(v, (list, tuple)):
+        return " ".join(str(x) for x in v).lower()
+    if v is None:
+        return ""
+    return str(v).lower()
 OUT_PATH = os.path.join(DATA_DIR, "chip_facts.json")
 
 UA = "eol-chip-bot/1.0 (https://iotsrg.github.io/eol-chip; chip enrichment)"
@@ -147,13 +162,13 @@ def chip_title_matches(chip_pn, summary):
     """
     if not chip_pn or not summary:
         return False
-    pn_lo = chip_pn.lower().strip()
+    pn_lo = _lc(chip_pn).strip()
     blob = (
-        (summary.get("title") or "").lower()
+        _lc(summary.get("title"))
         + " "
-        + (summary.get("description") or "").lower()
+        + _lc(summary.get("description"))
         + " "
-        + (summary.get("extract") or "").lower()[:1000]
+        + _lc(summary.get("extract"))[:1000]
     )
 
     candidates = set()
@@ -205,9 +220,9 @@ def looks_chip_related(summary):
     """Heuristic: does this Wikipedia summary describe a chip/IC/processor?"""
     if not summary:
         return False
-    title_lo = (summary.get("title") or "").lower()
-    desc_lo = (summary.get("description") or "").lower()
-    extract_lo = (summary.get("extract") or "").lower()
+    title_lo = _lc(summary.get("title"))
+    desc_lo = _lc(summary.get("description"))
+    extract_lo = _lc(summary.get("extract"))
     blob = f"{title_lo} {desc_lo} {extract_lo}"
 
     # Hard reject obvious non-chip pages
@@ -393,7 +408,7 @@ def search_wikidata(query):
         if r.status_code != 200:
             return None
         for hit in r.json().get("search", []):
-            desc = (hit.get("description") or "").lower()
+            desc = _lc(hit.get("description"))
             # Heuristic: prefer hits whose description mentions chips/CPUs/microcontrollers
             if any(k in desc for k in ("processor", "microprocessor", "microcontroller",
                                        "cpu", "soc", "chip", "circuit", "controller",
