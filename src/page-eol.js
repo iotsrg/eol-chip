@@ -202,19 +202,18 @@ function showChip(chip) {
     ${chip.fcc_id ? `<div><span>FCC ID</span><strong>${chip.fcc_id}</strong></div>` : ''}
   `
 
+  // Use ONLY the server-side, provenance-backed match arrays from
+  // cross_link.py (CPE-confirmed CVEs, and exploits/MSF linked via those
+  // CVEs). The previous client-side part_number `.includes()` produced false
+  // hits like "Thor" -> "unauthorized" and "8080" -> "USR808054".
   const cveSet = new Set(matchedCves)
   const kevSet = new Set(matchedKev)
+  const expSet = new Set(chip.matched_exploits || [])
+  const msfSet = new Set(chip.matched_msf || [])
   const linkedCves = threatStore.cve.filter(c => cveSet.has(c.id))
   const linkedKev = threatStore.cisa.filter(c => kevSet.has(c.id))
-  const lcKws = chip.part_number ? [chip.part_number.toLowerCase()] : []
-  const linkedExploits = threatStore.exploit.filter(e => {
-    const hay = ((e.title || '') + ' ' + (e.description || '')).toLowerCase()
-    return lcKws.some(k => hay.includes(k))
-  }).slice(0, 30)
-  const linkedMsf = threatStore.metasploit.filter(m => {
-    const hay = ((m.title || '') + ' ' + (m.description || '') + ' ' + (m.module_path || '')).toLowerCase()
-    return lcKws.some(k => hay.includes(k))
-  }).slice(0, 30)
+  const linkedExploits = threatStore.exploit.filter(e => expSet.has(e.id)).slice(0, 30)
+  const linkedMsf = threatStore.metasploit.filter(m => msfSet.has(m.id)).slice(0, 30)
 
   const sections = []
   if (linkedKev.length) sections.push(threatTable('CISA KEV (active threats)', linkedKev))

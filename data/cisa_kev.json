@@ -9,7 +9,7 @@
     "source": "CISA KEV",
     "date": "2026-03-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20131",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -22,7 +22,7 @@
     "source": "CISA KEV",
     "date": "2026-03-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-7921",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -35,7 +35,7 @@
     "source": "CISA KEV",
     "date": "2026-03-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22681",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -48,7 +48,7 @@
     "source": "CISA KEV",
     "date": "2026-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21385",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -61,7 +61,7 @@
     "source": "CISA KEV",
     "date": "2026-02-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20775",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -74,7 +74,7 @@
     "source": "CISA KEV",
     "date": "2026-02-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20127",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -87,7 +87,7 @@
     "source": "CISA KEV",
     "date": "2026-01-27",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24858",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -100,7 +100,7 @@
     "source": "CISA KEV",
     "date": "2026-01-22",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54313",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -113,7 +113,7 @@
     "source": "CISA KEV",
     "date": "2026-01-21",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20045",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -126,7 +126,7 @@
     "source": "CISA KEV",
     "date": "2025-12-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14733",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -139,7 +139,7 @@
     "source": "CISA KEV",
     "date": "2025-12-17",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59374",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -152,7 +152,7 @@
     "source": "CISA KEV",
     "date": "2025-12-17",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40602",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -165,7 +165,7 @@
     "source": "CISA KEV",
     "date": "2025-12-17",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20393",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -178,7 +178,7 @@
     "source": "CISA KEV",
     "date": "2025-12-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59718",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -191,7 +191,7 @@
     "source": "CISA KEV",
     "date": "2025-12-12",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-4063",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -204,7 +204,7 @@
     "source": "CISA KEV",
     "date": "2025-12-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-37055",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -217,7 +217,7 @@
     "source": "CISA KEV",
     "date": "2025-12-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-26828",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -230,7 +230,7 @@
     "source": "CISA KEV",
     "date": "2025-11-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-26829",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -243,7 +243,7 @@
     "source": "CISA KEV",
     "date": "2025-11-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58034",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -256,7 +256,7 @@
     "source": "CISA KEV",
     "date": "2025-11-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64446",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -269,7 +269,7 @@
     "source": "CISA KEV",
     "date": "2025-10-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-24990",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -282,7 +282,7 @@
     "source": "CISA KEV",
     "date": "2025-10-07",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27915",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -295,7 +295,7 @@
     "source": "CISA KEV",
     "date": "2025-10-02",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-7755",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -308,7 +308,7 @@
     "source": "CISA KEV",
     "date": "2025-09-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59689",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -321,7 +321,7 @@
     "source": "CISA KEV",
     "date": "2025-09-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20352",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -334,7 +334,7 @@
     "source": "CISA KEV",
     "date": "2025-09-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20362",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -347,7 +347,7 @@
     "source": "CISA KEV",
     "date": "2025-09-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20333",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -360,7 +360,7 @@
     "source": "CISA KEV",
     "date": "2025-09-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-50224",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -373,7 +373,7 @@
     "source": "CISA KEV",
     "date": "2025-09-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9377",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -386,7 +386,7 @@
     "source": "CISA KEV",
     "date": "2025-09-02",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-24363",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -399,7 +399,7 @@
     "source": "CISA KEV",
     "date": "2025-08-26",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7775",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -412,7 +412,7 @@
     "source": "CISA KEV",
     "date": "2025-08-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-25078",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -425,7 +425,7 @@
     "source": "CISA KEV",
     "date": "2025-08-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-25079",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -438,7 +438,7 @@
     "source": "CISA KEV",
     "date": "2025-08-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-40799",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -451,7 +451,7 @@
     "source": "CISA KEV",
     "date": "2025-07-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20337",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -464,7 +464,7 @@
     "source": "CISA KEV",
     "date": "2025-07-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-20281",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -477,7 +477,7 @@
     "source": "CISA KEV",
     "date": "2025-07-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25257",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -490,7 +490,7 @@
     "source": "CISA KEV",
     "date": "2025-07-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-5777",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -503,7 +503,7 @@
     "source": "CISA KEV",
     "date": "2025-07-07",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-3931",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -516,7 +516,7 @@
     "source": "CISA KEV",
     "date": "2025-06-30",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-6543",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -529,7 +529,7 @@
     "source": "CISA KEV",
     "date": "2025-06-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-6693",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -542,7 +542,7 @@
     "source": "CISA KEV",
     "date": "2025-06-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0769",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -555,7 +555,7 @@
     "source": "CISA KEV",
     "date": "2025-06-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33538",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -568,7 +568,7 @@
     "source": "CISA KEV",
     "date": "2025-06-09",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32433",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -581,7 +581,7 @@
     "source": "CISA KEV",
     "date": "2025-06-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-21479",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -594,7 +594,7 @@
     "source": "CISA KEV",
     "date": "2025-06-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-21480",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -607,7 +607,7 @@
     "source": "CISA KEV",
     "date": "2025-06-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27038",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -620,7 +620,7 @@
     "source": "CISA KEV",
     "date": "2025-06-02",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-32030",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -633,7 +633,7 @@
     "source": "CISA KEV",
     "date": "2025-06-02",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-39780",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -646,7 +646,7 @@
     "source": "CISA KEV",
     "date": "2025-05-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-38950",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -659,7 +659,7 @@
     "source": "CISA KEV",
     "date": "2025-05-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-12987",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -672,7 +672,7 @@
     "source": "CISA KEV",
     "date": "2025-05-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32756",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -685,7 +685,7 @@
     "source": "CISA KEV",
     "date": "2025-05-01",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44221",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -698,7 +698,7 @@
     "source": "CISA KEV",
     "date": "2025-04-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20035",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -711,7 +711,7 @@
     "source": "CISA KEV",
     "date": "2025-04-04",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-22457",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -724,7 +724,7 @@
     "source": "CISA KEV",
     "date": "2025-03-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20439",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -737,7 +737,7 @@
     "source": "CISA KEV",
     "date": "2025-03-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30154",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -750,7 +750,7 @@
     "source": "CISA KEV",
     "date": "2025-03-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1316",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -763,7 +763,7 @@
     "source": "CISA KEV",
     "date": "2025-03-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30066",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -776,7 +776,7 @@
     "source": "CISA KEV",
     "date": "2025-03-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-24472",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -789,7 +789,7 @@
     "source": "CISA KEV",
     "date": "2025-03-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-21590",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -802,7 +802,7 @@
     "source": "CISA KEV",
     "date": "2025-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-20118",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -815,7 +815,7 @@
     "source": "CISA KEV",
     "date": "2025-02-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-53704",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -828,7 +828,7 @@
     "source": "CISA KEV",
     "date": "2025-02-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40891",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -841,7 +841,7 @@
     "source": "CISA KEV",
     "date": "2025-02-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40890",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -854,7 +854,7 @@
     "source": "CISA KEV",
     "date": "2025-02-06",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-15069",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -867,7 +867,7 @@
     "source": "CISA KEV",
     "date": "2025-01-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23006",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -880,7 +880,7 @@
     "source": "CISA KEV",
     "date": "2025-01-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50603",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -893,7 +893,7 @@
     "source": "CISA KEV",
     "date": "2025-01-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-55591",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -906,7 +906,7 @@
     "source": "CISA KEV",
     "date": "2025-01-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0282",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -919,7 +919,7 @@
     "source": "CISA KEV",
     "date": "2024-12-30",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3393",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -932,7 +932,7 @@
     "source": "CISA KEV",
     "date": "2024-12-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-40407",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -945,7 +945,7 @@
     "source": "CISA KEV",
     "date": "2024-12-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11001",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -958,7 +958,7 @@
     "source": "CISA KEV",
     "date": "2024-12-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23227",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -971,7 +971,7 @@
     "source": "CISA KEV",
     "date": "2024-12-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14933",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -984,7 +984,7 @@
     "source": "CISA KEV",
     "date": "2024-12-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-11667",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -997,7 +997,7 @@
     "source": "CISA KEV",
     "date": "2024-12-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-45727",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1010,7 +1010,7 @@
     "source": "CISA KEV",
     "date": "2024-11-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-28461",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1023,7 +1023,7 @@
     "source": "CISA KEV",
     "date": "2024-11-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9474",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1036,7 +1036,7 @@
     "source": "CISA KEV",
     "date": "2024-11-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0012",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1049,7 +1049,7 @@
     "source": "CISA KEV",
     "date": "2024-11-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9463",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1062,7 +1062,7 @@
     "source": "CISA KEV",
     "date": "2024-11-12",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-2120",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1075,7 +1075,7 @@
     "source": "CISA KEV",
     "date": "2024-11-04",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8956",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1088,7 +1088,7 @@
     "source": "CISA KEV",
     "date": "2024-11-04",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8957",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1101,7 +1101,7 @@
     "source": "CISA KEV",
     "date": "2024-10-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20481",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1114,7 +1114,7 @@
     "source": "CISA KEV",
     "date": "2024-10-23",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47575",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1127,7 +1127,7 @@
     "source": "CISA KEV",
     "date": "2024-10-09",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23113",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1140,7 +1140,7 @@
     "source": "CISA KEV",
     "date": "2024-10-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-43047",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1153,7 +1153,7 @@
     "source": "CISA KEV",
     "date": "2024-09-30",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-15415",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1166,7 +1166,7 @@
     "source": "CISA KEV",
     "date": "2024-09-30",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-25280",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1179,7 +1179,7 @@
     "source": "CISA KEV",
     "date": "2024-09-09",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40766",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1192,7 +1192,7 @@
     "source": "CISA KEV",
     "date": "2024-08-21",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33045",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1205,7 +1205,7 @@
     "source": "CISA KEV",
     "date": "2024-08-21",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33044",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1218,7 +1218,7 @@
     "source": "CISA KEV",
     "date": "2024-07-02",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20399",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1231,7 +1231,7 @@
     "source": "CISA KEV",
     "date": "2024-06-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32896",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1244,7 +1244,7 @@
     "source": "CISA KEV",
     "date": "2024-05-30",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-24919",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1257,7 +1257,7 @@
     "source": "CISA KEV",
     "date": "2024-05-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4978",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1270,7 +1270,7 @@
     "source": "CISA KEV",
     "date": "2024-05-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-40655",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1283,7 +1283,7 @@
     "source": "CISA KEV",
     "date": "2024-05-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-100005",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1296,7 +1296,7 @@
     "source": "CISA KEV",
     "date": "2024-04-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20359",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1309,7 +1309,7 @@
     "source": "CISA KEV",
     "date": "2024-04-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20353",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1322,7 +1322,7 @@
     "source": "CISA KEV",
     "date": "2024-04-12",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3400",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1335,7 +1335,7 @@
     "source": "CISA KEV",
     "date": "2024-04-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3273",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1348,7 +1348,7 @@
     "source": "CISA KEV",
     "date": "2024-04-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3272",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1361,7 +1361,7 @@
     "source": "CISA KEV",
     "date": "2024-04-04",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29745",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1374,7 +1374,7 @@
     "source": "CISA KEV",
     "date": "2024-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-48788",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1387,7 +1387,7 @@
     "source": "CISA KEV",
     "date": "2024-02-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3259",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1400,7 +1400,7 @@
     "source": "CISA KEV",
     "date": "2024-02-09",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-21762",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1413,7 +1413,7 @@
     "source": "CISA KEV",
     "date": "2024-01-17",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-6549",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1426,7 +1426,7 @@
     "source": "CISA KEV",
     "date": "2024-01-17",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-6548",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1439,7 +1439,7 @@
     "source": "CISA KEV",
     "date": "2024-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46805",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1452,7 +1452,7 @@
     "source": "CISA KEV",
     "date": "2024-01-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-20017",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1465,7 +1465,7 @@
     "source": "CISA KEV",
     "date": "2023-12-21",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-47565",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1478,7 +1478,7 @@
     "source": "CISA KEV",
     "date": "2023-12-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-6448",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1491,7 +1491,7 @@
     "source": "CISA KEV",
     "date": "2023-12-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33107",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1504,7 +1504,7 @@
     "source": "CISA KEV",
     "date": "2023-12-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33106",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1517,7 +1517,7 @@
     "source": "CISA KEV",
     "date": "2023-12-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33063",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1530,7 +1530,7 @@
     "source": "CISA KEV",
     "date": "2023-12-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22071",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1543,7 +1543,7 @@
     "source": "CISA KEV",
     "date": "2023-11-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36844",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1556,7 +1556,7 @@
     "source": "CISA KEV",
     "date": "2023-11-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36845",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1569,7 +1569,7 @@
     "source": "CISA KEV",
     "date": "2023-11-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36846",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1582,7 +1582,7 @@
     "source": "CISA KEV",
     "date": "2023-11-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36847",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1595,7 +1595,7 @@
     "source": "CISA KEV",
     "date": "2023-11-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36851",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1608,7 +1608,7 @@
     "source": "CISA KEV",
     "date": "2023-10-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46748",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1621,7 +1621,7 @@
     "source": "CISA KEV",
     "date": "2023-10-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46747",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1634,7 +1634,7 @@
     "source": "CISA KEV",
     "date": "2023-10-23",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-20273",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1647,7 +1647,7 @@
     "source": "CISA KEV",
     "date": "2023-10-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4966",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1660,7 +1660,7 @@
     "source": "CISA KEV",
     "date": "2023-10-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-20198",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1673,7 +1673,7 @@
     "source": "CISA KEV",
     "date": "2023-10-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-20109",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1686,7 +1686,7 @@
     "source": "CISA KEV",
     "date": "2023-09-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22265",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1699,7 +1699,7 @@
     "source": "CISA KEV",
     "date": "2023-09-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6884",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1712,7 +1712,7 @@
     "source": "CISA KEV",
     "date": "2023-09-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-20269",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1725,7 +1725,7 @@
     "source": "CISA KEV",
     "date": "2023-09-06",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33246",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1738,7 +1738,7 @@
     "source": "CISA KEV",
     "date": "2023-08-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-24489",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1751,7 +1751,7 @@
     "source": "CISA KEV",
     "date": "2023-08-07",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-18368",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1764,7 +1764,7 @@
     "source": "CISA KEV",
     "date": "2023-07-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-3519",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1777,7 +1777,7 @@
     "source": "CISA KEV",
     "date": "2023-07-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-31199",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1790,7 +1790,7 @@
     "source": "CISA KEV",
     "date": "2023-06-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-17621",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1803,7 +1803,7 @@
     "source": "CISA KEV",
     "date": "2023-06-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-20500",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1816,7 +1816,7 @@
     "source": "CISA KEV",
     "date": "2023-06-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-25487",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1829,7 +1829,7 @@
     "source": "CISA KEV",
     "date": "2023-06-29",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-25489",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1842,7 +1842,7 @@
     "source": "CISA KEV",
     "date": "2023-06-23",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-27992",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1855,7 +1855,7 @@
     "source": "CISA KEV",
     "date": "2023-06-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-27997",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -1868,7 +1868,7 @@
     "source": "CISA KEV",
     "date": "2023-06-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33009",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1881,7 +1881,7 @@
     "source": "CISA KEV",
     "date": "2023-06-05",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-33010",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1894,7 +1894,7 @@
     "source": "CISA KEV",
     "date": "2023-05-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-28771",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1907,7 +1907,7 @@
     "source": "CISA KEV",
     "date": "2023-05-26",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-2868",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1920,7 +1920,7 @@
     "source": "CISA KEV",
     "date": "2023-05-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2004-1464",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1933,7 +1933,7 @@
     "source": "CISA KEV",
     "date": "2023-05-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-6415",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1946,7 +1946,7 @@
     "source": "CISA KEV",
     "date": "2023-05-12",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-25717",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1959,7 +1959,7 @@
     "source": "CISA KEV",
     "date": "2023-05-01",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-1389",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1972,7 +1972,7 @@
     "source": "CISA KEV",
     "date": "2023-04-19",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6742",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1985,7 +1985,7 @@
     "source": "CISA KEV",
     "date": "2023-03-14",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-41328",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -1998,7 +1998,7 @@
     "source": "CISA KEV",
     "date": "2023-03-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-5741",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2011,7 +2011,7 @@
     "source": "CISA KEV",
     "date": "2023-02-21",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-40765",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2024,7 +2024,7 @@
     "source": "CISA KEV",
     "date": "2022-12-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-42475",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2037,7 +2037,7 @@
     "source": "CISA KEV",
     "date": "2022-12-13",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-27518",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2050,7 +2050,7 @@
     "source": "CISA KEV",
     "date": "2022-10-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3433",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2063,7 +2063,7 @@
     "source": "CISA KEV",
     "date": "2022-10-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3153",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2076,7 +2076,7 @@
     "source": "CISA KEV",
     "date": "2022-10-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-40684",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2089,7 +2089,7 @@
     "source": "CISA KEV",
     "date": "2022-09-23",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-3236",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2102,7 +2102,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-27593",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2115,7 +2115,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-26258",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2128,7 +2128,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-7445",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2141,7 +2141,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-6530",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2154,7 +2154,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-13374",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2167,7 +2167,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-5521",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2180,7 +2180,7 @@
     "source": "CISA KEV",
     "date": "2022-09-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2011-4723",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2193,7 +2193,7 @@
     "source": "CISA KEV",
     "date": "2022-07-01",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-26925",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2206,7 +2206,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7195",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2219,7 +2219,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7194",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2232,7 +2232,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7193",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2245,7 +2245,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7192",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2258,7 +2258,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15271",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2271,7 +2271,7 @@
     "source": "CISA KEV",
     "date": "2022-06-08",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6862",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2284,7 +2284,7 @@
     "source": "CISA KEV",
     "date": "2022-05-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-7256",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2297,7 +2297,7 @@
     "source": "CISA KEV",
     "date": "2022-05-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-19953",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2310,7 +2310,7 @@
     "source": "CISA KEV",
     "date": "2022-05-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-19949",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2323,7 +2323,7 @@
     "source": "CISA KEV",
     "date": "2022-05-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-19943",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2336,7 +2336,7 @@
     "source": "CISA KEV",
     "date": "2022-05-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-6366",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2349,7 +2349,7 @@
     "source": "CISA KEV",
     "date": "2022-05-24",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-6367",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2362,7 +2362,7 @@
     "source": "CISA KEV",
     "date": "2022-05-23",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20821",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2375,7 +2375,7 @@
     "source": "CISA KEV",
     "date": "2022-05-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-30525",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2388,7 +2388,7 @@
     "source": "CISA KEV",
     "date": "2022-05-16",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22947",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2401,7 +2401,7 @@
     "source": "CISA KEV",
     "date": "2022-05-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-1388",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2414,7 +2414,7 @@
     "source": "CISA KEV",
     "date": "2022-04-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16057",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2427,7 +2427,7 @@
     "source": "CISA KEV",
     "date": "2022-04-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-4523",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2440,7 +2440,7 @@
     "source": "CISA KEV",
     "date": "2022-04-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2010-5330",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2453,7 +2453,7 @@
     "source": "CISA KEV",
     "date": "2022-04-11",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-2509",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2466,7 +2466,7 @@
     "source": "CISA KEV",
     "date": "2022-04-04",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45382",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2479,7 +2479,7 @@
     "source": "CISA KEV",
     "date": "2022-03-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-1040",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2492,7 +2492,7 @@
     "source": "CISA KEV",
     "date": "2022-03-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-28799",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2505,7 +2505,7 @@
     "source": "CISA KEV",
     "date": "2022-03-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-10562",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2518,7 +2518,7 @@
     "source": "CISA KEV",
     "date": "2022-03-31",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-10561",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2531,7 +2531,7 @@
     "source": "CISA KEV",
     "date": "2022-03-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20028",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2544,7 +2544,7 @@
     "source": "CISA KEV",
     "date": "2022-03-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7483",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2557,7 +2557,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22941",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -2570,7 +2570,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-9377",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2583,7 +2583,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-9054",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2596,7 +2596,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-2506",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2609,7 +2609,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-1631",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2622,7 +2622,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16920",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2635,7 +2635,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14839",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2648,7 +2648,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0147",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2661,7 +2661,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0125",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2674,7 +2674,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6334",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2687,7 +2687,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-3881",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2700,7 +2700,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-1555",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2713,7 +2713,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-11021",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2726,7 +2726,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-10174",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2739,7 +2739,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-3035",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2752,7 +2752,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-1187",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2765,7 +2765,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-0666",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2778,7 +2778,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-0130",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2791,7 +2791,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-5223",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2804,7 +2804,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2010-3035",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2817,7 +2817,7 @@
     "source": "CISA KEV",
     "date": "2022-03-25",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2009-2055",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2830,7 +2830,7 @@
     "source": "CISA KEV",
     "date": "2022-03-15",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-5135",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2843,7 +2843,7 @@
     "source": "CISA KEV",
     "date": "2022-03-07",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6077",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2856,7 +2856,7 @@
     "source": "CISA KEV",
     "date": "2022-03-07",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-6277",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2869,7 +2869,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20708",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2882,7 +2882,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20703",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2895,7 +2895,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20701",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2908,7 +2908,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20700",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2921,7 +2921,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-20699",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2934,7 +2934,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-1652",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2947,7 +2947,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0180",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2960,7 +2960,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0179",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2973,7 +2973,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0175",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2986,7 +2986,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0174",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -2999,7 +2999,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0173",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3012,7 +3012,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0172",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3025,7 +3025,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0167",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3038,7 +3038,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0161",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3051,7 +3051,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0159",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3064,7 +3064,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0158",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3077,7 +3077,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0156",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3090,7 +3090,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0155",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3103,7 +3103,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0154",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3116,7 +3116,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0151",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3129,7 +3129,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6744",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3142,7 +3142,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6743",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3155,7 +3155,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6740",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3168,7 +3168,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6739",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3181,7 +3181,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6738",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3194,7 +3194,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6737",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3207,7 +3207,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6736",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3220,7 +3220,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6663",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3233,7 +3233,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6627",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3246,7 +3246,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12319",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3259,7 +3259,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12240",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3272,7 +3272,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12238",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3285,7 +3285,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12237",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3298,7 +3298,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12235",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3311,7 +3311,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12234",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3324,7 +3324,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12233",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3337,7 +3337,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12232",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3350,7 +3350,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-12231",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3363,7 +3363,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-8562",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3376,7 +3376,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-2590",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3389,7 +3389,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2011-1889",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3402,7 +3402,7 @@
     "source": "CISA KEV",
     "date": "2022-03-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2010-0232",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3415,7 +3415,7 @@
     "source": "CISA KEV",
     "date": "2022-02-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-2051",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3428,7 +3428,7 @@
     "source": "CISA KEV",
     "date": "2022-01-28",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20038",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3441,7 +3441,7 @@
     "source": "CISA KEV",
     "date": "2022-01-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-40870",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3454,7 +3454,7 @@
     "source": "CISA KEV",
     "date": "2022-01-18",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22991",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3467,7 +3467,7 @@
     "source": "CISA KEV",
     "date": "2022-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36260",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3480,7 +3480,7 @@
     "source": "CISA KEV",
     "date": "2022-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-13382",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3493,7 +3493,7 @@
     "source": "CISA KEV",
     "date": "2022-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-13383",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3506,7 +3506,7 @@
     "source": "CISA KEV",
     "date": "2022-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-1579",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3519,7 +3519,7 @@
     "source": "CISA KEV",
     "date": "2022-01-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-27860",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3532,7 +3532,7 @@
     "source": "CISA KEV",
     "date": "2021-12-10",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44168",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3545,7 +3545,7 @@
     "source": "CISA KEV",
     "date": "2021-12-01",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-11261",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3558,7 +3558,7 @@
     "source": "CISA KEV",
     "date": "2021-12-01",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14847",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3571,7 +3571,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-5735",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3584,7 +3584,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-0069",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3597,7 +3597,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20090",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3610,7 +3610,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-27562",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3623,7 +3623,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3452",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3636,7 +3636,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3580",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3649,7 +3649,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-1497",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3662,7 +3662,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-1498",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3675,7 +3675,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0171",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3688,7 +3688,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3118",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3701,7 +3701,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3566",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3714,7 +3714,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3569",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3727,7 +3727,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3161",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3740,7 +3740,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-1653",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3753,7 +3753,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-0296",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3766,7 +3766,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8193",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3779,7 +3779,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8195",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3792,7 +3792,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8196",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3805,7 +3805,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19781",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3818,7 +3818,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-29557",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3831,7 +3831,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-25506",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3844,7 +3844,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8515",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3857,7 +3857,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-5902",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3870,7 +3870,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22986",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3883,7 +3883,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5591",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3896,7 +3896,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-12812",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3909,7 +3909,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-13379",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3922,7 +3922,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-15999",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3935,7 +3935,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36942",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3948,7 +3948,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-1472",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -3961,7 +3961,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-26919",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3974,7 +3974,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19356",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -3987,7 +3987,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-2555",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4000,7 +4000,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-1906",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4013,7 +4013,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-1905",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4026,7 +4026,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-35395",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4039,7 +4039,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20021",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4052,7 +4052,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-7481",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4065,7 +4065,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20022",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4078,7 +4078,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20023",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4091,7 +4091,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-20016",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4104,7 +4104,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-12271",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Known"
   },
   {
@@ -4117,7 +4117,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10181",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4130,7 +4130,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-6327",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4143,7 +4143,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-31755",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4156,7 +4156,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10987",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4169,7 +4169,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14558",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4182,7 +4182,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-3952",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   },
   {
@@ -4195,7 +4195,7 @@
     "source": "CISA KEV",
     "date": "2021-11-03",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-29583",
-    "severity": "HIGH",
+    "severity": "Unrated",
     "ransomware": "Unknown"
   }
 ]

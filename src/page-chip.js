@@ -281,14 +281,23 @@ async function main() {
 
   // Lifecycle section
   if (sections.find(s => s.id === 'lifecycle').show) {
+    const statusVerified = chip.status_verified === true
+    const statusBadge = statusVerified
+      ? (chip.source_url
+          ? ` <a class="verify-badge verified" href="${escapeHtml(chip.source_url)}" target="_blank" rel="noopener" title="Status confirmed against ${escapeHtml(chip.source || 'distributor')}">&#10003; verified &middot; ${escapeHtml(chip.source || 'source')}</a>`
+          : ` <span class="verify-badge verified" title="Status confirmed against ${escapeHtml(chip.source || 'distributor')}">&#10003; verified</span>`)
+      : ` <span class="verify-badge unverified" title="Hand-entered, not confirmed against a vendor/distributor source">&#9888; unverified</span>`
+    const dateNote = (chip.eol_date || chip.last_order_date) && !chip.date_verified
+      ? ` <span class="verify-badge unverified" title="No automated source confirms these dates yet">&#9888; dates unverified</span>`
+      : ''
     html += `<section class="article-section" id="sec-lifecycle">
       <h2>Lifecycle</h2>
       <p>
         <strong>${escapeHtml(chip.part_number)}</strong> is currently marked
         <strong>${escapeHtml(chip.status || 'unknown status')}</strong>${
-          chip.manufacturer ? ` by ${escapeHtml(chip.manufacturer)}` : ''}.
-        ${chip.eol_date ? ` End-of-life is scheduled for <strong>${escapeHtml(chip.eol_date)}</strong>.` : ''}
-        ${chip.last_order_date ? ` Last-time-buy date: <strong>${escapeHtml(chip.last_order_date)}</strong>.` : ''}
+          chip.manufacturer ? ` by ${escapeHtml(chip.manufacturer)}` : ''}.${statusBadge}
+        ${chip.eol_date ? ` End-of-life listed as <strong>${escapeHtml(chip.eol_date)}</strong>.` : ''}
+        ${chip.last_order_date ? ` Last-time-buy listed as <strong>${escapeHtml(chip.last_order_date)}</strong>.` : ''}${dateNote}
       </p>
     </section>`
   }

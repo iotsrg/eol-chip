@@ -97,6 +97,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_metasploit.py
 
+      - name: Fetch lifecycle status from Digi-Key
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          DIGIKEY_CLIENT_ID: ${{ secrets.DIGIKEY_CLIENT_ID }}
+          DIGIKEY_CLIENT_SECRET: ${{ secrets.DIGIKEY_CLIENT_SECRET }}
+        run: python scripts/fetch_lifecycle.py
+
       - name: Process EOL chip data
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/process_eol.py

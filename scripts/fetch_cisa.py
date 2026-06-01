@@ -59,7 +59,7 @@ def main():
             "date": v.get("dateAdded", ""),
             "due_date": v.get("dueDate", ""),
             "url": f"https://nvd.nist.gov/vuln/detail/{cve_id}" if cve_id else "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-            "severity": "CRITICAL" if ransomware == "Known" else "HIGH",
+            "severity": "",  # NOT in the KEV feed; filled from real NVD CVSS by cross_link.py (else "Unrated"). Never fabricated.
             "ransomware": ransomware,
             "required_action": v.get("requiredAction", ""),
             "notes": v.get("notes", ""),

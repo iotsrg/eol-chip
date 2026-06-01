@@ -39,8 +39,9 @@ def cve_pass(cves, kev_set, edb_count, msf_count, ghsa_count, ps_count):
         cve["packetstorm_count"] = ps_count.get(cid, 0)
         if cve["kev"] or cve["exploit_count"] or cve["msf_count"]:
             flagged += 1
-        if cve["kev"] and cve.get("severity") in ("", "LOW", "MEDIUM"):
-            cve["severity"] = "HIGH"
+        # NOTE: severity is left exactly as NVD assigned it. We deliberately do
+        # NOT upgrade KEV CVEs to HIGH — "actively exploited" is conveyed by the
+        # cve["kev"] flag, not by fabricating a CVSS severity the data lacks.
     return flagged
 
 
@@ -87,12 +88,35 @@ def chip_keywords(chip):
     return strong, weak, mfr.lower()
 
 
+# Kernel oops/panic dumps embed a "Modules linked in: ..." list naming every
+# driver loaded at crash time. Those names (e.g. "at24", "ccree") are NOT the
+# subject of the CVE and cause keyword collisions (AT24C02 -> "at24" -> match).
+# Strip that line, plus register/stack-dump lines, before keyword matching.
+# The "Modules linked in:" list wraps across several newline-broken lines in a
+# kernel log, ending at the next log field (a [ 60.18] timestamp, "CPU:", etc).
+# Scrub the whole block, not just its first line.
+_MODULES_BLOCK = re.compile(
+    r"(?is)modules linked in:.*?(?=\[\s*\d+\.\d+\]|\bCPU:|\bHardware name:|\n\s*\n|$)"
+)
+# Other single-line oops headers whose symbol names also collide.
+_OOPS_LINE = re.compile(r"(?im)^\s*(call trace:|stack:|code:).*$")
+
+
+def scrub_oops(text):
+    if not text:
+        return ""
+    text = _MODULES_BLOCK.sub(" ", text)
+    return _OOPS_LINE.sub(" ", text)
+
+
 def haystack(item):
+    # NOTE: affected_products (CPE strings) are matched structurally in
+    # cpe_targets(), not here, so they're excluded from the free-text haystack
+    # used only as a HEURISTIC fallback for CVEs that have no CPE at all.
     parts = [
         item.get("title", ""),
-        item.get("description", ""),
+        scrub_oops(item.get("description", "")),
         item.get("manufacturer", ""),
-        " ".join(item.get("affected_products", []) or []),
         " ".join(item.get("vendors", []) or []),
         " ".join(item.get("packages", []) or []),
         " ".join(item.get("platforms", []) or []),
@@ -101,9 +125,110 @@ def haystack(item):
     return " ".join(p for p in parts if p).lower()
 
 
+def _norm(s):
+    """Lowercase and strip everything but alphanumerics for robust CPE compare."""
+    return re.sub(r"[^a-z0-9]", "", str(s or "").lower())
+
+
+def cpe_targets(item):
+    """Extract structured (part, vendor, product) tuples from a record's CPEs.
+
+    CPE 2.3 format: cpe:2.3:<part>:<vendor>:<product>:<version>:...
+    Only 'h' (hardware) and 'o' (firmware/OS) parts are relevant to a chip;
+    'a' (application software) is skipped to avoid software false matches.
+    """
+    out = []
+    for cpe in item.get("affected_products") or []:
+        if not isinstance(cpe, str) or not cpe.startswith("cpe:2.3:"):
+            continue
+        p = cpe.split(":")
+        if len(p) < 6:
+            continue
+        part, vendor, product = p[2], p[3], p[4]
+        if part not in ("h", "o"):
+            continue
+        if product in ("", "*", "-"):
+            continue
+        # keep the raw (lowercased) product so we can split on its '_'/'-'
+        # delimiters into segments later (e.g. ethernet_..._e810-cqda1 -> e810)
+        out.append((part, _norm(vendor), product.lower()))
+    return out
+
+
+def cpe_confirms(pn_norm, mfr_norm, targets):
+    """True only when a CPE product is a confident match for this chip.
+
+    Tiers (most→least permissive):
+      1. exact: normalized CPE product == part number  -> trust alone
+      2. segment / substring: the part number appears as a delimited token
+         (or substring) inside the CPE product  -> requires vendor match and
+         a letter-bearing part number (>=4 chars), so distinctive parts like
+         'e810' match 'ethernet_network_adapter_e810-cqda1' but bare digit
+         strings (which collide) do not.
+    """
+    if not pn_norm:
+        return False
+    has_alpha = any(c.isalpha() for c in pn_norm)
+    for _part, cpe_vendor, product_raw in targets:
+        prod_norm = _norm(product_raw)
+        if not prod_norm:
+            continue
+        if prod_norm == pn_norm:
+            return True
+        if not has_alpha or len(pn_norm) < 4:
+            continue  # pure-digit / too-short part numbers: exact match only
+        vendor_ok = bool(mfr_norm) and (
+            cpe_vendor == mfr_norm
+            or cpe_vendor in mfr_norm
+            or mfr_norm in cpe_vendor
+        )
+        if not vendor_ok:
+            continue
+        segments = {_norm(s) for s in re.split(r"[^A-Za-z0-9]+", product_raw)}
+        if pn_norm in segments:
+            return True
+        if (pn_norm in prod_norm
+                or prod_norm.startswith(pn_norm)
+                or pn_norm.startswith(prod_norm)):
+            return True
+    return False
+
+
+def _cve_to_ids(records, cve_keys=("cves", "cve_refs")):
+    """Map each CVE id -> set of record ids that reference it.
+
+    Used to link exploits / Metasploit modules / GHSA advisories to a chip
+    ONLY through a CVE we have already CPE-confirmed for that chip — instead of
+    fuzzy keyword matching the chip's part number against the record's text
+    (which produced false hits like MIPS-R3000 <- "8E6 R3000 Internet Filter").
+    """
+    out = {}
+    for rec in records:
+        rid = rec.get("id")
+        if not rid:
+            continue
+        refs = None
+        for k in cve_keys:
+            if rec.get(k):
+                refs = rec[k]
+                break
+        for cve in refs or []:
+            out.setdefault(cve, set()).add(rid)
+    return out
+
+
 def chip_pass(chips, threats_by_type):
     """Tag each EOL chip with counts of matching threat records."""
     high_risk = []
+
+    # Reverse indexes: CVE id -> ids of threat records citing it. Built once.
+    edb_by_cve = _cve_to_ids(threats_by_type.get("exploit", []))
+    msf_by_cve = _cve_to_ids(threats_by_type.get("metasploit", []))
+    ghsa_by_cve = _cve_to_ids(threats_by_type.get("ghsa", []))
+    kev_cve_set = {
+        k["id"] for k in threats_by_type.get("cisa", [])
+        if str(k.get("id", "")).startswith("CVE-")
+    }
 
     for chip in chips:
         strong, weak, mfr = chip_keywords(chip)
@@ -121,6 +246,8 @@ def chip_pass(chips, threats_by_type):
         lc_strong = {k.lower() for k in strong}
         lc_weak = {k.lower() for k in weak}
         mfr_main = re.split(r"[\s(]", mfr)[0] if mfr else ""
+        pn_norm = _norm(chip.get("part_number"))
+        mfr_norm = _norm(mfr_main)
 
         # Build word-boundary regex per keyword. Plain substring match
         # produces nasty false positives like "Thor" -> "author"/"authorize",
@@ -146,28 +273,32 @@ def chip_pass(chips, threats_by_type):
             return False
 
         cve_hits, kev_hits, edb_hits, msf_hits, ghsa_hits = [], [], [], [], []
+        heuristic_hits = []
 
         for cve in threats_by_type.get("cve", []):
-            if matches(cve):
-                cve_hits.append(cve["id"])
-                if cve.get("kev"):
-                    kev_hits.append(cve["id"])
+            targets = cpe_targets(cve)
+            if targets:
+                # CVE carries structured CPEs -> trust ONLY the CPE.
+                # This is what kills the "AT24C02 -> at24 module" class of
+                # false positives: a non-matching CPE means NOT this chip.
+                if cpe_confirms(pn_norm, mfr_norm, targets):
+                    cve_hits.append(cve["id"])
+            else:
+                # No CPE at all -> fall back to scrubbed keyword match, but
+                # record it as a lower-confidence HEURISTIC (not a hard count).
+                if matches(cve):
+                    heuristic_hits.append(cve["id"])
 
-        for kev in threats_by_type.get("cisa", []):
-            if matches(kev):
-                kev_hits.append(kev["id"])
-
-        for edb in threats_by_type.get("exploit", []):
-            if matches(edb):
-                edb_hits.append(edb["id"])
-
-        for msf in threats_by_type.get("metasploit", []):
-            if matches(msf):
-                msf_hits.append(msf["id"])
-
-        for ghsa in threats_by_type.get("ghsa", []):
-            if matches(ghsa):
-                ghsa_hits.append(ghsa["id"])
+        # Exploits / KEV / Metasploit / GHSA are linked ONLY through a chip's
+        # CPE-confirmed CVEs (provenance-backed), never by keyword on their
+        # free-text. A record with no CVE reference can't be mis-attributed.
+        confirmed_cves = set(cve_hits)
+        for cid in confirmed_cves:
+            if cid in kev_cve_set:
+                kev_hits.append(cid)
+            edb_hits.extend(edb_by_cve.get(cid, ()))
+            msf_hits.extend(msf_by_cve.get(cid, ()))
+            ghsa_hits.extend(ghsa_by_cve.get(cid, ()))
 
         chip["cve_count"] = len(set(cve_hits))
         chip["kev_count"] = len(set(kev_hits))
@@ -175,6 +306,9 @@ def chip_pass(chips, threats_by_type):
         chip["msf_count"] = len(set(msf_hits))
         chip["ghsa_count"] = len(set(ghsa_hits))
         chip["matched_cves"] = sorted(set(cve_hits))[:50]
+        # Lower-confidence keyword matches (CVEs lacking a CPE). Kept separate
+        # so the headline cve_count stays trustworthy; UI may show as "possible".
+        chip["heuristic_cves"] = sorted(set(heuristic_hits) - set(cve_hits))[:50]
         chip["matched_kev"] = sorted(set(kev_hits))[:30]
         chip["matched_exploits"] = sorted(set(edb_hits))[:50]
         chip["matched_msf"] = sorted(set(msf_hits))[:30]
@@ -240,12 +374,28 @@ def main():
     save("cves.json", cves)
     print(f"  CVEs cross-linked: {flagged}/{len(cves)} have KEV/EDB/MSF references")
 
+    # Fill CISA KEV severity from the matching CVE's REAL NVD CVSS severity.
+    # The KEV feed carries no severity, so fetch_cisa.py leaves it "". We never
+    # fabricate one: if we have no CVSS for that CVE, it stays "Unrated".
+    cisa = load("cisa_kev.json")
+    if cisa:
+        cvss_by_id = {c["id"]: (c.get("severity") or "") for c in cves}
+        rated = 0
+        for k in cisa:
+            sev = cvss_by_id.get(k.get("id", ""), "")
+            k["severity"] = sev if sev else "Unrated"
+            if sev:
+                rated += 1
+        save("cisa_kev.json", cisa)
+        print(f"  CISA KEV severity: {rated}/{len(cisa)} from real CVSS, "
+              f"{len(cisa) - rated} Unrated (no fabrication)")
+
     # EOL chip cross-link
     chips = load("eol_chips.json")
     if chips:
         threats = {
             "cve": cves,
-            "cisa": load("cisa_kev.json"),
+            "cisa": cisa,
             "exploit": load("exploits.json"),
             "metasploit": load("metasploit.json"),
             "ghsa": load("ghsa.json"),
