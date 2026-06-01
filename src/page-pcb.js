@@ -1,5 +1,8 @@
 import { initNav, renderSourcesFooter, loadMeta } from './common.js?v=47'
-import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'
+// Fuse.js is loaded LAZILY (see ensureFuse) instead of a top-level CDN import.
+// A static `import ... from <CDN>` that fails to fetch kills the ENTIRE module
+// (page goes blank). Lazy + try/catch keeps the tool working if the CDN is
+// unreachable — only fuzzy chip-search degrades.
 
 initNav('pcb')        // no-op: app shell has no #nav
 renderSourcesFooter() // no-op: app shell has no footer
@@ -531,6 +534,15 @@ async function ensurePdfJs() {
   mod.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.worker.min.mjs'
   pdfjsLib = mod
   return mod
+}
+
+// Fuse.js (fuzzy chip-name search) — lazy + non-fatal, mirrors ensurePdfJs.
+let FuseLib = null
+async function ensureFuse() {
+  if (FuseLib) return FuseLib
+  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs')
+  FuseLib = mod.default || mod.Fuse || mod
+  return FuseLib
 }
 
 async function loadAndRenderPdf(file, pageNum) {
@@ -1522,16 +1534,23 @@ async function loadChipIndex() {
       if (item.id) keys.push(String(item.id).toLowerCase())
       for (const k of keys) chipIndex[k] = item
     }
-    chipFuse = new Fuse(eolItems, {
-      keys: [
-        { name: 'part_number', weight: 0.5 },
-        { name: 'id',          weight: 0.3 },
-        { name: 'title',       weight: 0.2 },
-      ],
-      threshold: 0.35,
-      includeScore: true,
-      minMatchCharLength: 3,
-    })
+    // Fuzzy search is a best-effort enhancement. Load Fuse lazily and never let
+    // a CDN failure wipe the exact-match index we already built above.
+    try {
+      const Fuse = await ensureFuse()
+      chipFuse = new Fuse(eolItems, {
+        keys: [
+          { name: 'part_number', weight: 0.5 },
+          { name: 'id',          weight: 0.3 },
+          { name: 'title',       weight: 0.2 },
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        minMatchCharLength: 3,
+      })
+    } catch {
+      chipFuse = null  // exact-match lookups still work without fuzzy search
+    }
   } catch {
     chipIndex = {}
   }
