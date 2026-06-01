@@ -1,5 +1,9 @@
 import { initNav, tag, severityTag, badgeRow, renderSourcesFooter } from './common.js?v=47'
-import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'
+// Fuse.js is loaded LAZILY (ensureFuse) instead of a top-level CDN import.
+// A static `import ... from <CDN>` that fails to fetch kills the ENTIRE home
+// page (nav + dashboard go blank) — the "page gets disturbed" symptom. Lazy +
+// try/catch keeps everything working if jsdelivr is unreachable; only the
+// search box degrades.
 
 initNav('home')
 renderSourcesFooter()
@@ -10,12 +14,16 @@ const noResultEl   = document.getElementById('no-results')
 const quickLinksEl = document.getElementById('quick-links')
 
 let fuse = null
+async function ensureFuse() {
+  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs')
+  return mod.default || mod.Fuse || mod
+}
 
 Promise.all([
   fetch('./data/search_index.json?v=47').then(r => r.json()),
   fetch('./data/meta.json?v=47').then(r => r.ok ? r.json() : null).catch(() => null),
 ])
-  .then(([data, meta]) => {
+  .then(async ([data, meta]) => {
     const counts = { cve: 0, exploit: 0, cisa: 0, metasploit: 0, ghsa: 0, ics: 0, packetstorm: 0, eol: 0 }
     data.forEach(item => { if (counts[item.type] !== undefined) counts[item.type]++ })
     Object.keys(counts).forEach(k => {
@@ -27,21 +35,28 @@ Promise.all([
       renderMeta(meta, counts)
     }
 
-    fuse = new Fuse(data, {
-      keys: [
-        { name: 'title',        weight: 0.32 },
-        { name: 'id',           weight: 0.22 },
-        { name: 'description',  weight: 0.18 },
-        { name: 'manufacturer', weight: 0.10 },
-        { name: 'part_number',  weight: 0.08 },
-        { name: 'vendors',      weight: 0.05 },
-        { name: 'cves',         weight: 0.05 },
-      ],
-      threshold: 0.35,
-      includeScore: true,
-    })
-    input.disabled = false
-    input.placeholder = 'Search CVEs, exploits, EOL chips, FCC IDs, part numbers…'
+    // Search is a best-effort enhancement. Load Fuse lazily so a CDN failure
+    // can't break the dashboard/nav already rendered above — only search degrades.
+    try {
+      const Fuse = await ensureFuse()
+      fuse = new Fuse(data, {
+        keys: [
+          { name: 'title',        weight: 0.32 },
+          { name: 'id',           weight: 0.22 },
+          { name: 'description',  weight: 0.18 },
+          { name: 'manufacturer', weight: 0.10 },
+          { name: 'part_number',  weight: 0.08 },
+          { name: 'vendors',      weight: 0.05 },
+          { name: 'cves',         weight: 0.05 },
+        ],
+        threshold: 0.35,
+        includeScore: true,
+      })
+      input.disabled = false
+      input.placeholder = 'Search CVEs, exploits, EOL chips, FCC IDs, part numbers…'
+    } catch {
+      input.placeholder = 'Search temporarily unavailable (offline)'
+    }
   })
   .catch(() => { input.placeholder = 'Failed to load search index' })
 
