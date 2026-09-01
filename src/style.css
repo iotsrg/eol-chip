@@ -1200,6 +1200,47 @@ a.verify-badge.verified:hover { background: rgba(34, 197, 94, 0.25); }
 :root[data-theme=dark] .pcb-quality-hint { color: #f7c9c9; }
 :root[data-theme=dark] .pcb-quality-hint code { background: #4f2828; }
 
+/* Attack Surface panel — classifies detections into a researcher's targets */
+.pcb-attack-surface {
+  border: 1px solid var(--border);
+  border-left: 3px solid #e0562d;
+  background: var(--bg-soft);
+  margin-bottom: 10px;
+  padding: 6px 10px 8px;
+  border-radius: 4px;
+}
+.pcb-attack-surface > summary {
+  cursor: pointer; font-weight: 700; font-size: 12.5px;
+  list-style: none; color: var(--text);
+}
+.pcb-attack-surface > summary::-webkit-details-marker { display: none; }
+.pcb-as-note { font-weight: 400; color: var(--text3); font-size: 11px; margin-left: 6px; }
+.pcb-as-risk {
+  margin: 6px 0; padding: 5px 8px; font-size: 11.5px; font-weight: 600;
+  background: rgba(224, 86, 45, 0.10);
+  border: 1px solid rgba(224, 86, 45, 0.35);
+  border-radius: 3px; color: #b5401f;
+}
+.pcb-as-risk-sub { font-weight: 400; color: var(--text3); }
+.pcb-as-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.pcb-as-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 9px; font-size: 12px; cursor: pointer;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; color: var(--text); transition: background .12s, border-color .12s;
+}
+.pcb-as-chip:hover { border-color: #e0562d; }
+.pcb-as-chip--active { background: #e0562d; border-color: #e0562d; color: #fff; }
+.pcb-as-ico { font-size: 13px; line-height: 1; }
+.pcb-as-cnt {
+  font-weight: 700; font-size: 11px; min-width: 16px; text-align: center;
+  background: rgba(0,0,0,0.08); border-radius: 8px; padding: 0 5px;
+}
+.pcb-as-chip--active .pcb-as-cnt { background: rgba(255,255,255,0.25); }
+.pcb-as-hint { margin-top: 7px; font-size: 11px; color: var(--text2); min-height: 14px; }
+:root[data-theme=dark] .pcb-as-risk { color: #ffb499; }
+:root[data-theme=dark] .pcb-as-cnt { background: rgba(255,255,255,0.12); }
+
 .pcb-raw {
   margin-top: 12px;
   background: var(--bg-soft);

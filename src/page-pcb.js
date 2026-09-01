@@ -740,17 +740,23 @@ let drawOverlay = function (hoverId = null) {
     const [x1, y1, x2, y2] = d.bbox
     const x = x1 * W, y = y1 * H, w = (x2 - x1) * W, h = (y2 - y1) * H
 
-    // Only tint on hover (~10% alpha). Default = stroke-only so the chip stays visible.
-    // For empty footprints always tint lightly to flag the absence.
-    if (hovered) {
-      ctx.fillStyle = rgba(rgb, isEmpty ? 0.28 : 0.18)
+    // Attack-surface highlight: when a class is selected in the panel,
+    // emphasize its boxes and dim the rest so the class stands out.
+    const hlSet = state.surfaceHighlightIds
+    const emphasized = !!(hlSet && hlSet.has(d.id))
+    const dimmed = !!(hlSet && hlSet.size && !hlSet.has(d.id))
+
+    // Only tint on hover (~10% alpha) or emphasis. Default = stroke-only so the
+    // chip stays visible. Empty footprints always tint lightly to flag absence.
+    if (hovered || emphasized) {
+      ctx.fillStyle = rgba(rgb, emphasized ? 0.26 : (isEmpty ? 0.28 : 0.18))
       ctx.fillRect(x, y, w, h)
-    } else if (isEmpty) {
+    } else if (isEmpty && !dimmed) {
       ctx.fillStyle = rgba(rgb, 0.10)
       ctx.fillRect(x, y, w, h)
     }
-    ctx.strokeStyle = rgba(rgb, hovered ? 1 : 0.95)
-    ctx.lineWidth = hovered ? 5 : 3
+    ctx.strokeStyle = rgba(rgb, dimmed ? 0.18 : (hovered || emphasized ? 1 : 0.95))
+    ctx.lineWidth = emphasized ? 6 : (hovered ? 5 : 3)
     if (isEmpty) ctx.setLineDash([10, 6])
     ctx.strokeRect(x, y, w, h)
     if (isEmpty) ctx.setLineDash([])
@@ -1595,7 +1601,122 @@ function lookupChip(part) {
   return null
 }
 
+// ── Attack Surface classification ────────────────────────────────────
+// Organises (does NOT invent) the detections the model already produced into
+// a hardware-researcher's attack surface. Keys off category + label + notes +
+// attack_vectors + pins — the exact things the analyze prompt elicits.
+const SURFACE_CLASSES = [
+  { key: 'flash',     icon: '💾', label: 'SPI / external flash',    hint: 'Firmware store — clip a SOIC-8 and dump the image (flashrom / CH341A).' },
+  { key: 'jtag',      icon: '🐞', label: 'JTAG / SWD debug',        hint: 'CPU debug port — halt core, dump RAM/firmware, defeat secure boot if unlocked.' },
+  { key: 'uart',      icon: '🔌', label: 'UART / serial console',   hint: 'Serial console — frequently drops a boot log or root shell (try 115200 8N1).' },
+  { key: 'i2c',       icon: '🧷', label: 'I²C / EEPROM',            hint: 'Config / secret store — sniff the bus or dump the EEPROM.' },
+  { key: 'bootstrap', icon: '🎚️', label: 'Boot-strap / mode pins',  hint: 'Straps pick the boot source — lift or re-strap to force UART/USB recovery boot.' },
+  { key: 'power',     icon: '⚡', label: 'Power / fault injection', hint: 'VCC rail + RESET — glitch / brown-out injection point and side-channel probe site.' },
+  { key: 'rf',        icon: '📡', label: 'RF / radio',              hint: 'Wireless transceiver + antenna path — radio-side attack surface.' },
+  { key: 'implant',   icon: '⚠️', label: 'Unpopulated / implant',   hint: 'Empty footprint — likely a depopulated debug pad or a supply-chain implant site.' },
+  { key: 'debug',     icon: '🧪', label: 'Debug header / test pads', hint: 'Generic debug / test-access points brought out on the board.' },
+]
+
+function surfaceKeysFor(d) {
+  const cat = String(d.category || '').toLowerCase()
+  const hay = [d.label, d.notes, d.part_number, ...(d.attack_vectors || []), ...(d.pins || [])]
+    .filter(Boolean).join(' ').toLowerCase()
+  // word-boundary test for short/ambiguous tokens (tx, rx, swd…)
+  const wb = (...ws) => ws.some(w => new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(hay))
+  const sub = (...ws) => ws.some(w => hay.includes(w))
+  const keys = new Set()
+
+  if (cat === 'empty_footprint') keys.add('implant')
+  if (cat === 'flash' || sub('spi flash', 'serial flash', 'nor flash', 'soic-8', 'soic8') || wb('w25', 'mx25', 'gd25', '25q')) keys.add('flash')
+  if (cat === 'eeprom' || wb('i2c', 'sda', 'scl', '24c', 'at24') || sub('i²c', 'eeprom')) keys.add('i2c')
+  if (cat === 'radio' || wb('nrf', 'ble', 'lora') || sub('antenna', 'transceiver', 'wi-fi', 'wifi', 'bluetooth', 'zigbee', 'sub-ghz', '2.4ghz', ' rf ')) keys.add('rf')
+  if (wb('jtag', 'swd', 'tck', 'tms', 'tdi', 'tdo', 'swclk', 'swdio', 'trst', 'ejtag', 'cjtag')) keys.add('jtag')
+  if (wb('uart', 'rxd', 'txd', 'rx', 'tx', 'ftdi') || sub('serial console', 'boot console', '115200')) keys.add('uart')
+  if (wb('boot', 'boot0', 'boot1', 'strap', 'cfg', 'mode') || sub('boot-strap', 'bootstrap', 'pin-mux', 'pinmux', 'boot mode')) keys.add('bootstrap')
+  if (cat === 'power' || cat === 'regulator' || wb('vcc', 'vdd', 'reset', 'pmic', 'ldo') || sub('glitch', 'brown-out', 'brownout', 'decoupling', 'fault inject', 'power rail')) keys.add('power')
+  if (cat === 'header' || cat === 'connector' || sub('debug pad', 'test point', 'test-point', 'test pad', 'test-pad')) {
+    if (sub('debug', 'test', 'jtag', 'uart', 'serial') || cat === 'header') keys.add('debug')
+  }
+  return keys
+}
+
+// Maps class key -> {class, ids:[detId]}, in SURFACE_CLASSES order, non-empty only.
+function classifyAttackSurface(dets) {
+  const byKey = {}
+  for (const d of dets) {
+    for (const k of surfaceKeysFor(d)) (byKey[k] ||= []).push(d.id)
+  }
+  return SURFACE_CLASSES.filter(c => byKey[c.key]).map(c => ({ ...c, ids: byKey[c.key] }))
+}
+
+// Cross-link fusion: how many identified parts are EOL / carry known CVEs.
+function attackSurfaceRisk(dets) {
+  let eol = 0, withCve = 0, kev = 0
+  for (const d of dets) {
+    const m = lookupChip(d.part_number)
+    if (!m) continue
+    const c = m.item
+    const st = String(c.status || '').toLowerCase()
+    if (/obsolete|eol|last|nrnd|not for new/.test(st)) eol++
+    if (c.cve_count) withCve++
+    if (c.kev) kev++
+  }
+  return { eol, withCve, kev }
+}
+
+function renderAttackSurface(visible) {
+  const classes = classifyAttackSurface(visible)
+  if (!classes.length) return ''
+  const risk = attackSurfaceRisk(visible)
+  const riskBits = []
+  if (risk.eol) riskBits.push(`${risk.eol} EOL/obsolete`)
+  if (risk.withCve) riskBits.push(`${risk.withCve} with known CVEs`)
+  if (risk.kev) riskBits.push(`${risk.kev} in CISA KEV`)
+  const riskLine = riskBits.length
+    ? `<div class="pcb-as-risk">⚠ Identified parts: ${riskBits.join(' · ')} <span class="pcb-as-risk-sub">(from EOL-CHIP threat data)</span></div>`
+    : ''
+  const chips = classes.map(c =>
+    `<button class="pcb-as-chip" type="button" data-surface="${c.key}" title="${escapeHtml(c.hint)}">
+       <span class="pcb-as-ico">${c.icon}</span>
+       <span class="pcb-as-lbl">${escapeHtml(c.label)}</span>
+       <span class="pcb-as-cnt">${c.ids.length}</span>
+     </button>`).join('')
+  return `<details class="pcb-attack-surface" open>
+    <summary>🎯 Attack Surface <span class="pcb-as-note">click a class to highlight it on the board</span></summary>
+    ${riskLine}
+    <div class="pcb-as-grid">${chips}</div>
+    <div class="pcb-as-hint" id="pcb-as-hint">Hover a class for what it means · click to isolate on the image · click again to clear.</div>
+  </details>`
+}
+
+// Wire the Attack Surface chips: click -> highlight that class's boxes.
+function wireAttackSurface() {
+  const hintEl = document.getElementById('pcb-as-hint')
+  els.panel.querySelectorAll('.pcb-as-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.surface
+      const cls = SURFACE_CLASSES.find(c => c.key === key)
+      if (state.activeSurfaceKey === key) {
+        state.activeSurfaceKey = null
+        state.surfaceHighlightIds = null
+        els.panel.querySelectorAll('.pcb-as-chip').forEach(b => b.classList.remove('pcb-as-chip--active'))
+      } else {
+        state.activeSurfaceKey = key
+        const ids = classifyAttackSurface(visibleDetections()).find(c => c.key === key)?.ids || []
+        state.surfaceHighlightIds = new Set(ids)
+        els.panel.querySelectorAll('.pcb-as-chip').forEach(b => b.classList.toggle('pcb-as-chip--active', b === btn))
+        if (hintEl && cls) hintEl.textContent = `${cls.icon} ${cls.label}: ${cls.hint}`
+      }
+      drawOverlay(state.selectedDetectionId)
+    })
+  })
+}
+
 async function renderPanel() {
+  // A fresh render means the detection set changed — drop any stale
+  // attack-surface highlight (detection ids are reassigned each analysis).
+  state.surfaceHighlightIds = null
+  state.activeSurfaceKey = null
   if (!state.detections.length) {
     els.panel.innerHTML = '<div class="pcb-panel-empty">No detections yet.</div>'
     return
@@ -1716,8 +1837,10 @@ async function renderPanel() {
       </details>`
     : ''
 
-  els.panel.innerHTML = qualityBanner + banner + cards + tracesBlock + rawBlock
+  const surfaceBlock = renderAttackSurface(visible)
+  els.panel.innerHTML = qualityBanner + surfaceBlock + banner + cards + tracesBlock + rawBlock
   if (shell.detCount) shell.detCount.textContent = visible.length
+  wireAttackSurface()
 
   els.panel.querySelectorAll('.det-row-card').forEach(card => {
     const id = parseInt(card.id.slice(4), 10)
