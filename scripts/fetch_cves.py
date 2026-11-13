@@ -88,15 +88,22 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
 
         # Up to 4 retries. On 429 (Too Many Requests) we have to wait at
         # least one rate-limit window (NVD uses 30 s), so 35-40-50-60 s.
-        # On 404/5xx (transient) we use exponential backoff 2-4-8-16 s.
-        # NVD sometimes returns 404 when overloaded, so treat repeated 404s
-        # the same as 429 — wait longer.
+        # On 5xx (transient) we use exponential backoff 2-4-8-16 s.
+        #
+        # A 404 that carries a `message` response header is NOT transient:
+        # NVD uses it to reject bad parameters (observed: "Date range cannot
+        # exceed 120 days."). Retrying can never succeed, so fail fast and
+        # print the reason instead of sleeping through the backoff ladder.
         data = None
         recent_404s = 0
         for attempt in range(4):
             try:
                 resp = requests.get(NVD_URL, params=params, headers=headers, timeout=30)
                 if resp.status_code == 404:
+                    reason = resp.headers.get("message", "")
+                    if reason:
+                        print(f"  ERROR: NVD rejected the request for '{keyword}': {reason}")
+                        return results
                     recent_404s += 1
                 resp.raise_for_status()
                 data = resp.json()
@@ -231,9 +238,29 @@ def normalize_cve(vuln_wrapper):
     }
 
 
+LOOKBACK_DAYS = 180
+# NVD rejects any pubStartDate/pubEndDate span over 120 days with
+# HTTP 404 + header "message: Date range cannot exceed 120 days."
+# The old single 180-day query therefore failed for EVERY keyword on every
+# run. Split the lookback into windows that stay under the limit.
+MAX_RANGE_DAYS = 119
+
+
+def date_windows(start, end, max_days=MAX_RANGE_DAYS):
+    """Split [start, end] into consecutive windows of at most max_days."""
+    windows = []
+    cur = start
+    while cur < end:
+        nxt = min(cur + timedelta(days=max_days), end)
+        windows.append((cur, nxt))
+        cur = nxt
+    return windows
+
+
 def main():
     end = datetime.now(timezone.utc)
-    start = end - timedelta(days=180)
+    start = end - timedelta(days=LOOKBACK_DAYS)
+    windows = date_windows(start, end)
     # NVD v2.0 became strict about timezone in mid-2026 — date strings
     # without an explicit tz now return 404 on every query. The trailing Z
     # marks UTC; without it the API silently rejects the request.
@@ -256,7 +283,11 @@ def main():
     new_count = 0
     for kw in KEYWORDS:
         print(f"  Fetching CVEs for keyword: {kw}")
-        raw = fetch_cves_for_keyword(kw, start.strftime(fmt), end.strftime(fmt))
+        raw = []
+        for i, (w_start, w_end) in enumerate(windows):
+            if i:
+                time.sleep(SLEEP_TIME)
+            raw.extend(fetch_cves_for_keyword(kw, w_start.strftime(fmt), w_end.strftime(fmt)))
         for v in raw:
             cve_id = v["cve"]["id"]
             normalized = normalize_cve(v)

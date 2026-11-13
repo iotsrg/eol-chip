@@ -15,7 +15,7 @@ const quickLinksEl = document.getElementById('quick-links')
 
 let fuse = null
 async function ensureFuse() {
-  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs')
+  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.mjs')
   return mod.default || mod.Fuse || mod
 }
 

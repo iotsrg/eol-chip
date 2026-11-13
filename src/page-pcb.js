@@ -77,9 +77,16 @@ const PROVIDERS = {
     needsKey: true,
     help: 'Get a key at <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>. Sent to <code>api.anthropic.com</code>. Paid per request.',
     models: [
-      { id: 'claude-opus-4-7',           label: 'Opus 4.7 (best accuracy)' },
-      { id: 'claude-sonnet-4-6',         label: 'Sonnet 4.6 (faster, cheaper)' },
-      { id: 'claude-haiku-4-5-20251001', label: 'Haiku 4.5 (fastest)' },
+      // Claude 5 family (current generation). No PRICING entry yet, so the
+      // per-run cost estimate is simply omitted for these.
+      { id: 'claude-fable-5-2',          label: 'Fable 5.2 (newest)' },
+      { id: 'claude-opus-5-5',           label: 'Opus 5.5 (best accuracy)' },
+      { id: 'claude-sonnet-5-5',         label: 'Sonnet 5.5 (balanced)' },
+      { id: 'claude-haiku-5-5',          label: 'Haiku 5.5 (fastest)' },
+      // Previous generation, kept for existing saved selections.
+      { id: 'claude-opus-4-7',           label: 'Opus 4.7' },
+      { id: 'claude-sonnet-4-6',         label: 'Sonnet 4.6' },
+      { id: 'claude-haiku-4-5-20251001', label: 'Haiku 4.5' },
     ],
     defaultModel: 'claude-sonnet-4-6',
   },
@@ -540,7 +547,7 @@ async function ensurePdfJs() {
 let FuseLib = null
 async function ensureFuse() {
   if (FuseLib) return FuseLib
-  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs')
+  const mod = await import('https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.mjs')
   FuseLib = mod.default || mod.Fuse || mod
   return FuseLib
 }
