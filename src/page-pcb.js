@@ -411,7 +411,17 @@ els.drop.addEventListener('drop', e => {
   if (files.length) handleMultipleFiles(files)
 })
 
+// Gerber / Excellon layer files, or a .zip of them. Routed to the
+// deterministic Gerber engine (src/gerber.js) instead of the image path.
+const GERBER_NAME = /\.(gbr|ger|pho|art|gtl|gbl|gts|gbs|gto|gbo|gtp|gbp|gko|gml|gm\d+|g\d+|gp\d+|gl\d+|cmp|sol|stc|sts|plc|pls|crc|crs|dim|oln|mil|drl|xln|drd|exc|ncd|zip)$/i
+
 async function handleMultipleFiles(files) {
+  if (files.some(f => GERBER_NAME.test(f.name))) {
+    state.extraImages = []
+    await importGerberFiles(files)
+    renderMultiStrip()
+    return
+  }
   // First file becomes the primary image; the rest are stashed as extra
   // context images to be sent alongside in the main analyze call.
   state.extraImages = []
@@ -470,9 +480,12 @@ window.addEventListener('paste', e => {
 async function handleFile(file) {
   const isPdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name)
   if (!file.type.startsWith('image/') && !isPdf) {
-    setStatus('error', `Unsupported file type: ${file.type || 'unknown'}. Use an image or PDF.`)
+    setStatus('error', `Unsupported file type: ${file.type || 'unknown'}. Use an image, a PDF, or Gerber files (.zip or the individual layer files).`)
     return
   }
+  // A photo / PDF replaces any loaded Gerber board.
+  state.gerber = null
+  renderGerberPanel()
   // Reset prior PDF state
   state.pdfDoc = null
   state.pdfPage = 1
@@ -493,6 +506,16 @@ async function handleFile(file) {
     const r = await resizeImage(file, 1568)
     dataUrl = r.dataUrl; mime = r.mime; w = r.w; h = r.h
   }
+  await showPrimaryImage(dataUrl, mime, w, h, file.name)
+  const suffix = isPdf && state.pdfPageCount > 1
+    ? ` (PDF page ${state.pdfPage} of ${state.pdfPageCount})`
+    : isPdf ? ' (PDF)' : ''
+  setStatus('ok', `Loaded ${w}×${h}${suffix}. Click "Analyze image" to run detection.`)
+}
+
+// Make `dataUrl` the working image: reset detections and view, size the
+// overlay canvas. Shared by the photo/PDF path and the Gerber import.
+async function showPrimaryImage(dataUrl, mime, w, h, name) {
   state.imageDataUrl = dataUrl
   state.imageMime = mime
   state.imgNatural = { w, h }
@@ -507,18 +530,160 @@ async function handleFile(file) {
   await new Promise(r => requestAnimationFrame(r))
   fitCanvas()
   drawOverlay()
-  const suffix = isPdf && state.pdfPageCount > 1
-    ? ` (PDF page ${state.pdfPage} of ${state.pdfPageCount})`
-    : isPdf ? ' (PDF)' : ''
-  setStatus('ok', `Loaded ${w}×${h}${suffix}. Click "Analyze image" to run detection.`)
   updateCostPreview()
-  updateFileLabel(file.name, w, h)
+  updateFileLabel(name, w, h)
   shell.imagePane?.classList.add('has-image')
   refreshAnalyzeEnabled()
   // Reset size slider to fit
   if (sizeSlider) { sizeSlider.value = 100; if (sizeLabel) sizeLabel.textContent = '100%' }
   els.image.style.width = ''
   els.image.style.height = ''
+}
+
+// ── Gerber import: exact copper + net tracing, no AI involved ─────────
+async function importGerberFiles(files) {
+  setStatus('info', 'Reading Gerber files…')
+  let G
+  try { G = await import('./gerber.js?v=1') } catch (e) {
+    setStatus('error', 'Could not load the Gerber engine: ' + (e.message || e)); return
+  }
+  const dec = new TextDecoder('latin1'), texts = []
+  for (const f of files) {
+    try {
+      if (/\.zip$/i.test(f.name)) {
+        for (const e of await G.unzip(await f.arrayBuffer())) texts.push({ name: e.name.split('/').pop(), text: dec.decode(e.bytes) })
+      } else if (f.size <= 64e6) texts.push({ name: f.name, text: dec.decode(await f.arrayBuffer()) })
+    } catch (e) { setStatus('error', `${f.name}: ${e.message || e}`); return }
+  }
+  let board, an
+  try {
+    board = G.buildBoard(texts)
+    an = G.analyzeBoard(board)
+  } catch (e) { setStatus('error', 'Gerber parse failed: ' + (e.message || e)); return }
+  if (!an) {
+    setStatus('error', `No copper layer found in ${texts.length} file(s). Include the top/bottom copper Gerbers (for example .GTL/.GBL or *-F_Cu/*-B_Cu) and the drill file.`)
+    return
+  }
+  const label = files.length === 1 ? files[0].name : `${an.cu.length}-layer Gerber set`
+  state.pdfDoc = null; state.pdfPage = 1; state.pdfPageCount = 0
+  els.pdfPages.style.display = 'none'
+  state.gerber = { G, board, an, visible: an.cu.map(() => true), silk: true, netId: 0, hl: null, label }
+  const img = gerberImage()
+  await showPrimaryImage(img.dataUrl, 'image/png', img.w, img.h, label)
+  renderGerberPanel()
+  const withPads = an.nets.filter(n => n.pads || n.vias).length
+  setStatus('ok', `Gerber loaded: ${an.cu.length} copper layer${an.cu.length === 1 ? '' : 's'}, ${withPads} nets. Click any copper to light up everything connected to it.`)
+}
+
+// Render the board picture from the current layer toggles.
+function gerberImage() {
+  const g = state.gerber, an = g.an
+  const rgba = g.G.composeRGBA(g.board, an, { visible: g.visible, silk: g.silk })
+  const full = document.createElement('canvas')
+  full.width = an.W; full.height = an.H
+  full.getContext('2d').putImageData(new ImageData(rgba, an.W, an.H), 0, 0)
+  const k = Math.min(1, 2000 / Math.max(an.W, an.H))
+  const out = document.createElement('canvas')
+  out.width = Math.round(an.W * k); out.height = Math.round(an.H * k)
+  const c = out.getContext('2d')
+  c.imageSmoothingQuality = 'high'
+  c.drawImage(full, 0, 0, out.width, out.height)
+  return { dataUrl: out.toDataURL('image/png'), w: out.width, h: out.height }
+}
+
+function selectGerberNet(netId) {
+  const g = state.gerber
+  if (!g) return
+  g.netId = netId || 0
+  g.hl = null
+  if (g.netId) {
+    const cv = document.createElement('canvas')
+    cv.width = g.an.W; cv.height = g.an.H
+    cv.getContext('2d').putImageData(new ImageData(g.G.highlightRGBA(g.an, g.netId), g.an.W, g.an.H), 0, 0)
+    g.hl = cv
+  }
+  drawOverlay(state.selectedDetectionId)
+  renderGerberPanel()
+}
+
+// Click on the board image (fractions 0..1) -> the net under the cursor.
+function gerberProbe(fx, fy) {
+  const g = state.gerber
+  if (!g) return
+  const id = g.G.netAt(g.an, fx, fy, g.visible)
+  selectGerberNet(id === g.netId ? 0 : id)
+  if (!id) setStatus('info', 'No copper at that point. Click a pad or a trace.')
+}
+
+function renderGerberPanel() {
+  const box = document.getElementById('pcb-gerber-panel')
+  if (!box) return
+  const g = state.gerber
+  if (!g) { box.style.display = 'none'; box.innerHTML = ''; return }
+  const { an, board } = g
+  const bb = board.bbox
+  const real = an.nets.filter(n => n.pads || n.vias)
+  const num = id => an.nets.findIndex(n => n.id === id) + 1
+  const layerRow = an.cu.map((c, li) => {
+    const col = g.G.copperColor(an, li)
+    const tag = c.layer.side === 'top' ? 'top' : c.layer.side === 'bottom' ? 'bottom' : `inner ${li}`
+    return `<label class="pcb-gb-layer" title="${escapeHtml(c.layer.name)}">
+      <input type="checkbox" data-gb-layer="${li}" ${g.visible[li] ? 'checked' : ''}>
+      <span class="pcb-gb-sw" style="background:rgb(${col.join(',')})"></span>${tag}${c.layer.guessed ? ' ?' : ''}</label>`
+  }).join('')
+  const netLine = n => `${n.pads} pad${n.pads === 1 ? '' : 's'} · ${n.vias} hole${n.vias === 1 ? '' : 's'} · ${n.layers.length} layer${n.layers.length === 1 ? '' : 's'} · ${n.areaMm2.toFixed(1)} mm²`
+  const sel = g.netId ? an.netById.get(g.netId) : null
+  const selBlock = sel
+    ? `<div class="pcb-gb-sel"><b>Net ${num(sel.id)} selected</b>: ${netLine(sel)}
+         <div class="pcb-gb-sub">On: ${sel.layers.map(li => escapeHtml(an.cu[li].layer.name)).join(', ')}</div>
+         <button type="button" class="pcb-gb-btn" data-gb-act="clear">Clear highlight</button></div>`
+    : `<div class="pcb-gb-hint">Click any pad or trace on the board to light up all copper connected to it, across every layer.</div>`
+  const biggest = real.reduce((a, n) => (!a || n.area > a.area ? n : a), null)
+  const rows = real.slice(0, 14).map(n =>
+    `<button type="button" class="pcb-gb-net${n.id === g.netId ? ' pcb-gb-net--on' : ''}" data-gb-net="${n.id}">
+       <span class="pcb-gb-netn">Net ${num(n.id)}</span><span class="pcb-gb-netd">${netLine(n)}${biggest && n.id === biggest.id ? ' · largest copper area' : ''}</span></button>`).join('')
+  const warns = [...board.warnings, ...an.warnings].filter(w => !/no drawable content|not recognised as Gerber/.test(w))
+  const warnBlock = warns.length
+    ? `<details class="pcb-gb-warn"><summary>&#9888; ${warns.length} import note${warns.length === 1 ? '' : 's'}</summary><ul>${warns.slice(0, 30).map(w => `<li>${escapeHtml(w)}</li>`).join('')}</ul></details>`
+    : ''
+  box.innerHTML = `<details class="pcb-gerber" open>
+    <summary>&#128736; Gerber board <span class="pcb-as-note">exact copper, no AI</span></summary>
+    <div class="pcb-gb-meta">${(bb.maxX - bb.minX).toFixed(1)} × ${(bb.maxY - bb.minY).toFixed(1)} mm · ${an.cu.length} copper layer${an.cu.length === 1 ? '' : 's'} · <b>${real.length}</b> nets · ${an.pads.length} pads · ${an.drills.length} plated holes · ${Math.round(an.pxMm * 1000)} µm/pixel</div>
+    <div class="pcb-gb-layers">${layerRow}
+      <label class="pcb-gb-layer"><input type="checkbox" data-gb-silk ${g.silk ? 'checked' : ''}> silkscreen</label></div>
+    ${selBlock}
+    <div class="pcb-gb-nets">${rows}</div>
+    ${real.length > 14 ? `<div class="pcb-gb-sub">${real.length - 14} more nets: click them on the board, or export the netlist.</div>` : ''}
+    <div class="pcb-gb-actions"><button type="button" class="pcb-gb-btn" data-gb-act="export">Export netlist (JSON)</button></div>
+    ${warnBlock}
+    <div class="pcb-gb-sub">Gerber files hold copper, not part names. Nets are numbered, not named. Connectivity is computed on a ${Math.round(an.pxMm * 1000)} µm grid, so copper closer than about ${Math.round(an.pxMm * 2000)} µm can read as joined.</div>
+  </details>`
+  box.style.display = ''
+  box.querySelectorAll('[data-gb-net]').forEach(b => b.addEventListener('click', () => {
+    const id = parseInt(b.dataset.gbNet, 10)
+    selectGerberNet(id === g.netId ? 0 : id)
+  }))
+  const redraw = async () => {
+    const img = gerberImage()
+    state.imageDataUrl = img.dataUrl
+    els.image.src = img.dataUrl
+    await new Promise(r => { els.image.onload = r })
+    drawOverlay(state.selectedDetectionId)
+  }
+  box.querySelectorAll('[data-gb-layer]').forEach(cb => cb.addEventListener('change', () => {
+    g.visible[parseInt(cb.dataset.gbLayer, 10)] = cb.checked
+    redraw()
+  }))
+  box.querySelector('[data-gb-silk]')?.addEventListener('change', e => { g.silk = e.target.checked; redraw() })
+  box.querySelector('[data-gb-act="clear"]')?.addEventListener('click', () => selectGerberNet(0))
+  box.querySelector('[data-gb-act="export"]')?.addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(g.G.exportNetlist(board, an), null, 2)], { type: 'application/json' })
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(blob)
+    a.download = 'netlist.json'
+    document.body.appendChild(a); a.click(); a.remove()
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000)
+  })
 }
 
 function updateCostPreview() {
@@ -706,6 +871,9 @@ let drawOverlay = function (hoverId = null) {
   const W = c.width, H = c.height
   ctx.font = '600 12px -apple-system,Segoe UI,sans-serif'
 
+  // Gerber mode: the selected net, drawn under any detection boxes.
+  if (state.gerber && state.gerber.hl) ctx.drawImage(state.gerber.hl, 0, 0, W, H)
+
   const vis = visibleDetections()
   // If the model's bboxes are clearly garbage, don't draw them — overlay a
   // clear explanation so the user understands the side-panel cards aren't
@@ -835,6 +1003,8 @@ els.canvas.addEventListener('click', e => {
     const card = document.getElementById('det-' + hit.id)
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' })
     highlightCard(hit.id)
+  } else if (state.gerber) {
+    gerberProbe(x, y)
   }
 })
 
@@ -2735,6 +2905,8 @@ tb.history?.addEventListener('click', () => {
 async function restoreHistoryEntry(e) {
   state.imageDataUrl = e.image
   state.imageMime = e.mime
+  state.gerber = null          // a saved analysis is a plain image
+  renderGerberPanel()
   state.detections = e.detections
   els.image.src = e.image
   els.resultSec.style.display = ''

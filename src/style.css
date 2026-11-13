@@ -1241,6 +1241,43 @@ a.verify-badge.verified:hover { background: rgba(34, 197, 94, 0.25); }
 :root[data-theme=dark] .pcb-as-risk { color: #ffb499; }
 :root[data-theme=dark] .pcb-as-cnt { background: rgba(255,255,255,0.12); }
 
+/* Gerber board panel (exact copper + net tracing) */
+.pcb-gerber-wrap { padding: 8px 10px 0; }
+.pcb-gerber {
+  border: 1px solid var(--border); border-left: 3px solid #2f9e6e;
+  background: var(--bg-soft); border-radius: 4px; padding: 6px 10px 8px;
+}
+.pcb-gerber > summary { cursor: pointer; font-weight: 700; font-size: 12.5px; list-style: none; color: var(--text); }
+.pcb-gerber > summary::-webkit-details-marker { display: none; }
+.pcb-gb-meta { margin: 6px 0; font-size: 11.5px; color: var(--text2); }
+.pcb-gb-layers { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 6px 0; font-size: 12px; }
+.pcb-gb-layer { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; color: var(--text); }
+.pcb-gb-sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.pcb-gb-hint, .pcb-gb-sel {
+  margin: 6px 0; padding: 6px 8px; font-size: 11.5px; border-radius: 3px;
+  background: var(--accent-dim); color: var(--text2);
+}
+.pcb-gb-sel { background: rgba(250, 215, 60, 0.18); border: 1px solid rgba(215, 170, 20, 0.5); color: var(--text); }
+.pcb-gb-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+.pcb-gb-nets { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; max-height: 190px; overflow-y: auto; }
+.pcb-gb-net {
+  display: flex; gap: 8px; align-items: baseline; text-align: left; cursor: pointer;
+  padding: 3px 6px; font-size: 11.5px; background: var(--bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: 3px;
+}
+.pcb-gb-net:hover { border-color: #2f9e6e; }
+.pcb-gb-net--on { background: rgba(250, 215, 60, 0.25); border-color: #c9a514; }
+.pcb-gb-netn { font-weight: 700; min-width: 52px; }
+.pcb-gb-netd { color: var(--text2); }
+.pcb-gb-actions { margin-top: 8px; }
+.pcb-gb-btn {
+  font-size: 11.5px; padding: 3px 9px; cursor: pointer; border-radius: 3px;
+  background: var(--bg); color: var(--text); border: 1px solid var(--border2);
+}
+.pcb-gb-btn:hover { border-color: #2f9e6e; }
+.pcb-gb-warn { margin-top: 8px; font-size: 11px; color: var(--text2); }
+.pcb-gb-warn ul { margin: 4px 0 0 16px; padding: 0; }
+
 .pcb-raw {
   margin-top: 12px;
   background: var(--bg-soft);

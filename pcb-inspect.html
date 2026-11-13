@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=57">
+  <link rel="stylesheet" href="./src/style.css?v=58">
 </head>
 <body class="app-body">
 
@@ -99,11 +99,11 @@
 
       <!-- Drop zone -->
       <div id="drop-zone" class="app-drop">
-        <input type="file" id="file-input" accept="image/*,application/pdf" multiple hidden>
+        <input type="file" id="file-input" accept="image/*,application/pdf,.zip,.gbr,.ger,.pho,.art,.gtl,.gbl,.gts,.gbs,.gto,.gbo,.gtp,.gbp,.gko,.gml,.gm1,.g1,.g2,.g3,.g4,.cmp,.sol,.stc,.sts,.plc,.pls,.dim,.drl,.xln,.drd,.txt" multiple hidden>
         <div class="app-drop-inner">
           <div class="app-drop-icon">&#128247;</div>
-          <div class="app-drop-title">Drop PCB images or PDF here</div>
-          <div class="app-drop-sub">PNG / JPG / WebP / PDF &middot; multi-select for top+bottom+close-ups &middot; Ctrl+V to paste</div>
+          <div class="app-drop-title">Drop PCB images, a PDF, or Gerber files here</div>
+          <div class="app-drop-sub">PNG / JPG / WebP / PDF &middot; multi-select for top+bottom+close-ups &middot; Ctrl+V to paste<br>Gerber: drop the .zip or all layer files + drill file for exact net tracing</div>
         </div>
       </div>
 
@@ -160,6 +160,7 @@
 
     <!-- RIGHT: detections pane -->
     <aside class="app-detections-pane">
+      <div id="pcb-gerber-panel" class="pcb-gerber-wrap" style="display:none"></div>
       <div class="app-detections-head">
         <h2>Detections <span class="app-det-count" id="det-count"></span></h2>
         <span class="app-detections-hint">click a row to expand</span>
@@ -305,6 +306,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=63"></script>
+  <script type="module" src="./src/page-pcb.js?v=64"></script>
 </body>
 </html>
