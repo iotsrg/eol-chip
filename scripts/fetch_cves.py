@@ -98,7 +98,9 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
         recent_404s = 0
         for attempt in range(4):
             try:
-                resp = requests.get(NVD_URL, params=params, headers=headers, timeout=30)
+                # Keyword searches were observed taking ~19 s to answer even
+                # for a 5-result page, so 30 s was too tight.
+                resp = requests.get(NVD_URL, params=params, headers=headers, timeout=90)
                 if resp.status_code == 404:
                     reason = resp.headers.get("message", "")
                     if reason:
@@ -115,10 +117,14 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
                           f"after 4 attempts: {e}")
                     break
                 # Rate limited or repeatedly 404 → long backoff past the rate-limit window
-                if last_status == 429 or (last_status == 404 and recent_404s >= 2):
+                if last_status in (403, 429) or (last_status == 404 and recent_404s >= 2):
                     wait = 35 + 10 * attempt   # 35 / 45 / 55
                 else:
-                    wait = 2 * (2 ** attempt)  # 2 / 4 / 8
+                    # 5xx / timeout. The old 2-4-8 s ladder fired 4 requests in
+                    # ~14 s, which itself exceeds the unauthenticated limit of
+                    # 5 requests / 30 s and kept the client locked out. Stay
+                    # well clear of the rate window between retries.
+                    wait = 15 * (2 ** attempt)  # 15 / 30 / 60
                 print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s — {e}")
                 time.sleep(wait)
         if data is None:
