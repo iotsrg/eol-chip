@@ -4,7 +4,7 @@
 WHY THIS EXISTS
 ---------------
 Lifecycle status (Active / NRND / Last-Time-Buy / Obsolete) and EOL dates in
-chips.yaml were hand-typed and unverified — the source of the "misinformation"
+chips.yaml were hand-typed and unverified - the source of the "misinformation"
 on chip pages. Digi-Key mirrors each manufacturer's official product-status
 field, so this script replaces guesses with a sourced, machine-checked value.
 
@@ -29,7 +29,7 @@ process_eol.py merges this over chips.yaml: a fetched status WINS and is marked
 verified; anything Digi-Key cannot confirm stays flagged "Unverified" rather
 than asserting a fabricated value.
 
-CREDENTIALS (never hard-coded — set as env / CI secrets):
+CREDENTIALS (never hard-coded - set as env / CI secrets):
     DIGIKEY_CLIENT_ID, DIGIKEY_CLIENT_SECRET
 
 SAFE NO-OP: if credentials are absent, the script prints a notice and exits 0
@@ -108,7 +108,7 @@ def lookup(mpn, token):
     """Return a normalized lifecycle record for one MPN, or None if not found.
 
     Uses the keyword-search endpoint and keeps a hit only when the returned
-    ManufacturerProductNumber matches our MPN exactly (normalized) — so a fuzzy
+    ManufacturerProductNumber matches our MPN exactly (normalized) - so a fuzzy
     keyword hit on a different part is never mistaken for this chip.
     """
     payload = {"Keywords": mpn, "Limit": 5, "Offset": 0}
@@ -142,7 +142,7 @@ def lookup(mpn, token):
 
 def main():
     if not (CLIENT_ID and CLIENT_SECRET):
-        print("fetch_lifecycle: DIGIKEY_CLIENT_ID/SECRET not set — skipping "
+        print("fetch_lifecycle: DIGIKEY_CLIENT_ID/SECRET not set - skipping "
               "(existing data/lifecycle.json left untouched).")
         return 0
 
@@ -159,7 +159,7 @@ def main():
     try:
         token, ttl = get_token()
     except Exception as e:
-        print(f"fetch_lifecycle: token request failed ({e}) — skipping.")
+        print(f"fetch_lifecycle: token request failed ({e}) - skipping.")
         return 1
     token_deadline = time.time() + ttl - 30
 

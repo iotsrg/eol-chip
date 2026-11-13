@@ -1,4 +1,4 @@
-import { initNav, loadMeta } from './common.js?v=47'
+import { initNav, loadMeta } from './common.js?v=70'
 
 initNav('packetstorm')
 loadMeta()

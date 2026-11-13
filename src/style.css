@@ -1200,7 +1200,7 @@ a.verify-badge.verified:hover { background: rgba(34, 197, 94, 0.25); }
 :root[data-theme=dark] .pcb-quality-hint { color: #f7c9c9; }
 :root[data-theme=dark] .pcb-quality-hint code { background: #4f2828; }
 
-/* Attack Surface panel — classifies detections into a researcher's targets */
+/* Attack Surface panel - classifies detections into a researcher's targets */
 .pcb-attack-surface {
   border: 1px solid var(--border);
   border-left: 3px solid #e0562d;
@@ -1296,7 +1296,7 @@ a.verify-badge.verified:hover { background: rgba(34, 197, 94, 0.25); }
   background: var(--bg-strong);
   padding: 6px;
 }
-/* Image card — image kept to a sensible size, container wraps tightly so
+/* Image card - image kept to a sensible size, container wraps tightly so
  * the absolutely-positioned canvas overlay stays pixel-aligned. */
 .pcb-canvas-container {
   display: inline-block;
@@ -1317,7 +1317,7 @@ a.verify-badge.verified:hover { background: rgba(34, 197, 94, 0.25); }
 }
 
 /* ══════════════════════════════════════════════════════════════
- * PCB Inspect — IDE-style app shell
+ * PCB Inspect - IDE-style app shell
  * ══════════════════════════════════════════════════════════════ */
 
 body.app-body {
@@ -1380,7 +1380,7 @@ body.app-body {
 .app-iconbtn:disabled { opacity: 0.4; cursor: not-allowed; }
 .app-iconbtn .app-icon { font-size: 17px; line-height: 1; }
 .app-iconbtn-text { font-size: 14px; color: var(--text); font-weight: 500; }
-/* Make the Settings button visually prominent — it shows the current model */
+/* Make the Settings button visually prominent - it shows the current model */
 #btn-settings { background: var(--bg-strong); border-color: var(--border); }
 #btn-settings:hover { background: var(--accent-dim); border-color: var(--accent); }
 .app-iconbtn--attention { background: var(--accent) !important; color: #fff !important; }
@@ -1521,13 +1521,13 @@ body.app-body {
 }
 .app-image-stage .pcb-canvas-container img {
   display: block;
-  /* Default "fit" sizing — JS slider overrides via inline width when
+  /* Default "fit" sizing - JS slider overrides via inline width when
    * user wants a specific size. */
   max-width: 100%;
   max-height: calc(100vh - 240px);
   width: auto; height: auto;
 }
-/* Image-size toolbar (above the image) — prominent so users can find it. */
+/* Image-size toolbar (above the image) - prominent so users can find it. */
 .app-image-toolbar {
   flex-shrink: 0;
   display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
@@ -1771,7 +1771,7 @@ body.app-body {
 .app-image-pane .pcb-multi { padding: 0 16px; margin: 8px 0; }
 .app-image-pane .pcb-pdfpages { margin: 8px 16px; }
 
-/* Legacy 3-column rules removed — older .pcb-page no longer wraps the
+/* Legacy 3-column rules removed - older .pcb-page no longer wraps the
  * whole page. */
 
 .pcb-hero-slim {
@@ -1850,7 +1850,7 @@ body.app-body {
 .pcb-keyrow-btns { display: flex; gap: 6px; }
 .pcb-keyrow-btns .pcb-btn { flex: 1; font-size: 13px; padding: 7px 12px; }
 
-/* Compact warn / privacy variants — still tighter than full-page but readable */
+/* Compact warn / privacy variants - still tighter than full-page but readable */
 .pcb-privacy--compact, .pcb-warn--compact {
   font-size: 13px;
   line-height: 1.55;
@@ -1863,7 +1863,7 @@ body.app-body {
 .pcb-privacy-verify { font-size: 12px; margin-top: 6px; display: block; }
 .pcb-btn--xs { padding: 5px 10px; font-size: 12px; margin-top: 8px; }
 
-/* Collapsible "How accurate" — uses native <details> */
+/* Collapsible "How accurate" - uses native <details> */
 .pcb-collapsible[open] summary h2 { color: var(--accent); }
 .pcb-collapsible summary {
   cursor: pointer; list-style: none;
@@ -1892,24 +1892,24 @@ body.app-body {
   background: transparent; border: none; padding: 0;
 }
 
-/* Drop zone in the middle column — comfortable but smaller than full-page */
+/* Drop zone in the middle column - comfortable but smaller than full-page */
 .pcb-3col .pcb-drop { padding: 28px 16px; }
 .pcb-3col .pcb-drop-icon { font-size: 36px; }
 .pcb-3col .pcb-drop-title { font-size: 16px; }
 .pcb-3col .pcb-drop-sub { font-size: 12.5px; line-height: 1.5; }
 
-/* Controls row — comfortable size for the checkboxes and slider */
+/* Controls row - comfortable size for the checkboxes and slider */
 .pcb-3col .pcb-controls { font-size: 13px; }
 .pcb-3col .pcb-check { font-size: 13px; gap: 6px; }
 .pcb-3col .pcb-slider { font-size: 13px; }
 .pcb-3col .pcb-btn { font-size: 13px; padding: 7px 14px; }
 .pcb-3col .pcb-btn--primary { font-size: 14px; padding: 8px 18px; }
 
-/* Disclaimer in the results card — readable, not microscopic */
+/* Disclaimer in the results card - readable, not microscopic */
 .pcb-3col .pcb-disclaimer { font-size: 13px; padding: 9px 13px; }
 .pcb-3col .pcb-canvas-status { font-size: 13px; }
 
-/* Detection cards in the right column — slightly more breathing room */
+/* Detection cards in the right column - slightly more breathing room */
 .pcb-3col .det-card { font-size: 13px; padding: 11px 13px; }
 .pcb-3col .det-label { font-size: 15px; }
 .pcb-3col .det-meta  { font-size: 12.5px; }
@@ -2207,3 +2207,374 @@ body.app-body {
   touch-action: none;   /* let our handlers manage pinch/pan */
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+ * Theme v2 - "bench" palette
+ * Graphite neutrals, solder-mask teal as the accent, copper for
+ * emphasis. Tokens first, then shared component polish, then the
+ * PCB Inspect workbench skin. Layout rules above are unchanged.
+ * ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg:        #f3f5f7;
+  --bg-soft:   #eaeef2;
+  --bg-strong: #dde3ea;
+  --surface:   #ffffff;
+  --surface2:  #f7f9fb;
+  --surface3:  #e8edf2;
+  --border:    #d2d9e1;
+  --border2:   #a8b4c1;
+  --text:      #111a24;
+  --text2:     #414f5e;
+  --text3:     #657486;
+  --link:      #0b6b65;
+  --link-hov:  #084f4a;
+  --link-vis:  #5b4a8f;
+  --link-red:  #b42318;
+  --accent:    #0f766e;
+  --accent-dim: #dff2ef;
+  --on-accent: #ffffff;
+  --copper:    #b4531a;
+
+  --tag-cve:        #c8322b;
+  --tag-exploit:    #c2540a;
+  --tag-fcc:        #2f63c0;
+  --tag-eol:        #7a4a8c;
+  --tag-cisa:       #b3261e;
+  --tag-metasploit: #0b7a99;
+  --tag-ghsa:       #5f3fa3;
+  --tag-ics:        #b83a66;
+  --tag-packetstorm:#0c7a65;
+
+  --sev-critical: #b42318;
+  --sev-high:     #c2410c;
+  --sev-medium:   #a15c07;
+  --sev-low:      #15803d;
+
+  --serif: "Inter", "Segoe UI Variable Display", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans:  "Inter", "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:  ui-monospace, "JetBrains Mono", "SF Mono", "Cascadia Code", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
+  --radius:    10px;
+  --radius-sm: 6px;
+  --shadow-sm: 0 1px 2px rgba(17, 26, 36, 0.06);
+  --shadow:    0 1px 2px rgba(17, 26, 36, 0.05), 0 6px 16px rgba(17, 26, 36, 0.07);
+}
+
+[data-theme="dark"] {
+  --bg:        #0a0e13;
+  --bg-soft:   #10161d;
+  --bg-strong: #19222c;
+  --surface:   #0e141a;
+  --surface2:  #121a22;
+  --surface3:  #19222c;
+  --border:    #212d3a;
+  --border2:   #364656;
+  --text:      #e7edf3;
+  --text2:     #a7b4c2;
+  --text3:     #738394;
+  --link:      #4fd6c4;
+  --link-hov:  #86e8dc;
+  --link-vis:  #b9a8f5;
+  --link-red:  #ff8177;
+  --accent:    #14b8a6;
+  --accent-dim: rgba(20, 184, 166, 0.14);
+  --on-accent: #04211d;
+  --copper:    #f0a060;
+
+  --tag-cve:        #ff7a70;
+  --tag-exploit:    #ff9d4d;
+  --tag-fcc:        #7fb0ff;
+  --tag-eol:        #c79be8;
+  --tag-cisa:       #ff7a70;
+  --tag-metasploit: #5fd0f0;
+  --tag-ghsa:       #c0a2f7;
+  --tag-ics:        #f58fb0;
+  --tag-packetstorm:#4fd6b8;
+
+  --sev-critical: #ff6b62;
+  --sev-high:     #ff9f43;
+  --sev-medium:   #f2c94c;
+  --sev-low:      #4cd08a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow:    0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--accent); color: var(--on-accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3, h4 { font-weight: 650; letter-spacing: -0.015em; }
+h1 { font-size: 30px; }
+h2 { font-size: 21px; }
+h3 { font-size: 17px; }
+code, kbd, pre { font-family: var(--mono); }
+* { scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+
+/* Filled accent surfaces carry their own ink so text stays readable on
+ * the bright dark-mode accent as well as the deep light-mode one. */
+.app-logo-mark, .app-btn--primary, .app-det-count { color: var(--on-accent); }
+.app-iconbtn--attention, .app-iconbtn--attention .app-iconbtn-text { color: var(--on-accent) !important; }
+.app-btn--primary:hover { color: var(--on-accent); }
+
+/* ── Top nav ──────────────────────────────────────────────────── */
+nav {
+  height: 56px;
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  backdrop-filter: saturate(160%) blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+.nav-logo { font-size: 18px; font-weight: 700; letter-spacing: 0.02em; }
+.nav-chip-icon {
+  border: 0; border-radius: 7px;
+  background: var(--accent); color: var(--on-accent);
+  font-family: var(--mono);
+}
+.nav-links a { color: var(--text2); border-radius: var(--radius-sm); font-weight: 500; }
+.nav-links a:visited { color: var(--text2); }
+.nav-links a:hover { background: var(--bg-soft); color: var(--text); }
+.nav-links a.nav-active, .nav-links a.nav-active:visited { background: var(--accent-dim); color: var(--link); }
+.theme-toggle { border-radius: 8px; }
+
+/* ── Hero + search ────────────────────────────────────────────── */
+.hero { border-bottom: 0; padding: 44px 0 22px; }
+.hero h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; }
+.hero .tagline { font-style: normal; }
+.hero-pill {
+  border-radius: 999px; background: var(--accent-dim); color: var(--link);
+  font-family: var(--mono); letter-spacing: 0.12em;
+}
+.hero-stat {
+  background: var(--surface); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.hero-stat--alert { background: color-mix(in srgb, var(--tag-cve) 7%, var(--surface)); }
+.hero-stat-num, .stat-num {
+  font-family: var(--sans); font-weight: 700;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+}
+.search-input { border-radius: var(--radius); }
+.search-input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+}
+
+/* ── Cards ────────────────────────────────────────────────────── */
+.stat-card, .cta-card, .dash-card, .risk-card, .vendor-card, .ql-group,
+.wiki-card, .infobox, .toc, .risk-panel, .empty-state {
+  border-radius: var(--radius);
+}
+.stat-card, .cta-card, .dash-card, .vendor-card, .ql-group {
+  background: var(--surface); box-shadow: var(--shadow-sm);
+}
+.stat-card, .cta-card, .risk-card, .vendor-card {
+  transition: border-color 0.14s, box-shadow 0.14s, transform 0.14s;
+}
+.stat-card:hover, .cta-card:hover, .vendor-card:hover {
+  background: var(--surface); border-color: var(--accent);
+  box-shadow: var(--shadow); transform: translateY(-1px);
+}
+.cta-card--primary { background: var(--accent-dim); border-color: var(--accent); }
+.cta-card--primary:hover { background: var(--accent-dim); }
+.stat-delta { color: var(--link); }
+.infobox-title { border-radius: var(--radius) var(--radius) 0 0; }
+
+/* ── Tables ───────────────────────────────────────────────────── */
+.table-wrap {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); box-shadow: var(--shadow-sm);
+}
+.table-wrap > table { border: 0; background: transparent; }
+.table-wrap > table tr:last-child td { border-bottom: 0; }
+th {
+  background: var(--surface2); color: var(--text2);
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+}
+tr:hover td { background: var(--surface2); }
+
+/* ── Tags, pills, buttons ─────────────────────────────────────── */
+.tag { border-radius: 4px; padding: 2px 7px; font-size: 10.5px; }
+.mini-badge { border-radius: 3px; }
+.risk-card-score { border-radius: 4px; }
+.cat-btn, .filter-btn, .ql-btn, .filter-pill, .count-pill { border-radius: 999px; }
+[data-theme="dark"] .tag,
+[data-theme="dark"] .mini-badge,
+[data-theme="dark"] .risk-card-score { color: #0a0e13; }
+[data-theme="dark"] .tag-sev-unrated { background: #8a94a3; }
+[data-theme="dark"] .mb-ransom { background: #ff7a70; }
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.site-footer { background: var(--surface); }
+
+/* ══════════════════════════════════════════════════════════════
+ * PCB Inspect - workbench skin
+ * The tool always runs dark (see page-pcb.js): board photos and
+ * copper renders read best on a dark stage. It gets a deeper
+ * graphite than the site, a brighter teal accent, mono labels and
+ * a dotted stage, like an EDA or scope front panel.
+ * ══════════════════════════════════════════════════════════════ */
+body.app-body {
+  --bg:        #070a0e;
+  --bg-soft:   #0b1016;
+  --bg-strong: #151d27;
+  --surface:   #0d1319;
+  --surface2:  #111922;
+  --surface3:  #17212c;
+  --border:    #1d2834;
+  --border2:   #314152;
+  --text:      #e8eef4;
+  --text2:     #a3b1c0;
+  --text3:     #6f8092;
+  --link:      #5eead4;
+  --link-hov:  #99f6e4;
+  --link-vis:  #c4b5fd;
+  --accent:    #2dd4bf;
+  --accent-dim: rgba(45, 212, 191, 0.12);
+  --on-accent: #04211d;
+  --copper:    #f59e52;
+  font-family: var(--sans);
+}
+
+/* Header */
+body.app-body .app-header {
+  position: relative;
+  background: linear-gradient(180deg, #111a23 0%, #0c1218 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+body.app-body .app-header::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent 38%, transparent 62%, var(--copper));
+  opacity: 0.7; pointer-events: none;
+}
+body.app-body .app-logo-mark { border-radius: 7px; }
+body.app-body .app-logo-text { letter-spacing: 0.1em; font-size: 14px; }
+body.app-body .app-title {
+  font-family: var(--sans); font-weight: 650; font-size: 17px; letter-spacing: -0.01em;
+}
+body.app-body .app-beta {
+  border-radius: 999px; background: var(--accent-dim); color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.3); font-family: var(--mono); font-size: 10px;
+}
+body.app-body .app-iconbtn { border-radius: 8px; color: var(--text2); }
+body.app-body .app-iconbtn:hover { background: var(--surface3); border-color: var(--border2); color: var(--text); }
+body.app-body #btn-settings { background: var(--surface2); border-color: var(--border2); }
+body.app-body #btn-settings:hover { background: var(--accent-dim); border-color: var(--accent); }
+body.app-body .app-iconbtn-text { font-family: var(--mono); font-size: 12.5px; }
+body.app-body .app-header-file {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 999px; padding: 3px 12px;
+}
+body.app-body .app-header-file:empty { display: none; }
+body.app-body .app-btn { border-radius: 8px; }
+body.app-body .app-btn--primary {
+  background: linear-gradient(180deg, #3ee2ce 0%, #14b8a6 100%);
+  border: 0; font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.35), 0 6px 18px rgba(20, 184, 166, 0.28);
+}
+body.app-body .app-btn--primary:hover { filter: brightness(1.08); background: linear-gradient(180deg, #3ee2ce 0%, #14b8a6 100%); }
+body.app-body .app-btn--primary:disabled {
+  background: var(--surface3); color: var(--text3); box-shadow: none; opacity: 1;
+}
+
+/* Stage */
+body.app-body .app-image-pane {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0) 0 0 / 22px 22px,
+    var(--bg);
+}
+body.app-body .app-drop {
+  border: 1.5px dashed var(--border2); border-radius: 14px;
+  background: rgba(13, 19, 25, 0.85);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+body.app-body .app-drop:hover,
+body.app-body .app-drop.pcb-drop--hover {
+  border-color: var(--accent); background: rgba(45, 212, 191, 0.07);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+}
+body.app-body .app-drop-title { font-weight: 650; letter-spacing: -0.01em; }
+body.app-body .app-image-toolbar { border-radius: var(--radius); background: rgba(13, 19, 25, 0.9); }
+body.app-body .app-image-toolbar-label { font-family: var(--mono); font-size: 11px; color: var(--text3); letter-spacing: 0.1em; }
+body.app-body .app-image-toolbar .app-iconbtn { background: var(--surface2); border-radius: var(--radius-sm); }
+body.app-body .app-image-stage .pcb-canvas-container {
+  border-radius: var(--radius); overflow: hidden;
+  border-color: var(--border2); background: #05070a;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+body.app-body .app-statusbar {
+  background: #0a0f14; font-size: 12px; color: var(--text2);
+}
+body.app-body .app-statusbar::before {
+  content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); margin-right: 10px;
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* Side panel */
+body.app-body .app-detections-pane { border-left: 1px solid var(--border); }
+body.app-body .app-detections-head { background: transparent; }
+body.app-body .app-detections-head h2 {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.14em; color: var(--text2);
+}
+body.app-body .app-det-count {
+  background: var(--accent-dim); color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.3); font-family: var(--mono);
+}
+body.app-body .app-detections-hint { font-style: normal; }
+body.app-body .det-row-card {
+  border-radius: 8px; overflow: hidden;
+  background: var(--surface2); margin-bottom: 6px;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+body.app-body .det-row-card:hover { border-color: var(--border2); }
+body.app-body .det-row-card.det-row-card--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 0 0 5px var(--accent-dim);
+}
+body.app-body .det-row-summary:hover { background: var(--surface3); }
+body.app-body .det-row-num { border-radius: 6px; font-family: var(--mono); }
+body.app-body .det-row-detail { background: var(--surface); }
+body.app-body .pcb-attack-surface,
+body.app-body .pcb-gerber { border-radius: var(--radius); background: var(--surface2); }
+body.app-body .pcb-as-chip, body.app-body .pcb-gb-net, body.app-body .pcb-gb-btn { background: var(--surface); }
+body.app-body .pcb-panel-empty { color: var(--text3); }
+
+/* Dialogs + form controls */
+body.app-body .app-modal-backdrop { background: rgba(3, 6, 9, 0.7); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+body.app-body .app-modal-card {
+  border-radius: 14px; border-color: var(--border2); overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+body.app-body .app-modal-head h2,
+body.app-body .app-drawer-head h2 { font-family: var(--sans); font-weight: 650; font-size: 17px; }
+body.app-body .app-modal-h3 { font-family: var(--mono); letter-spacing: 0.12em; }
+body.app-body .app-drawer { top: 56px; box-shadow: -16px 0 40px rgba(0, 0, 0, 0.5); }
+body.app-body input[type="text"], body.app-body input[type="password"],
+body.app-body input[type="url"], body.app-body select, body.app-body textarea,
+body.app-body .search-input {
+  background: #0a0f14; color: var(--text);
+  border: 1px solid var(--border2); border-radius: 8px;
+}
+body.app-body input:focus, body.app-body select:focus, body.app-body textarea:focus {
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim);
+}
+body.app-body input[type="checkbox"], body.app-body input[type="radio"], body.app-body input[type="range"] { accent-color: var(--accent); }
+body.app-body a:visited { color: var(--link); }
+body.app-body .app-image-pane .pcb-history-panel { border-radius: var(--radius); box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5); }
+body.app-body .app-det-count:empty { display: none; }
+.app-banner-btn { white-space: nowrap; flex: none; border-radius: var(--radius-sm); }
+/* Header and status bar never wrap; long labels truncate instead. */
+body.app-body .app-header { gap: 10px; }
+body.app-body .app-logo, body.app-body .app-title, body.app-body .app-iconbtn,
+body.app-body .app-btn { white-space: nowrap; flex-shrink: 0; }
+body.app-body .app-btn--primary { flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+body.app-body .app-header-file { flex-shrink: 1; min-width: 0; }
+body.app-body .app-statusbar .pcb-canvas-status {
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+@media (max-width: 1000px) {
+  body.app-body .app-logo-text, body.app-body .app-header-sep, body.app-body .app-header-file { display: none; }
+}

@@ -1,8 +1,12 @@
-import { initNav, renderSourcesFooter, loadMeta } from './common.js?v=47'
+import { initNav, renderSourcesFooter, loadMeta } from './common.js?v=70'
 // Fuse.js is loaded LAZILY (see ensureFuse) instead of a top-level CDN import.
 // A static `import ... from <CDN>` that fails to fetch kills the ENTIRE module
 // (page goes blank). Lazy + try/catch keeps the tool working if the CDN is
-// unreachable — only fuzzy chip-search degrades.
+// unreachable - only fuzzy chip-search degrades.
+
+// PCB Inspect always uses the dark workbench skin. Set for this page only,
+// without touching the saved site-wide light/dark preference.
+document.documentElement.setAttribute('data-theme', 'dark')
 
 initNav('pcb')        // no-op: app shell has no #nav
 renderSourcesFooter() // no-op: app shell has no footer
@@ -39,7 +43,7 @@ function closeDrawer() { if (shell.drawer) shell.drawer.style.display = 'none' }
 shell.btnHelp?.addEventListener('click', openDrawer)
 shell.btnCloseHelp?.addEventListener('click', closeDrawer)
 
-// One-time image-quality banner — appears unless previously dismissed.
+// One-time image-quality banner - appears unless previously dismissed.
 const BANNER_LS = 'eol-pcb-banner-dismissed-v1'
 if (shell.banner) {
   try {
@@ -178,7 +182,7 @@ const OLLAMA_HOST_LS = 'eol-pcb-ollama-host'
 
 // Pick the storage backend for KEYS based on the session-only toggle.
 // Everything else (provider preference, model selection, palette) stays in
-// localStorage — those aren't secrets.
+// localStorage - those aren't secrets.
 function keyStore() {
   try { return localStorage.getItem(SESSION_ONLY_LS) === '1' ? sessionStorage : localStorage }
   catch { return localStorage }
@@ -194,7 +198,7 @@ function setKey(p, v) {
 }
 
 function setModelOptions(models, selected) {
-  // Escape model id+label — Ollama models come from /api/tags response and
+  // Escape model id+label - Ollama models come from /api/tags response and
   // could in principle contain HTML/quote characters.
   els.modelSel.innerHTML = models.map(m =>
     `<option value="${escapeHtmlAttr(m.id)}">${escapeHtml(m.label)}</option>`).join('')
@@ -360,15 +364,15 @@ sessionOpt?.addEventListener('change', () => {
   state.apiKey = getKey(state.provider)
   applyProviderUI()
   const msg = want
-    ? 'Keys moved to sessionStorage — they will be cleared when you close this tab.'
-    : 'Keys moved back to localStorage — persist across tabs/sessions.'
+    ? 'Keys moved to sessionStorage - they will be cleared when you close this tab.'
+    : 'Keys moved back to localStorage - persist across tabs/sessions.'
   if (els.keyStatus) {
     els.keyStatus.textContent = msg
     els.keyStatus.className = 'pcb-keystatus pcb-keystatus--ok'
   }
 })
 
-// "Clear all stored keys" — wipes every eol-pcb-* entry, useful as a
+// "Clear all stored keys" - wipes every eol-pcb-* entry, useful as a
 // concrete demonstration that the only place keys exist is this browser.
 const clearAllBtn = document.getElementById('clear-all-keys')
 if (clearAllBtn) {
@@ -544,7 +548,7 @@ async function showPrimaryImage(dataUrl, mime, w, h, name) {
 async function importGerberFiles(files) {
   setStatus('info', 'Reading Gerber files…')
   let G
-  try { G = await import('./gerber.js?v=1') } catch (e) {
+  try { G = await import('./gerber.js?v=70') } catch (e) {
     setStatus('error', 'Could not load the Gerber engine: ' + (e.message || e)); return
   }
   const dec = new TextDecoder('latin1'), texts = []
@@ -708,7 +712,7 @@ async function ensurePdfJs() {
   return mod
 }
 
-// Fuse.js (fuzzy chip-name search) — lazy + non-fatal, mirrors ensurePdfJs.
+// Fuse.js (fuzzy chip-name search) - lazy + non-fatal, mirrors ensurePdfJs.
 let FuseLib = null
 async function ensureFuse() {
   if (FuseLib) return FuseLib
@@ -741,7 +745,7 @@ async function renderPdfPage(pageNum) {
   c.width = Math.round(vp.width)
   c.height = Math.round(vp.height)
   const ctx = c.getContext('2d')
-  // White background — many PDF schematics use transparent backgrounds.
+  // White background - many PDF schematics use transparent backgrounds.
   ctx.fillStyle = '#fff'
   ctx.fillRect(0, 0, c.width, c.height)
   await page.render({ canvasContext: ctx, viewport: vp }).promise
@@ -846,7 +850,7 @@ function fitCanvas() {
 }
 window.addEventListener('resize', () => { if (state.imageDataUrl) { fitCanvas(); drawOverlay() } })
 
-// RGB tuples so rgba() composes cleanly. Avoid CSS hex+alpha — Canvas
+// RGB tuples so rgba() composes cleanly. Avoid CSS hex+alpha - Canvas
 // silently keeps the previous fillStyle on invalid strings.
 const PALETTES = {
   default: [
@@ -854,7 +858,7 @@ const PALETTES = {
     [102,  51, 153], [196,  68, 102], [  0, 136, 170], [136,  68, 102],
     [179,  36,  36], [ 20, 134, 109],
   ],
-  // Wong palette — 8-colour set designed to be distinguishable for the
+  // Wong palette - 8-colour set designed to be distinguishable for the
   // common forms of colour-vision deficiency.
   cb: [
     [  0, 114, 178], [213,  94,   0], [  0, 158, 115], [204, 121, 167],
@@ -875,11 +879,11 @@ let drawOverlay = function (hoverId = null) {
   if (state.gerber && state.gerber.hl) ctx.drawImage(state.gerber.hl, 0, 0, W, H)
 
   const vis = visibleDetections()
-  // If the model's bboxes are clearly garbage, don't draw them — overlay a
+  // If the model's bboxes are clearly garbage, don't draw them - overlay a
   // clear explanation so the user understands the side-panel cards aren't
   // tied to any real region.
   if (vis.length >= 2 && bboxesAreBogus(vis)) {
-    const msg = 'Model returned invalid bounding boxes — see warning in the side panel. The cards on the right are still shown but cannot be located on the image.'
+    const msg = 'Model returned invalid bounding boxes - see warning in the side panel. The cards on the right are still shown but cannot be located on the image.'
     const padX = 14, padY = 12
     const maxW = Math.min(W - 20, 520)
     ctx.font = '600 13px -apple-system,Segoe UI,sans-serif'
@@ -908,7 +912,7 @@ let drawOverlay = function (hoverId = null) {
   vis.forEach((d, i) => {
     const pal = palette()
     const isEmpty = d.category === 'empty_footprint'
-    // Empty footprints always render in amber regardless of palette index —
+    // Empty footprints always render in amber regardless of palette index -
     // they are security warnings, not just another detection.
     const rgb = isEmpty ? [245, 158, 11] : pal[i % pal.length]
     const hovered = hoverId === d.id
@@ -1098,7 +1102,7 @@ async function analyze() {
     showToolbar()
     setStatus('ok', `Done. ${state.detections.length} detection${state.detections.length === 1 ? '' : 's'} in ${((state.lastRun.durationMs)/1000).toFixed(1)}s${state.lastRun.cost ? ` · est. $${state.lastRun.cost.toFixed(4)}` : ''}.`)
 
-    // Optional accuracy boosters — opt-in checkboxes in Settings.
+    // Optional accuracy boosters - opt-in checkboxes in Settings.
     // Order matters: consensus replaces, tile pass adds, auto-re-OCR refines.
     if (document.getElementById('opt-consensus')?.checked) {
       await consensusPass()
@@ -1132,11 +1136,11 @@ function buildPrompt() {
     : 'a top-down photo of a populated printed circuit board'
 
   const extraNote = (state.extraImages && state.extraImages.length)
-    ? `\nNOTE: You have been given ${state.extraImages.length + 1} images of the same board (the first is the primary view, the rest are additional angles or close-ups labelled ${state.extraImages.map(e => `"${e.label}"`).join(', ')}). Use all of them together — a marking might be readable in only one view. All bboxes you return must be in coordinates of the PRIMARY (first) image.\n`
+    ? `\nNOTE: You have been given ${state.extraImages.length + 1} images of the same board (the first is the primary view, the rest are additional angles or close-ups labelled ${state.extraImages.map(e => `"${e.label}"`).join(', ')}). Use all of them together - a marking might be readable in only one view. All bboxes you return must be in coordinates of the PRIMARY (first) image.\n`
     : ''
 
   const ocrHintNote = state.ocrHint
-    ? `\nHINT — OCR pre-pass extracted the following visible text strings from the primary image. Use these as ground-truth markings rather than guessing:\n${state.ocrHint}\n`
+    ? `\nHINT - OCR pre-pass extracted the following visible text strings from the primary image. Use these as ground-truth markings rather than guessing:\n${state.ocrHint}\n`
     : ''
 
   return `You are a hardware security analyst examining ${target}.${extraNote}${ocrHintNote}
@@ -1147,21 +1151,21 @@ Your job is to identify ONLY physical objects you can clearly SEE in the image:
 - Major connectors (USB, HDMI, Ethernet, etc.)
 - Crystals / oscillator cans
 - Visible debug pads or labelled test-point arrays (only if you can actually see and read the labels)
-- SECURITY-RELEVANT DISCRETES (transistors, MOSFETs, diodes, crystals, inductors, key RC networks) — see explicit list below
-- EMPTY / UNPOPULATED FOOTPRINTS — see dedicated section below (HIGH security priority)
+- SECURITY-RELEVANT DISCRETES (transistors, MOSFETs, diodes, crystals, inductors, key RC networks) - see explicit list below
+- EMPTY / UNPOPULATED FOOTPRINTS - see dedicated section below (HIGH security priority)
 
-BOUNDING BOX PRECISION — this is critical. Each bbox MUST tightly enclose the physical part:
+BOUNDING BOX PRECISION - this is critical. Each bbox MUST tightly enclose the physical part:
 - x1,y1 = top-left corner of the package outline (NOT including pin tails extending outside)
 - x2,y2 = bottom-right corner of the package outline
 - Tolerance: ±2% of image width on each edge. Boxes wandering off the chip by 10–15% are unacceptable.
 - For ICs: enclose the dark plastic body, not the pin halo. For headers: enclose the plastic shroud + pins. For passives: tight 0402/0603 footprint only.
 - Before emitting each bbox, mentally re-check: "does the rectangle I'm outputting actually contain the centre of this specific part?" If unsure, lower confidence rather than emit a sloppy box.
 
-EMPTY / UNPOPULATED FOOTPRINTS — these are HIGH-VALUE hardware-security targets and MUST be flagged. An empty footprint = silkscreen outline + visible pads + NO component soldered on. Signatures to look for:
+EMPTY / UNPOPULATED FOOTPRINTS - these are HIGH-VALUE hardware-security targets and MUST be flagged. An empty footprint = silkscreen outline + visible pads + NO component soldered on. Signatures to look for:
 - A rectangular silkscreen outline (white box on green) with bare copper pads inside, no chip body.
 - A row of through-holes silkscreened with a part designator (e.g. "J5", "JTAG", "DEBUG", "CN3") but no header soldered in.
-- A footprint adjacent to a populated chip that was clearly intended to hold a sibling component (DNP — Do Not Populate).
-- Test-point pads (labelled TP## or unlabelled gold dots) — list these as a cluster, not individually.
+- A footprint adjacent to a populated chip that was clearly intended to hold a sibling component (DNP - Do Not Populate).
+- Test-point pads (labelled TP## or unlabelled gold dots) - list these as a cluster, not individually.
 - A pair of unpopulated SOIC-8 pads near SPI flash → likely an alternate flash, secure element, or auth IC the manufacturer omitted.
 - An empty crystal footprint near a populated SoC → suggests alternate clock-source configuration possible.
 
@@ -1174,65 +1178,65 @@ For each unpopulated footprint emit a detection with:
   * Unpopulated debug header → "Solder a header here → likely yields UART/JTAG/SWD console (manufacturer depopulated for production)"
   * Empty SOIC-8 near SPI flash → "Plant point: attacker could solder a malicious flash here, MITM the bus, or add a logic bomb"
   * Empty SOT-23 footprint on signal line → "Plant point: implant a transistor or MOSFET for active fault injection / signal manipulation"
-  * Empty footprint with no obvious purpose → "Plant point: physical-implant attack surface — verify against BOM whether intentional DNP"
-- notes: "Empty footprint — pads visible, no component. Compare to production BOM to confirm DNP vs implant location."
+  * Empty footprint with no obvious purpose → "Plant point: physical-implant attack surface - verify against BOM whether intentional DNP"
+- notes: "Empty footprint - pads visible, no component. Compare to production BOM to confirm DNP vs implant location."
 
 This is not optional. Empty footprints on retail boards are one of the FIRST things a hardware-security analyst checks. Always include them when visible.
 
-SECURITY-RELEVANT DISCRETES — for a hardware-security tool these matter and MUST be identified. These are the components used in glitching, fault-injection and side-channel attacks:
+SECURITY-RELEVANT DISCRETES - for a hardware-security tool these matter and MUST be identified. These are the components used in glitching, fault-injection and side-channel attacks:
 
-Transistors (BJT) — small 3-leg packages, usually SOT-23 / SOT-89 / SOT-223 / TO-92:
-  - NPN — commonly used to PULL signals LOW (reset glitching, clock disturbance, signal pull-down). Often near reset/clock/UART lines.
-  - PNP — high-side switching (cut/restore VCC), brownout attacks, RF amplifier enable.
+Transistors (BJT) - small 3-leg packages, usually SOT-23 / SOT-89 / SOT-223 / TO-92:
+  - NPN - commonly used to PULL signals LOW (reset glitching, clock disturbance, signal pull-down). Often near reset/clock/UART lines.
+  - PNP - high-side switching (cut/restore VCC), brownout attacks, RF amplifier enable.
   - Read marking if visible (e.g. "1AM" = MMBT3904 NPN, "2AM" = MMBT3906 PNP, "2N7002" = MOSFET). Mark category "transistor".
 
-MOSFETs — packages SOT-23 (small-signal), SOT-89, SOT-223, DPAK / D2PAK / TO-220 (power):
+MOSFETs - packages SOT-23 (small-signal), SOT-89, SOT-223, DPAK / D2PAK / TO-220 (power):
   - Used for fast switching, voltage glitching, power-rail control, USB VBUS gating.
   - Often near power input, regulators, USB ports, debug-power switching.
   - Mark category "mosfet". Note whether N-channel or P-channel if you can infer (P-ch typical for high-side power switching).
 
-Crystals / oscillator cans — rectangular silver cans, usually 4-pin or 2-pin:
+Crystals / oscillator cans - rectangular silver cans, usually 4-pin or 2-pin:
   - PRIMARY TARGETS FOR CLOCK GLITCHING. Always identify and note frequency if printed.
   - Mark category "crystal".
 
-Power-supply discretes — TO-220 / DPAK / D2PAK / SOT-223 packages, inductors (coil shape, usually labelled L#), large electrolytic / tantalum caps near regulators:
+Power-supply discretes - TO-220 / DPAK / D2PAK / SOT-223 packages, inductors (coil shape, usually labelled L#), large electrolytic / tantalum caps near regulators:
   - Targets for voltage glitching, brownout, power-rail manipulation.
   - Mark category "power".
 
-Diodes / TVS / Zeners — small 2-leg packages, SOD-123 / SOD-323 / SMA / SMB:
+Diodes / TVS / Zeners - small 2-leg packages, SOD-123 / SOD-323 / SMA / SMB:
   - On debug lines (often clamps that can be temporarily shorted for clean fault injection).
-  - On power input (TVS protection — relevant for EMFI).
+  - On power input (TVS protection - relevant for EMFI).
   - Mark category "diode".
 
-RC reset / timing networks — pair of resistor + capacitor visible near a chip's RESET pin:
-  - Determines reset assertion timing — key for reset-glitching attack windows.
+RC reset / timing networks - pair of resistor + capacitor visible near a chip's RESET pin:
+  - Determines reset assertion timing - key for reset-glitching attack windows.
   - Mark category "passive" and note "RC reset network for <chip>".
 
-PULL-UP / PULL-DOWN RESISTORS — these are PRIMARY hardware-attack targets. A pull-up or pull-down sets the default state of a config / boot / debug pin at power-on. Lifting it (or shorting the trace below it to the opposite rail) changes what the chip does. Identify them when you see:
+PULL-UP / PULL-DOWN RESISTORS - these are PRIMARY hardware-attack targets. A pull-up or pull-down sets the default state of a config / boot / debug pin at power-on. Lifting it (or shorting the trace below it to the opposite rail) changes what the chip does. Identify them when you see:
 
 Visual cues:
 - Small SMD resistor (0402 / 0603 / 0805) sitting alone near a specific pin of a major IC, with ONE end going to VCC (pull-up) or GND (pull-down) and the other to a signal pin or a header pin.
 - Markings: SMD resistors usually show a 3- or 4-digit code printed on the body: "472" = 4.7 kΩ, "473" = 47 kΩ, "103" = 10 kΩ, "104" = 100 kΩ, "100" = 10 Ω, "000" = 0 Ω jumper.
 - Common values for pull-ups: 4.7 kΩ (I²C), 10 kΩ (boot-strap, reset, JTAG/SWD), 100 kΩ (high-impedance / weak pull).
 
-Which ones MATTER (worth flagging — each maps to a real attack):
-  - **Boot-strap pulls** — on BOOT / BOOT0 / BOOT1 / MODE / CFG / STRAP pins of MCU/SoC/FPGA. Pick boot source (internal flash / SPI flash / UART / USB / JTAG / SD). Attack: lift the resistor or short the trace to opposite rail → force alternative boot mode → attacker's recovery / serial-boot path.
-  - **Reset pull-up** — typically 10 kΩ from RESETn to VCC, often paired with a small capacitor to GND (an RC reset network). Attack: hold reset LOW to keep MCU offline while attacking peripherals; or shorten the RC time constant for a reset-glitching window.
-  - **Flash WP / HOLD pull-ups** — on the WP# and HOLD# pins of SPI flash chips (W25Qxx, MX25, etc.). Usually 10 kΩ pull-up holding the pin HIGH (= write protected / hold inactive). Attack: tie WP# LOW → disables write protect → flash can be modified in-circuit.
-  - **JTAG / SWD pull-ups** — on TMS, TCK, TRST, SWDIO, SWCLK. Often 10 kΩ. Indicates the debug interface is biased for normal operation rather than tristated. Attack: tells you the debug port is usable without strong drivers.
-  - **I²C pull-ups** — the 4.7 kΩ pair fingerprint, already covered in I²C BUS clues above.
-  - **GPIO mode-select / pin-mux** — on multiplexed pins that pick a function at boot (e.g. JTAG vs GPIO, secure-boot enable, debug-disable straps). Attack: force the opposite function by changing the strap value.
+Which ones MATTER (worth flagging - each maps to a real attack):
+  - **Boot-strap pulls** - on BOOT / BOOT0 / BOOT1 / MODE / CFG / STRAP pins of MCU/SoC/FPGA. Pick boot source (internal flash / SPI flash / UART / USB / JTAG / SD). Attack: lift the resistor or short the trace to opposite rail → force alternative boot mode → attacker's recovery / serial-boot path.
+  - **Reset pull-up** - typically 10 kΩ from RESETn to VCC, often paired with a small capacitor to GND (an RC reset network). Attack: hold reset LOW to keep MCU offline while attacking peripherals; or shorten the RC time constant for a reset-glitching window.
+  - **Flash WP / HOLD pull-ups** - on the WP# and HOLD# pins of SPI flash chips (W25Qxx, MX25, etc.). Usually 10 kΩ pull-up holding the pin HIGH (= write protected / hold inactive). Attack: tie WP# LOW → disables write protect → flash can be modified in-circuit.
+  - **JTAG / SWD pull-ups** - on TMS, TCK, TRST, SWDIO, SWCLK. Often 10 kΩ. Indicates the debug interface is biased for normal operation rather than tristated. Attack: tells you the debug port is usable without strong drivers.
+  - **I²C pull-ups** - the 4.7 kΩ pair fingerprint, already covered in I²C BUS clues above.
+  - **GPIO mode-select / pin-mux** - on multiplexed pins that pick a function at boot (e.g. JTAG vs GPIO, secure-boot enable, debug-disable straps). Attack: force the opposite function by changing the strap value.
 
 Format: emit one detection per identified pull (or one detection covering a cluster of strap resistors on the same chip's strap pins). Category "passive". In notes describe which pin/role; in attack_vectors describe what the attacker gets by changing the resistor.
 
-Passive RULES — do NOT list every resistor / capacitor on the board (would be hundreds). DO include:
+Passive RULES - do NOT list every resistor / capacitor on the board (would be hundreds). DO include:
   - All pull-up / pull-down resistors per the section above (boot-strap, reset, flash WP, JTAG/SWD, I²C, pin-mux)
   - Bypass / decoupling capacitors AT the main SoC's power pins (relevant to power analysis / EMFI)
   - The RC reset network (always)
   - Any resistor labelled with an unusual value silkscreen (test resistors, current shunts)
   - SKIP: generic bypass caps elsewhere, LED current-limit resistors, basic pull-ups on indicator LEDs or other non-security nets
 
-DEBUG INTERFACES are a priority — these are how someone gains access to a board. When you spot a header or test-point cluster, use the following heuristics to guess what it is (and say so in "notes"):
+DEBUG INTERFACES are a priority - these are how someone gains access to a board. When you spot a header or test-point cluster, use the following heuristics to guess what it is (and say so in "notes"):
 - 4 pins near the main MCU, often labelled TX/RX/GND/3V3 → likely UART console
 - 10-pin (2×5) header → classic ARM JTAG (0.1" pitch) or Cortex-M JTAG (0.05" pitch)
 - 5-pin or 4-pin row labelled SWDIO/SWCLK/RST/GND → ARM Serial-Wire Debug (SWD)
@@ -1242,25 +1246,25 @@ DEBUG INTERFACES are a priority — these are how someone gains access to a boar
 - Castellated edge fingers with TX/RX labelling → debug serial brought out for production
 - Single-row 8–14 pin header next to flash / boot SoC → often a vendor-specific JTAG / EJTAG (MIPS) / cJTAG
 
-I²C BUS clues — I²C usually has no dedicated header (devices share a single bus), so look for:
+I²C BUS clues - I²C usually has no dedicated header (devices share a single bus), so look for:
 - Two adjacent pads/pins silkscreened SDA + SCL (sometimes labelled "I2C" on a 4-pin breakout: SDA/SCL/VCC/GND)
 - An EEPROM such as 24Cxx / AT24Cxxx / 24LCxxx (8-pin SOIC near the MCU) → strongly implies an I²C bus the MCU can read
 - An RTC chip (DS1307 / DS3231 / PCF8523) → I²C
 - I²C sensors with visible markings (BMP280, BME280, SHT3x, MPU-6050, LIS3DH, BNO0xx, INA219) → I²C
-- I²C OLED / EEPROM display modules — small daughter-cards with 4 pins and a visible SSD1306 chip
-- Pull-up resistor pair (typically 4.7 kΩ — two identical resistors close together) tied to two specific traces is a classic I²C bus fingerprint
-- When you spot any of these, add one "I²C bus" detection (category: "interface") and list which chips appear to share it in notes. Mark confidence honestly — finding chips that USE I²C does not prove they're on a single bus.
+- I²C OLED / EEPROM display modules - small daughter-cards with 4 pins and a visible SSD1306 chip
+- Pull-up resistor pair (typically 4.7 kΩ - two identical resistors close together) tied to two specific traces is a classic I²C bus fingerprint
+- When you spot any of these, add one "I²C bus" detection (category: "interface") and list which chips appear to share it in notes. Mark confidence honestly - finding chips that USE I²C does not prove they're on a single bus.
 
-SPI BUS clues — distinct from the SPI flash chip itself:
+SPI BUS clues - distinct from the SPI flash chip itself:
 - Silkscreen MOSI / MISO / SCK (or SCLK) / CSn / SS on a header or test-point block → SPI breakout
 - Multiple SPI peripherals visible (e.g. SPI flash + SPI display + SPI ADC) usually share a single bus (MOSI/MISO/SCK common; each gets its own CS line). Note this in the SPI flash detection's notes.
 - 4-wire (CLK/MOSI/MISO/CSn) cluster near an FPGA / SoC → often the configuration SPI used at boot
 
-Note: you are reading a STATIC IMAGE. You cannot trace electrical continuity. Do NOT claim "this header connects to pin X of the MCU" or "these chips share a bus" unless the silkscreen literally labels it, or the traces are obviously short and visible in this image. Use words like "likely", "appears to be", "consistent with" — never assert connectivity you cannot see.
+Note: you are reading a STATIC IMAGE. You cannot trace electrical continuity. Do NOT claim "this header connects to pin X of the MCU" or "these chips share a bus" unless the silkscreen literally labels it, or the traces are obviously short and visible in this image. Use words like "likely", "appears to be", "consistent with" - never assert connectivity you cannot see.
 
 DO NOT invent items. In particular:
 - Do NOT emit one detection per net or per signal name. "SWDIO", "SWCLK", "3V3", "GND" are signal names, not objects. They belong inside the "pins" field of the corresponding header, never as their own detection.
-- Do NOT emit "clip" or "probe" entries — those are tools, not parts.
+- Do NOT emit "clip" or "probe" entries - those are tools, not parts.
 - Do NOT default manufacturer to "STMicroelectronics" or any single vendor. Leave manufacturer empty if the chip's marking is unreadable.
 - Do NOT list a pin name unless that pin is plausibly accessible on a visible header/test-point in THIS photo. If you can't see the header clearly, set "pins": [].
 
@@ -1269,7 +1273,7 @@ Output exactly one JSON object: {"detections": [ ... ]}. Each detection has:
 - "part_number": exact marking read from silkscreen/package, or "" if unreadable
 - "manufacturer": vendor name only if confidently identifiable from the marking or logo, else ""
 - "category": one of "mcu","soc","fpga","cpld","flash","eeprom","ram","power","regulator","radio","sensor","interface","transistor","mosfet","diode","inductor","passive","connector","header","crystal","empty_footprint","unknown"
-- "confidence": float 0.0–1.0. Be honest — if you can barely see it, use <0.5.
+- "confidence": float 0.0–1.0. Be honest - if you can barely see it, use <0.5.
 - "bbox": [x1, y1, x2, y2] normalized 0.0–1.0, origin top-left, x2>x1, y2>y1
 - "notes": one short sentence on this part's role in the board
 ${wantPins ? '- "pins": array of pin/signal names visible on THIS physical part. Only include pins you can map to specific accessible pads. For chips inside a BGA/QFN package whose pads aren\'t accessible, return [].' : ''}
@@ -1278,38 +1282,38 @@ ${wantAtk ? '- "attack_vectors": 0–4 SPECIFIC hardware-security notes for this
 Hard limits:
 1. Return ONLY the JSON object. No prose, no markdown fences.
 2. At most 30 detections total. For dense boards (Zynq, FPGA dev kits, complex multi-radio products) use the full budget; for simple boards (1 MCU + 1 flash) use only what you actually see.
-3. Skip generic passives (every bypass cap on every IC, every LED current-limit resistor) — only include passives matching the security-relevance rules above.
+3. Skip generic passives (every bypass cap on every IC, every LED current-limit resistor) - only include passives matching the security-relevance rules above.
 4. Order: main SoC/MCU first, then memory, then radios, then power discretes, then connectors/headers, then crystals, then security-relevant transistors / MOSFETs / diodes / RC networks.
 5. If you genuinely cannot identify anything beyond "there is a green PCB", return {"detections": []}.
 
-ATTACK-VECTOR GUIDANCE per component type — when you list a detection in one of these categories, the attack_vectors field should reflect the typical security role:
-  - mosfet (in power-supply path) → "voltage glitching target — fast-switching MOSFET in VCC path", "power-rail interruption for fault injection"
-  - mosfet (USB VBUS or similar) → "VBUS / USB power gating — candidate for USB power-cycling attacks"
-  - transistor (NPN near reset or clock) → "reset glitching target — pulls signal LOW on command", "clock-line disturbance trigger"
-  - transistor (PNP near VCC) → "high-side switch — brownout / VCC interruption attack candidate"
-  - crystal → "clock-glitching target — capacitive/inductive coupling can inject glitches into the clock domain"
-  - regulator (LDO / DC-DC) → "voltage-glitch target — under/overshoot the output rail"
-  - diode (TVS on power input) → "EMFI / overvoltage clamp — bypass briefly to inject transients"
-  - diode (Schottky / signal) → "signal-line clamp — short across to inject without damage"
-  - passive RC reset network → "reset-glitch timing target — modify capacitor to widen attack window"
+ATTACK-VECTOR GUIDANCE per component type - when you list a detection in one of these categories, the attack_vectors field should reflect the typical security role:
+  - mosfet (in power-supply path) → "voltage glitching target - fast-switching MOSFET in VCC path", "power-rail interruption for fault injection"
+  - mosfet (USB VBUS or similar) → "VBUS / USB power gating - candidate for USB power-cycling attacks"
+  - transistor (NPN near reset or clock) → "reset glitching target - pulls signal LOW on command", "clock-line disturbance trigger"
+  - transistor (PNP near VCC) → "high-side switch - brownout / VCC interruption attack candidate"
+  - crystal → "clock-glitching target - capacitive/inductive coupling can inject glitches into the clock domain"
+  - regulator (LDO / DC-DC) → "voltage-glitch target - under/overshoot the output rail"
+  - diode (TVS on power input) → "EMFI / overvoltage clamp - bypass briefly to inject transients"
+  - diode (Schottky / signal) → "signal-line clamp - short across to inject without damage"
+  - passive RC reset network → "reset-glitch timing target - modify capacitor to widen attack window"
   - passive pull-up on BOOT / MODE strap → "lift to force alternative boot mode (UART / USB / JTAG recovery path)"
-  - passive pull-up on flash WP# / HOLD# → "tie WP# LOW to disable write protect — flash modification possible in-circuit"
+  - passive pull-up on flash WP# / HOLD# → "tie WP# LOW to disable write protect - flash modification possible in-circuit"
   - passive pull-up on RESET → "hold reset LOW to keep MCU offline while attacking peripherals"
-  - passive pull-up on JTAG TRST / TMS / SWDIO / SWCLK → "debug interface biased for use — JTAG / SWD probably accessible"
+  - passive pull-up on JTAG TRST / TMS / SWDIO / SWCLK → "debug interface biased for use - JTAG / SWD probably accessible"
   - inductor (on power input or near radio) → "EMFI coil target", "RF carrier coupling"
 
-ANTI-PATTERNS — these mean you are lazy-filling the schema. Do NOT do them:
+ANTI-PATTERNS - these mean you are lazy-filling the schema. Do NOT do them:
 - Generic "notes" like "Main SoC/MCU on printed circuit board" or "Small SMT part on printed circuit board". Notes must describe THIS specific part's role with at least one detail you can see (silkscreen text, package shape, position).
 - The same "notes" string repeated across multiple detections. Each note must be unique.
-- All detections clustered at the same bbox (e.g. several at [0,0,0.1,0.1]). Bboxes must actually enclose the specific part on the image — different parts → different boxes.
+- All detections clustered at the same bbox (e.g. several at [0,0,0.1,0.1]). Bboxes must actually enclose the specific part on the image - different parts → different boxes.
 - Inventing a part that the image doesn't actually show. If you can't see an ESP32 or a USB-C, don't list one.
-- Listing only "VCC" and "GND" as pins. If those are the only pins you can name, omit "pins" entirely — they are not informative.
-- Returning identical detection lists for clearly different images (you don't have memory across calls, but if your output looks like it could fit ANY board, you are bluffing — try harder or return fewer items).
+- Listing only "VCC" and "GND" as pins. If those are the only pins you can name, omit "pins" entirely - they are not informative.
+- Returning identical detection lists for clearly different images (you don't have memory across calls, but if your output looks like it could fit ANY board, you are bluffing - try harder or return fewer items).
 
 If you cannot actually identify a part from THIS specific image, return fewer detections or an empty list. An empty list is BETTER than fabricated entries.
 
 ${wantValues ? `
-GENERAL COMPONENT-VALUE IDENTIFICATION — the user has asked for full component values, not just security-relevant items. Include and read values for passives even when they have no obvious attack role:
+GENERAL COMPONENT-VALUE IDENTIFICATION - the user has asked for full component values, not just security-relevant items. Include and read values for passives even when they have no obvious attack role:
 
 Resistors (SMD 0402 / 0603 / 0805 / 1206):
 - Read the marking code printed on the top:
@@ -1329,7 +1333,7 @@ Capacitors:
 Crystals / oscillators:
 - Frequency usually printed on top: "8.000" = 8.000 MHz, "16.000" = 16 MHz, "25.000" = 25 MHz, "32.768" = 32.768 kHz RTC crystal, "12M" = 12 MHz.
 - Note number of pins (2-pin passive crystal vs 4-pin active oscillator).
-- Always include — clock frequency is critical info.
+- Always include - clock frequency is critical info.
 
 Inductors:
 - Coil or moulded brick. Markings: "100" = 10 µH, "101" = 100 µH, "470" = 47 µH (same code system as resistors but units are µH).
@@ -1349,9 +1353,9 @@ Connectors / sockets:
 - Pin count + pitch (2.54 mm / 2.00 mm / 1.27 mm / 1.00 mm / 0.5 mm).
 - Type (SMA, BNC, USB-A/B/C/Micro/Mini, RJ45, HDMI, DisplayPort, SD/microSD, audio jack).
 
-GROUPING RULE — when the same component is repeated near one IC for a routine purpose (e.g. 8 identical 0.1 µF bypass caps around an SoC, or 4 identical 33 Ω series resistors on an HDMI lane), emit ONE detection that covers the cluster (bbox encloses all of them) with a count in notes: "8x 0.1µF decoupling caps around U1". This keeps the detection budget for distinct components.
+GROUPING RULE - when the same component is repeated near one IC for a routine purpose (e.g. 8 identical 0.1 µF bypass caps around an SoC, or 4 identical 33 Ω series resistors on an HDMI lane), emit ONE detection that covers the cluster (bbox encloses all of them) with a count in notes: "8x 0.1µF decoupling caps around U1". This keeps the detection budget for distinct components.
 
-For routine bypass / series-termination / pull-up clusters that are obviously normal design and have no specific attack vector, set attack_vectors to [] — only the security-relevant ones (boot strap, flash WP, reset, debug pulls) get attack_vectors entries.
+For routine bypass / series-termination / pull-up clusters that are obviously normal design and have no specific attack vector, set attack_vectors to [] - only the security-relevant ones (boot strap, flash WP, reset, debug pulls) get attack_vectors entries.
 ` : ''}`
 }
 
@@ -1361,7 +1365,7 @@ function imageB64() { return state.imageDataUrl.split(',')[1] }
 // board. Cheap (small token output), reduces hallucinated part numbers in
 // the main detection pass when its result is fed back as a hint.
 async function runOcrPrepass() {
-  const prompt = `List every text string you can clearly read on this PCB image, one per line. Include silkscreen labels (R1, U2, TP3, J4), chip markings (ESP32-WROOM-32, W25Q128JV), date codes, vendor names, anything legible. Do NOT guess. If a string is unreadable, skip it. Return ONLY the list — no prose, no JSON, no markdown.`
+  const prompt = `List every text string you can clearly read on this PCB image, one per line. Include silkscreen labels (R1, U2, TP3, J4), chip markings (ESP32-WROOM-32, W25Q128JV), date codes, vendor names, anything legible. Do NOT guess. If a string is unreadable, skip it. Return ONLY the list - no prose, no JSON, no markdown.`
   const b64 = imageB64()
   if (state.provider === 'anthropic') {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1416,7 +1420,7 @@ async function runOcrPrepass() {
 
 // Rough cost preview: estimate input tokens from image dimensions (Anthropic
 // docs: image tokens ≈ width * height / 750). Output tokens are unknown
-// before the call — we use 1200 as a conservative typical for our JSON.
+// before the call - we use 1200 as a conservative typical for our JSON.
 function estimateUpcomingCost() {
   if (state.provider === 'ollama') return { tokensIn: '?', cost: 0 }
   const w = state.imgNatural?.w, h = state.imgNatural?.h
@@ -1430,7 +1434,7 @@ function estimateUpcomingCost() {
 }
 
 // Rough per-million-token USD pricing for the models we expose. Used only
-// to surface a "this run cost ~$X" estimate — providers' invoices remain
+// to surface a "this run cost ~$X" estimate - providers' invoices remain
 // authoritative.
 const PRICING = {
   'claude-opus-4-7':           { in: 15.00, out: 75.00 },
@@ -1452,7 +1456,7 @@ function parseDetections(text) {
   if (!json) {
     throw new Error('Model did not return parseable JSON. Got: ' + text.slice(0, 200))
   }
-  // Trace-analysis prompts return {"traces":...} — allow the caller to
+  // Trace-analysis prompts return {"traces":...} - allow the caller to
   // re-parse rawText for their custom schema rather than throwing.
   if (!Array.isArray(json.detections)) {
     if (Array.isArray(json.traces)) return []
@@ -1494,10 +1498,10 @@ function assessQuality(dets) {
   }
   const maxDup = Math.max(0, ...Object.values(noteCounts))
   if (maxDup >= 2) flags.push({
-    msg: `${maxDup} detections share the same "notes" text — model is recycling boilerplate.`,
+    msg: `${maxDup} detections share the same "notes" text - model is recycling boilerplate.`,
     why: 'Threshold: any "notes" string appears in ≥2 detections. A genuine analysis would write a different sentence per part.',
   })
-  // Overlapping bboxes — area of intersection over union
+  // Overlapping bboxes - area of intersection over union
   let overlapPairs = 0
   for (let i = 0; i < dets.length; i++) {
     for (let j = i + 1; j < dets.length; j++) {
@@ -1505,13 +1509,13 @@ function assessQuality(dets) {
     }
   }
   if (overlapPairs >= 1) flags.push({
-    msg: `${overlapPairs} pair${overlapPairs === 1 ? '' : 's'} of detections have nearly-identical bounding boxes — model isn't actually localising.`,
+    msg: `${overlapPairs} pair${overlapPairs === 1 ? '' : 's'} of detections have nearly-identical bounding boxes - model isn't actually localising.`,
     why: 'Threshold: pairs with IoU (intersection-over-union) > 0.6 are considered the same box. Real detections of distinct parts cannot overlap that much.',
   })
   // All bboxes at top-left
   const topLefty = dets.filter(d => d.bbox[0] < 0.1 && d.bbox[1] < 0.1).length
   if (topLefty >= 3 && topLefty / dets.length > 0.6) flags.push({
-    msg: `${topLefty} detections sit at the top-left corner — model returned placeholder coordinates.`,
+    msg: `${topLefty} detections sit at the top-left corner - model returned placeholder coordinates.`,
     why: 'Threshold: ≥3 boxes with x<0.1 AND y<0.1 AND >60% of all boxes. Models that didn\'t actually look often emit [0,0,…] as a default.',
   })
   // Generic notes substrings
@@ -1525,7 +1529,7 @@ function assessQuality(dets) {
   const trivialPin = /^(vcc|gnd|3v3|5v|vdd|vss)$/i
   const trivialOnly = dets.filter(d => Array.isArray(d.pins) && d.pins.length > 0 && d.pins.every(p => trivialPin.test(p))).length
   if (trivialOnly >= 3) flags.push({
-    msg: `${trivialOnly} detections list only VCC/GND-style pins — model is guessing, not reading the board.`,
+    msg: `${trivialOnly} detections list only VCC/GND-style pins - model is guessing, not reading the board.`,
     why: 'Threshold: ≥3 detections whose pin list contains only power/ground rails (VCC, GND, 3V3, 5V, VDD, VSS). Real chips have meaningful signal pins.',
   })
   return flags
@@ -1553,7 +1557,7 @@ async function callAnthropic() {
   // image stays uncached because it changes every analysis. First call
   // writes the cache (full input price). Subsequent calls within ~5 min
   // (self-review, re-OCR, tile pass, correction) read it for 10% of the
-  // input-token price — typically 60-80% savings on multi-call workflows.
+  // input-token price - typically 60-80% savings on multi-call workflows.
   const content = [
     { type: 'image', source: { type: 'base64', media_type: state.imageMime, data: imageB64() } },
     ...extras,
@@ -1577,9 +1581,9 @@ async function callAnthropic() {
   const data = await res.json()
   const text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('\n').trim()
   // Anthropic returns separate counts when caching is involved:
-  //   cache_creation_input_tokens — written into cache (full price)
-  //   cache_read_input_tokens     — read from cache (10% of input price)
-  //   input_tokens                — uncached input (image, etc., full price)
+  //   cache_creation_input_tokens - written into cache (full price)
+  //   cache_read_input_tokens     - read from cache (10% of input price)
+  //   input_tokens                - uncached input (image, etc., full price)
   const u = data.usage || {}
   const cacheRead   = u.cache_read_input_tokens   || 0
   const cacheWrite  = u.cache_creation_input_tokens || 0
@@ -1781,16 +1785,16 @@ function lookupChip(part) {
 // ── Attack Surface classification ────────────────────────────────────
 // Organises (does NOT invent) the detections the model already produced into
 // a hardware-researcher's attack surface. Keys off category + label + notes +
-// attack_vectors + pins — the exact things the analyze prompt elicits.
+// attack_vectors + pins - the exact things the analyze prompt elicits.
 const SURFACE_CLASSES = [
-  { key: 'flash',     icon: '💾', label: 'SPI / external flash',    hint: 'Firmware store — clip a SOIC-8 and dump the image (flashrom / CH341A).' },
-  { key: 'jtag',      icon: '🐞', label: 'JTAG / SWD debug',        hint: 'CPU debug port — halt core, dump RAM/firmware, defeat secure boot if unlocked.' },
-  { key: 'uart',      icon: '🔌', label: 'UART / serial console',   hint: 'Serial console — frequently drops a boot log or root shell (try 115200 8N1).' },
-  { key: 'i2c',       icon: '🧷', label: 'I²C / EEPROM',            hint: 'Config / secret store — sniff the bus or dump the EEPROM.' },
-  { key: 'bootstrap', icon: '🎚️', label: 'Boot-strap / mode pins',  hint: 'Straps pick the boot source — lift or re-strap to force UART/USB recovery boot.' },
-  { key: 'power',     icon: '⚡', label: 'Power / fault injection', hint: 'VCC rail + RESET — glitch / brown-out injection point and side-channel probe site.' },
-  { key: 'rf',        icon: '📡', label: 'RF / radio',              hint: 'Wireless transceiver + antenna path — radio-side attack surface.' },
-  { key: 'implant',   icon: '⚠️', label: 'Unpopulated / implant',   hint: 'Empty footprint — likely a depopulated debug pad or a supply-chain implant site.' },
+  { key: 'flash',     icon: '💾', label: 'SPI / external flash',    hint: 'Firmware store - clip a SOIC-8 and dump the image (flashrom / CH341A).' },
+  { key: 'jtag',      icon: '🐞', label: 'JTAG / SWD debug',        hint: 'CPU debug port - halt core, dump RAM/firmware, defeat secure boot if unlocked.' },
+  { key: 'uart',      icon: '🔌', label: 'UART / serial console',   hint: 'Serial console - frequently drops a boot log or root shell (try 115200 8N1).' },
+  { key: 'i2c',       icon: '🧷', label: 'I²C / EEPROM',            hint: 'Config / secret store - sniff the bus or dump the EEPROM.' },
+  { key: 'bootstrap', icon: '🎚️', label: 'Boot-strap / mode pins',  hint: 'Straps pick the boot source - lift or re-strap to force UART/USB recovery boot.' },
+  { key: 'power',     icon: '⚡', label: 'Power / fault injection', hint: 'VCC rail + RESET - glitch / brown-out injection point and side-channel probe site.' },
+  { key: 'rf',        icon: '📡', label: 'RF / radio',              hint: 'Wireless transceiver + antenna path - radio-side attack surface.' },
+  { key: 'implant',   icon: '⚠️', label: 'Unpopulated / implant',   hint: 'Empty footprint - likely a depopulated debug pad or a supply-chain implant site.' },
   { key: 'debug',     icon: '🧪', label: 'Debug header / test pads', hint: 'Generic debug / test-access points brought out on the board.' },
 ]
 
@@ -1890,7 +1894,7 @@ function wireAttackSurface() {
 }
 
 async function renderPanel() {
-  // A fresh render means the detection set changed — drop any stale
+  // A fresh render means the detection set changed - drop any stale
   // attack-surface highlight (detection ids are reassigned each analysis).
   state.surfaceHighlightIds = null
   state.activeSurfaceKey = null
@@ -1927,7 +1931,7 @@ async function renderPanel() {
     const color = pal[(d.id - 1) % pal.length]
     const chipMatch = lookupChip(d.part_number)
     const chip = chipMatch ? chipMatch.item : null
-    // Multi-source datasheet links. We send a CLEANED part number — first
+    // Multi-source datasheet links. We send a CLEANED part number - first
     // whitespace-separated token, stripped of trailing date codes like
     // "F30826" or package codes like "CLG400AGX1645". Many indices (esp.
     // AllDatasheet) only match the bare part number.
@@ -1991,7 +1995,7 @@ async function renderPanel() {
               `<a href="${href}" target="_blank" rel="noopener">${label}</a>`
             ).join(' &middot; ')
           }</span>` : ''}
-          <button class="det-wrong-btn" data-id="${d.id}" type="button" title="Tell the model what's actually here — it will re-analyze just this part with your hint.">&#9888; Wrong?</button>
+          <button class="det-wrong-btn" data-id="${d.id}" type="button" title="Tell the model what's actually here - it will re-analyze just this part with your hint.">&#9888; Wrong?</button>
         </div>
       </div>
     </div>`
@@ -1999,7 +2003,7 @@ async function renderPanel() {
   // Traces block (if trace analysis has been run)
   const tracesBlock = (state.traces && state.traces.length)
     ? `<details class="pcb-traces" open><summary>&#128279; ${state.traces.length} trace${state.traces.length === 1 ? '' : 's'}
-        (${state.traces.filter(t => t.ends_at_via).length} end at vias — cannot be followed further)</summary>
+        (${state.traces.filter(t => t.ends_at_via).length} end at vias - cannot be followed further)</summary>
         <ul class="pcb-trace-list">${state.traces.map(t => {
           const fromLabel = labelForEndpoint(t.from)
           const toLabel   = t.ends_at_via ? 'via (inner layer)' : labelForEndpoint(t.to)
@@ -2033,7 +2037,7 @@ async function renderPanel() {
     })
   })
 
-  // "Wrong?" buttons — user-feedback correction loop (#5).
+  // "Wrong?" buttons - user-feedback correction loop (#5).
   els.panel.querySelectorAll('.det-wrong-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation()
@@ -2043,7 +2047,7 @@ async function renderPanel() {
       const note = prompt(
         `What's actually here?\n\nThe model identified detection #${d.id} as:\n` +
         `  ${d.label}${d.part_number ? ` (${d.part_number})` : ''}\n\n` +
-        `Tell it what it got wrong — e.g. "this is NOR flash, not SDRAM" or ` +
+        `Tell it what it got wrong - e.g. "this is NOR flash, not SDRAM" or ` +
         `"the marking actually reads HY29LV800BT".`,
         ''
       )
@@ -2057,7 +2061,7 @@ async function renderPanel() {
 // (when known) plus the most informative keywords pulled from the vector text.
 // Cleanup a marking returned by the model into something datasheet
 // indices can match. The model often returns the full silkscreen
-// ("XC7Z010 CLG400AGX1645", "MT1379GE 0335-CAB3 F30826") — that whole
+// ("XC7Z010 CLG400AGX1645", "MT1379GE 0335-CAB3 F30826") - that whole
 // blob doesn't match most datasheet sites, which only index the bare
 // part number. Take the FIRST whitespace token; if that still looks
 // like it has a date code suffix, also strip trailing digits-and-dashes
@@ -2106,7 +2110,7 @@ const STOP = new Set(('a an the and or but if to of in on at for with via try is
 function vectorKeywords(text) {
   if (!text) return ''
   // Strip parens, normalise whitespace
-  const cleaned = text.replace(/\([^)]*\)/g, ' ').replace(/[—–-]/g, ' ').replace(/\s+/g, ' ')
+  const cleaned = text.replace(/\([^)]*\)/g, ' ').replace(/[\u2014\u2013-]/g, ' ').replace(/\s+/g, ' ')
   const words = cleaned.split(/[^A-Za-z0-9_.+/-]+/).filter(Boolean)
   const kept = []
   for (const w of words) {
@@ -2119,7 +2123,7 @@ function vectorKeywords(text) {
   return kept.join(' ')
 }
 
-// Per-detection "Related research" strip — broader searches keyed on the
+// Per-detection "Related research" strip - broader searches keyed on the
 // part as a whole, useful when the model didn't list attack_vectors.
 function relatedResearchRow(d) {
   const part = (d.part_number || d.label || '').trim()
@@ -2143,7 +2147,7 @@ function escapeHtml(s) {
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
   ))
 }
-// Stricter — for HTML attribute *values*. Same as escapeHtml today; kept
+// Stricter - for HTML attribute *values*. Same as escapeHtml today; kept
 // distinct so we can tighten attribute-context rules later without touching
 // text-context callers.
 function escapeHtmlAttr(s) { return escapeHtml(s) }
@@ -2155,7 +2159,7 @@ function escapeHtmlAttr(s) { return escapeHtml(s) }
 // arrows/dashed segments on the canvas overlay (drawn by drawOverlay).
 async function runTraceAnalysis() {
   if (!state.detections.length || !state.imageDataUrl) {
-    setStatus('error', 'Run analyze first — trace analysis needs detections to anchor to.')
+    setStatus('error', 'Run analyze first - trace analysis needs detections to anchor to.')
     return
   }
   const p = PROVIDERS[state.provider]
@@ -2174,7 +2178,7 @@ ${JSON.stringify(detList, null, 2)}
 
 Your task: identify VISIBLE COPPER TRACES on the TOP LAYER ONLY that connect one detection to another (or to a clear via where the trace disappears into an inner layer).
 
-Hard rules — be honest about what you cannot see:
+Hard rules - be honest about what you cannot see:
 - ONLY report traces you can VISUALLY follow on the top copper. Do not assume.
 - If a trace goes into a via (small drilled hole, usually a circle with copper ring) and you cannot see where it re-emerges, mark "ends_at_via": true and "to": null.
 - Traces UNDER A BGA chip are NOT visible. Do not invent connections to BGA pins.
@@ -2212,7 +2216,7 @@ No prose, no markdown fences. If you cannot confidently identify ANY traces, ret
     const traces = (parsed && Array.isArray(parsed.traces)) ? parsed.traces : []
     state.traces = traces
     setStatus('ok',
-      `Trace analysis done in ${((Date.now()-startedAt)/1000).toFixed(1)}s — ` +
+      `Trace analysis done in ${((Date.now()-startedAt)/1000).toFixed(1)}s - ` +
       `${traces.length} trace${traces.length === 1 ? '' : 's'} identified ` +
       `(${traces.filter(t => t.ends_at_via).length} end at vias).`)
     fitCanvas(); drawOverlay(state.selectedDetectionId)
@@ -2230,7 +2234,7 @@ No prose, no markdown fences. If you cannot confidently identify ANY traces, ret
 // and re-run with a focused "read the marking exactly" prompt.
 async function autoReOcrAll() {
   if (!state.detections.length || !state.imageDataUrl) return
-  // Probe the source image to show the user what resolution we're actually using —
+  // Probe the source image to show the user what resolution we're actually using -
   // this is the #1 confusion point ("do I need to zoom first?" → no, we use the original file).
   const srcDims = await new Promise(res => {
     const i = new Image()
@@ -2299,7 +2303,7 @@ async function tilePass() {
         `You are looking at the ${t.name} QUADRANT of a larger PCB image. ` +
         `List every distinct chip, header, connector or notable component you can see in THIS quadrant only. ` +
         `Coordinates must be normalized 0–1 RELATIVE TO THIS QUADRANT (not the full image). ` +
-        `Return ONLY: {"detections": [ ... ]}. Same schema as the regular analyze prompt. Be conservative — don't invent.`
+        `Return ONLY: {"detections": [ ... ]}. Same schema as the regular analyze prompt. Be conservative - don't invent.`
       let result
       if (state.provider === 'anthropic')   result = await callAnthropic()
       else if (state.provider === 'gemini') result = await callGemini()
@@ -2502,7 +2506,7 @@ function updateRunStamp() {
 
 // Retry: same provider, same model, same image.
 tb.retry?.addEventListener('click', () => analyze())
-// Re-run on a different provider — cycle to the next one that has a key/host.
+// Re-run on a different provider - cycle to the next one that has a key/host.
 tb.rerunOther?.addEventListener('click', () => {
   const order = ['anthropic', 'gemini', 'ollama']
   const others = order.filter(p => p !== state.provider)
@@ -2526,13 +2530,13 @@ tb.rerunOther?.addEventListener('click', () => {
 const btnReview = document.getElementById('btn-review')
 btnReview?.addEventListener('click', () => runSelfReviewPass())
 
-// Trace analysis button — only meaningful after analyze has produced detections.
+// Trace analysis button - only meaningful after analyze has produced detections.
 const btnTraces = document.getElementById('btn-traces')
 btnTraces?.addEventListener('click', () => runTraceAnalysis())
 
 // Auto-zoom / re-OCR every detection at native resolution.
 // One-click equivalent of toggling opt-auto-reocr AND re-running analyze,
-// but operates on the EXISTING detections — no second full-board pass.
+// but operates on the EXISTING detections - no second full-board pass.
 const btnReocrAll = document.getElementById('btn-reocr-all')
 btnReocrAll?.addEventListener('click', async () => {
   if (!state.detections.length) {
@@ -2591,7 +2595,7 @@ async function runSelfReviewPass() {
     const usage = Array.isArray(result) ? null : result.usage
 
     if (!corrected || !corrected.length) {
-      setStatus('info', 'Self-review returned an empty list — keeping original detections unchanged.')
+      setStatus('info', 'Self-review returned an empty list - keeping original detections unchanged.')
       return
     }
 
@@ -2620,7 +2624,7 @@ async function runSelfReviewPass() {
     await renderPanel()
     updateRunStamp()
     setStatus('ok',
-      `Self-review done in ${((Date.now() - startedAt)/1000).toFixed(1)}s — ` +
+      `Self-review done in ${((Date.now() - startedAt)/1000).toFixed(1)}s - ` +
       `${total} detections after review (${same} unchanged, ${added} added, ${removed} removed/corrected)` +
       `${state.lastRun?.reviewCost ? ` · est. $${state.lastRun.reviewCost.toFixed(4)}` : ''}.`)
   } catch (e) {
@@ -2633,26 +2637,26 @@ async function runSelfReviewPass() {
 }
 
 function buildReviewPrompt(current) {
-  return `You ran an initial vision-detection pass on this PCB image and produced the JSON below. Now review your own output carefully against the same image — DO NOT trust your previous reading; look at the image again.
+  return `You ran an initial vision-detection pass on this PCB image and produced the JSON below. Now review your own output carefully against the same image - DO NOT trust your previous reading; look at the image again.
 
 Find THREE specific classes of error and return the FULL corrected detection list:
 
-(a) MISSED CHIPS — scan the corners, edges, and densely-packed areas of the image. Did you miss any TSOP, QFP, QFN, BGA, SOIC, SOT, headers, crystals, or other ICs? Add new detections for anything you find.
+(a) MISSED CHIPS - scan the corners, edges, and densely-packed areas of the image. Did you miss any TSOP, QFP, QFN, BGA, SOIC, SOT, headers, crystals, or other ICs? Add new detections for anything you find.
 
-(b) INTERNAL CONTRADICTIONS — for each existing detection, cross-check label / category / notes:
+(b) INTERNAL CONTRADICTIONS - for each existing detection, cross-check label / category / notes:
    - If "label" says "SDRAM" but "notes" says "actually a parallel NOR flash", the SDRAM label is wrong. Correct label AND category.
    - If "category" doesn't match the package type or function described in notes, fix the category.
    - If "label" uses a vendor name (e.g. "MStar/Macroblock") but the visible logo on the chip is a different vendor's, use the vendor whose logo is actually on the chip.
 
-(c) PART-NUMBER OCR — for each detection, look at the silkscreen marking in the image one more time. Did you misread any character? Common confusions to recheck: V↔LV, 0↔O, 1↔I, 8↔B, S↔5, G↔6. If you genuinely cannot read a marking, set "part_number" to "" rather than emit a wrong guess.
+(c) PART-NUMBER OCR - for each detection, look at the silkscreen marking in the image one more time. Did you misread any character? Common confusions to recheck: V↔LV, 0↔O, 1↔I, 8↔B, S↔5, G↔6. If you genuinely cannot read a marking, set "part_number" to "" rather than emit a wrong guess.
 
 YOUR PREVIOUS OUTPUT:
 ${JSON.stringify({ detections: current }, null, 2)}
 
-Return the FULL corrected list — keep correct entries unchanged byte-for-byte, fix wrong ones, add missed ones. Format: {"detections": [ ... ]}. Same schema as your previous output. No prose, no markdown fences. If everything is already correct, return the same list unchanged.`
+Return the FULL corrected list - keep correct entries unchanged byte-for-byte, fix wrong ones, add missed ones. Format: {"detections": [ ... ]}. Same schema as your previous output. No prose, no markdown fences. If everything is already correct, return the same list unchanged.`
 }
 
-// Crop & re-OCR — when a detection is selected, send just that bbox at native
+// Crop & re-OCR - when a detection is selected, send just that bbox at native
 // resolution back to the model with a focused "read the marking exactly" prompt.
 tb.crop?.addEventListener('click', async () => {
   const d = state.detections.find(x => x.id === state.selectedDetectionId)
@@ -2715,7 +2719,7 @@ Your ONE job: read the exact text/markings on this part. Look for:
 Return ONE JSON object:
 {"label":"…","part_number":"exact text you can read or empty","manufacturer":"…","category":"…","confidence":0.0-1.0,"bbox":[0,0,1,1],"notes":"what you see in this crop","pins":[],"attack_vectors":[]}
 
-The bbox MUST be [0,0,1,1] because this is the whole crop. If you cannot read the marking, set part_number to "" — do not guess.
+The bbox MUST be [0,0,1,1] because this is the whole crop. If you cannot read the marking, set part_number to "" - do not guess.
 
 Return ONLY the JSON object: {"detections":[ ... ]}. No prose.`
   // Inline call: bypass buildPrompt by stashing into a holder
@@ -2807,7 +2811,7 @@ function buildReportMarkdown() {
   if (r) lines.push(`_Model: ${r.providerLabel} (${r.model}) · ${new Date(r.when).toISOString()} · ${dets.length} detections shown_`)
   lines.push('')
   for (const d of dets) {
-    lines.push(`## ${d.id}. ${d.label || 'unknown'}${d.part_number ? ` — \`${d.part_number}\`` : ''}`)
+    lines.push(`## ${d.id}. ${d.label || 'unknown'}${d.part_number ? ` - \`${d.part_number}\`` : ''}`)
     if (d.manufacturer) lines.push(`- Manufacturer: ${d.manufacturer}`)
     if (d.category) lines.push(`- Category: ${d.category}`)
     lines.push(`- Confidence: ${(d.confidence != null ? Math.round(d.confidence * 100) + '%' : 'unknown')}`)
@@ -2830,11 +2834,11 @@ async function copyToClipboard(text, what) {
     // Fallback: open in a new window
     const w = window.open('', '_blank')
     if (w) { w.document.write('<pre>' + escapeHtml(text) + '</pre>'); w.document.close() }
-    setStatus('info', `Clipboard blocked — ${what} opened in a new window.`)
+    setStatus('info', `Clipboard blocked - ${what} opened in a new window.`)
   }
 }
 
-// History — last 8 runs, kept in localStorage.
+// History - last 8 runs, kept in localStorage.
 const HISTORY_LS = 'eol-pcb-history'
 const HISTORY_MAX = 8
 
@@ -2916,7 +2920,7 @@ async function restoreHistoryEntry(e) {
   drawOverlay()
   await renderPanel()
   tb.historyPanel.style.display = 'none'
-  setStatus('ok', `Restored from history — ${e.count} detection${e.count === 1 ? '' : 's'} from ${e.provider}.`)
+  setStatus('ok', `Restored from history - ${e.count} detection${e.count === 1 ? '' : 's'} from ${e.provider}.`)
 }
 
 // Keyboard navigation: ↑/↓ cycles selected detection; Enter zooms-in.
@@ -2968,7 +2972,7 @@ function resetView() {
   state.view = { x: 0, y: 0, scale: 1 }
   applyView()
 }
-// Image size slider — primary control. Buttons just nudge the slider.
+// Image size slider - primary control. Buttons just nudge the slider.
 const sizeSlider = document.getElementById('img-size-slider')
 const sizeLabel  = document.getElementById('img-size-label')
 
@@ -2977,7 +2981,7 @@ function applyImageSize() {
   const pct = parseInt(sizeSlider.value, 10) || 100
   sizeLabel.textContent = pct + '%'
   if (pct === 100 || !state.imgNatural?.w) {
-    // 100% = "fit" — let CSS max-width/max-height handle it.
+    // 100% = "fit" - let CSS max-width/max-height handle it.
     els.image.style.width = ''
     els.image.style.height = ''
   } else {
@@ -3034,7 +3038,7 @@ function zoomBy(factor, cx, cy) {
   applyView()
 }
 
-// Wheel zoom (mouse) — hold Ctrl/Cmd OR Shift to zoom (otherwise the
+// Wheel zoom (mouse) - hold Ctrl/Cmd OR Shift to zoom (otherwise the
 // wheel scrolls the page normally, which is what most users expect).
 // Without modifier, wheel does nothing inside the canvas area.
 container?.addEventListener('wheel', e => {
@@ -3112,7 +3116,7 @@ function pointerDown(e) {
       }
     }
   }
-  // Otherwise: pan — but only if zoomed in. At scale=1 the image already
+  // Otherwise: pan - but only if zoomed in. At scale=1 the image already
   // fits, panning it around is confusing.
   if (state.view.scale <= 1.01) return
   drag.active = true; drag.mode = 'pan'
@@ -3197,7 +3201,7 @@ drawOverlay = function(hoverId = null) {
       const fromPos = pointForEndpoint(t.from)
       if (!fromPos) continue
       const conf = (t.confidence != null) ? t.confidence : 0.5
-      // Colour by confidence — green high, amber low.
+      // Colour by confidence - green high, amber low.
       const r = Math.round(220 * (1 - conf) + 30 * conf)
       const g = Math.round(120 * (1 - conf) + 180 * conf)
       const b = 60

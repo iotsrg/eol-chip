@@ -125,7 +125,7 @@ def fetch_cves_for_keyword(keyword, pub_start, pub_end):
                     # 5 requests / 30 s and kept the client locked out. Stay
                     # well clear of the rate window between retries.
                     wait = 15 * (2 ** attempt)  # 15 / 30 / 60
-                print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s — {e}")
+                print(f"  Retrying '{keyword}' (attempt {attempt + 2}/4) after {wait}s - {e}")
                 time.sleep(wait)
         if data is None:
             break
@@ -267,7 +267,7 @@ def main():
     end = datetime.now(timezone.utc)
     start = end - timedelta(days=LOOKBACK_DAYS)
     windows = date_windows(start, end)
-    # NVD v2.0 became strict about timezone in mid-2026 — date strings
+    # NVD v2.0 became strict about timezone in mid-2026 - date strings
     # without an explicit tz now return 404 on every query. The trailing Z
     # marks UTC; without it the API silently rejects the request.
     fmt = "%Y-%m-%dT%H:%M:%S.000Z"

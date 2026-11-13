@@ -1,4 +1,4 @@
-import { initNav, severityTag, badgeRow, loadMeta } from './common.js?v=47'
+import { initNav, severityTag, badgeRow, loadMeta } from './common.js?v=70'
 
 initNav('cves')
 loadMeta()

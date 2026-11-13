@@ -1,7 +1,7 @@
-import { initNav, tag, severityTag, badgeRow, renderSourcesFooter } from './common.js?v=47'
+import { initNav, tag, severityTag, badgeRow, renderSourcesFooter } from './common.js?v=70'
 // Fuse.js is loaded LAZILY (ensureFuse) instead of a top-level CDN import.
 // A static `import ... from <CDN>` that fails to fetch kills the ENTIRE home
-// page (nav + dashboard go blank) — the "page gets disturbed" symptom. Lazy +
+// page (nav + dashboard go blank) - the "page gets disturbed" symptom. Lazy +
 // try/catch keeps everything working if jsdelivr is unreachable; only the
 // search box degrades.
 
@@ -36,7 +36,7 @@ Promise.all([
     }
 
     // Search is a best-effort enhancement. Load Fuse lazily so a CDN failure
-    // can't break the dashboard/nav already rendered above — only search degrades.
+    // can't break the dashboard/nav already rendered above - only search degrades.
     try {
       const Fuse = await ensureFuse()
       fuse = new Fuse(data, {

@@ -3,7 +3,7 @@
 [![Build & Deploy](https://github.com/iotsrg/eol-chip/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/iotsrg/eol-chip/actions/workflows/build-deploy.yml)
 [![Pages](https://img.shields.io/badge/site-iotsrg.github.io%2Feol--chip-blue)](https://iotsrg.github.io/eol-chip/)
 
-End-of-life chip catalog cross-referenced with CVEs, CISA KEV, public exploits, Metasploit modules, GHSA, ICS-CERT and Packet Storm advisories — plus **PCB Inspect**, a vision-model PCB analyzer for hardware-security research.
+End-of-life chip catalog cross-referenced with CVEs, CISA KEV, public exploits, Metasploit modules, GHSA, ICS-CERT and Packet Storm advisories - plus **PCB Inspect**, a vision-model PCB analyzer for hardware-security research.
 
 → Live site: **https://iotsrg.github.io/eol-chip/**
 
@@ -16,7 +16,7 @@ End-of-life chip catalog cross-referenced with CVEs, CISA KEV, public exploits, 
 | `/vendors.html` | Browse by manufacturer (Intel, NXP, Espressif, Microchip, etc.) |
 | `/chip.html?id=…` | Wiki-style article per chip: specs, Wikipedia summary, linked CVEs / exploits / KEV / MSF |
 | `/cves.html` `/cisa.html` `/exploits.html` `/metasploit.html` `/ghsa.html` `/ics.html` `/packetstorm.html` | Per-source threat indexes |
-| `/pcb-inspect.html` | Drop a PCB photo or PDF — vision model identifies chips, debug interfaces (UART / JTAG / SWD / ISP / I²C / SPI) and attack vectors with EMB3D references |
+| `/pcb-inspect.html` | Drop a PCB photo or PDF - vision model identifies chips, debug interfaces (UART / JTAG / SWD / ISP / I²C / SPI) and attack vectors with EMB3D references |
 
 ## Architecture
 
@@ -76,7 +76,7 @@ python3 scripts/build_search_index.py
 
 ### Why local refresh?
 
-NVD's rate limits are per source IP. GitHub Actions runners share egress with every other repo on GitHub — so even with our API key we often hit 429s. Running the refresh from your home IP gives you the full 50-req / 30s quota to yourself, and you can re-run just a failed fetcher without spending 25 minutes in CI.
+NVD's rate limits are per source IP. GitHub Actions runners share egress with every other repo on GitHub - so even with our API key we often hit 429s. Running the refresh from your home IP gives you the full 50-req / 30s quota to yourself, and you can re-run just a failed fetcher without spending 25 minutes in CI.
 
 The workflow still runs weekly as a fallback, and you can always trigger it manually from the Actions tab.
 

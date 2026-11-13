@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
     frame-ancestors 'none';
   ">
 
-  <!-- Subresource Integrity preload — pins the exact byte hash of every
+  <!-- Subresource Integrity preload - pins the exact byte hash of every
        CDN dependency. If jsdelivr ever serves a different file, the browser
        refuses to execute it. -->
   <link rel="modulepreload"
@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=58">
+  <link rel="stylesheet" href="./src/style.css?v=70">
 </head>
 <body class="app-body">
 
@@ -73,8 +73,8 @@
       <button id="btn-retry"       class="app-iconbtn" type="button" title="Re-run analysis on the same image with the current model">&#8635;</button>
       <button id="btn-rerun-other" class="app-iconbtn" type="button" title="Re-run on the same image with a different provider">&#8644;</button>
       <button id="btn-crop"        class="app-iconbtn" type="button" title="Single-part zoom. STEP 1: click a detection card on the right panel (its outline thickens on the image). STEP 2: click this 🔎 to crop that one part at native resolution and re-read its marking. For ALL detections in one click, use 🔬 instead.">&#128269;</button>
-      <button id="btn-reocr-all"   class="app-iconbtn" type="button" title="🔬 Auto-zoom — just click. No need to zoom or pan the image first; the tool uses your ORIGINAL full-resolution file (the screen zoom slider is purely cosmetic). For every detection, it crops the bbox area at native resolution, upscales it, and re-asks the model to read the marking. This is the only way to recover small text like resistor codes (472=4.7kΩ) and faint chip markings. Costs ~1 API call per detection.">&#128300;</button>
-      <button id="btn-review"      class="app-iconbtn" type="button" title="AI self-review: send the current detections back to the same model with a focused review prompt — catches missed chips, label/category contradictions, and OCR misreads. Costs ~1 extra call.">&#128270;&#9851;</button>
+      <button id="btn-reocr-all"   class="app-iconbtn" type="button" title="🔬 Auto-zoom - just click. No need to zoom or pan the image first; the tool uses your ORIGINAL full-resolution file (the screen zoom slider is purely cosmetic). For every detection, it crops the bbox area at native resolution, upscales it, and re-asks the model to read the marking. This is the only way to recover small text like resistor codes (472=4.7kΩ) and faint chip markings. Costs ~1 API call per detection.">&#128300;</button>
+      <button id="btn-review"      class="app-iconbtn" type="button" title="AI self-review: send the current detections back to the same model with a focused review prompt - catches missed chips, label/category contradictions, and OCR misreads. Costs ~1 extra call.">&#128270;&#9851;</button>
       <button id="btn-traces"      class="app-iconbtn" type="button" title="Trace analysis: ask the model to follow visible top-layer copper between detections (e.g. UART header pin → MCU). LIMITATION: traces that vanish into vias or inner layers cannot be followed. Costs ~1 extra call.">&#128279;</button>
       <button id="btn-testplan"    class="app-iconbtn" type="button" title="Generate a hardware-pentest checklist from current detections">&#10003;</button>
       <button id="btn-export-md"   class="app-iconbtn" type="button" title="Copy a Markdown report">MD</button>
@@ -184,7 +184,7 @@
 
         <div class="pcb-privacy pcb-privacy--compact">
           <strong>&#128274; We do not store your API key anywhere on our side.</strong>
-          Static site on GitHub Pages — no backend, no database, no analytics. Key lives only in this browser's <code>localStorage</code>, and is sent only to the provider you pick.
+          Static site on GitHub Pages - no backend, no database, no analytics. Key lives only in this browser's <code>localStorage</code>, and is sent only to the provider you pick.
           <span class="pcb-privacy-verify">
             Verify: <a href="https://github.com/iotsrg/eol-chip" target="_blank" rel="noopener">github.com/iotsrg/eol-chip</a> &middot;
             <a href="https://github.com/iotsrg/eol-chip/blob/main/src/page-pcb.js" target="_blank" rel="noopener">src/page-pcb.js</a>
@@ -216,7 +216,7 @@
           <button id="clear-key" class="app-btn app-btn--ghost">Clear</button>
         </div>
         <div id="key-status" class="pcb-keystatus"></div>
-        <label class="pcb-check" style="margin-top:8px" title="When enabled, your key is stored in sessionStorage instead of localStorage — it disappears when you close this browser tab. More secure if you're on a shared machine.">
+        <label class="pcb-check" style="margin-top:8px" title="When enabled, your key is stored in sessionStorage instead of localStorage - it disappears when you close this browser tab. More secure if you're on a shared machine.">
           <input type="checkbox" id="opt-session-only"> store key only for this tab (clears on close)
         </label>
 
@@ -278,19 +278,19 @@
           <li><b>Good:</b> top-down, sharp, even light, silkscreen readable.</li>
           <li><b>Bad:</b> angled, blurry, glare, low-res.</li>
           <li><b>Schematics:</b> accuracy drops further.</li>
-          <li><b>Small models hallucinate more</b> — use Opus / Gemini 2.5 Pro / 90B Ollama.</li>
+          <li><b>Small models hallucinate more</b> - use Opus / Gemini 2.5 Pro / 90B Ollama.</li>
         </ul>
       </div>
       <ul class="pcb-bullets">
         <li><strong>Part identification</strong> is good when silkscreen is sharp and the package is common (QFN / QFP / BGA / SOIC from major vendors). Custom-marked or sanded chips will fail. Date codes and lot numbers are often misread.</li>
-        <li><strong>Bounding boxes</strong> are approximate &mdash; vision models are not pixel-perfect localisers. Use them as visual pointers, not measurements. Toggle <b>edit</b> on the image to drag/resize a box manually if you need it tight.</li>
+        <li><strong>Bounding boxes</strong> are approximate - vision models are not pixel-perfect localisers. Use them as visual pointers, not measurements. Toggle <b>edit</b> on the image to drag/resize a box manually if you need it tight.</li>
         <li><strong>Pin labels</strong> are inferred from package + reference design, not literally traced from the photo. Always confirm with the datasheet before probing.</li>
-        <li><strong>Debug interfaces (UART / JTAG / SWD / ISP / TagConnect)</strong> are identified <em>visually</em>: by pin count, silkscreen labels (TX / RX / SWDIO / SWCLK / RST), proximity to the MCU, and population state. We can <b>NOT</b> electrically trace tracks from a photo &mdash; that needs a multimeter. The model will say &ldquo;likely UART&rdquo; or &ldquo;consistent with SWD&rdquo;, never assert wiring it can't see. <strong>Verify pinout with a continuity probe before connecting anything.</strong></li>
-        <li><strong>I²C buses</strong> are usually inferred from clues rather than seen directly &mdash; SDA/SCL labels on test points, I²C-family chips visible on the board (24Cxx EEPROM, DS3231 RTC, BMP/BME/SHT/MPU sensors, SSD1306 OLED), or a 4.7&nbsp;k&Omega; pull-up pair. The model will surface "I²C bus" when these clues are present; it cannot prove which chips share a bus without continuity testing.</li>
+        <li><strong>Debug interfaces (UART / JTAG / SWD / ISP / TagConnect)</strong> are identified <em>visually</em>: by pin count, silkscreen labels (TX / RX / SWDIO / SWCLK / RST), proximity to the MCU, and population state. We can <b>NOT</b> electrically trace tracks from a photo - that needs a multimeter. The model will say &ldquo;likely UART&rdquo; or &ldquo;consistent with SWD&rdquo;, never assert wiring it can't see. <strong>Verify pinout with a continuity probe before connecting anything.</strong></li>
+        <li><strong>I²C buses</strong> are usually inferred from clues rather than seen directly - SDA/SCL labels on test points, I²C-family chips visible on the board (24Cxx EEPROM, DS3231 RTC, BMP/BME/SHT/MPU sensors, SSD1306 OLED), or a 4.7&nbsp;k&Omega; pull-up pair. The model will surface "I²C bus" when these clues are present; it cannot prove which chips share a bus without continuity testing.</li>
         <li><strong>SPI buses</strong> (distinct from the SPI flash chip itself) are identified from MOSI/MISO/SCK/CSn silkscreen on a header, or multiple SPI peripherals visible on the same board. The SPI flash chip itself (W25Q / MX25 / etc.) is always called out separately with its CS/CLK/MOSI/MISO pads for in-circuit dumping.</li>
-        <li><strong>Security-relevant discretes</strong>: transistors (NPN / PNP — SOT-23 / SOT-89 / TO-92), MOSFETs (SOT-23 small-signal through DPAK / TO-220 power), crystals, RC reset networks, TVS / Schottky diodes, inductors and main power-rail components are surfaced because each maps to a real attack category &mdash; voltage glitching, clock glitching, reset glitching, EMFI, brownout, USB power-cycling. The detection's <code>attack_vectors</code> field is contextualised by component role (e.g. an N-channel MOSFET in the VCC path is flagged as a "voltage glitching target"). Generic bypass caps and LED current-limit resistors are skipped to keep the output focused.</li>
+        <li><strong>Security-relevant discretes</strong>: transistors (NPN / PNP - SOT-23 / SOT-89 / TO-92), MOSFETs (SOT-23 small-signal through DPAK / TO-220 power), crystals, RC reset networks, TVS / Schottky diodes, inductors and main power-rail components are surfaced because each maps to a real attack category - voltage glitching, clock glitching, reset glitching, EMFI, brownout, USB power-cycling. The detection's <code>attack_vectors</code> field is contextualised by component role (e.g. an N-channel MOSFET in the VCC path is flagged as a "voltage glitching target"). Generic bypass caps and LED current-limit resistors are skipped to keep the output focused.</li>
         <li><strong>Attack vectors</strong> each get an inline <code>[EMB3D &middot; web &middot; EDB]</code> strip that searches <a href="https://emb3d.mitre.org/" target="_blank" rel="noopener">MITRE EMB3D</a>, the open web, and <a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-DB</a>.</li>
-        <li><strong>Related research</strong> per detection links to EMB3D, Google web/Scholar, Exploit-DB, Hackaday and NVD CVEs &mdash; parameterised with the detected part number.</li>
+        <li><strong>Related research</strong> per detection links to EMB3D, Google web/Scholar, Exploit-DB, Hackaday and NVD CVEs - parameterised with the detected part number.</li>
         <li><strong>Quality detector</strong>: if the model returns templated/lazy output, a red banner explains exactly which heuristic fired. Hover any flag for the threshold detail.</li>
         <li><strong>Confidence floor</strong>: the slider in Settings hides anything below the chosen confidence. Default 50%.</li>
         <li><strong>Cross-reference</strong>: detected part numbers matched against <code>chips.yaml</code> via exact, family-root, and fuzzy (Fuse.js). The match-kind label on each chip card tells you which fired.</li>
@@ -298,14 +298,14 @@
       </ul>
       <h3>Keyboard</h3>
       <ul class="pcb-bullets">
-        <li><kbd>↑</kbd> / <kbd>↓</kbd> (or <kbd>j</kbd> / <kbd>k</kbd>) — cycle detections</li>
-        <li><kbd>Enter</kbd> — Re-OCR the selected detection at native resolution</li>
-        <li><kbd>Esc</kbd> — deselect</li>
-        <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>/<kbd>Shift</kbd> + wheel — zoom image</li>
+        <li><kbd>↑</kbd> / <kbd>↓</kbd> (or <kbd>j</kbd> / <kbd>k</kbd>) - cycle detections</li>
+        <li><kbd>Enter</kbd> - Re-OCR the selected detection at native resolution</li>
+        <li><kbd>Esc</kbd> - deselect</li>
+        <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>/<kbd>Shift</kbd> + wheel - zoom image</li>
       </ul>
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=64"></script>
+  <script type="module" src="./src/page-pcb.js?v=70"></script>
 </body>
 </html>

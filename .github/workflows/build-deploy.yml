@@ -2,13 +2,13 @@ name: Build and Deploy EOL-CHIP
 
 on:
   # Heavy data refresh runs WEEKLY (Monday 06:00 UTC). Daily was too much
-  # traffic against upstream APIs (NVD especially) and added no value —
+  # traffic against upstream APIs (NVD especially) and added no value -
   # CVEs / advisories / exploits don't move that fast for our scope.
   schedule:
     - cron: '0 6 * * 1'   # weekly: Monday 06:00 UTC
   # Pushes to main re-deploy the site so HTML/CSS/JS changes go live
   # immediately, but the fetcher steps are skipped (see `if:` guards
-  # below) — those only run on the schedule or a manual dispatch.
+  # below) - those only run on the schedule or a manual dispatch.
   push:
     branches: [main]
   # Manual trigger: full pipeline including data fetch. Use this when

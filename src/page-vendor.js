@@ -1,4 +1,4 @@
-import { initNav, tag, statusTag, loadMeta } from './common.js?v=47'
+import { initNav, tag, statusTag, loadMeta } from './common.js?v=70'
 
 initNav('vendors')
 loadMeta()

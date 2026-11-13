@@ -33,7 +33,7 @@ body:
     id: source
     attributes:
       label: Source / evidence
-      description: Link to the manufacturer's PCN, EOL notice, or datasheet — anything that confirms the status.
+      description: Link to the manufacturer's PCN, EOL notice, or datasheet - anything that confirms the status.
     validations:
       required: true
   - type: textarea

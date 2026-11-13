@@ -131,7 +131,7 @@ function maybeShowStaleBanner(meta) {
   const banner = document.createElement('div')
   banner.className = 'stale-banner'
   banner.innerHTML = `
-    &#9888; Data last refreshed <b>${ago} ago</b>. The daily build pipeline may have failed —
+    &#9888; Data last refreshed <b>${ago} ago</b>. The daily build pipeline may have failed -
     see <a href="https://github.com/iotsrg/eol-chip/actions/workflows/build-deploy.yml" target="_blank" rel="noopener">recent workflow runs</a>.
   `
   document.body.insertBefore(banner, document.body.firstChild)

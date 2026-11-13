@@ -2,9 +2,9 @@
 """Convert chips.yaml to data/eol_chips.json.
 
 Lifecycle status is sourced, in priority order:
-  1. data/lifecycle.json  — fetched from Digi-Key (authoritative, marked
+  1. data/lifecycle.json  - fetched from Digi-Key (authoritative, marked
      status_verified=True with a source_url).
-  2. chips.yaml           — hand-typed fallback, marked status_verified=False
+  2. chips.yaml           - hand-typed fallback, marked status_verified=False
      ("Unverified") so the UI never presents a guess as fact.
 
 EOL / last-order DATES have no automated source yet (Digi-Key exposes a status

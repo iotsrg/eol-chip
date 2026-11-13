@@ -40,7 +40,7 @@ def cve_pass(cves, kev_set, edb_count, msf_count, ghsa_count, ps_count):
         if cve["kev"] or cve["exploit_count"] or cve["msf_count"]:
             flagged += 1
         # NOTE: severity is left exactly as NVD assigned it. We deliberately do
-        # NOT upgrade KEV CVEs to HIGH — "actively exploited" is conveyed by the
+        # NOT upgrade KEV CVEs to HIGH - "actively exploited" is conveyed by the
         # cve["kev"] flag, not by fabricating a CVSS severity the data lacks.
     return flagged
 
@@ -198,7 +198,7 @@ def _cve_to_ids(records, cve_keys=("cves", "cve_refs")):
     """Map each CVE id -> set of record ids that reference it.
 
     Used to link exploits / Metasploit modules / GHSA advisories to a chip
-    ONLY through a CVE we have already CPE-confirmed for that chip — instead of
+    ONLY through a CVE we have already CPE-confirmed for that chip - instead of
     fuzzy keyword matching the chip's part number against the record's text
     (which produced false hits like MIPS-R3000 <- "8E6 R3000 Internet Filter").
     """

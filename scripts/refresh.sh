@@ -93,13 +93,13 @@ if [ "$COMMIT" = "1" ]; then
   echo "==> Committing + pushing"
   git add data/
   if git diff --cached --quiet; then
-    echo "  (no data changes — nothing to commit)"
+    echo "  (no data changes - nothing to commit)"
   else
     DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
     git commit -m "Data refresh: $DATE (local run)" \
                -m "Ran scripts/refresh.sh locally to avoid Actions / NVD rate limits."
     git push origin "$(git rev-parse --abbrev-ref HEAD)"
-    echo "  Push complete — GitHub Pages will redeploy in ~1 min."
+    echo "  Push complete - GitHub Pages will redeploy in ~1 min."
   fi
 fi
 
