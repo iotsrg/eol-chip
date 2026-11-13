@@ -1,36 +1,41 @@
 {
-  "last_updated": "2026-06-01T21:45:04+00:00",
-  "last_updated_human": "2026-06-01 21:45 UTC",
-  "total_items": 4917,
+  "last_updated": "2026-11-13T21:25:11+00:00",
+  "last_updated_human": "2026-11-13 21:25 UTC",
+  "total_items": 5566,
   "counts": {
     "cve": 1047,
-    "exploit": 2663,
-    "cisa": 323,
+    "exploit": 2673,
+    "cisa": 386,
     "metasploit": 54,
-    "osv": 98,
+    "ghsa": 565,
+    "osv": 97,
     "psirt": 100,
-    "recall": 196,
+    "recall": 208,
     "eol": 436
   },
   "recent_7d": {
-    "cve": 109,
-    "recall": 70,
-    "eol": 11
+    "cisa": 6,
+    "ghsa": 48,
+    "recall": 72,
+    "eol": 7
   },
   "recent_30d": {
-    "cve": 360,
-    "recall": 70,
-    "eol": 11
+    "exploit": 2,
+    "cisa": 10,
+    "ghsa": 192,
+    "recall": 72,
+    "eol": 7
   },
   "severity_30d": {
-    "CRITICAL": 16,
-    "HIGH": 144,
-    "MEDIUM": 162,
-    "LOW": 9
+    "UNRATED": 10,
+    "MODERATE": 98,
+    "LOW": 16,
+    "HIGH": 104,
+    "CRITICAL": 11,
+    "MEDIUM": 35
   },
   "activity_by_day": {
     "26/03/2020": 1,
-    "26/03/2026": 1,
     "26/04/2022": 1,
     "26/04/2023": 1,
     "26/06/2024": 1,
@@ -38,6 +43,7 @@
     "27/02/2023": 1,
     "27/02/2024": 1,
     "27/02/2025": 1,
+    "27/03/2026": 1,
     "27/06/2024": 1,
     "27/07/2022": 1,
     "27/07/2023": 3,
@@ -45,14 +51,14 @@
     "28/02/2025": 1,
     "28/05/2024": 1,
     "28/06/2023": 1,
-    "28/06/2024": 1,
     "28/08/2024": 1,
-    "29/01/2026": 1,
     "29/06/2021": 1,
+    "29/06/2024": 1,
     "29/09/2022": 1,
     "29/10/2021": 1,
     "29/12/2022": 1,
     "30/01/2024": 1,
+    "30/01/2026": 1,
     "30/05/2023": 1,
     "30/06/2025": 1,
     "30/09/2020": 1,
@@ -61,6 +67,17 @@
     "31/10/2024": 1
   },
   "trending_cves": [
+    {
+      "id": "CVE-2026-20079",
+      "title": "A vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software could allow an unauthenti...",
+      "severity": "CRITICAL",
+      "score": 30,
+      "kev": true,
+      "exploit_count": 0,
+      "msf_count": 0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20079",
+      "date": "2026-03-04"
+    },
     {
       "id": "CVE-2026-24444",
       "title": "SDMC NE6037 cable modem routers running firmware 7.1.6.0.25 and 7.1.6.1.9_B9 contain a hardcoded password vulnerability ...",
@@ -214,38 +231,19 @@
       "msf_count": 0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43407",
       "date": "2026-05-08"
-    },
-    {
-      "id": "CVE-2026-43465",
-      "title": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/mlx5e: RX, Fix XDP multi-buf frag counting for ...",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
-      "exploit_count": 0,
-      "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43465",
-      "date": "2026-05-08"
     }
   ],
   "top_vendors": [
-    {
-      "name": "linux",
-      "count": 85
-    },
-    {
-      "name": "openwebui",
-      "count": 59
-    },
     {
       "name": "tesla, inc.",
       "count": 19
     },
     {
-      "name": "intel",
-      "count": 9
+      "name": "volkswagen group of america, inc.",
+      "count": 8
     },
     {
-      "name": "volkswagen group of america, inc.",
+      "name": "lucid usa, inc.",
       "count": 8
     },
     {
@@ -253,32 +251,8 @@
       "count": 7
     },
     {
-      "name": "lucid usa, inc.",
-      "count": 7
-    },
-    {
-      "name": "trendnet",
-      "count": 6
-    },
-    {
       "name": "rivian automotive, llc",
       "count": 6
-    },
-    {
-      "name": "scadabr",
-      "count": 4
-    },
-    {
-      "name": "inhandnetworks",
-      "count": 4
-    },
-    {
-      "name": "zyxel",
-      "count": 4
-    },
-    {
-      "name": "jetbrains",
-      "count": 4
     },
     {
       "name": "general motors, llc",
@@ -287,6 +261,38 @@
     {
       "name": "toyota motor engineering & manufacturing",
       "count": 4
+    },
+    {
+      "name": "honda (american honda motor co.)",
+      "count": 4
+    },
+    {
+      "name": "cisco",
+      "count": 3
+    },
+    {
+      "name": "porsche cars north america, inc.",
+      "count": 3
+    },
+    {
+      "name": "polestar automotive usa, inc.",
+      "count": 3
+    },
+    {
+      "name": "barracuda networks",
+      "count": 2
+    },
+    {
+      "name": "nissan north america, inc.",
+      "count": 2
+    },
+    {
+      "name": "microchip",
+      "count": 2
+    },
+    {
+      "name": "check point",
+      "count": 1
     }
   ],
   "high_risk_chips": [

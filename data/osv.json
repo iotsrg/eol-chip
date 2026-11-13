@@ -61,25 +61,6 @@
     ]
   },
   {
-    "id": "PYSEC-2023-234",
-    "type": "osv",
-    "title": "An issue discovered in esptool 4.6.2 allows attackers to view sensitive information via weak cryptographic algorithm.",
-    "description": "An issue discovered in esptool 4.6.2 allows attackers to view sensitive information via weak cryptographic algorithm.",
-    "severity": "HIGH",
-    "source": "OSV.dev",
-    "date": "2023-11-09",
-    "url": "https://osv.dev/vulnerability/PYSEC-2023-234",
-    "cves": [
-      "CVE-2023-46894"
-    ],
-    "packages": [
-      "esptool"
-    ],
-    "references": [
-      "https://github.com/espressif/esptool/issues/926"
-    ]
-  },
-  {
     "id": "GHSA-cq46-m9x9-j8w2",
     "type": "osv",
     "title": "Scapy Session Loading Vulnerable to Arbitrary Code Execution via Untrusted Pickle Deserialization",
