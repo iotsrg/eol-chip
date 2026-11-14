@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-13T21:25:11+00:00",
-  "last_updated_human": "2026-11-13 21:25 UTC",
-  "total_items": 5566,
+  "last_updated": "2026-11-14T15:49:21+00:00",
+  "last_updated_human": "2026-11-14 15:49 UTC",
+  "total_items": 10432,
   "counts": {
-    "cve": 1047,
+    "cve": 5913,
     "exploit": 2673,
     "cisa": 386,
     "metasploit": 54,
@@ -14,25 +14,27 @@
     "eol": 436
   },
   "recent_7d": {
-    "cisa": 6,
-    "ghsa": 48,
+    "cve": 319,
+    "cisa": 5,
+    "ghsa": 46,
     "recall": 72,
     "eol": 7
   },
   "recent_30d": {
+    "cve": 1277,
     "exploit": 2,
-    "cisa": 10,
-    "ghsa": 192,
+    "cisa": 8,
+    "ghsa": 190,
     "recall": 72,
     "eol": 7
   },
   "severity_30d": {
-    "UNRATED": 10,
-    "MODERATE": 98,
-    "LOW": 16,
-    "HIGH": 104,
-    "CRITICAL": 11,
-    "MEDIUM": 35
+    "CRITICAL": 86,
+    "HIGH": 482,
+    "MEDIUM": 489,
+    "LOW": 69,
+    "UNRATED": 8,
+    "MODERATE": 97
   },
   "activity_by_day": {
     "26/03/2020": 1,
@@ -68,6 +70,39 @@
   },
   "trending_cves": [
     {
+      "id": "CVE-2026-104286",
+      "title": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8....",
+      "severity": "CRITICAL",
+      "score": 30,
+      "kev": true,
+      "exploit_count": 0,
+      "msf_count": 0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104286",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "CVE-2026-5430",
+      "title": "The JWT authentication mechanism accepts tokens signed with algorithms other than those explicitly configured or support...",
+      "severity": "CRITICAL",
+      "score": 30,
+      "kev": true,
+      "exploit_count": 0,
+      "msf_count": 0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5430",
+      "date": "2026-08-06"
+    },
+    {
+      "id": "CVE-2026-25089",
+      "title": "A improper neutralization of special elements used in an os command ('os command injection') vulnerability in Fortinet F...",
+      "severity": "CRITICAL",
+      "score": 30,
+      "kev": true,
+      "exploit_count": 0,
+      "msf_count": 0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25089",
+      "date": "2026-06-09"
+    },
+    {
       "id": "CVE-2026-20079",
       "title": "A vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software could allow an unauthenti...",
       "severity": "CRITICAL",
@@ -79,164 +114,139 @@
       "date": "2026-03-04"
     },
     {
-      "id": "CVE-2026-24444",
-      "title": "SDMC NE6037 cable modem routers running firmware 7.1.6.0.25 and 7.1.6.1.9_B9 contain a hardcoded password vulnerability ...",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
+      "id": "CVE-2026-7273",
+      "title": "A stack-based buffer overflow vulnerability in the CGI program of Zyxel GS1900-48HPv2 firmware versions through\u00a02.90(ABT...",
+      "severity": "HIGH",
+      "score": 25,
+      "kev": true,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24444",
-      "date": "2026-05-28"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7273",
+      "date": "2026-06-16"
     },
     {
-      "id": "CVE-2026-38702",
-      "title": "A command injection vulnerability exists in the Admin Access feature of InHand Networks IR302 firmware V3.5.108, IR305 f...",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
+      "id": "CVE-2026-20245",
+      "title": "A vulnerability in the CLI of Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, f...",
+      "severity": "HIGH",
+      "score": 25,
+      "kev": true,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38702",
-      "date": "2026-05-28"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20245",
+      "date": "2026-06-04"
     },
     {
-      "id": "CVE-2026-38703",
-      "title": "A command injection vulnerability exists in the ZeroTier VPN feature of InHand Networks IR302 firmware V3.5.108, IR305 f...",
+      "id": "CVE-2026-109445",
+      "title": "PLANET GS-5220-8P2T2S (hardware version 3.0) firmware versions before 3.2412b261008 contains a stack-based buffer overfl...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38703",
-      "date": "2026-05-28"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109445",
+      "date": "2026-11-13"
     },
     {
-      "id": "CVE-2026-38704",
-      "title": "A command injection vulnerability exists in the WireGuard VPN feature of InHand Networks IR302 firmware V3.5.108, IR305 ...",
+      "id": "CVE-2026-127275",
+      "title": "A vulnerability was determined in Linksys EA8100 1.0.3.216940. This issue affects the function SetRemoteSetting/SetUnsec...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38704",
-      "date": "2026-05-28"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127275",
+      "date": "2026-11-13"
     },
     {
-      "id": "CVE-2026-38707",
-      "title": "A command injection vulnerability exists in the IPSec VPN feature of InHand Networks IR302 firmware V3.5.108, IR305 firm...",
+      "id": "CVE-2026-76954",
+      "title": "An improper neutralization of special elements used in an SQL command vulnerability in the Auth API in Synology DiskStat...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38707",
-      "date": "2026-05-28"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76954",
+      "date": "2026-11-12"
     },
     {
-      "id": "CVE-2026-45898",
-      "title": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/iwcm: Fix workqueue list corruption by removin...",
+      "id": "CVE-2026-126157",
+      "title": "A improper authentication vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiM...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45898",
-      "date": "2026-05-27"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126157",
+      "date": "2026-11-11"
     },
     {
-      "id": "CVE-2026-8602",
-      "title": "In ScadaBR version 1.2.0, a Missing Authentication for Critical Function vulnerability could allow an unauthenticated at...",
+      "id": "CVE-2026-126229",
+      "title": "A authorization bypass through user-controlled key vulnerability in Fortinet FortiAnalyzer 8.0.0 through 8.0.1, FortiAna...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8602",
-      "date": "2026-05-19"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126229",
+      "date": "2026-11-11"
     },
     {
-      "id": "CVE-2026-8603",
-      "title": "In ScadaBR version 1.2.0, an OS Command Injection vulnerability could allow an attacker to execute commands as root on t...",
+      "id": "CVE-2026-126147",
+      "title": "A improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8.0...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8603",
-      "date": "2026-05-19"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126147",
+      "date": "2026-11-11"
     },
     {
-      "id": "CVE-2026-8605",
-      "title": "In ScadaBR version 1.2.0, a Use of Hard-Coded Credentials vulnerability could allow an attacker to access the SCADA syst...",
+      "id": "CVE-2026-126148",
+      "title": "A improper neutralization of special elements used in an os command ('os command injection') vulnerability in Fortinet F...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8605",
-      "date": "2026-05-19"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126148",
+      "date": "2026-11-11"
     },
     {
-      "id": "CVE-2026-44551",
-      "title": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, the L...",
+      "id": "CVE-2026-126150",
+      "title": "A weak password recovery mechanism for forgotten password vulnerability in Fortinet FortiMail 8.0.0, FortiMail 7.6.0 thr...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44551",
-      "date": "2026-05-15"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126150",
+      "date": "2026-11-11"
     },
     {
-      "id": "CVE-2026-42854",
-      "title": "arduino-esp32 is an Arduino core for the ESP32, ESP32-S2, ESP32-S3, ESP32-C3, ESP32-C6 and ESP32-H2 microcontrollers. Pr...",
+      "id": "CVE-2026-126155",
+      "title": "A incorrect authorization vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiM...",
       "severity": "CRITICAL",
       "score": 20,
       "kev": false,
       "exploit_count": 0,
       "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42854",
-      "date": "2026-05-12"
-    },
-    {
-      "id": "CVE-2026-43899",
-      "title": "DeepChat is an open-source artificial intelligence agent platform that unifies models, tools, and agents. Prior to v1.0....",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
-      "exploit_count": 0,
-      "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43899",
-      "date": "2026-05-11"
-    },
-    {
-      "id": "CVE-2026-43900",
-      "title": "DeepChat is an open-source artificial intelligence agent platform that unifies models, tools, and agents. Prior to v1.0....",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
-      "exploit_count": 0,
-      "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43900",
-      "date": "2026-05-11"
-    },
-    {
-      "id": "CVE-2026-43407",
-      "title": "In the Linux kernel, the following vulnerability has been resolved:\n\nlibceph: Fix potential out-of-bounds access in ceph...",
-      "severity": "CRITICAL",
-      "score": 20,
-      "kev": false,
-      "exploit_count": 0,
-      "msf_count": 0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43407",
-      "date": "2026-05-08"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126155",
+      "date": "2026-11-11"
     }
   ],
   "top_vendors": [
     {
+      "name": "oracle",
+      "count": 153
+    },
+    {
       "name": "tesla, inc.",
       "count": 19
+    },
+    {
+      "name": "apache",
+      "count": 11
     },
     {
       "name": "volkswagen group of america, inc.",
@@ -255,6 +265,14 @@
       "count": 6
     },
     {
+      "name": "blender",
+      "count": 5
+    },
+    {
+      "name": "kyverno",
+      "count": 4
+    },
+    {
       "name": "general motors, llc",
       "count": 4
     },
@@ -267,7 +285,7 @@
       "count": 4
     },
     {
-      "name": "cisco",
+      "name": "trudesk_project",
       "count": 3
     },
     {
@@ -277,22 +295,6 @@
     {
       "name": "polestar automotive usa, inc.",
       "count": 3
-    },
-    {
-      "name": "barracuda networks",
-      "count": 2
-    },
-    {
-      "name": "nissan north america, inc.",
-      "count": 2
-    },
-    {
-      "name": "microchip",
-      "count": 2
-    },
-    {
-      "name": "check point",
-      "count": 1
     }
   ],
   "high_risk_chips": [

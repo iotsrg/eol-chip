@@ -25,6 +25,7 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
+      "CVE-2026-119756",
       "CVE-2026-23833"
     ],
     "matched_kev": [],
@@ -91,7 +92,12 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-37540"
+      "CVE-2026-37540",
+      "CVE-2026-68210",
+      "CVE-2026-68211",
+      "CVE-2026-89725",
+      "CVE-2026-90405",
+      "CVE-2026-98672"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -157,7 +163,12 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-37540"
+      "CVE-2026-37540",
+      "CVE-2026-68210",
+      "CVE-2026-68211",
+      "CVE-2026-89725",
+      "CVE-2026-90405",
+      "CVE-2026-98672"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -800,7 +811,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-99091"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -3267,9 +3280,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -3305,9 +3321,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -3501,7 +3520,13 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-46096"
+      "CVE-2026-72134",
+      "CVE-2026-72135",
+      "CVE-2026-72151",
+      "CVE-2026-9266",
+      "CVE-2026-98221",
+      "CVE-2026-98728",
+      "CVE-2026-98845"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -3534,7 +3559,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-71969"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -4075,7 +4102,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-68128"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -5260,7 +5289,12 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-37540"
+      "CVE-2026-37540",
+      "CVE-2026-68210",
+      "CVE-2026-68211",
+      "CVE-2026-89725",
+      "CVE-2026-90405",
+      "CVE-2026-98672"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -5294,7 +5328,12 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-37540"
+      "CVE-2026-37540",
+      "CVE-2026-68210",
+      "CVE-2026-68211",
+      "CVE-2026-89725",
+      "CVE-2026-90405",
+      "CVE-2026-98672"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -5328,7 +5367,12 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-37540"
+      "CVE-2026-37540",
+      "CVE-2026-68210",
+      "CVE-2026-68211",
+      "CVE-2026-89725",
+      "CVE-2026-90405",
+      "CVE-2026-98672"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -6354,7 +6398,7 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2026-45871"
+      "CVE-2026-90070"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -6678,9 +6722,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -6716,9 +6763,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -6754,9 +6804,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -6792,9 +6845,12 @@
       "CVE-2026-41429"
     ],
     "heuristic_cves": [
+      "CVE-2026-116017",
+      "CVE-2026-119756",
       "CVE-2026-23833",
       "CVE-2026-42854",
-      "CVE-2026-42855"
+      "CVE-2026-42855",
+      "CVE-2026-87961"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -7013,7 +7069,25 @@
       "CVE-2025-71125",
       "CVE-2026-23005",
       "CVE-2026-23035",
-      "CVE-2026-46079"
+      "CVE-2026-63819",
+      "CVE-2026-64599",
+      "CVE-2026-64604",
+      "CVE-2026-72284",
+      "CVE-2026-80734",
+      "CVE-2026-93245",
+      "CVE-2026-93800",
+      "CVE-2026-93813",
+      "CVE-2026-97962",
+      "CVE-2026-98300",
+      "CVE-2026-98401",
+      "CVE-2026-98508",
+      "CVE-2026-98511",
+      "CVE-2026-98515",
+      "CVE-2026-98517",
+      "CVE-2026-98717",
+      "CVE-2026-98815",
+      "CVE-2026-98885",
+      "CVE-2026-99176"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -10870,7 +10944,8 @@
     "ghsa_count": 0,
     "matched_cves": [],
     "heuristic_cves": [
-      "CVE-2025-68328"
+      "CVE-2025-68328",
+      "CVE-2026-68183"
     ],
     "matched_kev": [],
     "matched_exploits": [],
@@ -11095,7 +11170,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-68372"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -11259,7 +11336,10 @@
       "CVE-2025-27243",
       "CVE-2025-32003"
     ],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-68128",
+      "CVE-2026-98965"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -12189,7 +12269,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-98228"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -13727,7 +13809,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-80825"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
@@ -13759,7 +13843,9 @@
     "msf_count": 0,
     "ghsa_count": 0,
     "matched_cves": [],
-    "heuristic_cves": [],
+    "heuristic_cves": [
+      "CVE-2026-72062"
+    ],
     "matched_kev": [],
     "matched_exploits": [],
     "matched_msf": [],
