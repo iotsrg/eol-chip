@@ -119,7 +119,66 @@ const PROVIDERS = {
     ],
     defaultModel: 'llama3.2-vision',
   },
+  // Placeholder only: "Custom agent" with no saved agent yet. Real custom
+  // agents are added at runtime as "custom:<id>" entries (see below).
+  custom: {
+    label: 'Custom agent', keyLabel: 'API key', needsKey: true, custom: true, placeholder: true,
+    help: 'Pick a saved custom agent, or create one in the Custom agent section below.',
+    models: [], defaultModel: '',
+  },
 }
+
+// ── Custom agents ────────────────────────────────────────────────────
+// A custom agent is any OpenAI-compatible chat endpoint that accepts image
+// input. Each saved agent becomes its own provider entry "custom:<id>", so its
+// API key lives in the same per-provider store as the built-in providers. The
+// agent list (name, endpoint, model, never the key) lives in localStorage under
+// the eol-pcb- prefix, so "Clear all" removes it along with everything else.
+const CUSTOM_LS = 'eol-pcb-custom-agents'
+const CUSTOM_PRESETS = [
+  { label: 'Choose a preset...', name: '', url: '' },
+  { label: 'OpenAI',             name: 'OpenAI',      url: 'https://api.openai.com/v1' },
+  { label: 'OpenRouter',         name: 'OpenRouter',  url: 'https://openrouter.ai/api/v1' },
+  { label: 'Groq',               name: 'Groq',        url: 'https://api.groq.com/openai/v1' },
+  { label: 'Together AI',        name: 'Together AI', url: 'https://api.together.xyz/v1' },
+  { label: 'Mistral',            name: 'Mistral',     url: 'https://api.mistral.ai/v1' },
+  { label: 'LM Studio (local)',  name: 'LM Studio',   url: 'http://localhost:1234/v1' },
+  { label: 'vLLM (local)',       name: 'vLLM',        url: 'http://localhost:8000/v1' },
+]
+function customEsc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+}
+function loadCustomAgents() {
+  try {
+    const a = JSON.parse(localStorage.getItem(CUSTOM_LS) || '[]')
+    return Array.isArray(a) ? a.filter(x => x && x.id && x.name && x.baseUrl && x.model) : []
+  } catch { return [] }
+}
+function saveCustomAgents(list) { try { localStorage.setItem(CUSTOM_LS, JSON.stringify(list)) } catch {} }
+function newAgentId() { return 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7) }
+function customCfg(a) {
+  let host = a.baseUrl
+  try { host = new URL(a.baseUrl).host } catch {}
+  return {
+    label: a.name, keyLabel: 'API key', needsKey: true, custom: true,
+    help: `Custom agent. Images and the key go only to <code>${customEsc(host)}</code>, an OpenAI-compatible endpoint. The model must accept image input.`,
+    models: [{ id: a.model, label: a.model }],
+    defaultModel: a.model, baseUrl: a.baseUrl,
+  }
+}
+function syncCustomProviders() {
+  for (const id of Object.keys(PROVIDERS)) if (id.startsWith('custom:')) delete PROVIDERS[id]
+  for (const a of loadCustomAgents()) PROVIDERS['custom:' + a.id] = customCfg(a)
+}
+// Model for a provider. Custom agents keep their model on the agent record,
+// so editing an agent is never overridden by a stale per-provider value.
+function modelFor(id) {
+  const cfg = PROVIDERS[id]
+  if (!cfg) return ''
+  if (cfg.custom) return cfg.defaultModel
+  try { return modelFor(id) } catch { return cfg.defaultModel }
+}
+syncCustomProviders()
 
 // ── State ─────────────────────────────────────────────────────────────
 const state = {
@@ -239,6 +298,7 @@ function applyProviderUI() {
   }
   // Reflect provider+model in the header
   updateModelLabel()
+  renderCustomBox()
   // Enable/disable Analyze button based on whether we now have an image AND key
   refreshAnalyzeEnabled()
 }
@@ -281,11 +341,11 @@ function loadProviderState() {
     state.provider = localStorage.getItem(PROVIDER_LS) || 'gemini'
     if (!PROVIDERS[state.provider]) state.provider = 'gemini'
     state.apiKey = getKey(state.provider)
-    state.model  = localStorage.getItem(modelLsFor(state.provider)) || PROVIDERS[state.provider].defaultModel
+    state.model  = modelFor(state.provider)
     state.ollamaHost = localStorage.getItem(OLLAMA_HOST_LS) || 'http://localhost:11434'
   } catch {}
   // Reflect the radio
-  for (const r of els.provRadios) r.checked = (r.value === state.provider)
+  for (const r of els.provRadios) r.checked = (r.value === (state.provider.startsWith('custom') ? 'custom' : state.provider))
   // Reflect the session-only checkbox
   const sessOpt = document.getElementById('opt-session-only')
   if (sessOpt) sessOpt.checked = (() => { try { return localStorage.getItem(SESSION_ONLY_LS) === '1' } catch { return false } })()
@@ -295,16 +355,21 @@ function loadProviderState() {
 for (const r of els.provRadios) {
   r.addEventListener('change', () => {
     if (!r.checked) return
-    state.provider = r.value
+    state.provider = r.value === 'custom' ? (firstCustomId() || 'custom') : r.value
     try { localStorage.setItem(PROVIDER_LS, state.provider) } catch {}
     // Reload per-provider key + model from storage
     state.apiKey = getKey(state.provider)
-    state.model  = localStorage.getItem(modelLsFor(state.provider)) || PROVIDERS[state.provider].defaultModel
+    state.model  = modelFor(state.provider)
     applyProviderUI()
   })
 }
 
 els.saveKey.addEventListener('click', () => {
+  if (state.provider === 'custom') {
+    els.keyStatus.textContent = 'Create the agent in the Custom agent section first, then save its key here.'
+    els.keyStatus.className = 'pcb-keystatus pcb-keystatus--err'
+    return
+  }
   const v = els.apiKey.value.trim()
   const p = PROVIDERS[state.provider]
   state.model = els.modelSel.value
@@ -338,6 +403,96 @@ els.modelSel.addEventListener('change', () => {
   try { localStorage.setItem(modelLsFor(state.provider), state.model) } catch {}
   updateCostPreview()
 })
+
+// ── Custom agent editor (Settings) ───────────────────────────────────
+function cEl(id) { return document.getElementById(id) }
+function customStatus(msg, kind) {
+  const el = cEl('custom-status')
+  if (!el) return
+  el.textContent = msg
+  el.className = 'pcb-keystatus' + (kind === 'ok' ? ' pcb-keystatus--ok' : kind === 'err' ? ' pcb-keystatus--err' : '')
+}
+function renderCustomBox() {
+  const box = cEl('custom-agent-box')
+  if (!box) return
+  const on = state.provider.startsWith('custom')
+  box.style.display = on ? '' : 'none'
+  if (!on) return
+  const agents = loadCustomAgents()
+  const sel = cEl('custom-agent-select')
+  sel.innerHTML = agents.map(a => `<option value="custom:${customEsc(a.id)}">${customEsc(a.name)} · ${customEsc(a.model)}</option>`).join('')
+    + '<option value="">+ New agent</option>'
+  sel.value = state.provider.startsWith('custom:') && PROVIDERS[state.provider] ? state.provider : ''
+  const a = agents.find(x => 'custom:' + x.id === sel.value)
+  cEl('custom-name').value = a ? a.name : ''
+  cEl('custom-url').value = a ? a.baseUrl : ''
+  cEl('custom-model').value = a ? a.model : ''
+  cEl('custom-delete').disabled = !a
+  if (!cEl('custom-preset').options.length) {
+    cEl('custom-preset').innerHTML = CUSTOM_PRESETS.map((p, i) => `<option value="${i}">${customEsc(p.label)}</option>`).join('')
+  }
+}
+function saveCustomAgentFromForm() {
+  const name = cEl('custom-name').value.trim()
+  const url = cEl('custom-url').value.trim().replace(/\/+$/, '')
+  const model = cEl('custom-model').value.trim()
+  if (!name || name.length > 40) return customStatus('Enter an agent name (up to 40 characters).', 'err')
+  if (!model || model.length > 120) return customStatus('Enter the model ID exactly as the provider lists it.', 'err')
+  let u
+  try { u = new URL(url) } catch { return customStatus('Endpoint must be a full URL, for example https://openrouter.ai/api/v1', 'err') }
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(u.hostname)
+  if (!(u.protocol === 'https:' || (u.protocol === 'http:' && local))) {
+    return customStatus('Endpoint must start with https://. Plain http:// is allowed only for localhost.', 'err')
+  }
+  const agents = loadCustomAgents()
+  const selId = cEl('custom-agent-select').value
+  let a = agents.find(x => 'custom:' + x.id === selId)
+  if (a) Object.assign(a, { name, baseUrl: url, model })
+  else { a = { id: newAgentId(), name, baseUrl: url, model }; agents.push(a) }
+  saveCustomAgents(agents)
+  syncCustomProviders()
+  state.provider = 'custom:' + a.id
+  try { localStorage.setItem(PROVIDER_LS, state.provider) } catch {}
+  state.apiKey = getKey(state.provider)
+  state.model = a.model
+  applyProviderUI()
+  customStatus(state.apiKey
+    ? `Saved "${name}". Its API key is already stored.`
+    : `Saved "${name}". Enter its API key in the API key field below, then press Save.`, 'ok')
+}
+function deleteCustomAgentFromForm() {
+  const selId = cEl('custom-agent-select').value
+  const agents = loadCustomAgents()
+  const a = agents.find(x => 'custom:' + x.id === selId)
+  if (!a) return customStatus('Select a saved agent first.', 'err')
+  if (!confirm(`Delete custom agent "${a.name}" and its saved key?`)) return
+  saveCustomAgents(agents.filter(x => x !== a))
+  setKey(selId, '')
+  syncCustomProviders()
+  const next = loadCustomAgents()[0]
+  state.provider = next ? 'custom:' + next.id : 'custom'
+  try { localStorage.setItem(PROVIDER_LS, state.provider) } catch {}
+  state.apiKey = getKey(state.provider)
+  state.model = modelFor(state.provider)
+  applyProviderUI()
+  customStatus(`Deleted "${a.name}".`, 'ok')
+}
+cEl('custom-agent-select')?.addEventListener('change', e => {
+  state.provider = e.target.value || 'custom'
+  try { localStorage.setItem(PROVIDER_LS, state.provider) } catch {}
+  state.apiKey = getKey(state.provider)
+  state.model = modelFor(state.provider)
+  applyProviderUI()
+})
+cEl('custom-preset')?.addEventListener('change', e => {
+  const p = CUSTOM_PRESETS[parseInt(e.target.value, 10)]
+  if (!p || !p.url) return
+  if (!cEl('custom-name').value.trim()) cEl('custom-name').value = p.name
+  cEl('custom-url').value = p.url
+  e.target.value = ''
+})
+cEl('custom-save')?.addEventListener('click', saveCustomAgentFromForm)
+cEl('custom-delete')?.addEventListener('click', deleteCustomAgentFromForm)
 
 loadProviderState()
 // Reflect provider/model in the header label, and open Settings on first
@@ -1078,9 +1233,7 @@ async function analyze() {
   }
   try {
     let result
-    if (state.provider === 'anthropic')   result = await callAnthropic()
-    else if (state.provider === 'gemini') result = await callGemini()
-    else                                  result = await callOllama()
+    result = await callProvider()
     // Each callX returns either an array (legacy) or {detections, usage}.
     const detections = Array.isArray(result) ? result : result.detections
     const usage = Array.isArray(result) ? null : result.usage
@@ -1653,6 +1806,66 @@ async function callGemini() {
   return { detections: parseDetections(text), usage }
 }
 
+function firstCustomId() {
+  const a = loadCustomAgents()[0]
+  return a ? 'custom:' + a.id : ''
+}
+
+// Single entry point for every call site.
+async function callProvider() {
+  const id = state.provider
+  if (id === 'anthropic') return callAnthropic()
+  if (id === 'gemini') return callGemini()
+  if (id === 'ollama') return callOllama()
+  if (id.startsWith('custom:')) return callCustom()
+  throw new Error('No agent selected. Open Settings and choose a provider or add a custom agent.')
+}
+
+// OpenAI-compatible /chat/completions with image parts. Works with any endpoint
+// that implements that shape (OpenAI, OpenRouter, Groq, Together, Mistral,
+// LM Studio, vLLM, ...). Whether the model accepts images is up to the agent.
+async function callCustom() {
+  const cfg = PROVIDERS[state.provider]
+  const base = (cfg && cfg.baseUrl || '').replace(/\/+$/, '')
+  const url = /\/chat\/completions$/.test(base) ? base : base + '/chat/completions'
+  const content = [
+    { type: 'text', text: buildPrompt() },
+    { type: 'image_url', image_url: { url: `data:${state.imageMime};base64,${imageB64()}` } },
+  ]
+  for (const e of state.extraImages || []) content.push({ type: 'image_url', image_url: { url: e.dataUrl } })
+  const body = {
+    model: state.model,
+    messages: [{ role: 'user', content }],
+    temperature: 0.2,
+    max_tokens: 4096,
+  }
+  let res
+  try {
+    res = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', authorization: `Bearer ${state.apiKey}` },
+      body: JSON.stringify(body),
+    })
+  } catch (e) {
+    throw new Error(`Could not reach ${url}. Check the endpoint, that it allows browser (CORS) requests, and that it is https or localhost. (${e.message})`)
+  }
+  if (!res.ok) {
+    const txt = await res.text()
+    throw new Error(`${cfg.label} HTTP ${res.status} - ${txt.slice(0, 200)}`)
+  }
+  const data = await res.json()
+  const msg = ((data.choices || [])[0] || {}).message || {}
+  const text = Array.isArray(msg.content)
+    ? msg.content.map(p => p.text || '').join('\n').trim()
+    : String(msg.content || '').trim()
+  if (!text) throw new Error(`${cfg.label} returned no text. Response: ` + JSON.stringify(data).slice(0, 200))
+  const u = data.usage || {}
+  return {
+    detections: parseDetections(text),
+    usage: { input_tokens: u.prompt_tokens, output_tokens: u.completion_tokens, estimated_cost: null },
+  }
+}
+
 async function callOllama() {
   const host = (state.ollamaHost || 'http://localhost:11434').replace(/\/+$/, '')
   const body = {
@@ -2203,9 +2416,7 @@ No prose, no markdown fences. If you cannot confidently identify ANY traces, ret
   const startedAt = Date.now()
   try {
     let result
-    if (state.provider === 'anthropic')   result = await callAnthropic()
-    else if (state.provider === 'gemini') result = await callGemini()
-    else                                  result = await callOllama()
+    result = await callProvider()
     // The trace prompt returns {"traces":...} not {"detections":...}. Our
     // parsers look for `detections`; ignore the parser result and re-parse
     // the saved raw text directly.
@@ -2305,9 +2516,7 @@ async function tilePass() {
         `Coordinates must be normalized 0–1 RELATIVE TO THIS QUADRANT (not the full image). ` +
         `Return ONLY: {"detections": [ ... ]}. Same schema as the regular analyze prompt. Be conservative - don't invent.`
       let result
-      if (state.provider === 'anthropic')   result = await callAnthropic()
-      else if (state.provider === 'gemini') result = await callGemini()
-      else                                  result = await callOllama()
+      result = await callProvider()
       const raw = Array.isArray(result) ? result : result.detections
       state.imageDataUrl = prevImg; state.imageMime = prevMime
       state._oneShotPrompt = null
@@ -2342,7 +2551,7 @@ async function tilePass() {
 // where ≥2 providers' bboxes overlap (IoU>0.4).
 async function consensusPass() {
   const providersWithKeys = Object.entries(PROVIDERS).filter(([id, cfg]) => {
-    if (!cfg.needsKey) return false
+    if (cfg.placeholder || !cfg.needsKey) return false
     return !!getKey(id)
   })
   if (providersWithKeys.length < 2) {
@@ -2355,12 +2564,10 @@ async function consensusPass() {
     const prevProvider = state.provider, prevKey = state.apiKey, prevModel = state.model
     state.provider = id
     state.apiKey   = getKey(id)
-    state.model    = localStorage.getItem(modelLsFor(id)) || cfg.defaultModel
+    state.model    = modelFor(id)
     try {
       let result
-      if (id === 'anthropic') result = await callAnthropic()
-      else if (id === 'gemini') result = await callGemini()
-      else result = await callOllama()
+      result = await callProvider()
       const dets = Array.isArray(result) ? result : result.detections
       return { provider: id, dets }
     } catch (e) {
@@ -2430,9 +2637,7 @@ Return ONE JSON object: {"detections":[{"label":"…","part_number":"…","manuf
 The bbox MUST be [0,0,1,1] (the whole crop). No prose, no markdown fences.`
   try {
     let result
-    if (state.provider === 'anthropic') result = await callAnthropic()
-    else if (state.provider === 'gemini') result = await callGemini()
-    else result = await callOllama()
+    result = await callProvider()
     const corrected = (Array.isArray(result) ? result : result.detections)[0]
     if (corrected) {
       Object.assign(d, {
@@ -2588,9 +2793,7 @@ async function runSelfReviewPass() {
   const startedAt = Date.now()
   try {
     let result
-    if (state.provider === 'anthropic')   result = await callAnthropic()
-    else if (state.provider === 'gemini') result = await callGemini()
-    else                                  result = await callOllama()
+    result = await callProvider()
     const corrected = Array.isArray(result) ? result : result.detections
     const usage = Array.isArray(result) ? null : result.usage
 
@@ -2726,9 +2929,7 @@ Return ONLY the JSON object: {"detections":[ ... ]}. No prose.`
   state._oneShotPrompt = focusedPrompt
   try {
     let result
-    if (state.provider === 'anthropic')   result = await callAnthropic()
-    else if (state.provider === 'gemini') result = await callGemini()
-    else                                  result = await callOllama()
+    result = await callProvider()
     const detections = Array.isArray(result) ? result : result.detections
     if (detections.length) {
       const focused = detections[0]

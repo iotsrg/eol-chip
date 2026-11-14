@@ -7,17 +7,17 @@
   <title>PCB Inspect (beta) | EOL-CHIP</title>
 
   <!-- Content Security Policy: lock script execution to our origin + jsdelivr
-       (only CDN we use), and lock outbound API calls to the three provider
-       endpoints + local Ollama. Blocks XSS-style script injection from any
-       compromised input or supply-chain channel. -->
+       (only CDN we use). Outbound calls are limited to HTTPS endpoints (the
+       built-in providers and any custom agent the user configures) plus plain
+       HTTP on localhost for local models such as Ollama. Blocks script
+       injection from compromised input or a supply-chain channel. -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://cdn.jsdelivr.net;
     connect-src 'self'
-      https://api.anthropic.com
-      https://generativelanguage.googleapis.com
-      http://localhost:* http://127.0.0.1:*
-      https://localhost:* https://127.0.0.1:*;
+      https:
+      http://localhost:* http://127.0.0.1:* http://[::1]:*
+      https://localhost:* https://127.0.0.1:* https://[::1]:*;
     img-src 'self' data: blob:;
     style-src 'self' 'unsafe-inline';
     font-src 'self' data:;
@@ -44,7 +44,7 @@
         integrity="sha384-ATeT9bCTw1LFxZRSxFHBli/+35MHo/faKiXDlvCvxK2ENYquq3OIA9RkrOW44G/L"
         crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./src/style.css?v=70">
+  <link rel="stylesheet" href="./src/style.css?v=71">
 </head>
 <body class="app-body">
 
@@ -205,8 +205,38 @@
             <input type="radio" name="provider" value="ollama">
             <span><b>Ollama</b> &middot; free &middot; runs locally</span>
           </label>
+          <label class="pcb-prov">
+            <input type="radio" name="provider" value="custom">
+            <span><b>Custom agent</b> &middot; your own endpoint, model and key</span>
+          </label>
         </div>
         <div id="provider-help" class="pcb-provhelp"></div>
+
+        <div id="custom-agent-box" class="pcb-custom" style="display:none">
+          <div class="pcb-custom-grid">
+            <label class="pcb-custom-full">Saved custom agents
+              <select id="custom-agent-select" class="pcb-select"></select>
+            </label>
+            <label>Preset endpoint (optional)
+              <select id="custom-preset" class="pcb-select"></select>
+            </label>
+            <label>Agent name
+              <input id="custom-name" class="search-input" maxlength="40" placeholder="e.g. Lab vision model" autocomplete="off" spellcheck="false">
+            </label>
+            <label class="pcb-custom-full">Endpoint (OpenAI-compatible base URL, https:// or localhost)
+              <input id="custom-url" class="search-input" placeholder="https://openrouter.ai/api/v1" autocomplete="off" spellcheck="false">
+            </label>
+            <label class="pcb-custom-full">Model ID (exactly as the provider lists it; must accept images)
+              <input id="custom-model" class="search-input" maxlength="120" placeholder="e.g. gpt-4o, openai/gpt-4o, llava:13b" autocomplete="off" spellcheck="false">
+            </label>
+          </div>
+          <div class="pcb-keyrow">
+            <button id="custom-save" class="app-btn app-btn--primary" type="button">Save agent</button>
+            <button id="custom-delete" class="app-btn app-btn--ghost" type="button">Delete agent</button>
+          </div>
+          <div id="custom-status" class="pcb-keystatus"></div>
+          <div class="pcb-keystatus">Enter the agent's API key in the API key field below. Images and the key are sent only to the endpoint above, so use endpoints you trust.</div>
+        </div>
 
         <h3 class="app-modal-h3">API key &amp; model</h3>
         <div class="pcb-keyrow">
@@ -306,6 +336,6 @@
     </div>
   </aside>
 
-  <script type="module" src="./src/page-pcb.js?v=70"></script>
+  <script type="module" src="./src/page-pcb.js?v=71"></script>
 </body>
 </html>
